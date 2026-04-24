@@ -1,0 +1,1648 @@
+[
+  {
+    "sourceBlockIndex": 1,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The conference room is located _____ the third floor.",
+    "rawBlock": [
+      "The conference room is located ______ the third floor.",
+      "(A) in",
+      "(B) on",
+      "(C) at",
+      "(D) byĐáp án: B (on the floor)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 2,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "Please submit your report _____ Friday.",
+    "rawBlock": [
+      "Please submit your report ______ Friday.",
+      "(A) by",
+      "(B) on",
+      "(C) in",
+      "(D) atĐáp án: A (by Friday = trước/ chậm nhất là thứ Sáu)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 3,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "Ms. Tanaka is _____ efficient manager.",
+    "rawBlock": [
+      "Ms. Tanaka is ______ efficient manager.",
+      "(A) a",
+      "(B) an",
+      "(C) the",
+      "(D) someĐáp án: A (efficient bắt đầu bằng nguyên âm \"i\" nhưng phát âm /ɪ/ -> dùng \"an\"? Thực tế \"efficient\" phát âm là /ɪˈfɪʃ.ənt/ bắt đầu bằng nguyên âm, phải là \"an\". Đáp án: B)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 4,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The printer is not working; we need to call _____ technician.",
+    "rawBlock": [
+      "The printer is not working; we need to call ______ technician.",
+      "(A) a",
+      "(B) an",
+      "(C) the",
+      "(D) anyĐáp án: A"
+    ]
+  },
+  {
+    "sourceBlockIndex": 5,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "He works _____ than anyone else in the department.",
+    "rawBlock": [
+      "He works ______ than anyone else in the department.",
+      "(A) hard",
+      "(B) harder",
+      "(C) hardly",
+      "(D) hardestĐáp án: B (so sánh hơn với \"than\")"
+    ]
+  },
+  {
+    "sourceBlockIndex": 6,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "This is the _____ expensive model in the store.",
+    "rawBlock": [
+      "This is the ______ expensive model in the store.",
+      "(A) more",
+      "(B) most",
+      "(C) much",
+      "(D) manyĐáp án: B (so sánh nhất)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 7,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "She _____ to New York yesterday.",
+    "rawBlock": [
+      "She ______ to New York yesterday.",
+      "(A) go",
+      "(B) goes",
+      "(C) went",
+      "(D) goneĐáp án: C (yesterday -> quá khứ)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 8,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "They _____ building the new warehouse since last year.",
+    "rawBlock": [
+      "They ______ building the new warehouse since last year.",
+      "(A) have been",
+      "(B) has been",
+      "(C) are",
+      "(D) wereĐáp án: A (Hiện tại hoàn thành tiếp diễn với \"since\")"
+    ]
+  },
+  {
+    "sourceBlockIndex": 9,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "If it rains tomorrow, the outdoor event _____ canceled.",
+    "rawBlock": [
+      "If it rains tomorrow, the outdoor event ______ canceled.",
+      "(A) is",
+      "(B) will be",
+      "(C) was",
+      "(D) has beenĐáp án: B (Câu điều kiện loại 1: If + hiện tại, will + V)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 10,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "Let’s meet at the coffee shop _____ to the station.",
+    "rawBlock": [
+      "Let’s meet at the coffee shop ______ to the station.",
+      "(A) near",
+      "(B) next",
+      "(C) beside",
+      "(D) closeĐáp án: A (near to: gần)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 11,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The CEO will make a _____ at the annual conference.",
+    "rawBlock": [
+      "The CEO will make a ______ at the annual conference.",
+      "(A) speak",
+      "(B) speech",
+      "(C) speaker",
+      "(D) speakingĐáp án: B (make a speech: phát biểu)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 12,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "Please make sure you _____ the contract before signing.",
+    "rawBlock": [
+      "Please make sure you ______ the contract before signing.",
+      "(A) read",
+      "(B) will read",
+      "(C) have read",
+      "(D) readingĐáp án: C (Hiện tại hoàn thành để nhấn mạnh hành động đã hoàn tất trước khi ký)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 13,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The new software is _____ to use than the old one.",
+    "rawBlock": [
+      "The new software is ______ to use than the old one.",
+      "(A) easy",
+      "(B) easily",
+      "(C) easier",
+      "(D) easiestĐáp án: C (so sánh hơn)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 14,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "Neither the manager nor his assistants _____ able to attend the meeting.",
+    "rawBlock": [
+      "Neither the manager nor his assistants ______ able to attend the meeting.",
+      "(A) is",
+      "(B) am",
+      "(C) are",
+      "(D) beĐáp án: C (Quy tắc chủ ngữ gần: \"assistants\" số nhiều -> \"are\")"
+    ]
+  },
+  {
+    "sourceBlockIndex": 15,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "I am looking forward _____ you next week.",
+    "rawBlock": [
+      "I am looking forward ______ you next week.",
+      "(A) to see",
+      "(B) to seeing",
+      "(C) seeing",
+      "(D) seeĐáp án: B (look forward to V-ing)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 16,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The meeting was canceled _____ the heavy snow.",
+    "rawBlock": [
+      "The meeting was canceled ______ the heavy snow.",
+      "(A) because",
+      "(B) due to",
+      "(C) although",
+      "(D) despiteĐáp án: B (due to + N)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 17,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "Could you give me _____ advice on this project?",
+    "rawBlock": [
+      "Could you give me ______ advice on this project?",
+      "(A) a few",
+      "(B) some",
+      "(C) many",
+      "(D) aĐáp án: B (advice là danh từ không đếm được)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 18,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "He is the person _____ I trust the most.",
+    "rawBlock": [
+      "He is the person ______ I trust the most.",
+      "(A) which",
+      "(B) whom",
+      "(C) whose",
+      "(D) whatĐáp án: B (người làm tân ngữ)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 19,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "This is the report _____ I worked on all day.",
+    "rawBlock": [
+      "This is the report ______ I worked on all day.",
+      "(A) who",
+      "(B) where",
+      "(C) which",
+      "(D) whenĐáp án: C"
+    ]
+  },
+  {
+    "sourceBlockIndex": 20,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The company’s profits increased _____ last quarter.",
+    "rawBlock": [
+      "The company’s profits increased ______ last quarter.",
+      "(A) dramatically",
+      "(B) dramatic",
+      "(C) drama",
+      "(D) dramatizeĐáp án: A (trạng từ bổ nghĩa cho động từ)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 21,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "You don’t have to wear a uniform, _____?",
+    "rawBlock": [
+      "You don’t have to wear a uniform, ______?",
+      "(A) do you",
+      "(B) don’t you",
+      "(C) have you",
+      "(D) must youĐáp án: A (Câu hỏi đuôi với \"don't have to\" -> do you?)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 22,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "She is responsible _____ handling customer complaints.",
+    "rawBlock": [
+      "She is responsible ______ handling customer complaints.",
+      "(A) for",
+      "(B) to",
+      "(C) with",
+      "(D) ofĐáp án: A (responsible for)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 23,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "There is _____ time left to finish the exam.",
+    "rawBlock": [
+      "There is ______ time left to finish the exam.",
+      "(A) little",
+      "(B) a little",
+      "(C) few",
+      "(D) a fewĐáp án: A (little + N không đếm được, mang nghĩa tiêu cực: không còn nhiều)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 24,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The equipment _____ delivered tomorrow morning.",
+    "rawBlock": [
+      "The equipment ______ delivered tomorrow morning.",
+      "(A) is being",
+      "(B) be",
+      "(C) are",
+      "(D) wereĐáp án: A (bị động thì tương lai gần)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 25,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "Of the two candidates, John is _____.",
+    "rawBlock": [
+      "Of the two candidates, John is ______.",
+      "(A) the most qualified",
+      "(B) the more qualified",
+      "(C) qualified",
+      "(D) more qualifiedĐáp án: B (So sánh hơn giữa 2 người dùng \"the + adj-er\")"
+    ]
+  },
+  {
+    "sourceBlockIndex": 26,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "Please do not _____ the office after 8 PM.",
+    "rawBlock": [
+      "Please do not ______ the office after 8 PM.",
+      "(A) entry",
+      "(B) enter",
+      "(C) entrance",
+      "(D) enteringĐáp án: B (do not + V nguyên mẫu)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 27,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "_____ the weather was bad, the flight took off on time.",
+    "rawBlock": [
+      "______ the weather was bad, the flight took off on time.",
+      "(A) Because",
+      "(B) Although",
+      "(C) Despite",
+      "(D) Due toĐáp án: B (Although + clause)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 28,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The training session was very _____. I learned a lot.",
+    "rawBlock": [
+      "The training session was very ______. I learned a lot.",
+      "(A) informative",
+      "(B) information",
+      "(C) inform",
+      "(D) informedĐáp án: A (tính từ)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 29,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "He has worked here _____ five years.",
+    "rawBlock": [
+      "He has worked here ______ five years.",
+      "(A) since",
+      "(B) for",
+      "(C) in",
+      "(D) duringĐáp án: B (for + khoảng thời gian)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 30,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "Let me introduce you to Mr. Smith, _____ is our new director.",
+    "rawBlock": [
+      "Let me introduce you to Mr. Smith, ______ is our new director.",
+      "(A) that",
+      "(B) which",
+      "(C) who",
+      "(D) whomĐáp án: C"
+    ]
+  },
+  {
+    "sourceBlockIndex": 31,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The _____ of the new product will be next month.",
+    "rawBlock": [
+      "The ______ of the new product will be next month.",
+      "(A) launch",
+      "(B) launched",
+      "(C) launching",
+      "(D) launcherĐáp án: A (danh từ: sự ra mắt)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 32,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "She speaks English fluently _____ she has never studied abroad.",
+    "rawBlock": [
+      "She speaks English fluently ______ she has never studied abroad.",
+      "(A) even though",
+      "(B) therefore",
+      "(C) because",
+      "(D) asĐáp án: A"
+    ]
+  },
+  {
+    "sourceBlockIndex": 33,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "All employees _____ attend the safety training.",
+    "rawBlock": [
+      "All employees ______ attend the safety training.",
+      "(A) must",
+      "(B) can",
+      "(C) may",
+      "(D) mightĐáp án: A (bắt buộc)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 34,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The files need to be _____ carefully.",
+    "rawBlock": [
+      "The files need to be ______ carefully.",
+      "(A) organize",
+      "(B) organized",
+      "(C) organizing",
+      "(D) organizesĐáp án: B (bị động: need to be PII)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 35,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "I don’t have _____ money to buy this car.",
+    "rawBlock": [
+      "I don’t have ______ money to buy this car.",
+      "(A) enough",
+      "(B) too",
+      "(C) so",
+      "(D) suchĐáp án: A (enough + N)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 36,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "How _____ does it take to get to the airport?",
+    "rawBlock": [
+      "How ______ does it take to get to the airport?",
+      "(A) far",
+      "(B) long",
+      "(C) often",
+      "(D) muchĐáp án: B (How long: thời gian)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 37,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The employees were satisfied _____ the new policy.",
+    "rawBlock": [
+      "The employees were satisfied ______ the new policy.",
+      "(A) about",
+      "(B) with",
+      "(C) for",
+      "(D) atĐáp án: B (satisfied with)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 38,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "You had better _____ a reservation in advance.",
+    "rawBlock": [
+      "You had better ______ a reservation in advance.",
+      "(A) make",
+      "(B) to make",
+      "(C) making",
+      "(D) madeĐáp án: A (had better + V)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 39,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The reason _____ the delay was a technical issue.",
+    "rawBlock": [
+      "The reason ______ the delay was a technical issue.",
+      "(A) for",
+      "(B) of",
+      "(C) about",
+      "(D) toĐáp án: A (reason for)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 40,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "She is used to _____ early in the morning.",
+    "rawBlock": [
+      "She is used to ______ early in the morning.",
+      "(A) get up",
+      "(B) getting up",
+      "(C) got up",
+      "(D) gets upĐáp án: B (be used to V-ing)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 41,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "This is the second time I _____ this movie.",
+    "rawBlock": [
+      "This is the second time I ______ this movie.",
+      "(A) see",
+      "(B) saw",
+      "(C) have seen",
+      "(D) am seeingĐáp án: C (It is the first/second time + HTHT)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 42,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The price of the laptop is _____ high for me to afford.",
+    "rawBlock": [
+      "The price of the laptop is ______ high for me to afford.",
+      "(A) so",
+      "(B) such",
+      "(C) too",
+      "(D) enoughĐáp án: C (too...to...: quá...đến nỗi không...)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 43,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "Please come _____ time for the meeting.",
+    "rawBlock": [
+      "Please come ______ time for the meeting.",
+      "(A) in",
+      "(B) on",
+      "(C) at",
+      "(D) byĐáp án: B (on time: đúng giờ)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 44,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The company is seeking _____ applicants for the position.",
+    "rawBlock": [
+      "The company is seeking ______ applicants for the position.",
+      "(A) qualify",
+      "(B) qualified",
+      "(C) qualification",
+      "(D) qualifyingĐáp án: B (tính từ: applicants có trình độ)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 45,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "I wish I _____ more time to prepare.",
+    "rawBlock": [
+      "I wish I ______ more time to prepare.",
+      "(A) have",
+      "(B) had",
+      "(C) have had",
+      "(D) will haveĐáp án: B (Wish ở hiện tại dùng quá khứ đơn)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 46,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "He was _____ to see his old friend again.",
+    "rawBlock": [
+      "He was ______ to see his old friend again.",
+      "(A) delight",
+      "(B) delighted",
+      "(C) delightful",
+      "(D) delightingĐáp án: B (ed: cảm xúc của người)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 47,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The report was _____ by the assistant yesterday.",
+    "rawBlock": [
+      "The report was ______ by the assistant yesterday.",
+      "(A) write",
+      "(B) wrote",
+      "(C) written",
+      "(D) writingĐáp án: C"
+    ]
+  },
+  {
+    "sourceBlockIndex": 48,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "She is both intelligent _____ hardworking.",
+    "rawBlock": [
+      "She is both intelligent ______ hardworking.",
+      "(A) and",
+      "(B) or",
+      "(C) but",
+      "(D) norĐáp án: A (both...and...)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 49,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The new employee is _____. He learns everything quickly.",
+    "rawBlock": [
+      "The new employee is ______. He learns everything quickly.",
+      "(A) efficient",
+      "(B) efficiency",
+      "(C) efficiently",
+      "(D) inefficientĐáp án: A"
+    ]
+  },
+  {
+    "sourceBlockIndex": 50,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "Please send the package to Mr. Lee and _____.",
+    "rawBlock": [
+      "Please send the package to Mr. Lee and ______.",
+      "(A) I",
+      "(B) me",
+      "(C) myself",
+      "(D) mineĐáp án: B (tân ngữ)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 51,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The meeting will start _____ 9: 00 AM sharp.",
+    "rawBlock": [
+      "The meeting will start ______ 9:00 AM sharp.",
+      "(A) in",
+      "(B) on",
+      "(C) at",
+      "(D) fromĐáp án: C"
+    ]
+  },
+  {
+    "sourceBlockIndex": 52,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "She didn’t like the job, _____?",
+    "rawBlock": [
+      "She didn’t like the job, ______?",
+      "(A) did she",
+      "(B) didn’t she",
+      "(C) does she",
+      "(D) doesn’t sheĐáp án: A"
+    ]
+  },
+  {
+    "sourceBlockIndex": 53,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "There are _____ people waiting in line.",
+    "rawBlock": [
+      "There are ______ people waiting in line.",
+      "(A) much",
+      "(B) a lot of",
+      "(C) a little",
+      "(D) anyĐáp án: B"
+    ]
+  },
+  {
+    "sourceBlockIndex": 54,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "He is interested _____ learning Japanese.",
+    "rawBlock": [
+      "He is interested ______ learning Japanese.",
+      "(A) in",
+      "(B) on",
+      "(C) at",
+      "(D) forĐáp án: A"
+    ]
+  },
+  {
+    "sourceBlockIndex": 55,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The company will _____ a new marketing campaign.",
+    "rawBlock": [
+      "The company will ______ a new marketing campaign.",
+      "(A) launch",
+      "(B) do",
+      "(C) make",
+      "(D) takeĐáp án: A"
+    ]
+  },
+  {
+    "sourceBlockIndex": 56,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "This is the hotel _____ we stayed last year.",
+    "rawBlock": [
+      "This is the hotel ______ we stayed last year.",
+      "(A) which",
+      "(B) where",
+      "(C) when",
+      "(D) whatĐáp án: B"
+    ]
+  },
+  {
+    "sourceBlockIndex": 57,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "He drives _____ carefully than his brother.",
+    "rawBlock": [
+      "He drives ______ carefully than his brother.",
+      "(A) much",
+      "(B) more",
+      "(C) most",
+      "(D) veryĐáp án: B"
+    ]
+  },
+  {
+    "sourceBlockIndex": 58,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The food at the restaurant smells _____.",
+    "rawBlock": [
+      "The food at the restaurant smells ______.",
+      "(A) good",
+      "(B) well",
+      "(C) nicely",
+      "(D) bestĐáp án: A (smell + adj)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 59,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "Please turn _____ the lights when you leave.",
+    "rawBlock": [
+      "Please turn ______ the lights when you leave.",
+      "(A) on",
+      "(B) off",
+      "(C) up",
+      "(D) downĐáp án: B"
+    ]
+  },
+  {
+    "sourceBlockIndex": 60,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "He has _____ friends in this city.",
+    "rawBlock": [
+      "He has ______ friends in this city.",
+      "(A) few",
+      "(B) a little",
+      "(C) little",
+      "(D) muchĐáp án: A (friends đếm được)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 61,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The train _____ at 6: 00 PM every day.",
+    "rawBlock": [
+      "The train ______ at 6:00 PM every day.",
+      "(A) depart",
+      "(B) departs",
+      "(C) departed",
+      "(D) departingĐáp án: B"
+    ]
+  },
+  {
+    "sourceBlockIndex": 62,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "She is the _____ person I would trust.",
+    "rawBlock": [
+      "She is the ______ person I would trust.",
+      "(A) last",
+      "(B) least",
+      "(C) latest",
+      "(D) latterĐáp án: A (the last person: người cuối cùng/không bao giờ)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 63,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The project was completed _____ time and under budget.",
+    "rawBlock": [
+      "The project was completed ______ time and under budget.",
+      "(A) on",
+      "(B) in",
+      "(C) at",
+      "(D) byĐáp án: A"
+    ]
+  },
+  {
+    "sourceBlockIndex": 64,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "I would rather _____ coffee than tea.",
+    "rawBlock": [
+      "I would rather ______ coffee than tea.",
+      "(A) drink",
+      "(B) to drink",
+      "(C) drinking",
+      "(D) drankĐáp án: A (would rather + V)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 65,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The conference call was _____ for an hour.",
+    "rawBlock": [
+      "The conference call was ______ for an hour.",
+      "(A) postponed",
+      "(B) delayed",
+      "(C) cancelled",
+      "(D) heldĐáp án: A (postponed: hoãn lại)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 66,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "You _____ smoke in the office. It is prohibited.",
+    "rawBlock": [
+      "You ______ smoke in the office. It is prohibited.",
+      "(A) mustn’t",
+      "(B) don’t have to",
+      "(C) needn’t",
+      "(D) may notĐáp án: A"
+    ]
+  },
+  {
+    "sourceBlockIndex": 67,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "He is looking for a _____ job.",
+    "rawBlock": [
+      "He is looking for a ______ job.",
+      "(A) full-time",
+      "(B) part-time",
+      "(C) time-full",
+      "(D) time-partĐáp án: A"
+    ]
+  },
+  {
+    "sourceBlockIndex": 68,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The more you practice, _____ you become.",
+    "rawBlock": [
+      "The more you practice, ______ you become.",
+      "(A) the better",
+      "(B) better",
+      "(C) the best",
+      "(D) bestĐáp án: A (Cấu trúc so sánh kép)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 69,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "She advised me _____ the blue suit.",
+    "rawBlock": [
+      "She advised me ______ the blue suit.",
+      "(A) choose",
+      "(B) to choose",
+      "(C) choosing",
+      "(D) choseĐáp án: B (advise sb to V)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 70,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "They have been friends _____ they were children.",
+    "rawBlock": [
+      "They have been friends ______ they were children.",
+      "(A) for",
+      "(B) since",
+      "(C) during",
+      "(D) whileĐáp án: B",
+      "Phần 2: Trung bình (Câu 71 – 140)",
+      "Chủ đề: Cụm động từ, Từ vựng đồng nghĩa, Đại từ quan hệ nâng cao, Thể bị động đặc biệt."
+    ]
+  },
+  {
+    "sourceBlockIndex": 71,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The proposal was turned _____ because it was too expensive.",
+    "rawBlock": [
+      "The proposal was turned ______ because it was too expensive.",
+      "(A) up",
+      "(B) down",
+      "(C) over",
+      "(D) offĐáp án: B (turn down: từ chối)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 72,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "We need to _____ with the new regulations immediately.",
+    "rawBlock": [
+      "We need to ______ with the new regulations immediately.",
+      "(A) comply",
+      "(B) apply",
+      "(C) supply",
+      "(D) replyĐáp án: A (comply with: tuân thủ)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 73,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "Despite the initial _____, the product became a bestseller.",
+    "rawBlock": [
+      "Despite the initial ______, the product became a bestseller.",
+      "(A) skepticism",
+      "(B) enthusiasm",
+      "(C) approval",
+      "(D) confidenceĐáp án: A (skepticism: sự hoài nghi, trái với \"bestseller\")"
+    ]
+  },
+  {
+    "sourceBlockIndex": 74,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The manager insisted on _____ the project by Friday.",
+    "rawBlock": [
+      "The manager insisted on ______ the project by Friday.",
+      "(A) finish",
+      "(B) finishing",
+      "(C) to finish",
+      "(D) finishedĐáp án: B (insist on V-ing)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 75,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "Only after the CEO arrived _____ the meeting begin.",
+    "rawBlock": [
+      "Only after the CEO arrived ______ the meeting begin.",
+      "(A) did",
+      "(B) had",
+      "(C) was",
+      "(D) wouldĐáp án: A (Đảo ngữ: Only after + S+V + trợ động từ + S+V)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 76,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The new policy will have a significant _____ on employee morale.",
+    "rawBlock": [
+      "The new policy will have a significant ______ on employee morale.",
+      "(A) affect",
+      "(B) effect",
+      "(C) effective",
+      "(D) affectionĐáp án: B (have an effect on: có ảnh hưởng)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 77,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "He is accustomed to _____ with strict deadlines.",
+    "rawBlock": [
+      "He is accustomed to ______ with strict deadlines.",
+      "(A) work",
+      "(B) working",
+      "(C) worked",
+      "(D) worksĐáp án: B"
+    ]
+  },
+  {
+    "sourceBlockIndex": 78,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The two companies have _____ a merger agreement.",
+    "rawBlock": [
+      "The two companies have ______ a merger agreement.",
+      "(A) entered into",
+      "(B) entered for",
+      "(C) entered on",
+      "(D) entered upĐáp án: A (enter into an agreement: ký kết hợp đồng)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 79,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "There was a _____ of communication between the departments.",
+    "rawBlock": [
+      "There was a ______ of communication between the departments.",
+      "(A) break",
+      "(B) breakage",
+      "(C) breakdown",
+      "(D) outbreakĐáp án: C (breakdown: sự đổ vỡ, gián đoạn)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 80,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "Not only the students but also the teacher _____ surprised by the test results.",
+    "rawBlock": [
+      "Not only the students but also the teacher ______ surprised by the test results.",
+      "(A) was",
+      "(B) were",
+      "(C) are",
+      "(D) have beenĐáp án: A (Quy tắc chủ ngữ gần: \"the teacher\" số ít)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 81,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The CEO’s speech was met with _____ applause.",
+    "rawBlock": [
+      "The CEO’s speech was met with ______ applause.",
+      "(A) thorough",
+      "(B) through",
+      "(C) though",
+      "(D) thoughtfulĐáp án: A (thorough: hoàn toàn, kỹ lưỡng)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 82,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "Please _____ the documents to ensure there are no errors.",
+    "rawBlock": [
+      "Please ______ the documents to ensure there are no errors.",
+      "(A) overlook",
+      "(B) review",
+      "(C) neglect",
+      "(D) ignoreĐáp án: B (review: xem xét)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 83,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The contract is subject _____ approval by the board.",
+    "rawBlock": [
+      "The contract is subject ______ approval by the board.",
+      "(A) on",
+      "(B) to",
+      "(C) for",
+      "(D) ofĐáp án: B (subject to: tùy thuộc vào)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 84,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "She was _____ of stealing company funds.",
+    "rawBlock": [
+      "She was ______ of stealing company funds.",
+      "(A) accused",
+      "(B) charged",
+      "(C) blamed",
+      "(D) convictedĐáp án: A (accused of: bị buộc tội)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 85,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The event will be held _____ rain or shine.",
+    "rawBlock": [
+      "The event will be held ______ rain or shine.",
+      "(A) regardless",
+      "(B) despite",
+      "(C) although",
+      "(D) evenĐáp án: A (regardless of: bất kể)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 86,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "_____ the budget cuts, the project was still successful.",
+    "rawBlock": [
+      "______ the budget cuts, the project was still successful.",
+      "(A) Because",
+      "(B) Due to",
+      "(C) Despite",
+      "(D) AlthoughĐáp án: C"
+    ]
+  },
+  {
+    "sourceBlockIndex": 87,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "He is a _____ worker; he always arrives early and leaves late.",
+    "rawBlock": [
+      "He is a ______ worker; he always arrives early and leaves late.",
+      "(A) diligent",
+      "(B) lazy",
+      "(C) negligent",
+      "(D) carelessĐáp án: A"
+    ]
+  },
+  {
+    "sourceBlockIndex": 88,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The software provides a _____ solution for small businesses.",
+    "rawBlock": [
+      "The software provides a ______ solution for small businesses.",
+      "(A) cost-effective",
+      "(B) costly",
+      "(C) expensive",
+      "(D) priceyĐáp án: A (tiết kiệm chi phí)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 89,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "Please proceed to Gate 12, _____ your flight is now boarding.",
+    "rawBlock": [
+      "Please proceed to Gate 12, ______ your flight is now boarding.",
+      "(A) where",
+      "(B) which",
+      "(C) whose",
+      "(D) whomĐáp án: A"
+    ]
+  },
+  {
+    "sourceBlockIndex": 90,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The salary is _____ with experience.",
+    "rawBlock": [
+      "The salary is ______ with experience.",
+      "(A) negotiable",
+      "(B) noticeable",
+      "(C) notable",
+      "(D) notoriousĐáp án: A (negotiable: có thể thương lượng)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 91,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "If I _____ you, I would accept the job offer.",
+    "rawBlock": [
+      "If I ______ you, I would accept the job offer.",
+      "(A) am",
+      "(B) were",
+      "(C) was",
+      "(D) had beenĐáp án: B (Câu điều kiện loại 2)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 92,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The company will _____ a new CEO next month.",
+    "rawBlock": [
+      "The company will ______ a new CEO next month.",
+      "(A) appoint",
+      "(B) point",
+      "(C) disappoint",
+      "(D) point outĐáp án: A"
+    ]
+  },
+  {
+    "sourceBlockIndex": 93,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The demand for electric cars is on the _____.",
+    "rawBlock": [
+      "The demand for electric cars is on the ______.",
+      "(A) rise",
+      "(B) raise",
+      "(C) arise",
+      "(D) roseĐáp án: A (on the rise: đang tăng lên)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 94,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "He is capable _____ handling complex negotiations.",
+    "rawBlock": [
+      "He is capable ______ handling complex negotiations.",
+      "(A) to",
+      "(B) of",
+      "(C) for",
+      "(D) inĐáp án: B (capable of)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 95,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The shipment was delayed _____ unforeseen circumstances.",
+    "rawBlock": [
+      "The shipment was delayed ______ unforeseen circumstances.",
+      "(A) due to",
+      "(B) because",
+      "(C) although",
+      "(D) thereforeĐáp án: A"
+    ]
+  },
+  {
+    "sourceBlockIndex": 96,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "This is the factory _____ cars are assembled.",
+    "rawBlock": [
+      "This is the factory ______ cars are assembled.",
+      "(A) which",
+      "(B) that",
+      "(C) where",
+      "(D) whomĐáp án: C"
+    ]
+  },
+  {
+    "sourceBlockIndex": 97,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "She gave a _____ explanation that everyone understood.",
+    "rawBlock": [
+      "She gave a ______ explanation that everyone understood.",
+      "(A) clear",
+      "(B) clearly",
+      "(C) clarity",
+      "(D) clearingĐáp án: A"
+    ]
+  },
+  {
+    "sourceBlockIndex": 98,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The board members had a _____ discussion about the merger.",
+    "rawBlock": [
+      "The board members had a ______ discussion about the merger.",
+      "(A) heat",
+      "(B) heated",
+      "(C) heating",
+      "(D) heaterĐáp án: B (heated: sôi nổi, gay gắt)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 99,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "_____ being busy, she helped me with the report.",
+    "rawBlock": [
+      "______ being busy, she helped me with the report.",
+      "(A) In spite of",
+      "(B) Although",
+      "(C) Because",
+      "(D) ThereforeĐáp án: A"
+    ]
+  },
+  {
+    "sourceBlockIndex": 100,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The product appeals _____ young consumers.",
+    "rawBlock": [
+      "The product appeals ______ young consumers.",
+      "(A) to",
+      "(B) for",
+      "(C) with",
+      "(D) atĐáp án: A (appeal to: thu hút)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 101,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "He is the candidate _____ qualifications best match the job description.",
+    "rawBlock": [
+      "He is the candidate ______ qualifications best match the job description.",
+      "(A) who",
+      "(B) which",
+      "(C) whose",
+      "(D) whomĐáp án: C"
+    ]
+  },
+  {
+    "sourceBlockIndex": 102,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The company is facing a _____ shortage of skilled workers.",
+    "rawBlock": [
+      "The company is facing a ______ shortage of skilled workers.",
+      "(A) severe",
+      "(B) serious",
+      "(C) heavy",
+      "(D) bigĐáp án: A (severe shortage: thiếu hụt nghiêm trọng)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 103,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "Please bear _____ me for a moment while I check the system.",
+    "rawBlock": [
+      "Please bear ______ me for a moment while I check the system.",
+      "(A) on",
+      "(B) with",
+      "(C) at",
+      "(D) inĐáp án: B (bear with me: thông cảm/chờ tôi)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 104,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The new regulations will come into _____ next week.",
+    "rawBlock": [
+      "The new regulations will come into ______ next week.",
+      "(A) effect",
+      "(B) affect",
+      "(C) effective",
+      "(D) effectivelyĐáp án: A (come into effect: có hiệu lực)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 105,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The manager made a _____ comment that offended many employees.",
+    "rawBlock": [
+      "The manager made a ______ comment that offended many employees.",
+      "(A) derogatory",
+      "(B) complimentary",
+      "(C) neutral",
+      "(D) positiveĐáp án: A (derogatory: xúc phạm)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 106,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "Not until the report was published _____ the severity of the situation.",
+    "rawBlock": [
+      "Not until the report was published ______ the severity of the situation.",
+      "(A) did they realize",
+      "(B) they realized",
+      "(C) they did realize",
+      "(D) realized theyĐáp án: A (Đảo ngữ)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 107,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The research was _____ by a grant from the government.",
+    "rawBlock": [
+      "The research was ______ by a grant from the government.",
+      "(A) funded",
+      "(B) found",
+      "(C) founded",
+      "(D) fundedĐáp án: A (funded: được tài trợ)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 108,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "She _____ her success to hard work and perseverance.",
+    "rawBlock": [
+      "She ______ her success to hard work and perseverance.",
+      "(A) contributes",
+      "(B) attributes",
+      "(C) distributes",
+      "(D) retributesĐáp án: B (attribute to: cho là nhờ vào)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 109,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The meeting was adjourned _____ the lack of quorum.",
+    "rawBlock": [
+      "The meeting was adjourned ______ the lack of quorum.",
+      "(A) due to",
+      "(B) because",
+      "(C) despite",
+      "(D) whereasĐáp án: A"
+    ]
+  },
+  {
+    "sourceBlockIndex": 110,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "He is very _____; he always says the right thing at the right time.",
+    "rawBlock": [
+      "He is very ______; he always says the right thing at the right time.",
+      "(A) diplomatic",
+      "(B) arrogant",
+      "(C) timid",
+      "(D) bluntĐáp án: A (diplomatic: khéo léo trong giao tiếp)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 111,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The training program aims to _____ employees with the necessary skills.",
+    "rawBlock": [
+      "The training program aims to ______ employees with the necessary skills.",
+      "(A) equip",
+      "(B) give",
+      "(C) provide",
+      "(D) offerĐáp án: A (equip with: trang bị)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 112,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "We have to _____ the possibility of a delay.",
+    "rawBlock": [
+      "We have to ______ the possibility of a delay.",
+      "(A) factor in",
+      "(B) factor out",
+      "(C) factor up",
+      "(D) factor downĐáp án: A (factor in: tính đến)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 113,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The CEO’s resignation came as a _____ shock to everyone.",
+    "rawBlock": [
+      "The CEO’s resignation came as a ______ shock to everyone.",
+      "(A) complete",
+      "(B) totally",
+      "(C) completely",
+      "(D) completingĐáp án: A (complete + N)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 114,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "_____ the report, please sign it.",
+    "rawBlock": [
+      "______ the report, please sign it.",
+      "(A) After reading",
+      "(B) Read",
+      "(C) To read",
+      "(D) Having readĐáp án: A (Rút gọn trạng ngữ)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 115,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The new software is _____ with all operating systems.",
+    "rawBlock": [
+      "The new software is ______ with all operating systems.",
+      "(A) compatible",
+      "(B) comparable",
+      "(C) competitive",
+      "(D) compulsiveĐáp án: A (compatible with: tương thích)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 116,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "She is the kind of person _____ everyone feels comfortable.",
+    "rawBlock": [
+      "She is the kind of person ______ everyone feels comfortable.",
+      "(A) with whom",
+      "(B) whom",
+      "(C) that",
+      "(D) whoĐáp án: A (prep + whom)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 117,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The company’s profits have _____ by 20% this year.",
+    "rawBlock": [
+      "The company’s profits have ______ by 20% this year.",
+      "(A) soared",
+      "(B) increased",
+      "(C) risen",
+      "(D) grownĐáp án: A (soared: tăng vọt - mạnh nhất)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 118,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "Please _____ the customer’s request as soon as possible.",
+    "rawBlock": [
+      "Please ______ the customer’s request as soon as possible.",
+      "(A) handle",
+      "(B) deal",
+      "(C) treat",
+      "(D) manageĐáp án: A (handle a request)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 119,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The project was a success thanks to the _____ of the team.",
+    "rawBlock": [
+      "The project was a success thanks to the ______ of the team.",
+      "(A) collaboration",
+      "(B) collaboration",
+      "(C) collaborator",
+      "(D) collaborativeĐáp án: A"
+    ]
+  },
+  {
+    "sourceBlockIndex": 120,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "He is _____ for his expertise in cybersecurity.",
+    "rawBlock": [
+      "He is ______ for his expertise in cybersecurity.",
+      "(A) renowned",
+      "(B) known",
+      "(C) famous",
+      "(D) popularĐáp án: A (renowned for: nổi tiếng, trang trọng hơn)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 121,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The contract includes a clause _____ penalties for late delivery.",
+    "rawBlock": [
+      "The contract includes a clause ______ penalties for late delivery.",
+      "(A) specifying",
+      "(B) specifies",
+      "(C) specified",
+      "(D) specifyĐáp án: A (Rút gọn mệnh đề quan hệ)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 122,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "She has a _____ for detail, which makes her an excellent editor.",
+    "rawBlock": [
+      "She has a ______ for detail, which makes her an excellent editor.",
+      "(A) eye",
+      "(B) ear",
+      "(C) nose",
+      "(D) handĐáp án: A (an eye for detail: mắt thẩm mỹ/chú ý chi tiết)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 123,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The company is committed to _____ its carbon footprint.",
+    "rawBlock": [
+      "The company is committed to ______ its carbon footprint.",
+      "(A) reduce",
+      "(B) reducing",
+      "(C) reduced",
+      "(D) reductionĐáp án: B (committed to V-ing)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 124,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The report was so _____ that I had to read it twice to understand it.",
+    "rawBlock": [
+      "The report was so ______ that I had to read it twice to understand it.",
+      "(A) confusing",
+      "(B) confused",
+      "(C) confuse",
+      "(D) confusionĐáp án: A"
+    ]
+  },
+  {
+    "sourceBlockIndex": 125,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The new branch was _____ in the heart of the city.",
+    "rawBlock": [
+      "The new branch was ______ in the heart of the city.",
+      "(A) located",
+      "(B) placed",
+      "(C) set",
+      "(D) situatedĐáp án: A/D (cả A và D đều đúng)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 126,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "Please do not _____ to contact me if you have any questions.",
+    "rawBlock": [
+      "Please do not ______ to contact me if you have any questions.",
+      "(A) hesitate",
+      "(B) mind",
+      "(C) delay",
+      "(D) postponeĐáp án: A (do not hesitate: đừng ngần ngại)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 127,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "He was given a _____ for his outstanding performance.",
+    "rawBlock": [
+      "He was given a ______ for his outstanding performance.",
+      "(A) promotion",
+      "(B) progress",
+      "(C) process",
+      "(D) proceedingĐáp án: A"
+    ]
+  },
+  {
+    "sourceBlockIndex": 128,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The data must be _____ secure.",
+    "rawBlock": [
+      "The data must be ______ secure.",
+      "(A) kept",
+      "(B) hold",
+      "(C) remain",
+      "(D) stayĐáp án: A (kept secure: được giữ an toàn)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 129,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The seminar will focus on _____ strategies for market expansion.",
+    "rawBlock": [
+      "The seminar will focus on ______ strategies for market expansion.",
+      "(A) innovative",
+      "(B) innovating",
+      "(C) innovation",
+      "(D) innovativelyĐáp án: A"
+    ]
+  },
+  {
+    "sourceBlockIndex": 130,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "_____ your assistance, we would not have finished on time.",
+    "rawBlock": [
+      "______ your assistance, we would not have finished on time.",
+      "(A) Without",
+      "(B) With",
+      "(C) Despite",
+      "(D) Because ofĐáp án: A (Without + N, S + would have PII)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 131,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The new policy is favorable _____ small businesses.",
+    "rawBlock": [
+      "The new policy is favorable ______ small businesses.",
+      "(A) to",
+      "(B) for",
+      "(C) with",
+      "(D) ofĐáp án: A (favorable to: có lợi cho)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 132,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The company is _____ a difficult transition period.",
+    "rawBlock": [
+      "The company is ______ a difficult transition period.",
+      "(A) undergoing",
+      "(B) understanding",
+      "(C) undertaking",
+      "(D) underliningĐáp án: A (undergoing: trải qua)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 133,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "Her _____ to work is very professional.",
+    "rawBlock": [
+      "Her ______ to work is very professional.",
+      "(A) approach",
+      "(B) approachable",
+      "(C) approaching",
+      "(D) approachedĐáp án: A"
+    ]
+  },
+  {
+    "sourceBlockIndex": 134,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The machine requires _____ maintenance every six months.",
+    "rawBlock": [
+      "The machine requires ______ maintenance every six months.",
+      "(A) regular",
+      "(B) regularly",
+      "(C) regulate",
+      "(D) regulationĐáp án: A"
+    ]
+  },
+  {
+    "sourceBlockIndex": 135,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The candidate’s lack of experience was _____ by his enthusiasm.",
+    "rawBlock": [
+      "The candidate’s lack of experience was ______ by his enthusiasm.",
+      "(A) compensated for",
+      "(B) compensated",
+      "(C) compensating",
+      "(D) compensationĐáp án: A (compensated for: bù đắp)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 136,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "He is the _____ of the two brothers.",
+    "rawBlock": [
+      "He is the ______ of the two brothers.",
+      "(A) older",
+      "(B) elder",
+      "(C) oldest",
+      "(D) eldestĐáp án: B (elder dùng cho anh chị em ruột)"
+    ]
+  },
+  {
+    "sourceBlockIndex": 137,
+    "reason": "Không đọc được đáp án từ dòng 'Đáp án: ...'.",
+    "question": "The company is in the _____ of being acquired.",
+    "rawBlock": [
+      "The company is in the ______ of being acquired.",
+      "(A) process",
+      "(B) progress",
+      "(C) procedure",
+      "(D) proceedingĐáp án: A (in the process of: đang trong quá trình)"
+    ]
+  }
+]

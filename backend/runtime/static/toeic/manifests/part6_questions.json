@@ -1,0 +1,3219 @@
+[
+  {
+    "id": 1,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "I recently came across your advertisement (1) _____ partnership of a graphic design company for a number of your projects.",
+    "skill": "Text Completion",
+    "test": 1,
+    "questionNumber": 1,
+    "options": [
+      "seek",
+      "to seek",
+      "seeking",
+      "are seeking"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "To: samsmith@digitallT.com",
+      "text": "To: samsmith@digitallT.com\nFrom: sharronb@email.com\nDate: September 24\nSubject: Business Contract\nDear Mr. Smith,\nI am Sharron Biggs, CEO and founder of BiggsGraphics. I recently came across your advertisement (1) _____ partnership of a graphic design company for a number of your projects. BiggsGraphics has (2) _____ experience working with various small businesses and companies in designing advertising campaigns, logos, and websites. (3) _____ Our website www.biggs-graphics.com also has some information about our company.\nI’m interested in working with your company on your projects and hope we can build a beneficial partnership. I look forward (4) _____ your reply.\nSincerely, Sharron Biggs\nCEO, BiggsGraphics"
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 2,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "BiggsGraphics has (2) _____ experience working with various small businesses and companies in designing advertising campaigns, logos, and websites.",
+    "skill": "Text Completion",
+    "test": 1,
+    "questionNumber": 2,
+    "options": [
+      "extensive",
+      "restricted",
+      "generous",
+      "limitless"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "To: samsmith@digitallT.com",
+      "text": "To: samsmith@digitallT.com\nFrom: sharronb@email.com\nDate: September 24\nSubject: Business Contract\nDear Mr. Smith,\nI am Sharron Biggs, CEO and founder of BiggsGraphics. I recently came across your advertisement (1) _____ partnership of a graphic design company for a number of your projects. BiggsGraphics has (2) _____ experience working with various small businesses and companies in designing advertising campaigns, logos, and websites. (3) _____ Our website www.biggs-graphics.com also has some information about our company.\nI’m interested in working with your company on your projects and hope we can build a beneficial partnership. I look forward (4) _____ your reply.\nSincerely, Sharron Biggs\nCEO, BiggsGraphics"
+    },
+    "correctAnswerIndex": 0,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 3,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "(3) _____ Our website www.biggs-graphics.com also has some information about our company.",
+    "skill": "Text Completion",
+    "test": 1,
+    "questionNumber": 3,
+    "options": [
+      "I would really appreciate the opportunity to work with you.",
+      "I heard that Digital lT is a great company.",
+      "In fact, our designs are often copied by other companies.",
+      "I have attached a number of our past designs to illustrate what we specialize in."
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "Kiến thức từ vựng:",
+      "text": "Kiến thức từ vựng:"
+    },
+    "correctAnswerIndex": 3,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 4,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "I look forward (4) _____ your reply.",
+    "skill": "Text Completion",
+    "test": 1,
+    "questionNumber": 4,
+    "options": [
+      "at",
+      "to",
+      "with",
+      "from"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "Kiến thức từ vựng:",
+      "text": "Kiến thức từ vựng:"
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 5,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Our products are known for their modern and unique patterns and color combinations, as well as (1) _____ and strength",
+    "skill": "Text Completion",
+    "test": 1,
+    "questionNumber": 5,
+    "options": [
+      "durably",
+      "durability",
+      "durabled",
+      "durable"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Thank you for shopping at Larson’s China. Our products are known for their modern and unique patterns and color combinations, as well as (1) _____ and strength. (2) _____ Please note, however, that repeated drops and rough handling will (3) _____ eventual breakage. We suggest you store them carefully and that you don’t use harsh chemicals, steel sponges, or (4) _____ scrubbing when cleaning them. Please visit our website at www.larsonchina.com for information about handling and care or call us at 555-1234 if you have any questions or concerns."
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 6,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "_____ Please note, however, that repeated drops and rough handling will (3) _____ eventual breakage.",
+    "skill": "Text Completion",
+    "test": 1,
+    "questionNumber": 7,
+    "options": [
+      "result in",
+      "occur to",
+      "ending at",
+      "stop with"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "(2) _____ Please note, however, that repeated drops and rough handling will _____ eventual breakage."
+    },
+    "correctAnswerIndex": 0,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 7,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "We suggest you store them carefully and that you don’t use harsh chemicals, steel sponges, or (4) _____ scrubbing when cleaning them.",
+    "skill": "Text Completion",
+    "test": 1,
+    "questionNumber": 8,
+    "options": [
+      "ambitious",
+      "combative",
+      "aggressive",
+      "complacent"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "(2) _____ Please note, however, that repeated drops and rough handling will _____ eventual breakage."
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 8,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "We are looking for enthusiastic candidates with an educational background in finance or (1) _____.",
+    "skill": "Text Completion",
+    "test": 1,
+    "questionNumber": 9,
+    "options": [
+      "account",
+      "accountant",
+      "accounting",
+      "accounted"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "Entry Position: Gold & Slide Accounting Firm",
+      "text": "Entry Position: Gold & Slide Accounting Firm\nWe are looking for enthusiastic candidates with an educational background in finance or (1) _____. All candidates should have some computer experience. Job experience is not (2) _____ but preferred. Candidates with a bilingual language ability (3) _____ favored. Positions include jobs in accounting, statistics, and general office assistant. If you are interested, please visit our website at www.G&Saccountingfirm.com/employment for more information. You can send your cover letters and resumes to Karen Hill at khill@G&S.com. We will begin interviewing candidates on Monday, November 5. (4) _____"
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 9,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Job experience is not (2) _____ but preferred.",
+    "skill": "Text Completion",
+    "test": 1,
+    "questionNumber": 10,
+    "options": [
+      "basic",
+      "decisive",
+      "additional",
+      "necessary"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "Entry Position: Gold & Slide Accounting Firm",
+      "text": "Entry Position: Gold & Slide Accounting Firm\nWe are looking for enthusiastic candidates with an educational background in finance or (1) _____. All candidates should have some computer experience. Job experience is not (2) _____ but preferred. Candidates with a bilingual language ability (3) _____ favored. Positions include jobs in accounting, statistics, and general office assistant. If you are interested, please visit our website at www.G&Saccountingfirm.com/employment for more information. You can send your cover letters and resumes to Karen Hill at khill@G&S.com. We will begin interviewing candidates on Monday, November 5. (4) _____"
+    },
+    "correctAnswerIndex": 3,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 10,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Candidates with a bilingual language ability (3) _____ favored.",
+    "skill": "Text Completion",
+    "test": 1,
+    "questionNumber": 11,
+    "options": [
+      "is being",
+      "will be",
+      "has been",
+      "were being"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "Kiến thức từ vựng:",
+      "text": "Kiến thức từ vựng:"
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 11,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "We will begin interviewing candidates on Monday, November 5. (4) _____",
+    "skill": "Text Completion",
+    "test": 1,
+    "questionNumber": 12,
+    "options": [
+      "We sincerely thank you for your interest.",
+      "The positions begin the following month.",
+      "Please call us for more information.",
+      "We apologize for any inconvenience"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "Kiến thức từ vựng:",
+      "text": "Kiến thức từ vựng:"
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 12,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "From Sunday, March 23 to Thursday, March 27, the employee cafeteria kitchens will undergo renovations as new appliances and equipment (1) _____ in to replace the old ones.",
+    "skill": "Text Completion",
+    "test": 1,
+    "questionNumber": 13,
+    "options": [
+      "are bringing",
+      "have brought",
+      "bring",
+      "are brought"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "To:Kitchen staff,office employees",
+      "text": "To:Kitchen staff,office employees\nFrom:Manager, LarryPark\nDate:March 23\nSubject: Renovations\nTo all kitchen staff and Harmon employees,\nFrom Sunday, March 23 to Thursday, March 27, the employee cafeteria kitchens will undergo renovations as new appliances and equipment (1) _____ in to replace the old ones. (2) _____ Instead, the convenience shops will carry more sandwiches, prepared lunch boxes,and snacks for the employees during this time.\nThe renovations will increase the number of sinks, ovens, and stove tops so that a larger volume of meals can be provided (3) _____ the lunch and dinner rushes. We apologize for the inconvenience but we hope that the changes will (4) _____ the services in the cafeteria."
+    },
+    "correctAnswerIndex": 3,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 13,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "(2) _____ Instead, the convenience shops will carry more sandwiches, prepared lunch boxes,and snacks for the employees during this time.",
+    "skill": "Text Completion",
+    "test": 1,
+    "questionNumber": 14,
+    "options": [
+      "This will take a lot of work.",
+      "As a result, the convenience shops will be closed.",
+      "Because of this, hot meals will not be available for the patrons.",
+      "There will be noise and chaos as a result."
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "To:Kitchen staff,office employees",
+      "text": "To:Kitchen staff,office employees\nFrom:Manager, LarryPark\nDate:March 23\nSubject: Renovations\nTo all kitchen staff and Harmon employees,\nFrom Sunday, March 23 to Thursday, March 27, the employee cafeteria kitchens will undergo renovations as new appliances and equipment (1) _____ in to replace the old ones. (2) _____ Instead, the convenience shops will carry more sandwiches, prepared lunch boxes,and snacks for the employees during this time.\nThe renovations will increase the number of sinks, ovens, and stove tops so that a larger volume of meals can be provided (3) _____ the lunch and dinner rushes. We apologize for the inconvenience but we hope that the changes will (4) _____ the services in the cafeteria."
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 14,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "The renovations will increase the number of sinks, ovens, and stove tops so that a larger volume of meals can be provided (3) _____ the lunch and dinner rushes.",
+    "skill": "Text Completion",
+    "test": 1,
+    "questionNumber": 15,
+    "options": [
+      "before",
+      "after",
+      "during",
+      "within"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "To:Kitchen staff,office employees",
+      "text": "To:Kitchen staff,office employees\nFrom:Manager, LarryPark\nDate:March 23\nSubject: Renovations\nTo all kitchen staff and Harmon employees,\nFrom Sunday, March 23 to Thursday, March 27, the employee cafeteria kitchens will undergo renovations as new appliances and equipment (1) _____ in to replace the old ones. (2) _____ Instead, the convenience shops will carry more sandwiches, prepared lunch boxes,and snacks for the employees during this time.\nThe renovations will increase the number of sinks, ovens, and stove tops so that a larger volume of meals can be provided (3) _____ the lunch and dinner rushes. We apologize for the inconvenience but we hope that the changes will (4) _____ the services in the cafeteria."
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 15,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "We apologize for the inconvenience but we hope that the changes will (4) _____ the services in the cafeteria.",
+    "skill": "Text Completion",
+    "test": 1,
+    "questionNumber": 16,
+    "options": [
+      "develop",
+      "improve",
+      "rectify",
+      "recover"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "To:Kitchen staff,office employees",
+      "text": "To:Kitchen staff,office employees\nFrom:Manager, LarryPark\nDate:March 23\nSubject: Renovations\nTo all kitchen staff and Harmon employees,\nFrom Sunday, March 23 to Thursday, March 27, the employee cafeteria kitchens will undergo renovations as new appliances and equipment (1) _____ in to replace the old ones. (2) _____ Instead, the convenience shops will carry more sandwiches, prepared lunch boxes,and snacks for the employees during this time.\nThe renovations will increase the number of sinks, ovens, and stove tops so that a larger volume of meals can be provided (3) _____ the lunch and dinner rushes. We apologize for the inconvenience but we hope that the changes will (4) _____ the services in the cafeteria."
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 16,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Human Resources has put together a wide range of topics for this year’s workshops, (1) _____ sales techniques, computer skills, communication strategies, and goal setting.",
+    "skill": "Text Completion",
+    "test": 2,
+    "questionNumber": 1,
+    "options": [
+      "distributing",
+      "locating",
+      "including",
+      "advancing"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Employee Spring Training\nLawrence Paper is dedicated to helping all of its employees fulfill their potential. That is why we have once again organized 2 days of spring training. Human Resources has put together a wide range of topics for this year’s workshops, (1) _____ sales techniques, computer skills, communication strategies, and goal setting. We still have two workshop time slots available, so if there is something you’ve been dying to learn about, please let us know. It’s quite possible we (2) _____ it into this year’s spring training. (3) _____ Feel free to (4) _____ any ideas you might have to Nancy Kensington in the human resources department.\nNLKensington@lawrencepaper.com"
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 17,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "It’s quite possible we (2) _____ it into this year’s spring training.",
+    "skill": "Text Completion",
+    "test": 2,
+    "questionNumber": 2,
+    "options": [
+      "were incorporating",
+      "should incorporate",
+      "are incorporating",
+      "could incorporate"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Employee Spring Training\nLawrence Paper is dedicated to helping all of its employees fulfill their potential. That is why we have once again organized 2 days of spring training. Human Resources has put together a wide range of topics for this year’s workshops, (1) _____ sales techniques, computer skills, communication strategies, and goal setting. We still have two workshop time slots available, so if there is something you’ve been dying to learn about, please let us know. It’s quite possible we (2) _____ it into this year’s spring training. (3) _____ Feel free to (4) _____ any ideas you might have to Nancy Kensington in the human resources department.\nNLKensington@lawrencepaper.com"
+    },
+    "correctAnswerIndex": 3,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 18,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "(3) _____ Feel free to _____ any ideas you might have to Nancy Kensington in the human resources department.",
+    "skill": "Text Completion",
+    "test": 2,
+    "questionNumber": 3,
+    "options": [
+      "If we get many suggestions, we could also hold a workshop on the following weekend, December 4th.",
+      "We’ll be finalizing our choices by the end of the week.",
+      "A large amount of time and energy has gone into organizing this conference.",
+      "Inviting friends and family to these events is always encouraged."
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Employee Spring Training\nLawrence Paper is dedicated to helping all of its employees fulfill their potential. That is why we have once again organized 2 days of spring training. Human Resources has put together a wide range of topics for this year’s workshops, (1) _____ sales techniques, computer skills, communication strategies, and goal setting. We still have two workshop time slots available, so if there is something you’ve been dying to learn about, please let us know. It’s quite possible we (2) _____ it into this year’s spring training. (3) _____ Feel free to (4) _____ any ideas you might have to Nancy Kensington in the human resources department.\nNLKensington@lawrencepaper.com"
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 19,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "_____ Feel free to (4) _____ any ideas you might have to Nancy Kensington in the human resources department.",
+    "skill": "Text Completion",
+    "test": 2,
+    "questionNumber": 4,
+    "options": [
+      "create",
+      "request",
+      "submit",
+      "transfer"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Employee Spring Training\nLawrence Paper is dedicated to helping all of its employees fulfill their potential. That is why we have once again organized 2 days of spring training. Human Resources has put together a wide range of topics for this year’s workshops, (1) _____ sales techniques, computer skills, communication strategies, and goal setting. We still have two workshop time slots available, so if there is something you’ve been dying to learn about, please let us know. It’s quite possible we (2) _____ it into this year’s spring training. (3) _____ Feel free to (4) _____ any ideas you might have to Nancy Kensington in the human resources department.\nNLKensington@lawrencepaper.com"
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 20,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "It is through our commitment to providing the highest degree of expertise market knowledge and (1) _______ service that we are recognized as an industry leader.",
+    "skill": "Text Completion",
+    "test": 2,
+    "questionNumber": 5,
+    "options": [
+      "personalize",
+      "personalizes",
+      "personalizing",
+      "personalized"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Vander Properties\nVander Properties has been serving Houston for over 29 years. It is through our commitment to providing the highest degree of expertise market knowledge and (1) _______ service that we are recognized as an industry leader. We specialize in (2) _____ and corporate real estate here in the Denver area. (3) _____ you are looking to buy a new home or start a new business, we are the people you should be talking with. With our office centrally located downtown, we have our eyes on the whole city. Browse our site for listing, or give us a call today (4) _____.\nwww.vanderproperties.com\nPhone: (313) 782-9919\nAddress: 834 Walton St."
+    },
+    "correctAnswerIndex": 3,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 21,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "We specialize in (2) _____ and corporate real estate here in the Denver area.",
+    "skill": "Text Completion",
+    "test": 2,
+    "questionNumber": 6,
+    "options": [
+      "productive",
+      "promoted",
+      "residential",
+      "relevant"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Vander Properties\nVander Properties has been serving Houston for over 29 years. It is through our commitment to providing the highest degree of expertise market knowledge and (1) _______ service that we are recognized as an industry leader. We specialize in (2) _____ and corporate real estate here in the Denver area. (3) _____ you are looking to buy a new home or start a new business, we are the people you should be talking with. With our office centrally located downtown, we have our eyes on the whole city. Browse our site for listing, or give us a call today (4) _____.\nwww.vanderproperties.com\nPhone: (313) 782-9919\nAddress: 834 Walton St."
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 22,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "(3) _____ you are looking to buy a new home or start a new business, we are the people you should be talking with.",
+    "skill": "Text Completion",
+    "test": 2,
+    "questionNumber": 7,
+    "options": [
+      "Whether",
+      "Even if",
+      "Even though",
+      "Whenever"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Vander Properties\nVander Properties has been serving Houston for over 29 years. It is through our commitment to providing the highest degree of expertise market knowledge and (1) _______ service that we are recognized as an industry leader. We specialize in (2) _____ and corporate real estate here in the Denver area. (3) _____ you are looking to buy a new home or start a new business, we are the people you should be talking with. With our office centrally located downtown, we have our eyes on the whole city. Browse our site for listing, or give us a call today (4) _____.\nwww.vanderproperties.com\nPhone: (313) 782-9919\nAddress: 834 Walton St."
+    },
+    "correctAnswerIndex": 0,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 23,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Browse our site for listing, or give US a call today (4) _____.",
+    "skill": "Text Completion",
+    "test": 2,
+    "questionNumber": 8,
+    "options": [
+      "Take a drive out of town and come see us today.",
+      "We appreciate your assistance.",
+      "Of course, drop-ins are always welcome.",
+      "Our kitchen is open from eight to five daily."
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Vander Properties\nVander Properties has been serving Houston for over 29 years. It is through our commitment to providing the highest degree of expertise market knowledge and (1) _______ service that we are recognized as an industry leader. We specialize in (2) _____ and corporate real estate here in the Denver area. (3) _____ you are looking to buy a new home or start a new business, we are the people you should be talking with. With our office centrally located downtown, we have our eyes on the whole city. Browse our site for listing, or give us a call today (4) _____.\nwww.vanderproperties.com\nPhone: (313) 782-9919\nAddress: 834 Walton St."
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 24,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Papa Gino’s is hiring, and all (1) _____ applicants will be considered.",
+    "skill": "Text Completion",
+    "test": 2,
+    "questionNumber": 9,
+    "options": [
+      "qualify",
+      "qualifying",
+      "qualified",
+      "to qualify"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Pizza Chef Wanted\nPapa Gino’s is hiring, and all (1) _____ applicants will be considered. (2) _____ Even if you have no experience, training will be provided if you meet our requirements. To meet our requirements, you must have a (3) _____ health card, reliable transportation, and be able to work evenings and weekends. Please apply in person at Papa Gino’s on state and Pine, (4) _____ look forward to meeting you."
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 25,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "(2) _____ Even if you have no experience, training will be provided if you meet our requirements.",
+    "skill": "Text Completion",
+    "test": 2,
+    "questionNumber": 10,
+    "options": [
+      "We are looking for candidates that have some experience in Italian food.",
+      "We are looking for candidates that have experience fishing.",
+      "We are looking for people who can fish.",
+      "We are looking for people who want to practice."
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Pizza Chef Wanted\nPapa Gino’s is hiring, and all (1) _____ applicants will be considered. (2) _____ Even if you have no experience, training will be provided if you meet our requirements. To meet our requirements, you must have a (3) _____ health card, reliable transportation, and be able to work evenings and weekends. Please apply in person at Papa Gino’s on state and Pine, (4) _____ look forward to meeting you."
+    },
+    "correctAnswerIndex": 0,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 26,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "To meet our requirements, you must have a (3) _____ health card, reliable transportation, and be able to work evenings and weekends.",
+    "skill": "Text Completion",
+    "test": 2,
+    "questionNumber": 11,
+    "options": [
+      "valid",
+      "working",
+      "effective",
+      "strong"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Pizza Chef Wanted\nPapa Gino’s is hiring, and all (1) _____ applicants will be considered. (2) _____ Even if you have no experience, training will be provided if you meet our requirements. To meet our requirements, you must have a (3) _____ health card, reliable transportation, and be able to work evenings and weekends. Please apply in person at Papa Gino’s on state and Pine, (4) _____ look forward to meeting you."
+    },
+    "correctAnswerIndex": 0,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 27,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Please apply in person at Papa Gino’s on state and Pine, (4) _____ look forward to meeting you.",
+    "skill": "Text Completion",
+    "test": 2,
+    "questionNumber": 12,
+    "options": [
+      "She",
+      "They",
+      "We",
+      "He"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Pizza Chef Wanted\nPapa Gino’s is hiring, and all (1) _____ applicants will be considered. (2) _____ Even if you have no experience, training will be provided if you meet our requirements. To meet our requirements, you must have a (3) _____ health card, reliable transportation, and be able to work evenings and weekends. Please apply in person at Papa Gino’s on state and Pine, (4) _____ look forward to meeting you."
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 28,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "I am pleased to inform you that you (1) _____ as one of the finalists for the position of sales director at Goldie Saks.",
+    "skill": "Text Completion",
+    "test": 2,
+    "questionNumber": 13,
+    "options": [
+      "were choosing",
+      "had chosen",
+      "have been chosen",
+      "chose"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "November 11\nJohn Adams\nTri-State, Apt 408\nNew York, NY\n10873\nDear Mr. Adams,\nI am pleased to inform you that you (1) _____ as one of the finalists for the position of sales director at Goldie Saks. Over 100 applicants applied for the (2) _____ but we have narrowed down our list to 8 candidates. You will be called in for an interview on November 15 from 1:00 P.M. to 6:00 P.M. (3) _____ The location will be the company headquarters. Our assistant, Miss Lane, will meet you at the main lobby and take you to the interview room.\nFor the candidates that do well in these interviews, there will be a second interview. We will let you know as soon as possible whether you (4) _____.\nPlease call US at 555-1234 if you have any further questions.\nWe hope to see you soon.\nSincerely,\nJennifer Law Executive Manager"
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 29,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Over 100 applicants applied for the (2) _____ but we have narrowed down our list to 8 candidates.",
+    "skill": "Text Completion",
+    "test": 2,
+    "questionNumber": 14,
+    "options": [
+      "position",
+      "location",
+      "career",
+      "appointment"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "November 11\nJohn Adams\nTri-State, Apt 408\nNew York, NY\n10873\nDear Mr. Adams,\nI am pleased to inform you that you (1) _____ as one of the finalists for the position of sales director at Goldie Saks. Over 100 applicants applied for the (2) _____ but we have narrowed down our list to 8 candidates. You will be called in for an interview on November 15 from 1:00 P.M. to 6:00 P.M. (3) _____ The location will be the company headquarters. Our assistant, Miss Lane, will meet you at the main lobby and take you to the interview room.\nFor the candidates that do well in these interviews, there will be a second interview. We will let you know as soon as possible whether you (4) _____.\nPlease call US at 555-1234 if you have any further questions.\nWe hope to see you soon.\nSincerely,\nJennifer Law Executive Manager"
+    },
+    "correctAnswerIndex": 0,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 30,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "(3) _____ The location will be the company headquarters.",
+    "skill": "Text Completion",
+    "test": 2,
+    "questionNumber": 15,
+    "options": [
+      "The building is easy to locate.",
+      "We would like you to come in at 1:00 P.M.",
+      "Our interviewers will ask you several questions.",
+      "You will be given a specific schedule."
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "November 11\nJohn Adams\nTri-State, Apt 408\nNew York, NY\n10873\nDear Mr. Adams,\nI am pleased to inform you that you (1) _____ as one of the finalists for the position of sales director at Goldie Saks. Over 100 applicants applied for the (2) _____ but we have narrowed down our list to 8 candidates. You will be called in for an interview on November 15 from 1:00 P.M. to 6:00 P.M. (3) _____ The location will be the company headquarters. Our assistant, Miss Lane, will meet you at the main lobby and take you to the interview room.\nFor the candidates that do well in these interviews, there will be a second interview. We will let you know as soon as possible whether you (4) _____.\nPlease call US at 555-1234 if you have any further questions.\nWe hope to see you soon.\nSincerely,\nJennifer Law Executive Manager"
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 31,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "We will let you know as soon as possible whether you (4) _____.",
+    "skill": "Text Completion",
+    "test": 2,
+    "questionNumber": 16,
+    "options": [
+      "enable",
+      "approve",
+      "refuse",
+      "qualify"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "November 11\nJohn Adams\nTri-State, Apt 408\nNew York, NY\n10873\nDear Mr. Adams,\nI am pleased to inform you that you (1) _____ as one of the finalists for the position of sales director at Goldie Saks. Over 100 applicants applied for the (2) _____ but we have narrowed down our list to 8 candidates. You will be called in for an interview on November 15 from 1:00 P.M. to 6:00 P.M. (3) _____ The location will be the company headquarters. Our assistant, Miss Lane, will meet you at the main lobby and take you to the interview room.\nFor the candidates that do well in these interviews, there will be a second interview. We will let you know as soon as possible whether you (4) _____.\nPlease call US at 555-1234 if you have any further questions.\nWe hope to see you soon.\nSincerely,\nJennifer Law Executive Manager"
+    },
+    "correctAnswerIndex": 3,
+    "explanation": null,
+    "difficulty": "easy",
+    "abilityBand": "beginner",
+    "minScore": 10,
+    "maxScore": 450
+  },
+  {
+    "id": 32,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Ace Plumbing is looking for an experienced plumber to join our (1) ______ business here in Columbia.",
+    "skill": "Text Completion",
+    "test": 3,
+    "questionNumber": 1,
+    "options": [
+      "expanding",
+      "expecting",
+      "contracting",
+      "controlling"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Urgent! Journeyman Plumber Needed\nAce Plumbing is looking for an experienced plumber to join our (1) ______ business here in Columbia. (2) ______ We have always been a family-owned-and-run business, but with the (3) ______ increase in Columbia’s population over the last three years, we have an opportunity to welcome in a new journeyman plumber. The candidate should have experience with all (4) ______ of plumbing, both commercial and residential. Please send your resume to aceplumbing@gmail.com and we will schedule an interview."
+    },
+    "correctAnswerIndex": 0,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 33,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "(2) ______ We have always been a family-owned-and-run business, but with the ______ increase in Columbia’s population over the last three years, we have an opportunity to welcome in a new journeyman plumber.",
+    "skill": "Text Completion",
+    "test": 3,
+    "questionNumber": 2,
+    "options": [
+      "Ace Plumbing has been servicing the Columbia area since 1954.",
+      "We have little connection to the community.",
+      "We have been struggling to pay our bills.",
+      "Ace Plumbing is in financial trouble."
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Urgent! Journeyman Plumber Needed\nAce Plumbing is looking for an experienced plumber to join our (1) ______ business here in Columbia. (2) ______ We have always been a family-owned-and-run business, but with the (3) ______ increase in Columbia’s population over the last three years, we have an opportunity to welcome in a new journeyman plumber. The candidate should have experience with all (4) ______ of plumbing, both commercial and residential. Please send your resume to aceplumbing@gmail.com and we will schedule an interview."
+    },
+    "correctAnswerIndex": 0,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 34,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "______ We have always been a family-owned-and-run business, but with the (3) ______ increase in Columbia’s population over the last three years, we have an opportunity to welcome in a new journeyman plumber.",
+    "skill": "Text Completion",
+    "test": 3,
+    "questionNumber": 3,
+    "options": [
+      "monstrous",
+      "dramatic",
+      "impossible",
+      "insane"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Urgent! Journeyman Plumber Needed\nAce Plumbing is looking for an experienced plumber to join our (1) ______ business here in Columbia. (2) ______ We have always been a family-owned-and-run business, but with the (3) ______ increase in Columbia’s population over the last three years, we have an opportunity to welcome in a new journeyman plumber. The candidate should have experience with all (4) ______ of plumbing, both commercial and residential. Please send your resume to aceplumbing@gmail.com and we will schedule an interview."
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 35,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "The candidate should have experience with all (4) ______ of plumbing, both commercial and residential.",
+    "skill": "Text Completion",
+    "test": 3,
+    "questionNumber": 4,
+    "options": [
+      "pieces",
+      "flows",
+      "types",
+      "installations"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Urgent! Journeyman Plumber Needed\nAce Plumbing is looking for an experienced plumber to join our (1) ______ business here in Columbia. (2) ______ We have always been a family-owned-and-run business, but with the (3) ______ increase in Columbia’s population over the last three years, we have an opportunity to welcome in a new journeyman plumber. The candidate should have experience with all (4) ______ of plumbing, both commercial and residential. Please send your resume to aceplumbing@gmail.com and we will schedule an interview."
+    },
+    "correctAnswerIndex": 3,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 36,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Then (1) ______ Genius Marketing’s Power Conference and learn cutting-edge social media marketing tactics.",
+    "skill": "Text Completion",
+    "test": 3,
+    "questionNumber": 5,
+    "options": [
+      "attend",
+      "attends",
+      "attended",
+      "attending"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Learn social media marketing tactics only at Genius Marketing’s Power Conference\nAre you ready to take your social media marketing to the next level? Then (1) ______ Genius Marketing’s Power Conference and learn cutting-edge social media marketing tactics. (2) ______ This could be the most educational two days of your year.\nGenius Marketing will give you real-world tactics to boost your paid and organic social media marketing efforts. (3) ______ you buy social media advertising or focus on organic social media engagement, Genius Marketing’s Power Conference is the conference you need to attend this year. You’ll be inspired by experts, meet others with your challenges, and get actionable tactics to drive traffic, increase sales and (4) ______ customer satisfaction.\nTo apply, just click the link below."
+    },
+    "correctAnswerIndex": 0,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 37,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "(2) ______ This could be the most educational two days of your year.",
+    "skill": "Text Completion",
+    "test": 3,
+    "questionNumber": 6,
+    "options": [
+      "Guide people in the industry to greatness by joining today.",
+      "The conference will be in Houston on May 3 and 4.",
+      "Registration for this two-week course will be on November 20.",
+      "Classes will be held throughout the month of March."
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Learn social media marketing tactics only at Genius Marketing’s Power Conference\nAre you ready to take your social media marketing to the next level? Then (1) ______ Genius Marketing’s Power Conference and learn cutting-edge social media marketing tactics. (2) ______ This could be the most educational two days of your year.\nGenius Marketing will give you real-world tactics to boost your paid and organic social media marketing efforts. (3) ______ you buy social media advertising or focus on organic social media engagement, Genius Marketing’s Power Conference is the conference you need to attend this year. You’ll be inspired by experts, meet others with your challenges, and get actionable tactics to drive traffic, increase sales and (4) ______ customer satisfaction.\nTo apply, just click the link below."
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 38,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "(3) ______ you buy social media advertising or focus on organic social media engagement, Genius Marketing’s Power Conference is the conference you need to attend this year.",
+    "skill": "Text Completion",
+    "test": 3,
+    "questionNumber": 7,
+    "options": [
+      "Either",
+      "Whether",
+      "Rather",
+      "Not only"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Learn social media marketing tactics only at Genius Marketing’s Power Conference\nAre you ready to take your social media marketing to the next level? Then (1) ______ Genius Marketing’s Power Conference and learn cutting-edge social media marketing tactics. (2) ______ This could be the most educational two days of your year.\nGenius Marketing will give you real-world tactics to boost your paid and organic social media marketing efforts. (3) ______ you buy social media advertising or focus on organic social media engagement, Genius Marketing’s Power Conference is the conference you need to attend this year. You’ll be inspired by experts, meet others with your challenges, and get actionable tactics to drive traffic, increase sales and (4) ______ customer satisfaction.\nTo apply, just click the link below."
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 39,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "You’ll be inspired by experts, meet others with your challenges, and get actionable tactics to drive traffic, increase sales and (4)______customer satisfaction",
+    "skill": "Text Completion",
+    "test": 3,
+    "questionNumber": 8,
+    "options": [
+      "divide",
+      "engage",
+      "devalue",
+      "endure"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Learn social media marketing tactics only at Genius Marketing’s Power Conference\nAre you ready to take your social media marketing to the next level? Then (1) ______ Genius Marketing’s Power Conference and learn cutting-edge social media marketing tactics. (2) ______ This could be the most educational two days of your year.\nGenius Marketing will give you real-world tactics to boost your paid and organic social media marketing efforts. (3) ______ you buy social media advertising or focus on organic social media engagement, Genius Marketing’s Power Conference is the conference you need to attend this year. You’ll be inspired by experts, meet others with your challenges, and get actionable tactics to drive traffic, increase sales and (4) ______ customer satisfaction.\nTo apply, just click the link below."
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 40,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "At the manufacturing team meeting, (1) ______ was raised that inventory wasn’t always being properly stored before being shipped.",
+    "skill": "Text Completion",
+    "test": 3,
+    "questionNumber": 9,
+    "options": [
+      "understanding",
+      "concern",
+      "challenges",
+      "patience"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "To: Nancy Craft",
+      "text": "To: Nancy Craft\nFrom: Omar Patel\nDate:January 16\nSubject: Pre-shipping Procedures\nAt the manufacturing team meeting, (1) ______ was raised that inventory wasn’t always being properly stored before being shipped. (2) ______ that concern, the team decided to review the written procedure to determine if additional steps should be added. (3) ______ Please try to arrange the schedules of the team in the packaging and storage wing so a majority of the managers can attend this meeting.\nI am confident that the packaging and storage team management (4) ______ that the written procedure leaves no room for any inventory to accidentally be improperly stored. Any suggestions made by the packaging and storage team will only enhance a superior checklist."
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 41,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "(2) ______ that concern, the team decided to review the written procedure to determine if additional steps should be added.",
+    "skill": "Text Completion",
+    "test": 3,
+    "questionNumber": 10,
+    "options": [
+      "So",
+      "Due to",
+      "Regardless of",
+      "Provided"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "To: Nancy Craft",
+      "text": "To: Nancy Craft\nFrom: Omar Patel\nDate:January 16\nSubject: Pre-shipping Procedures\nAt the manufacturing team meeting, (1) ______ was raised that inventory wasn’t always being properly stored before being shipped. (2) ______ that concern, the team decided to review the written procedure to determine if additional steps should be added. (3) ______ Please try to arrange the schedules of the team in the packaging and storage wing so a majority of the managers can attend this meeting.\nI am confident that the packaging and storage team management (4) ______ that the written procedure leaves no room for any inventory to accidentally be improperly stored. Any suggestions made by the packaging and storage team will only enhance a superior checklist."
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 42,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "(3) ______ Please try to arrange the schedules of the team in the packaging and storage wing so a majority of the managers can attend this meeting.",
+    "skill": "Text Completion",
+    "test": 3,
+    "questionNumber": 11,
+    "options": [
+      "A meeting of the packaging and storage team has been set for Tuesday, January 23.",
+      "All employees should be asked to review the procedure before starting work on Tuesday.",
+      "The meeting will investigate the possibility of redundancies in the packaging process.",
+      "Additional training sessions plan to be added sometime at the end of December."
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "To: Nancy Craft",
+      "text": "To: Nancy Craft\nFrom: Omar Patel\nDate:January 16\nSubject: Pre-shipping Procedures\nAt the manufacturing team meeting, (1) ______ was raised that inventory wasn’t always being properly stored before being shipped. (2) ______ that concern, the team decided to review the written procedure to determine if additional steps should be added. (3) ______ Please try to arrange the schedules of the team in the packaging and storage wing so a majority of the managers can attend this meeting.\nI am confident that the packaging and storage team management (4) ______ that the written procedure leaves no room for any inventory to accidentally be improperly stored. Any suggestions made by the packaging and storage team will only enhance a superior checklist."
+    },
+    "correctAnswerIndex": 0,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 43,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "I am confident that the packaging and storage team management (4) ______ that the written procedure leaves no room for any inventory to accidentally be improperly stored.",
+    "skill": "Text Completion",
+    "test": 3,
+    "questionNumber": 12,
+    "options": [
+      "is discovering",
+      "have been discovered",
+      "will discover",
+      "has discovered"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "To: Nancy Craft",
+      "text": "To: Nancy Craft\nFrom: Omar Patel\nDate:January 16\nSubject: Pre-shipping Procedures\nAt the manufacturing team meeting, (1) ______ was raised that inventory wasn’t always being properly stored before being shipped. (2) ______ that concern, the team decided to review the written procedure to determine if additional steps should be added. (3) ______ Please try to arrange the schedules of the team in the packaging and storage wing so a majority of the managers can attend this meeting.\nI am confident that the packaging and storage team management (4) ______ that the written procedure leaves no room for any inventory to accidentally be improperly stored. Any suggestions made by the packaging and storage team will only enhance a superior checklist."
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 44,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "It is my pleasure to inform you that Hannover Design would like (1) ______ you to interview for our summer intern program.",
+    "skill": "Text Completion",
+    "test": 3,
+    "questionNumber": 13,
+    "options": [
+      "to invite",
+      "will invite",
+      "has invited",
+      "will be inviting"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "June 3, 2016\nYui Minakuchi\n143 Dean St. Apt. 3\nBrooklyn, NY 10787\nDear Ms. Minakuchi,\nIt is my pleasure to inform you that Hannover Design would like (1) ______ you to interview for our summer intern program. We are only interviewing fifteen candidates this year for the six positions we have available. You will be pleased to know that you were selected out of a group of over 200 people (2) ______ applied for an interview.\nWe will be holding interviews on March 6 and 7 from 1:00 to 6:00 P.M. We would like for you to come on the 6th at 1:30 P.M. if you are able to. If not, we can (3) ______ for you to come on the 7th. (4) ______ If you have any questions, feel free to call our office (212-347-9919) and the human resources department will be able to assist you. We look forward to hearing from you soon.\nSincerely,\nMax Wright\nOffice Manager\nHannover Design\n212-326-1268\nM.Wright@hannoverdesign.com"
+    },
+    "correctAnswerIndex": 0,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 45,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "You will be pleased to know that you were selected out of a group of over 200 people (2) ______ applied for an interview",
+    "skill": "Text Completion",
+    "test": 3,
+    "questionNumber": 14,
+    "options": [
+      "whom",
+      "that",
+      "whose",
+      "which"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "June 3, 2016\nYui Minakuchi\n143 Dean St. Apt. 3\nBrooklyn, NY 10787\nDear Ms. Minakuchi,\nIt is my pleasure to inform you that Hannover Design would like (1) ______ you to interview for our summer intern program. We are only interviewing fifteen candidates this year for the six positions we have available. You will be pleased to know that you were selected out of a group of over 200 people (2) ______ applied for an interview.\nWe will be holding interviews on March 6 and 7 from 1:00 to 6:00 P.M. We would like for you to come on the 6th at 1:30 P.M. if you are able to. If not, we can (3) ______ for you to come on the 7th. (4) ______ If you have any questions, feel free to call our office (212-347-9919) and the human resources department will be able to assist you. We look forward to hearing from you soon.\nSincerely,\nMax Wright\nOffice Manager\nHannover Design\n212-326-1268\nM.Wright@hannoverdesign.com"
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 46,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "We would like for you to come on the 6th at 1:30 P.M. if you are able to. If not, we can (3) ______ for you to come on the 7th.",
+    "skill": "Text Completion",
+    "test": 3,
+    "questionNumber": 15,
+    "options": [
+      "order",
+      "arrange",
+      "oblige",
+      "attend"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "June 3, 2016\nYui Minakuchi\n143 Dean St. Apt. 3\nBrooklyn, NY 10787\nDear Ms. Minakuchi,\nIt is my pleasure to inform you that Hannover Design would like (1) ______ you to interview for our summer intern program. We are only interviewing fifteen candidates this year for the six positions we have available. You will be pleased to know that you were selected out of a group of over 200 people (2) ______ applied for an interview.\nWe will be holding interviews on March 6 and 7 from 1:00 to 6:00 P.M. We would like for you to come on the 6th at 1:30 P.M. if you are able to. If not, we can (3) ______ for you to come on the 7th. (4) ______ If you have any questions, feel free to call our office (212-347-9919) and the human resources department will be able to assist you. We look forward to hearing from you soon.\nSincerely,\nMax Wright\nOffice Manager\nHannover Design\n212-326-1268\nM.Wright@hannoverdesign.com"
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 47,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "(4) ______ If you have any questions, feel free to call our office (212-347-9919) and the human resources department will be able to assist you.",
+    "skill": "Text Completion",
+    "test": 3,
+    "questionNumber": 16,
+    "options": [
+      "You will need to bring a completed application and some type of identification card.",
+      "Please let us know as soon as possible if you will be able to attend.",
+      "We wish we were able to accept your offer, but we must decline it.",
+      "Please RSVP and indicate if you plan on bringing a guest."
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "June 3, 2016\nYui Minakuchi\n143 Dean St. Apt. 3\nBrooklyn, NY 10787\nDear Ms. Minakuchi,\nIt is my pleasure to inform you that Hannover Design would like (1) ______ you to interview for our summer intern program. We are only interviewing fifteen candidates this year for the six positions we have available. You will be pleased to know that you were selected out of a group of over 200 people (2) ______ applied for an interview.\nWe will be holding interviews on March 6 and 7 from 1:00 to 6:00 P.M. We would like for you to come on the 6th at 1:30 P.M. if you are able to. If not, we can (3) ______ for you to come on the 7th. (4) ______ If you have any questions, feel free to call our office (212-347-9919) and the human resources department will be able to assist you. We look forward to hearing from you soon.\nSincerely,\nMax Wright\nOffice Manager\nHannover Design\n212-326-1268\nM.Wright@hannoverdesign.com"
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 48,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "This month, we (1) _____ workshops for those interested in _____ their computer skills with several classes on how to use Professional Office, create a personal website, and run the message app.",
+    "skill": "Text Completion",
+    "test": 4,
+    "questionNumber": 1,
+    "options": [
+      "offers",
+      "were offering",
+      "are offering",
+      "have offered"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Employee Workshop\nT&R Group strives to help employees reach their potential by offering leadership retreats, employee training, and various workshops. This month, we (1) _____ workshops for those interested in (2) _____ their computer skills with several classes on how to use Professional Office, create a personal website, and run the message app. We have a couple of other slots that are currently (3) _____ and will accept suggestions from employees. (4) _____ Please email Jonas at jsmith@TRgroup.com if you are interested in attending any of the workshops.\nWe hope you take advantage of the programs offered."
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 49,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "This month, we _____ workshops for those interested in (2) _____ their computer skills with several classes on how to use Professional Office, create a personal website, and run the message app.",
+    "skill": "Text Completion",
+    "test": 4,
+    "questionNumber": 2,
+    "options": [
+      "correcting",
+      "diminishing",
+      "improving",
+      "elaborating"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Employee Workshop\nT&R Group strives to help employees reach their potential by offering leadership retreats, employee training, and various workshops. This month, we (1) _____ workshops for those interested in (2) _____ their computer skills with several classes on how to use Professional Office, create a personal website, and run the message app. We have a couple of other slots that are currently (3) _____ and will accept suggestions from employees. (4) _____ Please email Jonas at jsmith@TRgroup.com if you are interested in attending any of the workshops.\nWe hope you take advantage of the programs offered."
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 50,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "We have a couple of other slots that are currently (3) _____ and will accept suggestions from employees.",
+    "skill": "Text Completion",
+    "test": 4,
+    "questionNumber": 3,
+    "options": [
+      "dependent",
+      "independent",
+      "free",
+      "obtainable"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Employee Workshop\nT&R Group strives to help employees reach their potential by offering leadership retreats, employee training, and various workshops. This month, we (1) _____ workshops for those interested in (2) _____ their computer skills with several classes on how to use Professional Office, create a personal website, and run the message app. We have a couple of other slots that are currently (3) _____ and will accept suggestions from employees. (4) _____ Please email Jonas at jsmith@TRgroup.com if you are interested in attending any of the workshops.\nWe hope you take advantage of the programs offered."
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 51,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "(4) _____ Please email Jonas at jsmith@TRgroup.com if you are interested in attending any of the workshops.",
+    "skill": "Text Completion",
+    "test": 4,
+    "questionNumber": 4,
+    "options": [
+      "Suggestions related to gaming and entertainment will not be accepted.",
+      "The most popular requests will be considered for the workshops.",
+      "We ask all managers to make a suggestion.",
+      "We hope the workshop is a success and wish you the very best."
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Employee Workshop\nT&R Group strives to help employees reach their potential by offering leadership retreats, employee training, and various workshops. This month, we (1) _____ workshops for those interested in (2) _____ their computer skills with several classes on how to use Professional Office, create a personal website, and run the message app. We have a couple of other slots that are currently (3) _____ and will accept suggestions from employees. (4) _____ Please email Jonas at jsmith@TRgroup.com if you are interested in attending any of the workshops.\nWe hope you take advantage of the programs offered."
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 52,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Citrusine is a (1) _____ medicated night-time tea that can treat symptoms of the flu including fever, aches and pains, nasal congestion, cough, and sore throat.",
+    "skill": "Text Completion",
+    "test": 4,
+    "questionNumber": 5,
+    "options": [
+      "easing",
+      "stimulating",
+      "soothing",
+      "consoling"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "Citrusine: Total Flu for Night-time",
+      "text": "Citrusine: Total Flu for Night-time\nGet ready for cold and flu season with Citrusine. Citrusine is a (1) _____ medicated night-time tea that can treat symptoms of the flu including fever, aches and pains, nasal congestion, cough, and sore throat. Wake up feeling (2) _____ and ready to conquer another day. Citrusine should not be taken if you’re planning to operate machinery or drive a vehicle. Keep out of the reach of children (3) _____.\nCitrusine is the number-one-selling medication (4) _____ the flu and is guaranteed to provide results if taken as directed. Visit our website for more information. www.citrusine.com"
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 53,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Wake up feeling (2) _____ and ready to conquer another day.",
+    "skill": "Text Completion",
+    "test": 4,
+    "questionNumber": 6,
+    "options": [
+      "refreshing",
+      "refreshed",
+      "refreshes",
+      "refresh"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "Citrusine: Total Flu for Night-time",
+      "text": "Citrusine: Total Flu for Night-time\nGet ready for cold and flu season with Citrusine. Citrusine is a (1) _____ medicated night-time tea that can treat symptoms of the flu including fever, aches and pains, nasal congestion, cough, and sore throat. Wake up feeling (2) _____ and ready to conquer another day. Citrusine should not be taken if you’re planning to operate machinery or drive a vehicle. Keep out of the reach of children (3) _____.\nCitrusine is the number-one-selling medication (4) _____ the flu and is guaranteed to provide results if taken as directed. Visit our website for more information. www.citrusine.com"
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 54,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Keep out of the reach of children (3) _____.",
+    "skill": "Text Completion",
+    "test": 4,
+    "questionNumber": 7,
+    "options": [
+      "The medication may cause serious side effects if not taken properly.",
+      "Children should take Citrusine for Kids instead.",
+      "The packets look like candy and may pose problems.",
+      "And if symptoms persist for more than ten days, consult a physician."
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "Citrusine: Total Flu for Night-time",
+      "text": "Citrusine: Total Flu for Night-time\nGet ready for cold and flu season with Citrusine. Citrusine is a (1) _____ medicated night-time tea that can treat symptoms of the flu including fever, aches and pains, nasal congestion, cough, and sore throat. Wake up feeling (2) _____ and ready to conquer another day. Citrusine should not be taken if you’re planning to operate machinery or drive a vehicle. Keep out of the reach of children (3) _____.\nCitrusine is the number-one-selling medication (4) _____ the flu and is guaranteed to provide results if taken as directed. Visit our website for more information. www.citrusine.com"
+    },
+    "correctAnswerIndex": 3,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 55,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Citrusine is the number-one-selling medication (4) _____ the flu and is guaranteed to provide results if taken as directed.",
+    "skill": "Text Completion",
+    "test": 4,
+    "questionNumber": 8,
+    "options": [
+      "for",
+      "during",
+      "with",
+      "after"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "Citrusine: Total Flu for Night-time",
+      "text": "Citrusine: Total Flu for Night-time\nGet ready for cold and flu season with Citrusine. Citrusine is a (1) _____ medicated night-time tea that can treat symptoms of the flu including fever, aches and pains, nasal congestion, cough, and sore throat. Wake up feeling (2) _____ and ready to conquer another day. Citrusine should not be taken if you’re planning to operate machinery or drive a vehicle. Keep out of the reach of children (3) _____.\nCitrusine is the number-one-selling medication (4) _____ the flu and is guaranteed to provide results if taken as directed. Visit our website for more information. www.citrusine.com"
+    },
+    "correctAnswerIndex": 0,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 56,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "(1) _____ we specialize in gardens and Japanese- style landscape art, we also maintain lawns and fields.",
+    "skill": "Text Completion",
+    "test": 4,
+    "questionNumber": 9,
+    "options": [
+      "Although",
+      "Because",
+      "However",
+      "Therefore"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "To:Janet Doe",
+      "text": "To:Janet Doe\nFrom:Greenscape\nDate:June 28\nSubject:Inquiry\nMs. Doe,\nWe thank you for your inquiry. Greenscape has been the leading landscaper for businesses in the greater downtown area for over 10 years. (1) _____ we specialize in gardens and Japanese- style landscape art, we also maintain lawns and fields. But to answer your question, yes, we even clear away thick shrubbery and trees. We can send a person to (2) _____ the amount of time it will take and the approximate costs. Furthermore, if you (3) _____ to replace the dense shrubs with a lawn or garden, you can work with one of our designers to come up with a landscape you can be happy with.\n(4) _____ We are more than happy to serve you."
+    },
+    "correctAnswerIndex": 0,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 57,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "We can send a person to (2) _____ the amount of time it will take and the approximate costs.",
+    "skill": "Text Completion",
+    "test": 4,
+    "questionNumber": 10,
+    "options": [
+      "conclude",
+      "calculate",
+      "estimate",
+      "guess"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "To:Janet Doe",
+      "text": "To:Janet Doe\nFrom:Greenscape\nDate:June 28\nSubject:Inquiry\nMs. Doe,\nWe thank you for your inquiry. Greenscape has been the leading landscaper for businesses in the greater downtown area for over 10 years. (1) _____ we specialize in gardens and Japanese- style landscape art, we also maintain lawns and fields. But to answer your question, yes, we even clear away thick shrubbery and trees. We can send a person to (2) _____ the amount of time it will take and the approximate costs. Furthermore, if you (3) _____ to replace the dense shrubs with a lawn or garden, you can work with one of our designers to come up with a landscape you can be happy with.\n(4) _____ We are more than happy to serve you."
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 58,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Furthermore, if you (3) _____ to replace the dense shrubs with a lawn or garden, you can work with one of our designers to come up with a landscape you can be happy with.",
+    "skill": "Text Completion",
+    "test": 4,
+    "questionNumber": 11,
+    "options": [
+      "wishing",
+      "wish",
+      "wished",
+      "wishes"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "To:Janet Doe",
+      "text": "To:Janet Doe\nFrom:Greenscape\nDate:June 28\nSubject:Inquiry\nMs. Doe,\nWe thank you for your inquiry. Greenscape has been the leading landscaper for businesses in the greater downtown area for over 10 years. (1) _____ we specialize in gardens and Japanese- style landscape art, we also maintain lawns and fields. But to answer your question, yes, we even clear away thick shrubbery and trees. We can send a person to (2) _____ the amount of time it will take and the approximate costs. Furthermore, if you (3) _____ to replace the dense shrubs with a lawn or garden, you can work with one of our designers to come up with a landscape you can be happy with.\n(4) _____ We are more than happy to serve you."
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 59,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "(4) _____ We are more than happy to serve you.",
+    "skill": "Text Completion",
+    "test": 4,
+    "questionNumber": 12,
+    "options": [
+      "We welcome any business opportunity with you.",
+      "Please don’t hesitate to email any questions you have.",
+      "Please call US at 555-1245 if you are interested in a consultation.",
+      "Visit our website for more information."
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "To:Janet Doe",
+      "text": "To:Janet Doe\nFrom:Greenscape\nDate:June 28\nSubject:Inquiry\nMs. Doe,\nWe thank you for your inquiry. Greenscape has been the leading landscaper for businesses in the greater downtown area for over 10 years. (1) _____ we specialize in gardens and Japanese- style landscape art, we also maintain lawns and fields. But to answer your question, yes, we even clear away thick shrubbery and trees. We can send a person to (2) _____ the amount of time it will take and the approximate costs. Furthermore, if you (3) _____ to replace the dense shrubs with a lawn or garden, you can work with one of our designers to come up with a landscape you can be happy with.\n(4) _____ We are more than happy to serve you."
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 60,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "We oversee a vertically (1) _____ supply chain that starts with the highest quality coffee and coffee fruit from Black Hill, Louisiana.",
+    "skill": "Text Completion",
+    "test": 4,
+    "questionNumber": 13,
+    "options": [
+      "integrates",
+      "to integrate",
+      "integrated",
+      "integration"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Black Hill Beans\nBlack Hill Beans is a Louisianan coffee company and the pioneer of the Louisiana coffee fruit. We oversee a vertically (1)_____ supply chain that starts with the highest quality coffee and coffee fruit from Black Hill, Louisiana. We (2)_______ three award-winning beans, Summer Harvest, Dark Southern, and Black Earth. All can be shipped to you (3)______ 24 hours anywhere in the continental U.S. Black Hill Beans' coffee is also sold at every Launders Superstore in the U.S.\nWhether you're looking for excellent coffee or a bit of southern comfort, Black Hill Beans is the right choice for your coffee. (4)_____ It's nice to feel patriotic while you drink. Visit us online today to hear more about our story.\nwww.blackhillbeans.com"
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 61,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "We (2) _____ three award-winning beans, Summer Harvest, Dark Southern, and Black Earth",
+    "skill": "Text Completion",
+    "test": 4,
+    "questionNumber": 14,
+    "options": [
+      "locate",
+      "select",
+      "evaluate",
+      "produce"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Black Hill Beans\nBlack Hill Beans is a Louisianan coffee company and the pioneer of the Louisiana coffee fruit. We oversee a vertically (1)_____ supply chain that starts with the highest quality coffee and coffee fruit from Black Hill, Louisiana. We (2)_______ three award-winning beans, Summer Harvest, Dark Southern, and Black Earth. All can be shipped to you (3)______ 24 hours anywhere in the continental U.S. Black Hill Beans' coffee is also sold at every Launders Superstore in the U.S.\nWhether you're looking for excellent coffee or a bit of southern comfort, Black Hill Beans is the right choice for your coffee. (4)_____ It's nice to feel patriotic while you drink. Visit us online today to hear more about our story.\nwww.blackhillbeans.com"
+    },
+    "correctAnswerIndex": 3,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 62,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "All can be shipped to you (3) _____ 24 hours anywhere in the continental U.S. Black Hill Beans’ coffee is also sold at every Launders Superstore in the U.S.",
+    "skill": "Text Completion",
+    "test": 4,
+    "questionNumber": 15,
+    "options": [
+      "within",
+      "by",
+      "until",
+      "at"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Black Hill Beans\nBlack Hill Beans is a Louisianan coffee company and the pioneer of the Louisiana coffee fruit. We oversee a vertically (1)_____ supply chain that starts with the highest quality coffee and coffee fruit from Black Hill, Louisiana. We (2)_______ three award-winning beans, Summer Harvest, Dark Southern, and Black Earth. All can be shipped to you (3)______ 24 hours anywhere in the continental U.S. Black Hill Beans' coffee is also sold at every Launders Superstore in the U.S.\nWhether you're looking for excellent coffee or a bit of southern comfort, Black Hill Beans is the right choice for your coffee. (4)_____ It's nice to feel patriotic while you drink. Visit us online today to hear more about our story.\nwww.blackhillbeans.com"
+    },
+    "correctAnswerIndex": 0,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 63,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "(4) _____ It’s nice to feel patriotic while you drink.",
+    "skill": "Text Completion",
+    "test": 4,
+    "questionNumber": 16,
+    "options": [
+      "Try the best-selling frozen beverage around.",
+      "It’s American-made and organic.",
+      "Let us help you find the right supplier.",
+      "This discount is only available through October 1"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Black Hill Beans\nBlack Hill Beans is a Louisianan coffee company and the pioneer of the Louisiana coffee fruit. We oversee a vertically (1)_____ supply chain that starts with the highest quality coffee and coffee fruit from Black Hill, Louisiana. We (2)_______ three award-winning beans, Summer Harvest, Dark Southern, and Black Earth. All can be shipped to you (3)______ 24 hours anywhere in the continental U.S. Black Hill Beans' coffee is also sold at every Launders Superstore in the U.S.\nWhether you're looking for excellent coffee or a bit of southern comfort, Black Hill Beans is the right choice for your coffee. (4)_____ It's nice to feel patriotic while you drink. Visit us online today to hear more about our story.\nwww.blackhillbeans.com"
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 64,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Thank you for your (1) _____ about our services.",
+    "skill": "Text Completion",
+    "test": 5,
+    "questionNumber": 1,
+    "options": [
+      "submission",
+      "placement",
+      "review",
+      "inquiry"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "Date:June 21",
+      "text": "Date:June 21\nTo:Mike Harris\nFrom:Rhonda Cross\nSubject: RE: Landscaping and Maintenance\nThank you for your (1) _____ about our services. Arbor Care is a green lawn care and landscaping business. We only use environmentally friendly techniques and products when caring for the grounds of any business. We’ve been working in the Portland area for (2) _____ 20 years. Currently, we are serving more than 150 businesses in the downtown area.\nAs to your specific request, yes, we can easily remove dead trees and replace them with something that fits the (3) _____ landscaping. To give you an exact quote, we would need to stop by and access the situation in person. To have one of our garden technicians stop by, please call US at (713) 678-9916 (4) _____."
+    },
+    "correctAnswerIndex": 3,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 65,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "We’ve been working in the Portland area for (2) _____ 20 years.",
+    "skill": "Text Completion",
+    "test": 5,
+    "questionNumber": 2,
+    "options": [
+      "over",
+      "around",
+      "until",
+      "through"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "Date:June 21",
+      "text": "Date:June 21\nTo:Mike Harris\nFrom:Rhonda Cross\nSubject: RE: Landscaping and Maintenance\nThank you for your (1) _____ about our services. Arbor Care is a green lawn care and landscaping business. We only use environmentally friendly techniques and products when caring for the grounds of any business. We’ve been working in the Portland area for (2) _____ 20 years. Currently, we are serving more than 150 businesses in the downtown area.\nAs to your specific request, yes, we can easily remove dead trees and replace them with something that fits the (3) _____ landscaping. To give you an exact quote, we would need to stop by and access the situation in person. To have one of our garden technicians stop by, please call US at (713) 678-9916 (4) _____."
+    },
+    "correctAnswerIndex": 0,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 66,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "As to your specific request, yes, we can easily remove dead trees and replace them with something that fits the (3) _____ landscaping.",
+    "skill": "Text Completion",
+    "test": 5,
+    "questionNumber": 3,
+    "options": [
+      "exist",
+      "existed",
+      "existing",
+      "exists"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "Date:June 21",
+      "text": "Date:June 21\nTo:Mike Harris\nFrom:Rhonda Cross\nSubject: RE: Landscaping and Maintenance\nThank you for your (1) _____ about our services. Arbor Care is a green lawn care and landscaping business. We only use environmentally friendly techniques and products when caring for the grounds of any business. We’ve been working in the Portland area for (2) _____ 20 years. Currently, we are serving more than 150 businesses in the downtown area.\nAs to your specific request, yes, we can easily remove dead trees and replace them with something that fits the (3) _____ landscaping. To give you an exact quote, we would need to stop by and access the situation in person. To have one of our garden technicians stop by, please call US at (713) 678-9916 (4) _____."
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 67,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "To have one of our garden technicians stop by, please call us at (713) 678-9916 (4) _____.",
+    "skill": "Text Completion",
+    "test": 5,
+    "questionNumber": 4,
+    "options": [
+      "It is a pleasure doing business with you",
+      "We hope to hear from you soon.",
+      "Please send us an email.",
+      "Best wishes for your continued success."
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "Date:June 21",
+      "text": "Date:June 21\nTo:Mike Harris\nFrom:Rhonda Cross\nSubject: RE: Landscaping and Maintenance\nThank you for your (1) _____ about our services. Arbor Care is a green lawn care and landscaping business. We only use environmentally friendly techniques and products when caring for the grounds of any business. We’ve been working in the Portland area for (2) _____ 20 years. Currently, we are serving more than 150 businesses in the downtown area.\nAs to your specific request, yes, we can easily remove dead trees and replace them with something that fits the (3) _____ landscaping. To give you an exact quote, we would need to stop by and access the situation in person. To have one of our garden technicians stop by, please call US at (713) 678-9916 (4) _____."
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 68,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "The Sales Lead Specialist will place outbound calls to (1) _____ customers seeking to purchase various services such as Insurance, tax help, financial help, telecommunications, or transportation.",
+    "skill": "Text Completion",
+    "test": 5,
+    "questionNumber": 5,
+    "options": [
+      "substantial",
+      "potential",
+      "optimal",
+      "logical"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Outbound Sales Lead Specialist/Telemarketer\nLocation: Atlanta, GA\nJob Code: 3766\n# of openings: 4\nThe Sales Lead Specialist will place outbound calls to (1) _____ customers seeking to purchase various services such as Insurance, tax help, financial help, telecommunications, or transportation. They will also call on leads from our existing customer base. Cold calls are required.\nYou will work directly with customers via the telephone and e-mail to describe products and services in order to persuade potential and current customers to purchase new products and services. The job will also require you to educate customers on product and service offerings (2) _____. There is also a minimum requirement for monthly sales that is set at $7,500 in net revenue. (3) _____ , the job calls for all employees to continually be taking product education course that will help you better serve our customers.\nTo be eligible for the position, you must have one or more years in telesales, strong customer service skills, and superior closing skills.\nIf you feel you (4) _____ these requirements and are looking for a lucrative exciting experience, please click below."
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 69,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "The job will also require you to educate customers on product and service offerings (2) _____",
+    "skill": "Text Completion",
+    "test": 5,
+    "questionNumber": 6,
+    "options": [
+      "The more you purchase, the more opportunity you’ll have for advancement.",
+      "This managerial position will require an organized and highly motivated individual.",
+      "If you could help find your replacement, it would be much appreciated.",
+      "It will be crucial for you to place a minimum of 150 outbound calls each day."
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Outbound Sales Lead Specialist/Telemarketer\nLocation: Atlanta, GA\nJob Code: 3766\n# of openings: 4\nThe Sales Lead Specialist will place outbound calls to (1) _____ customers seeking to purchase various services such as Insurance, tax help, financial help, telecommunications, or transportation. They will also call on leads from our existing customer base. Cold calls are required.\nYou will work directly with customers via the telephone and e-mail to describe products and services in order to persuade potential and current customers to purchase new products and services. The job will also require you to educate customers on product and service offerings (2) _____. There is also a minimum requirement for monthly sales that is set at $7,500 in net revenue. (3) _____ , the job calls for all employees to continually be taking product education course that will help you better serve our customers.\nTo be eligible for the position, you must have one or more years in telesales, strong customer service skills, and superior closing skills.\nIf you feel you (4) _____ these requirements and are looking for a lucrative exciting experience, please click below."
+    },
+    "correctAnswerIndex": 3,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 70,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "(3) _____ , the job calls for all employees to continually be taking product education course that will help you better serve our customers.",
+    "skill": "Text Completion",
+    "test": 5,
+    "questionNumber": 7,
+    "options": [
+      "Actually",
+      "However",
+      "Additionally",
+      "Therefore"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Outbound Sales Lead Specialist/Telemarketer\nLocation: Atlanta, GA\nJob Code: 3766\n# of openings: 4\nThe Sales Lead Specialist will place outbound calls to (1) _____ customers seeking to purchase various services such as Insurance, tax help, financial help, telecommunications, or transportation. They will also call on leads from our existing customer base. Cold calls are required.\nYou will work directly with customers via the telephone and e-mail to describe products and services in order to persuade potential and current customers to purchase new products and services. The job will also require you to educate customers on product and service offerings (2) _____. There is also a minimum requirement for monthly sales that is set at $7,500 in net revenue. (3) _____ , the job calls for all employees to continually be taking product education course that will help you better serve our customers.\nTo be eligible for the position, you must have one or more years in telesales, strong customer service skills, and superior closing skills.\nIf you feel you (4) _____ these requirements and are looking for a lucrative exciting experience, please click below."
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 71,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "If you feel you (4) _____ these requirements and are looking for a lucrative exciting experience, please click below.",
+    "skill": "Text Completion",
+    "test": 5,
+    "questionNumber": 8,
+    "options": [
+      "meet",
+      "to meet",
+      "meeting",
+      "met"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Outbound Sales Lead Specialist/Telemarketer\nLocation: Atlanta, GA\nJob Code: 3766\n# of openings: 4\nThe Sales Lead Specialist will place outbound calls to (1) _____ customers seeking to purchase various services such as Insurance, tax help, financial help, telecommunications, or transportation. They will also call on leads from our existing customer base. Cold calls are required.\nYou will work directly with customers via the telephone and e-mail to describe products and services in order to persuade potential and current customers to purchase new products and services. The job will also require you to educate customers on product and service offerings (2) _____. There is also a minimum requirement for monthly sales that is set at $7,500 in net revenue. (3) _____ , the job calls for all employees to continually be taking product education course that will help you better serve our customers.\nTo be eligible for the position, you must have one or more years in telesales, strong customer service skills, and superior closing skills.\nIf you feel you (4) _____ these requirements and are looking for a lucrative exciting experience, please click below."
+    },
+    "correctAnswerIndex": 0,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 72,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "In the past, you simply had to pay out of pocket first then provide your receipts after renting vehicles, taking business trips, or (1) _____ other business expenses.",
+    "skill": "Text Completion",
+    "test": 5,
+    "questionNumber": 9,
+    "options": [
+      "incur",
+      "incurred",
+      "incurring",
+      "to incur"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "From:James Jones,Executive Manager",
+      "text": "From:James Jones,Executive Manager\nTo:Sales Agents\nDate:July 15\nSubject: Policy Change\nDear Sales Agents,\nThere has been a recent change to our reimbursement policy. In the past, you simply had to pay out of pocket first then provide your receipts after renting vehicles, taking business trips, or (1) _____ other business expenses.(2) _____, now you will be required to fill out an application which will need to be approved by the accounting department first. (3) _____ If you spend beyond the amount given in the card, you will have to pay out of your own pocket and will not be reimbursed for that.\nPlease read the attachment to get further details on what expenses can and cannot be (4) _____ by the company."
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 73,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "(2) _____, now you will be required to fill out an application which will need to be approved by the accounting department first.",
+    "skill": "Text Completion",
+    "test": 5,
+    "questionNumber": 10,
+    "options": [
+      "However",
+      "Therefore",
+      "Furthermore",
+      "Since"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "From:James Jones,Executive Manager",
+      "text": "From:James Jones,Executive Manager\nTo:Sales Agents\nDate:July 15\nSubject: Policy Change\nDear Sales Agents,\nThere has been a recent change to our reimbursement policy. In the past, you simply had to pay out of pocket first then provide your receipts after renting vehicles, taking business trips, or (1) _____ other business expenses.(2) _____, now you will be required to fill out an application which will need to be approved by the accounting department first. (3) _____ If you spend beyond the amount given in the card, you will have to pay out of your own pocket and will not be reimbursed for that.\nPlease read the attachment to get further details on what expenses can and cannot be (4) _____ by the company."
+    },
+    "correctAnswerIndex": 0,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 74,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "(3) _____ If you spend beyond the amount given in the card, you will have to pay out of your own pocket and will not be reimbursed for that.",
+    "skill": "Text Completion",
+    "test": 5,
+    "questionNumber": 11,
+    "options": [
+      "They will not approve any card not authorized by a bank.",
+      "You will have to spend from your own credit card.",
+      "Then you will be provided with a company card which holds limited funds.",
+      "They must decide whether our budget allows for our expenses."
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "From:James Jones,Executive Manager",
+      "text": "From:James Jones,Executive Manager\nTo:Sales Agents\nDate:July 15\nSubject: Policy Change\nDear Sales Agents,\nThere has been a recent change to our reimbursement policy. In the past, you simply had to pay out of pocket first then provide your receipts after renting vehicles, taking business trips, or (1) _____ other business expenses.(2) _____, now you will be required to fill out an application which will need to be approved by the accounting department first. (3) _____ If you spend beyond the amount given in the card, you will have to pay out of your own pocket and will not be reimbursed for that.\nPlease read the attachment to get further details on what expenses can and cannot be (4) _____ by the company."
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 75,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Please read the attachment to get further details on what expenses can and cannot be (4) _____ by the company.",
+    "skill": "Text Completion",
+    "test": 5,
+    "questionNumber": 12,
+    "options": [
+      "certain",
+      "acknowledged",
+      "established",
+      "approved"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "From:James Jones,Executive Manager",
+      "text": "From:James Jones,Executive Manager\nTo:Sales Agents\nDate:July 15\nSubject: Policy Change\nDear Sales Agents,\nThere has been a recent change to our reimbursement policy. In the past, you simply had to pay out of pocket first then provide your receipts after renting vehicles, taking business trips, or (1) _____ other business expenses.(2) _____, now you will be required to fill out an application which will need to be approved by the accounting department first. (3) _____ If you spend beyond the amount given in the card, you will have to pay out of your own pocket and will not be reimbursed for that.\nPlease read the attachment to get further details on what expenses can and cannot be (4) _____ by the company."
+    },
+    "correctAnswerIndex": 3,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 76,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "we have (1) _____ water slides, including our Death Fall, the largest slide in the state.",
+    "skill": "Text Completion",
+    "test": 5,
+    "questionNumber": 13,
+    "options": [
+      "excite",
+      "excited",
+      "exciting",
+      "excitement"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Come visit Wild Water Parks, your summer destination for family and friends of all ages. We have kiddie pools, we have outdoor pools, we have indoor pools, we have waves, and we have (1) _____ water slides, including our Death Fall, the largest slide in the state. We have everything for everyone in (2) _____group. Don't forget our delicious snack stands and restaurants. We also have gift shops and playgrounds. (3)_____ You can get tickets by calling 123-5555 or a season's pass for a (4) ______ of the price. Call now and experience the fun!"
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 77,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "We have everything for everyone in (2) _____group.",
+    "skill": "Text Completion",
+    "test": 5,
+    "questionNumber": 14,
+    "options": [
+      "their",
+      "his",
+      "our",
+      "your"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Come visit Wild Water Parks, your summer destination for family and friends of all ages. We have kiddie pools, we have outdoor pools, we have indoor pools, we have waves, and we have (1) _____ water slides, including our Death Fall, the largest slide in the state. We have everything for everyone in (2) _____group. Don't forget our delicious snack stands and restaurants. We also have gift shops and playgrounds. (3)_____ You can get tickets by calling 123-5555 or a season's pass for a (4) ______ of the price. Call now and experience the fun!"
+    },
+    "correctAnswerIndex": 3,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 78,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "(3)_____ You can get tickets by calling 123-5555",
+    "skill": "Text Completion",
+    "test": 5,
+    "questionNumber": 15,
+    "options": [
+      "The pools are the best place to stay.",
+      "We even have a dog park for that furry companion of yours",
+      "The chefs are top notch and the food is second to none.",
+      "Hurry before the season is over and the promotion is finishes."
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Come visit Wild Water Parks, your summer destination for family and friends of all ages. We have kiddie pools, we have outdoor pools, we have indoor pools, we have waves, and we have (1) _____ water slides, including our Death Fall, the largest slide in the state. We have everything for everyone in (2) _____group. Don't forget our delicious snack stands and restaurants. We also have gift shops and playgrounds. (3)_____ You can get tickets by calling 123-5555 or a season's pass for a (4) ______ of the price. Call now and experience the fun!"
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 79,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "You can get tickets by calling 123-5555 or a season’s pass for a (4)____ of the price.",
+    "skill": "Text Completion",
+    "test": 5,
+    "questionNumber": 16,
+    "options": [
+      "fraction",
+      "section",
+      "division",
+      "total"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Come visit Wild Water Parks, your summer destination for family and friends of all ages. We have kiddie pools, we have outdoor pools, we have indoor pools, we have waves, and we have (1) _____ water slides, including our Death Fall, the largest slide in the state. We have everything for everyone in (2) _____group. Don't forget our delicious snack stands and restaurants. We also have gift shops and playgrounds. (3)_____ You can get tickets by calling 123-5555 or a season's pass for a (4) ______ of the price. Call now and experience the fun!"
+    },
+    "correctAnswerIndex": 0,
+    "explanation": null,
+    "difficulty": "medium",
+    "abilityBand": "intermediate",
+    "minScore": 451,
+    "maxScore": 750
+  },
+  {
+    "id": 80,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Complaints of damaged goods after being shipped (1) ______ dramatically in the last month.",
+    "skill": "Text Completion",
+    "test": 6,
+    "questionNumber": 1,
+    "options": [
+      "increasing",
+      "have increased",
+      "were increased",
+      "increases"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "To: Olivia Paulson",
+      "text": "To: Olivia Paulson\nFrom: Jonathan Hicks\nDate: July 19\nSubject:Procedural Review\nAn issue was brought up at the executives meeting last Thursday. Complaints of damaged goods after being shipped (1) ______ dramatically in the last month. This may be a result of more fragile items being added to the products we now ship. (2) ______. We are reviewing the packaging procedures for our products and are looking to add more steps to (3) ______ that the products are packaged securely and delivered without damage.\nPlease inform the managers on the manufacturing team to attend an (4) ______ meeting tonight at 7:00 P.M. We hope to address this problem and come up with a sound solution as quickly as possible so that normal business can resume."
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 81,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "This may be a result of more fragile items being added to the products we now ship. (2) ______.",
+    "skill": "Text Completion",
+    "test": 6,
+    "questionNumber": 2,
+    "options": [
+      "We are thinking of dropping such items from our product list.",
+      "We may need to increase the shipping and handling cost.",
+      "An added insurance cost for such items has been suggested.",
+      "Because of this, we have temporarily suspended the shipping of accessories and other fragile items."
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "To: Olivia Paulson",
+      "text": "To: Olivia Paulson\nFrom: Jonathan Hicks\nDate: July 19\nSubject:Procedural Review\nAn issue was brought up at the executives meeting last Thursday. Complaints of damaged goods after being shipped (1) ______ dramatically in the last month. This may be a result of more fragile items being added to the products we now ship. (2) ______. We are reviewing the packaging procedures for our products and are looking to add more steps to (3) ______ that the products are packaged securely and delivered without damage.\nPlease inform the managers on the manufacturing team to attend an (4) ______ meeting tonight at 7:00 P.M. We hope to address this problem and come up with a sound solution as quickly as possible so that normal business can resume."
+    },
+    "correctAnswerIndex": 3,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 82,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "We are reviewing the packaging procedures for our products and are looking to add more steps to (3) ______ that the products are packaged securely and delivered without damage.",
+    "skill": "Text Completion",
+    "test": 6,
+    "questionNumber": 3,
+    "options": [
+      "secure",
+      "affect",
+      "ensure",
+      "warrant"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "To: Olivia Paulson",
+      "text": "To: Olivia Paulson\nFrom: Jonathan Hicks\nDate: July 19\nSubject:Procedural Review\nAn issue was brought up at the executives meeting last Thursday. Complaints of damaged goods after being shipped (1) ______ dramatically in the last month. This may be a result of more fragile items being added to the products we now ship. (2) ______. We are reviewing the packaging procedures for our products and are looking to add more steps to (3) ______ that the products are packaged securely and delivered without damage.\nPlease inform the managers on the manufacturing team to attend an (4) ______ meeting tonight at 7:00 P.M. We hope to address this problem and come up with a sound solution as quickly as possible so that normal business can resume."
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 83,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Please inform the managers on the manufacturing team to attend an (4) ______ meeting tonight at 7:00 P.M.",
+    "skill": "Text Completion",
+    "test": 6,
+    "questionNumber": 4,
+    "options": [
+      "emergency",
+      "necessity",
+      "decisive",
+      "extensive"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "To: Olivia Paulson",
+      "text": "To: Olivia Paulson\nFrom: Jonathan Hicks\nDate: July 19\nSubject:Procedural Review\nAn issue was brought up at the executives meeting last Thursday. Complaints of damaged goods after being shipped (1) ______ dramatically in the last month. This may be a result of more fragile items being added to the products we now ship. (2) ______. We are reviewing the packaging procedures for our products and are looking to add more steps to (3) ______ that the products are packaged securely and delivered without damage.\nPlease inform the managers on the manufacturing team to attend an (4) ______ meeting tonight at 7:00 P.M. We hope to address this problem and come up with a sound solution as quickly as possible so that normal business can resume."
+    },
+    "correctAnswerIndex": 0,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 84,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "(1) _____ 2005, Green Clean has been providing professional and environmentally friendly cleaning services of consistent high quality to all types of commercial and industrial facilities.",
+    "skill": "Text Completion",
+    "test": 6,
+    "questionNumber": 5,
+    "options": [
+      "Until",
+      "Around",
+      "Since",
+      "Through"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Green Clean Services\nCall us: 347-281-7834\n(1) _____ 2005, Green Clean has been providing professional and environmentally friendly cleaning services of consistent high quality to all types of commercial and industrial facilities. (2) _____. We understand the contributions a good employee makes toward our (3) _____ , and we commit to selecting the best available people to work for you.\nGreen Clean’s mission is to satisfy our customers needs on a daily basis while providing the best combination of quality, price, and delivery. We accomplish this by continually improving our systems of (4) _____ . Our goal is to make your facility extremely clean in the greenest way possible. Visit our website today at www.greenclean.com"
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 85,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "_____ 2005, Green Clean has been providing professional and environmentally friendly cleaning services of consistent high quality to all types of commercial and industrial facilities. (2) _____.",
+    "skill": "Text Completion",
+    "test": 6,
+    "questionNumber": 6,
+    "options": [
+      "Drop in today to schedule a tour of one of our twenty facilities.",
+      "We are the biggest manufacture of environmentally cleaning supplies in the Northwest.",
+      "As a service company, we consider our employees to be our most important asset.",
+      "Allow us to work for you by calling us today to take care of all of your accounting needs."
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Green Clean Services\nCall us: 347-281-7834\n(1) _____ 2005, Green Clean has been providing professional and environmentally friendly cleaning services of consistent high quality to all types of commercial and industrial facilities. (2) _____. We understand the contributions a good employee makes toward our (3) _____ , and we commit to selecting the best available people to work for you.\nGreen Clean’s mission is to satisfy our customers needs on a daily basis while providing the best combination of quality, price, and delivery. We accomplish this by continually improving our systems of (4) _____ . Our goal is to make your facility extremely clean in the greenest way possible. Visit our website today at www.greenclean.com"
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 86,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "We understand the contributions a good employee makes toward our (3) _____ , and we commit to selecting the best available people to work for you.",
+    "skill": "Text Completion",
+    "test": 6,
+    "questionNumber": 7,
+    "options": [
+      "success",
+      "drive",
+      "support",
+      "determination"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Green Clean Services\nCall us: 347-281-7834\n(1) _____ 2005, Green Clean has been providing professional and environmentally friendly cleaning services of consistent high quality to all types of commercial and industrial facilities. (2) _____. We understand the contributions a good employee makes toward our (3) _____ , and we commit to selecting the best available people to work for you.\nGreen Clean’s mission is to satisfy our customers needs on a daily basis while providing the best combination of quality, price, and delivery. We accomplish this by continually improving our systems of (4) _____ . Our goal is to make your facility extremely clean in the greenest way possible. Visit our website today at www.greenclean.com"
+    },
+    "correctAnswerIndex": 0,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 87,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "We accomplish this by continually improving our systems of (4) _____ .",
+    "skill": "Text Completion",
+    "test": 6,
+    "questionNumber": 8,
+    "options": [
+      "to operate",
+      "operates",
+      "operated",
+      "operation"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Green Clean Services\nCall us: 347-281-7834\n(1) _____ 2005, Green Clean has been providing professional and environmentally friendly cleaning services of consistent high quality to all types of commercial and industrial facilities. (2) _____. We understand the contributions a good employee makes toward our (3) _____ , and we commit to selecting the best available people to work for you.\nGreen Clean’s mission is to satisfy our customers needs on a daily basis while providing the best combination of quality, price, and delivery. We accomplish this by continually improving our systems of (4) _____ . Our goal is to make your facility extremely clean in the greenest way possible. Visit our website today at www.greenclean.com"
+    },
+    "correctAnswerIndex": 3,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 88,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Does the idea of (1) _____ your day being creative and working with nature appeal to you?",
+    "skill": "Text Completion",
+    "test": 6,
+    "questionNumber": 9,
+    "options": [
+      "spend",
+      "to spend",
+      "spending",
+      "spent"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Florist Wanted\nDo you love making people smile? Does the idea of (1) _____ your day being creative and working with nature appeal to you? If so, we would like to encourage you to apply to join\nour team at Wild Flowers Florists. (2) _____. We are looking for someone who is customer- (3) _____ first. Creativity is important, but it is secondary to the vision of the client. If you think (4) _____ have what it takes to make people smile, please fill out our online application form on our website, www.WildFlowersFlorists.com."
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 89,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "If so, we would like to encourage you to apply to join our team at Wild Flowers Florists. (2) _____.",
+    "skill": "Text Completion",
+    "test": 6,
+    "questionNumber": 10,
+    "options": [
+      "You must be good with animals.",
+      "Our company is committed to providing the best floral arrangements for our clients, no matter what their needs.",
+      "We use the best fabrics in our designs.",
+      "All people love our commitment to safety."
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Florist Wanted\nDo you love making people smile? Does the idea of (1) _____ your day being creative and working with nature appeal to you? If so, we would like to encourage you to apply to join\nour team at Wild Flowers Florists. (2) _____. We are looking for someone who is customer- (3) _____ first. Creativity is important, but it is secondary to the vision of the client. If you think (4) _____ have what it takes to make people smile, please fill out our online application form on our website, www.WildFlowersFlorists.com."
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 90,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "We are looking for someone who is customer- (3) _____ first.",
+    "skill": "Text Completion",
+    "test": 6,
+    "questionNumber": 11,
+    "options": [
+      "oriented",
+      "prime",
+      "located",
+      "sourced"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Florist Wanted\nDo you love making people smile? Does the idea of (1) _____ your day being creative and working with nature appeal to you? If so, we would like to encourage you to apply to join\nour team at Wild Flowers Florists. (2) _____. We are looking for someone who is customer- (3) _____ first. Creativity is important, but it is secondary to the vision of the client. If you think (4) _____ have what it takes to make people smile, please fill out our online application form on our website, www.WildFlowersFlorists.com."
+    },
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 91,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "If you think (4) _____ have what it takes to make people smile, please fill out our online application form on our website, www.WildFlowersFlorists.com.",
+    "skill": "Text Completion",
+    "test": 6,
+    "questionNumber": 12,
+    "options": [
+      "you",
+      "I",
+      "they",
+      "we"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Florist Wanted\nDo you love making people smile? Does the idea of (1) _____ your day being creative and working with nature appeal to you? If so, we would like to encourage you to apply to join\nour team at Wild Flowers Florists. (2) _____. We are looking for someone who is customer- (3) _____ first. Creativity is important, but it is secondary to the vision of the client. If you think (4) _____ have what it takes to make people smile, please fill out our online application form on our website, www.WildFlowersFlorists.com."
+    },
+    "correctAnswerIndex": 0,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 92,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "(1) _____ , a few people living on the west wing of the building _____ concern over the noise levels.",
+    "skill": "Text Completion",
+    "test": 6,
+    "questionNumber": 13,
+    "options": [
+      "As a result",
+      "Moreover",
+      "On the other hand",
+      "Unfortunately"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "October 21\nLarry Mills\n226 Highland Rivers\nFairbank, WA 20037\nDear Mr. Mills,\nI am writing in reply to your complaint about the noise levels coming from the surrounding businesses around the apartment complex. (1) _____ , a few people living on the west wing of the building (2) _____ concern over the noise levels. The building committee has conducted meetings over this issue and we have talked to the businesses. (3) _____ . Because of this, we are also looking to fortify the windows with noise-proof glass for residences living on the west wing. Once we have agreed upon the proposals, we will post the announcement on our ulletin board and you may receive a call. Until then, we ask for your (4) _____ patience."
+    },
+    "correctAnswerIndex": 3,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 93,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "_____ , a few people living on the west wing of the building (2) _____ concern over the noise levels.",
+    "skill": "Text Completion",
+    "test": 6,
+    "questionNumber": 14,
+    "options": [
+      "is expressing",
+      "have expressed",
+      "expression",
+      "be expressive"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "October 21\nLarry Mills\n226 Highland Rivers\nFairbank, WA 20037\nDear Mr. Mills,\nI am writing in reply to your complaint about the noise levels coming from the surrounding businesses around the apartment complex. (1) _____ , a few people living on the west wing of the building (2) _____ concern over the noise levels. The building committee has conducted meetings over this issue and we have talked to the businesses. (3) _____ . Because of this, we are also looking to fortify the windows with noise-proof glass for residences living on the west wing. Once we have agreed upon the proposals, we will post the announcement on our ulletin board and you may receive a call. Until then, we ask for your (4) _____ patience."
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 94,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "The building committee has conducted meetings over this issue and we have talked to the businesses. (3) _____ .",
+    "skill": "Text Completion",
+    "test": 6,
+    "questionNumber": 15,
+    "options": [
+      "However, some of the noises are inevitable due to the nature of the businesses.",
+      "They will fully cooperate with our committee.",
+      "They have responded to our concerns and will work to keep noise levels low.",
+      "However, they are losing money over this matter."
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "October 21\nLarry Mills\n226 Highland Rivers\nFairbank, WA 20037\nDear Mr. Mills,\nI am writing in reply to your complaint about the noise levels coming from the surrounding businesses around the apartment complex. (1) _____ , a few people living on the west wing of the building (2) _____ concern over the noise levels. The building committee has conducted meetings over this issue and we have talked to the businesses. (3) _____ . Because of this, we are also looking to fortify the windows with noise-proof glass for residences living on the west wing. Once we have agreed upon the proposals, we will post the announcement on our ulletin board and you may receive a call. Until then, we ask for your (4) _____ patience."
+    },
+    "correctAnswerIndex": 0,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 95,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Until then, we ask for your (4) _____ patience.",
+    "skill": "Text Completion",
+    "test": 6,
+    "questionNumber": 16,
+    "options": [
+      "continue",
+      "continues",
+      "continued",
+      "be continuing"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "October 21\nLarry Mills\n226 Highland Rivers\nFairbank, WA 20037\nDear Mr. Mills,\nI am writing in reply to your complaint about the noise levels coming from the surrounding businesses around the apartment complex. (1) _____ , a few people living on the west wing of the building (2) _____ concern over the noise levels. The building committee has conducted meetings over this issue and we have talked to the businesses. (3) _____ . Because of this, we are also looking to fortify the windows with noise-proof glass for residences living on the west wing. Once we have agreed upon the proposals, we will post the announcement on our ulletin board and you may receive a call. Until then, we ask for your (4) _____ patience."
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 96,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Receiving the federal grant money last month (1) _____ us to invest in upgrading a few areas of our building.",
+    "skill": "Text Completion",
+    "test": 7,
+    "questionNumber": 1,
+    "options": [
+      "did allow",
+      "has allowed",
+      "allows",
+      "are allowing"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "From: Vice President Donna Johnson",
+      "text": "From: Vice President Donna Johnson\nTo: Helio Tech Employees\nDate: July 5th\nSubject: Lobby Renovation\nPlease, just sign and date your check and return it to your server. We are (4) _____ that this is a bit of an inconvenience, and we thank you for your cooperation."
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 97,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "(2) _____ . We will be remodeling the lobby starting July 12th. It should take approximately two weeks.",
+    "skill": "Text Completion",
+    "test": 7,
+    "questionNumber": 2,
+    "options": [
+      "Construction will begin when the building permits are received.",
+      "This celebration will last for most of the month of July.",
+      "Considering the cost, the renovation might be postponed.",
+      "The first area that will benefit from this is the lobby."
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "From: Vice President Donna Johnson",
+      "text": "From: Vice President Donna Johnson\nTo: Helio Tech Employees\nDate: July 5th\nSubject: Lobby Renovation\nPlease, just sign and date your check and return it to your server. We are (4) _____ that this is a bit of an inconvenience, and we thank you for your cooperation."
+    },
+    "correctAnswerIndex": 3,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 98,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "(3) _____ that time, if you have a meeting with anyone from outside of the company, please schedule to have it at the Rose street Café on the corner.",
+    "skill": "Text Completion",
+    "test": 7,
+    "questionNumber": 3,
+    "options": [
+      "Upon",
+      "During",
+      "Until",
+      "Around"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "From: Vice President Donna Johnson",
+      "text": "From: Vice President Donna Johnson\nTo: Helio Tech Employees\nDate: July 5th\nSubject: Lobby Renovation\nPlease, just sign and date your check and return it to your server. We are (4) _____ that this is a bit of an inconvenience, and we thank you for your cooperation."
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 99,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "We are (4) _____ that this is a bit of an inconvenience, and we thank you for your cooperation.",
+    "skill": "Text Completion",
+    "test": 7,
+    "questionNumber": 4,
+    "options": [
+      "aware",
+      "disciplined",
+      "reluctant",
+      "content"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "From: Vice President Donna Johnson",
+      "text": "From: Vice President Donna Johnson\nTo: Helio Tech Employees\nDate: July 5th\nSubject: Lobby Renovation\nPlease, just sign and date your check and return it to your server. We are (4) _____ that this is a bit of an inconvenience, and we thank you for your cooperation."
+    },
+    "correctAnswerIndex": 0,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 100,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Paradise Café is looking (1) _____ a part-time line cook.",
+    "skill": "Text Completion",
+    "test": 7,
+    "questionNumber": 5,
+    "options": [
+      "hiring",
+      "hire",
+      "to hire",
+      "to hiring"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Part-time Cook Needed"
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 101,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Applicants must be able to work in a fast-paced environment and be familiar with all standard breakfast fare . (2) _____ .",
+    "skill": "Text Completion",
+    "test": 7,
+    "questionNumber": 6,
+    "options": [
+      "Applicants should know how to make scrambled eggs.",
+      "People applying should know how to wash dishes.",
+      "Anyone applying should be able to work nights.",
+      "Currently, we can only offer weekday shifts but the applicant must be willing to work weekends if required."
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Part-time Cook Needed"
+    },
+    "correctAnswerIndex": 3,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 102,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "This weekend schedule could change in the future. Ideally we are looking for an applicant that has (3) _____ one year of experience working as a short-order cook.",
+    "skill": "Text Completion",
+    "test": 7,
+    "questionNumber": 7,
+    "options": [
+      "at most",
+      "below",
+      "at least",
+      "the least"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Part-time Cook Needed"
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 103,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "We (4) _____ forward to welcoming you to our team!",
+    "skill": "Text Completion",
+    "test": 7,
+    "questionNumber": 8,
+    "options": [
+      "look",
+      "looking",
+      "looked",
+      "looks"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Part-time Cook Needed"
+    },
+    "correctAnswerIndex": 0,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 104,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "We (1) _____ recognized as the state’s leading experts in the industry and many of our agents have been awarded for their excellence in service by Forbes Property Magazine.",
+    "skill": "Text Completion",
+    "test": 7,
+    "questionNumber": 9,
+    "options": [
+      "been",
+      "had been",
+      "are being",
+      "have been"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "City Realty\nCity Realty is Washington’s number one real estate company, serving the state for over 50 years. We (1) _____ recognized as the state’s leading experts in the industry and many of our agents have been awarded for their excellence in service by Forbes Property Magazine. Our agents are (2) _____ to bringing their best knowledge and expertise to the table, and they have extensive know-how about the housing market dos and don’ts. Our agents specialize in different areas of the industry including corporate real estate, residential real estate, and rental properties. (3) _____.\nOur headquarters is located in the central downtown area where you can meet with one of our agents (4) _____ a free consultation. You can also visit our website www.cityrealty.com for property listings and further information."
+    },
+    "correctAnswerIndex": 3,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 105,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Our agents are (2) _____ to bringing their best knowledge and expertise to the table, and they have extensive know-how about the housing market dos and don’ts.",
+    "skill": "Text Completion",
+    "test": 7,
+    "questionNumber": 10,
+    "options": [
+      "attached",
+      "faithful",
+      "committed",
+      "loyal"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "City Realty\nCity Realty is Washington’s number one real estate company, serving the state for over 50 years. We (1) _____ recognized as the state’s leading experts in the industry and many of our agents have been awarded for their excellence in service by Forbes Property Magazine. Our agents are (2) _____ to bringing their best knowledge and expertise to the table, and they have extensive know-how about the housing market dos and don’ts. Our agents specialize in different areas of the industry including corporate real estate, residential real estate, and rental properties. (3) _____.\nOur headquarters is located in the central downtown area where you can meet with one of our agents (4) _____ a free consultation. You can also visit our website www.cityrealty.com for property listings and further information."
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 106,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Our agents specialize in different areas of the industry including corporate real estate, residential real estate, and rental properties. (3) _____.",
+    "skill": "Text Completion",
+    "test": 7,
+    "questionNumber": 11,
+    "options": [
+      "You can be confident that they serve your specific needs.",
+      "You can rent hundreds of properties from our listings.",
+      "The agents in corporate real estate make the most earnings.",
+      "The residential agents are very busy with the rising housing market."
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "City Realty\nCity Realty is Washington’s number one real estate company, serving the state for over 50 years. We (1) _____ recognized as the state’s leading experts in the industry and many of our agents have been awarded for their excellence in service by Forbes Property Magazine. Our agents are (2) _____ to bringing their best knowledge and expertise to the table, and they have extensive know-how about the housing market dos and don’ts. Our agents specialize in different areas of the industry including corporate real estate, residential real estate, and rental properties. (3) _____.\nOur headquarters is located in the central downtown area where you can meet with one of our agents (4) _____ a free consultation. You can also visit our website www.cityrealty.com for property listings and further information."
+    },
+    "correctAnswerIndex": 0,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 107,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "Our headquarters is located in the central downtown area where you can meet with one of our agents (4) _____ a free consultation.",
+    "skill": "Text Completion",
+    "test": 7,
+    "questionNumber": 12,
+    "options": [
+      "with",
+      "for",
+      "to",
+      "from"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "City Realty\nCity Realty is Washington’s number one real estate company, serving the state for over 50 years. We (1) _____ recognized as the state’s leading experts in the industry and many of our agents have been awarded for their excellence in service by Forbes Property Magazine. Our agents are (2) _____ to bringing their best knowledge and expertise to the table, and they have extensive know-how about the housing market dos and don’ts. Our agents specialize in different areas of the industry including corporate real estate, residential real estate, and rental properties. (3) _____.\nOur headquarters is located in the central downtown area where you can meet with one of our agents (4) _____ a free consultation. You can also visit our website www.cityrealty.com for property listings and further information."
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 108,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "I want to thank everyone who (1) _____ make this party a success.",
+    "skill": "Text Completion",
+    "test": 7,
+    "questionNumber": 13,
+    "options": [
+      "helps",
+      "helped",
+      "helping",
+      "had help"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Employee Message Board\nHoliday Office Party’s Success and Appreciation\nPosted by Julie Norton\nI want to thank everyone who (1) _____ make this party a success. (2) _____. We had some ups and downs as we started preparing for this but the final result has been extraordinary. In fact, the (3) _____ consensus seems to be that this year’s party was the best yet. We had the highest turnout ever and many seem to agree that this year’s activities contributed to the party’s success. It was a joy to see everyone get along so well and participate in all the events. We even (4) _____ our children’s charity fundraising goals by over $1000. Once again, I would like to thank everyone."
+    },
+    "correctAnswerIndex": 1,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 109,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "(2) _____. We had some ups and downs as we started preparing for this but the final result has been extraordinary.",
+    "skill": "Text Completion",
+    "test": 7,
+    "questionNumber": 14,
+    "options": [
+      "I really enjoyed all the food and chatting with everyone.",
+      "I worked really hard to plan this event.",
+      "Special thanks to Keith, Grant, Vanessa, and Melissa, who spent many hours outside of work to help plan everything.",
+      "I’m glad to see that everyone made it to work today."
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Employee Message Board\nHoliday Office Party’s Success and Appreciation\nPosted by Julie Norton\nI want to thank everyone who (1) _____ make this party a success. (2) _____. We had some ups and downs as we started preparing for this but the final result has been extraordinary. In fact, the (3) _____ consensus seems to be that this year’s party was the best yet. We had the highest turnout ever and many seem to agree that this year’s activities contributed to the party’s success. It was a joy to see everyone get along so well and participate in all the events. We even (4) _____ our children’s charity fundraising goals by over $1000. Once again, I would like to thank everyone."
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 110,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "In fact, the (3) _____ consensus seems to be that this year’s party was the best yet.",
+    "skill": "Text Completion",
+    "test": 7,
+    "questionNumber": 15,
+    "options": [
+      "regular",
+      "familiar",
+      "different",
+      "general"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Employee Message Board\nHoliday Office Party’s Success and Appreciation\nPosted by Julie Norton\nI want to thank everyone who (1) _____ make this party a success. (2) _____. We had some ups and downs as we started preparing for this but the final result has been extraordinary. In fact, the (3) _____ consensus seems to be that this year’s party was the best yet. We had the highest turnout ever and many seem to agree that this year’s activities contributed to the party’s success. It was a joy to see everyone get along so well and participate in all the events. We even (4) _____ our children’s charity fundraising goals by over $1000. Once again, I would like to thank everyone."
+    },
+    "correctAnswerIndex": 3,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  },
+  {
+    "id": 111,
+    "section": "Reading",
+    "part": 6,
+    "partLabel": "Part 6",
+    "type": "text-completion",
+    "question": "We even (4) _____ our children’s charity fundraising goals by over $1000.",
+    "skill": "Text Completion",
+    "test": 7,
+    "questionNumber": 16,
+    "options": [
+      "overstepped",
+      "surrendered",
+      "exceeded",
+      "overwhelmed"
+    ],
+    "image": null,
+    "audio": null,
+    "passage": {
+      "title": "",
+      "text": "Employee Message Board\nHoliday Office Party’s Success and Appreciation\nPosted by Julie Norton\nI want to thank everyone who (1) _____ make this party a success. (2) _____. We had some ups and downs as we started preparing for this but the final result has been extraordinary. In fact, the (3) _____ consensus seems to be that this year’s party was the best yet. We had the highest turnout ever and many seem to agree that this year’s activities contributed to the party’s success. It was a joy to see everyone get along so well and participate in all the events. We even (4) _____ our children’s charity fundraising goals by over $1000. Once again, I would like to thank everyone."
+    },
+    "correctAnswerIndex": 2,
+    "explanation": null,
+    "difficulty": "hard",
+    "abilityBand": "advanced",
+    "minScore": 751,
+    "maxScore": 990
+  }
+]
