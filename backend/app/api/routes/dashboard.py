@@ -5,11 +5,13 @@ from datetime import datetime, timedelta
 from fastapi import APIRouter, Depends, Query
 from fastapi.responses import JSONResponse
 from sqlalchemy import func, select
+from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import Session
 
 from app.api.deps import get_current_user_id
 from app.db.session import get_db
 from app.models import Enrollment, ProgressLog
+from app.schemas.analytics import DashboardOverviewDto
 from app.services.dashboard import get_dashboard_overview_with_roadmap
 
 
@@ -20,7 +22,11 @@ router = APIRouter()
 def overview(db: Session = Depends(get_db), user_id: int = Depends(get_current_user_id)):
     if not user_id:
         return JSONResponse(status_code=401, content={"message": "Unauthorized"})
-    return get_dashboard_overview_with_roadmap(db, user_id)
+    try:
+        return get_dashboard_overview_with_roadmap(db, user_id)
+    except SQLAlchemyError:
+        db.rollback()
+        return DashboardOverviewDto()
 
 
 @router.get("/api/dashboard/summary")

@@ -25,7 +25,21 @@ from app.services.subscription import activate_paid_subscription
 router = APIRouter()
 
 
+def _find_payment_order(db: Session, order_code: str) -> PaymentOrder | None:
+    order = db.scalar(select(PaymentOrder).where(PaymentOrder.order_code == order_code))
+    if order is not None:
+        return order
+
+    if order_code.strip().isdigit():
+        return db.scalar(
+            select(PaymentOrder).where(PaymentOrder.payos_order_code == int(order_code.strip()))
+        )
+
+    return None
+
+
 @router.post("/api/payments/create-pro-order")
+@router.post("/api/Payments/create-pro-order")
 async def create_order(payload: CreateProOrderRequest, db: Session = Depends(get_db), claim_user_id: int | None = Depends(get_optional_current_user_id)):
     try:
         return await create_pro_order(db, payload, claim_user_id)
@@ -85,11 +99,13 @@ async def create_order(payload: CreateProOrderRequest, db: Session = Depends(get
 
 
 @router.get("/api/payments/config-status")
+@router.get("/api/Payments/config-status")
 def config_status():
     return get_config_status()
 
 
 @router.post("/api/payments/payos-webhook")
+@router.post("/api/Payments/payos-webhook")
 def payos_webhook(payload: PayOSWebhookRequest, db: Session = Depends(get_db)):
     from app.core.config import settings
 
@@ -115,8 +131,9 @@ def payos_webhook(payload: PayOSWebhookRequest, db: Session = Depends(get_db)):
 
 
 @router.get("/api/payments/status/{order_code}")
+@router.get("/api/Payments/status/{order_code}")
 async def payment_status(order_code: str, db: Session = Depends(get_db)):
-    order = db.scalar(select(PaymentOrder).where(PaymentOrder.order_code == order_code))
+    order = _find_payment_order(db, order_code)
     if order is None:
         return JSONResponse(status_code=404, content={"message": "Order not found"})
     if order.status == "pending":
@@ -137,8 +154,9 @@ async def payment_status(order_code: str, db: Session = Depends(get_db)):
 
 
 @router.get("/api/payments/{order_code}")
+@router.get("/api/Payments/{order_code}")
 def get_order(order_code: str, db: Session = Depends(get_db)):
-    order = db.scalar(select(PaymentOrder).where(PaymentOrder.order_code == order_code))
+    order = _find_payment_order(db, order_code)
     if order is None:
         return JSONResponse(status_code=404, content={"message": "Order not found"})
     return {

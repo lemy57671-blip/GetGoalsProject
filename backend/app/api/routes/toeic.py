@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends, Query
 from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
 
-from app.api.deps import get_current_user_id, get_optional_current_user_id
+from app.api.deps import get_current_user_id, get_optional_current_user_id, require_pro_user
 from app.db.session import get_db
 from app.services import toeic as toeic_service
 
@@ -13,11 +13,13 @@ router = APIRouter()
 
 
 @router.get("/api/toeic/import-status")
+@router.get("/api/Toeic/import-status")
 def get_import_status(db: Session = Depends(get_db)):
     return toeic_service.get_import_status(db)
 
 
 @router.get("/api/toeic/summary")
+@router.get("/api/Toeic/summary")
 def get_summary(db: Session = Depends(get_db)):
     summary = toeic_service.get_bundle_summary(db)
     if summary is None:
@@ -26,6 +28,7 @@ def get_summary(db: Session = Depends(get_db)):
 
 
 @router.get("/api/toeic/recommendations")
+@router.get("/api/Toeic/recommendations")
 def get_recommendations(
     userId: int | None = Query(default=None),
     db: Session = Depends(get_db),
@@ -38,6 +41,7 @@ def get_recommendations(
 
 
 @router.get("/api/toeic/runner/part/{part}")
+@router.get("/api/Toeic/runner/part/{part}")
 def get_runner_by_part(part: int, limit: int = 30, difficulty: str | None = None, currentScore: int | None = None, db: Session = Depends(get_db)):
     if part < 1 or part > 7:
         return JSONResponse(status_code=400, content={"message": "part must be between 1 and 7."})
@@ -49,6 +53,7 @@ def get_runner_by_part(part: int, limit: int = 30, difficulty: str | None = None
 
 
 @router.get("/api/toeic/runner/mixed")
+@router.get("/api/Toeic/runner/mixed")
 def get_runner_mixed(parts: str | None = None, count: int = 30, difficulty: str | None = None, currentScore: int | None = None, db: Session = Depends(get_db)):
     if count <= 0:
         return JSONResponse(status_code=400, content={"message": "count must be greater than 0."})
@@ -61,6 +66,7 @@ def get_runner_mixed(parts: str | None = None, count: int = 30, difficulty: str 
 
 
 @router.get("/api/toeic/runner/review-focus")
+@router.get("/api/Toeic/runner/review-focus")
 def get_runner_review_focus(
     reviewItemId: int = Query(...),
     count: int = 15,
@@ -82,7 +88,14 @@ def get_runner_review_focus(
 
 
 @router.get("/api/toeic/runner/minitest")
-def get_minitest_runner(test: int = 1, parts: str | None = None, count: int | None = None, db: Session = Depends(get_db)):
+@router.get("/api/Toeic/runner/minitest")
+def get_minitest_runner(
+    test: int = 1,
+    parts: str | None = None,
+    count: int | None = None,
+    db: Session = Depends(get_db),
+    _=Depends(require_pro_user),
+):
     if test <= 0:
         return JSONResponse(status_code=400, content={"message": "test must be greater than 0."})
     if count is not None and count <= 0:
@@ -94,7 +107,12 @@ def get_minitest_runner(test: int = 1, parts: str | None = None, count: int | No
 
 
 @router.get("/api/toeic/runner/fulltest")
-def get_fulltest_runner(test: int = 1, db: Session = Depends(get_db)):
+@router.get("/api/Toeic/runner/fulltest")
+def get_fulltest_runner(
+    test: int = 1,
+    db: Session = Depends(get_db),
+    _=Depends(require_pro_user),
+):
     if test <= 0:
         return JSONResponse(status_code=400, content={"message": "test must be greater than 0."})
     return toeic_service.get_fulltest_runner_questions(db, test)

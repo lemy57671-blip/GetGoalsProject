@@ -97,6 +97,17 @@ class SaveMockTestAttemptRequest(BaseModel):
     answers: list[SaveMockTestAttemptAnswerRequest] = Field(default_factory=list)
 
 
+class SaveDiagnosticAttemptAnswerRequest(BaseModel):
+    questionId: int
+    questionNumber: int = 0
+    part: int | None = None
+    skill: str | None = None
+    subskill: str | None = None
+    selectedAnswerIndex: int | None = None
+    correctAnswerIndex: int | None = None
+    isCorrect: bool = False
+
+
 class SaveDiagnosticAttemptRequest(BaseModel):
     userId: int | None = None
     targetScore: int | None = None
@@ -110,7 +121,7 @@ class SaveDiagnosticAttemptRequest(BaseModel):
     levelRange: str | None = None
     weakSubskillsJson: str | None = None
     topErrorsJson: str | None = None
-    answers: list[dict] = Field(default_factory=list)
+    answers: list[SaveDiagnosticAttemptAnswerRequest] = Field(default_factory=list)
 
 
 class AttemptSkillBreakdownDto(BaseModel):

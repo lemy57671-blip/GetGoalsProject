@@ -1,5 +1,5 @@
 import json
-from datetime import timedelta
+from datetime import date, timedelta
 from typing import Optional
 
 from fastapi import APIRouter, Depends, HTTPException, status
@@ -17,6 +17,7 @@ from app.db.session import get_db
 from app.models.entities import User
 from app.schemas.auth import GoogleConfigResponse, GoogleExchangeRequest, GoogleVerifyRequest
 from app.services.auth import upsert_google_user, verify_google_token
+from app.services.settings import is_user_soft_deleted
 
 router = APIRouter(prefix="/api/auth", tags=["default"])
 
@@ -37,6 +38,18 @@ class LoginRequest(BaseModel):
 
 
 class OnboardingRequest(BaseModel):
+    currentScore: Optional[int] = None
+    targetScore: Optional[int] = None
+    examDate: Optional[str] = None
+    studyMinutesPerDay: Optional[int] = None
+    weakSkills: Optional[list[str]] = None
+
+
+class UpdateProfileRequest(BaseModel):
+    name: str
+
+
+class UpdateLearningSettingsRequest(BaseModel):
     currentScore: Optional[int] = None
     targetScore: Optional[int] = None
     examDate: Optional[str] = None
@@ -79,6 +92,19 @@ def parse_weak_skills(raw_value) -> list:
             return []
 
     return []
+
+
+def parse_optional_date(raw_value: Optional[str]) -> date | None:
+    if raw_value is None or not str(raw_value).strip():
+        return None
+
+    try:
+        return date.fromisoformat(str(raw_value).strip()[:10])
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Exam date must use YYYY-MM-DD format",
+        ) from exc
 
 
 def serialize_user(user: User) -> dict:
@@ -166,7 +192,7 @@ def login(payload: LoginRequest, db: Session = Depends(get_db)):
         .first()
     )
 
-    if not user or not getattr(user, "PasswordHash", None):
+    if not user or is_user_soft_deleted(db, user.Id) or not getattr(user, "PasswordHash", None):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Email or password is incorrect",
@@ -186,6 +212,68 @@ def me(current_user: User = Depends(get_current_user)):
     return serialize_user(current_user)
 
 
+@router.patch("/profile")
+def update_profile(
+    payload: UpdateProfileRequest,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    name = payload.name.strip()
+    if len(name) < 2:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Name must have at least 2 characters",
+        )
+
+    current_user.Name = name
+    db.add(current_user)
+    db.commit()
+    db.refresh(current_user)
+
+    return {
+        "message": "Profile updated successfully",
+        "user": serialize_user(current_user),
+    }
+
+
+@router.patch("/learning-settings")
+def update_learning_settings(
+    payload: UpdateLearningSettingsRequest,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    if payload.currentScore is not None and not 0 <= payload.currentScore <= 990:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Current score must be between 0 and 990",
+        )
+    if payload.targetScore is not None and not 10 <= payload.targetScore <= 990:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Target score must be between 10 and 990",
+        )
+    if payload.studyMinutesPerDay is not None and not 5 <= payload.studyMinutesPerDay <= 480:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Study minutes per day must be between 5 and 480",
+        )
+
+    current_user.CurrentScore = payload.currentScore
+    current_user.TargetScore = payload.targetScore
+    current_user.ExamDate = parse_optional_date(payload.examDate)
+    current_user.StudyMinutesPerDay = payload.studyMinutesPerDay
+    current_user.WeakSkillsJson = json.dumps(payload.weakSkills or [])
+
+    db.add(current_user)
+    db.commit()
+    db.refresh(current_user)
+
+    return {
+        "message": "Learning settings updated successfully",
+        "user": serialize_user(current_user),
+    }
+
+
 @router.post("/onboarding")
 def complete_onboarding(
     payload: OnboardingRequest,
@@ -194,7 +282,7 @@ def complete_onboarding(
 ):
     current_user.CurrentScore = payload.currentScore
     current_user.TargetScore = payload.targetScore
-    current_user.ExamDate = payload.examDate
+    current_user.ExamDate = parse_optional_date(payload.examDate)
     current_user.StudyMinutesPerDay = payload.studyMinutesPerDay
     current_user.WeakSkillsJson = json.dumps(payload.weakSkills or [])
     current_user.OnboardingCompleted = True
@@ -215,6 +303,12 @@ def change_password(
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
+    if len(payload.newPassword or "") < 8:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="New password must have at least 8 characters",
+        )
+
     if not getattr(current_user, "PasswordHash", None):
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
@@ -311,6 +405,22 @@ async def google_verify(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Google credential is invalid or expired",
         ) from exc
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail=str(exc),
+        ) from exc
+
+    return build_auth_response(user, remember=True)
+
+
+@router.post("/google/exchange")
+def google_exchange(
+    payload: GoogleExchangeRequest,
+    db: Session = Depends(get_db),
+):
+    try:
+        user = upsert_google_user(db, payload)
     except ValueError as exc:
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,

@@ -3,7 +3,7 @@ from __future__ import annotations
 from fastapi import APIRouter
 
 from app.api.routes import weekly_check
-from app.api.routes import attempts, auth, chat, dashboard, diagnostic, health, me, payments, progress, review, roadmap, subscription, toeic, users
+from app.api.routes import attempts, auth, chat, dashboard, diagnostic, health, me, payments, progress, review, roadmap, settings, subscription, toeic, users
 
 
 api_router = APIRouter()
@@ -22,3 +22,4 @@ api_router.include_router(dashboard.router)
 api_router.include_router(progress.router)
 api_router.include_router(payments.router)
 api_router.include_router(chat.router)
+api_router.include_router(settings.router)

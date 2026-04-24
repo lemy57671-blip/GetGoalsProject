@@ -8,7 +8,16 @@ from math import ceil
 from sqlalchemy import select
 from sqlalchemy.orm import Session, selectinload
 
-from app.models import MockTestAttempt, MockTestAttemptAnswer, PracticeAttempt, PracticeAttemptAnswer, ReviewQueueItem, User, UserPartStat, UserSkillProfile
+from app.models import (
+    MockTestAttempt,
+    MockTestAttemptAnswer,
+    PracticeAttempt,
+    PracticeAttemptAnswer,
+    ReviewQueueItem,
+    User,
+    UserPartStat,
+    UserSkillProfile,
+)
 from app.schemas.attempts import (
     AttemptPartBreakdownDto,
     AttemptResultDto,
@@ -16,12 +25,14 @@ from app.schemas.attempts import (
     AttemptSkillBreakdownDto,
     AttemptWeakAreaDto,
     SaveAttemptResponse,
+    SaveDiagnosticAttemptRequest,
     SaveMockTestAttemptAnswerRequest,
     SaveMockTestAttemptRequest,
     SavePracticeAttemptAnswerRequest,
     SavePracticeAttemptRequest,
 )
 from app.schemas.toeic import ToeicRunnerQuestionDto
+from app.services.skill_analytics import infer_part, normalize_skill_code
 from app.services.toeic import build_question_lookup_key, get_question_lookup_by_ids
 
 
@@ -160,6 +171,57 @@ def save_mock_test_attempt(db: Session, user_id: int, request: SaveMockTestAttem
         skillStatsUpdated=stat_result.skillStatsUpdated,
         partStatsUpdated=stat_result.partStatsUpdated,
         result=_build_mock_test_result(attempt.id, request),
+    )
+
+
+def save_diagnostic_attempt(db: Session, user_id: int, request: SaveDiagnosticAttemptRequest) -> SaveAttemptResponse:
+    # DiagnosticAttempts is legacy-only in some databases; keep this path as a
+    # safe profile/stat sync instead of writing to that schema.
+    user = db.get(User, user_id)
+    if user is not None:
+        user.current_score = request.score
+        if request.targetScore is not None:
+            user.target_score = request.targetScore
+        if request.minutesPerDay is not None:
+            user.study_minutes_per_day = request.minutesPerDay
+        db.commit()
+
+    review_queued_count = _enqueue_review_items(
+        db,
+        user_id,
+        [
+            _ReviewSeed(
+                questionId=item.questionId,
+                part=item.part or infer_part(item.skill, item.subskill),
+                skill=item.skill or item.subskill,
+                sourceAttemptType="diagnostic",
+                sourceAttemptId=0,
+                note=item.subskill,
+            )
+            for item in request.answers
+            if not item.isCorrect
+        ],
+    )
+
+    stat_result = _update_stats(
+        db,
+        user_id,
+        [
+            _StatSeed(
+                part=item.part or infer_part(item.skill, item.subskill),
+                skill=normalize_skill_code(item.skill, item.subskill),
+                isCorrect=item.isCorrect,
+            )
+            for item in request.answers
+        ],
+    )
+    _sync_user_profile(db, user_id, request.weakSubskillsJson)
+
+    return SaveAttemptResponse(
+        attemptId=0,
+        reviewQueuedCount=review_queued_count,
+        skillStatsUpdated=stat_result.skillStatsUpdated,
+        partStatsUpdated=stat_result.partStatsUpdated,
     )
 
 

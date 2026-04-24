@@ -5,7 +5,20 @@ from datetime import datetime, timedelta
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session, joinedload, selectinload
 
-from app.models import MockTestAttempt, MockTestAttemptAnswer, PracticeAttempt, PracticeAttemptAnswer, ProgressLog, ReviewQueueItem, ToeicPassage, ToeicQuestion, User, UserPartStat, UserSkillAnalytics, UserSkillProfile
+from app.models import (
+    MockTestAttempt,
+    MockTestAttemptAnswer,
+    PracticeAttempt,
+    PracticeAttemptAnswer,
+    ProgressLog,
+    ReviewQueueItem,
+    ToeicPassage,
+    ToeicQuestion,
+    User,
+    UserPartStat,
+    UserSkillAnalytics,
+    UserSkillProfile,
+)
 from app.schemas.analytics import (
     DashboardOverviewDto,
     HistoryPointDto,
@@ -58,10 +71,10 @@ def get_dashboard_overview(db: Session, user_id: int) -> DashboardOverviewDto:
         weakestSkill=_get_weakest_skill(db, user_id),
         weakestPart=_get_weakest_part(db, user_id),
         latestMockTest=LatestMockTestDto(
-            title=latest_mock.title,
-            totalScaledScore=latest_mock.total_score,
-            listeningScaledScore=latest_mock.listening_score,
-            readingScaledScore=latest_mock.reading_score,
+            title=latest_mock.title or "",
+            totalScaledScore=latest_mock.total_score or 0,
+            listeningScaledScore=latest_mock.listening_score or 0,
+            readingScaledScore=latest_mock.reading_score or 0,
             accuracy=float(latest_mock.accuracy_pct),
             submittedAtUtc=latest_mock.submitted_at_utc or latest_mock.created_at_utc,
         )
@@ -77,8 +90,14 @@ def get_progress_summary(db: Session, user_id: int) -> ProgressSummaryDto:
     practice_attempts = db.scalars(select(PracticeAttempt).where(PracticeAttempt.user_id == user_id)).all()
     mock_attempts = db.scalars(select(MockTestAttempt).where(MockTestAttempt.user_id == user_id)).all()
 
-    total_correct_answers = sum(item.correct_count for item in practice_attempts) + sum(item.correct_count for item in mock_attempts)
-    total_wrong_answers = sum(max(0, item.total_questions - item.correct_count) for item in practice_attempts) + sum(max(0, item.total_questions - item.correct_count) for item in mock_attempts)
+    total_correct_answers = (
+        sum(item.correct_count for item in practice_attempts)
+        + sum(item.correct_count for item in mock_attempts)
+    )
+    total_wrong_answers = (
+        sum(max(0, item.total_questions - item.correct_count) for item in practice_attempts)
+        + sum(max(0, item.total_questions - item.correct_count) for item in mock_attempts)
+    )
     total_answers = total_correct_answers + total_wrong_answers
 
     return ProgressSummaryDto(
@@ -116,10 +135,10 @@ def get_progress_summary(db: Session, user_id: int) -> ProgressSummaryDto:
         recentPracticeAttempts=[
             RecentPracticeAttemptDto(
                 id=item.id,
-                title=item.title,
+                title=item.title or "",
                 subtitle=item.subtitle,
-                mode=item.mode,
-                parts=item.parts,
+                mode=item.mode or "",
+                parts=item.parts or "",
                 correctCount=item.correct_count,
                 totalQuestions=item.total_questions,
                 accuracy=float(item.accuracy_pct),
@@ -136,10 +155,10 @@ def get_progress_summary(db: Session, user_id: int) -> ProgressSummaryDto:
         recentMockTests=[
             RecentMockTestDto(
                 id=item.id,
-                title=item.title,
-                totalScaledScore=item.total_score,
-                listeningScaledScore=item.listening_score,
-                readingScaledScore=item.reading_score,
+                title=item.title or "",
+                totalScaledScore=item.total_score or 0,
+                listeningScaledScore=item.listening_score or 0,
+                readingScaledScore=item.reading_score or 0,
                 accuracy=float(item.accuracy_pct),
                 timeSpentSeconds=item.time_spent_seconds,
                 submittedAtUtc=item.submitted_at_utc or item.created_at_utc,
@@ -426,6 +445,8 @@ def _get_weakest_skill(db: Session, user_id: int) -> WeakMetricDto | None:
     ).all()
     grouped: dict[str, list[bool]] = {}
     for skill, is_correct in fallback_rows:
+        if not skill or not skill.strip():
+            continue
         key = skill.strip()
         grouped.setdefault(key, []).append(is_correct)
     if not grouped:
@@ -458,7 +479,7 @@ def _get_weakest_part(db: Session, user_id: int) -> WeakPartDto | None:
     ).all()
     grouped: dict[int, list[bool]] = {}
     for part_value, is_correct in fallback_rows:
-        if part_value > 0:
+        if part_value and part_value > 0:
             grouped.setdefault(part_value, []).append(is_correct)
     if not grouped:
         return None
@@ -476,10 +497,16 @@ def _build_latest_assessment_snapshot(db: Session, user_id: int, user: User | No
         .order_by(func.coalesce(MockTestAttempt.submitted_at_utc, MockTestAttempt.created_at_utc).desc())
         .limit(1)
     )
-    if latest_mock is None and user is None and analytics_entity is None:
-        return None
     analytics = to_dto(analytics_entity)
     estimated_score = latest_mock.total_score if latest_mock else (user.current_score if user else 0)
+    has_assessment_data = (
+        latest_mock is not None
+        or bool(estimated_score)
+        or bool(analytics.topWeakSubskills)
+        or analytics.updatedAtUtc is not None
+    )
+    if not has_assessment_data:
+        return None
     return LatestDiagnosticDto(
         estimatedScore=estimated_score or 0,
         estimatedLevel=_resolve_estimated_level(estimated_score or 0),

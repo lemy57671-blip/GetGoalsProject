@@ -70,8 +70,8 @@ class Settings:
     PAYOS_CLIENT_ID: str = os.getenv("PAYOS_CLIENT_ID", "")
     PAYOS_API_KEY: str = os.getenv("PAYOS_API_KEY", "")
     PAYOS_CHECKSUM_KEY: str = os.getenv("PAYOS_CHECKSUM_KEY", "")
-    PAYOS_RETURN_URL: str = os.getenv("PAYOS_RETURN_URL", "http://localhost:5173/pricing")
-    PAYOS_CANCEL_URL: str = os.getenv("PAYOS_CANCEL_URL", "http://localhost:5173/pricing")
+    PAYOS_RETURN_URL: str = os.getenv("PAYOS_RETURN_URL", "http://localhost:5173/payment-success")
+    PAYOS_CANCEL_URL: str = os.getenv("PAYOS_CANCEL_URL", "http://localhost:5173/payment-cancel")
 
     @property
     def gemini_api_key(self) -> str:

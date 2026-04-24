@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-from datetime import datetime
 from typing import Any
 
 from fastapi import Depends, HTTPException, Security
@@ -11,6 +10,8 @@ from app.core.errors import pro_required_error, unauthorized_error
 from app.core.security import bearer_scheme, decode_access_token, extract_bearer_token
 from app.db.session import get_db
 from app.models import User
+from app.services.entitlements import has_active_pro
+from app.services.settings import is_user_soft_deleted
 
 
 def get_optional_token_payload(
@@ -50,10 +51,12 @@ def get_current_user(
     user = db.get(User, user_id)
     if user is None:
         raise unauthorized_error()
+    if is_user_soft_deleted(db, user_id):
+        raise unauthorized_error()
     return user
 
 
 def require_pro_user(current_user: User = Depends(get_current_user)) -> User:
-    if current_user.plan == "pro" and current_user.plan_expired_at and current_user.plan_expired_at > datetime.utcnow():
+    if has_active_pro(current_user):
         return current_user
     raise pro_required_error()

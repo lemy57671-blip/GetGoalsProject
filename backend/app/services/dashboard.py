@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import logging
+
+from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
@@ -10,9 +13,18 @@ from app.services.roadmap import get_current_roadmap
 from app.services.skill_analytics import to_dto, to_title
 
 
+logger = logging.getLogger(__name__)
+
+
 def get_dashboard_overview_with_roadmap(db: Session, user_id: int) -> DashboardOverviewDto:
     overview = get_dashboard_overview(db, user_id)
-    overview.activeRoadmap = get_current_roadmap(db, user_id)
+    try:
+        overview.activeRoadmap = get_current_roadmap(db, user_id)
+    except SQLAlchemyError as exc:
+        db.rollback()
+        logger.warning("Could not load active roadmap for user_id=%s: %s", user_id, exc)
+        overview.activeRoadmap = None
+
     analytics = db.scalar(select(UserSkillAnalytics).where(UserSkillAnalytics.user_id == user_id))
     analytics_dto = to_dto(analytics)
     if analytics_dto.weakestSkill:

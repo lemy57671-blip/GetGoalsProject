@@ -5,11 +5,13 @@ from datetime import datetime, timedelta
 from fastapi import APIRouter, Depends, Query
 from fastapi.responses import JSONResponse, PlainTextResponse
 from sqlalchemy import func, select
+from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import Session
 
 from app.api.deps import get_current_user_id
 from app.db.session import get_db
 from app.models import Enrollment, ProgressLog
+from app.schemas.analytics import HistoryPointDto, ProgressSummaryDto
 from app.schemas.progress import ProgressLogRequest
 from app.services.learning_analytics import get_progress_history, get_progress_summary
 
@@ -21,14 +23,31 @@ router = APIRouter()
 def summary(db: Session = Depends(get_db), user_id: int = Depends(get_current_user_id)):
     if not user_id:
         return JSONResponse(status_code=401, content={"message": "Unauthorized"})
-    return get_progress_summary(db, user_id)
+    try:
+        return get_progress_summary(db, user_id)
+    except SQLAlchemyError:
+        db.rollback()
+        return ProgressSummaryDto(weeklyStudyMinutes=_empty_history_points(7))
 
 
 @router.get("/api/progress/history")
 def history(days: int = Query(default=30), db: Session = Depends(get_db), user_id: int = Depends(get_current_user_id)):
     if not user_id:
         return JSONResponse(status_code=401, content={"message": "Unauthorized"})
-    return get_progress_history(db, user_id, days)
+    try:
+        return get_progress_history(db, user_id, days)
+    except SQLAlchemyError:
+        db.rollback()
+        return _empty_history_points(days)
+
+
+def _empty_history_points(days: int) -> list[HistoryPointDto]:
+    normalized_days = max(1, min(days, 90))
+    from_date = datetime.utcnow().date() - timedelta(days=normalized_days - 1)
+    return [
+        HistoryPointDto(date=(from_date + timedelta(days=index)).strftime("%Y-%m-%d"))
+        for index in range(normalized_days)
+    ]
 
 
 @router.post("/api/progress/log")
