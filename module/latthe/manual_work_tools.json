@@ -1,0 +1,782 @@
+[
+  {
+    "front": "dig",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪɡ",
+      "meaning": "đào bới"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 3
+    }
+  },
+  {
+    "front": "Undercut",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "Andə kat",
+      "meaning": "Chào giá bán thấp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 8
+    }
+  },
+  {
+    "front": "Withhold",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wıð'həʊld",
+      "meaning": "Giữ lại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 8
+    }
+  },
+  {
+    "front": "Operate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ʊpəreıt",
+      "meaning": "Vận hành, hoạt động"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 7
+    }
+  },
+  {
+    "front": "fixture",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfɪkstʃər",
+      "meaning": "vật cố định, lịch thi đấu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 7
+    }
+  },
+  {
+    "front": "build",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bɪld",
+      "meaning": "xây dựng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 5
+    }
+  },
+  {
+    "front": "Fixed",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fikst",
+      "meaning": "Cố định"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 5
+    }
+  },
+  {
+    "front": "cutting",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkʌtɪŋ",
+      "meaning": "sự cắt, bài báo cắt ra"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 7
+    }
+  },
+  {
+    "front": "prosecute",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈprɑːsɪkjuːt",
+      "meaning": "khởi tố"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 9
+    }
+  },
+  {
+    "front": "acute",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈkjuːt",
+      "meaning": "cấp tính, sắc bén"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 5
+    }
+  },
+  {
+    "front": "building",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbɪldɪŋ",
+      "meaning": "tòa nhà"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 8
+    }
+  },
+  {
+    "front": "pull",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pʊl",
+      "meaning": "kéo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 4
+    }
+  },
+  {
+    "front": "Handle",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hændl",
+      "meaning": "Giải quyết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 6
+    }
+  },
+  {
+    "front": "installation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌɪnstəˈleɪʃn",
+      "meaning": "sự lắp đặt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 12
+    }
+  },
+  {
+    "front": "Fix",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fiks",
+      "meaning": "Ấn định"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 3
+    }
+  },
+  {
+    "front": "digital",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdɪdʒɪtl",
+      "meaning": "kỹ thuật số"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 7
+    }
+  },
+  {
+    "front": "shake",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʃeɪk",
+      "meaning": "rung, lắc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 5
+    }
+  },
+  {
+    "front": "cut",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kʌt",
+      "meaning": "cắt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 3
+    }
+  },
+  {
+    "front": "Execute",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'eksıkju:t",
+      "meaning": "Chấp hành, thi hành"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 7
+    }
+  },
+  {
+    "front": "outbreak",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈaʊtbreɪk",
+      "meaning": "sự bùng phát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 8
+    }
+  },
+  {
+    "front": "uphold",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʌpˈhoʊld",
+      "meaning": "duy trì, ủng hộ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 6
+    }
+  },
+  {
+    "front": "indigenous",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈdɪdʒənəs",
+      "meaning": "bản địa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 10
+    }
+  },
+  {
+    "front": "rebuild",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌriːˈbɪld",
+      "meaning": "xây dựng lại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 7
+    }
+  },
+  {
+    "front": "Digest",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "daɪ'dʒest",
+      "meaning": "Hiểu thấu, tiêu hoá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 6
+    }
+  },
+  {
+    "front": "prosecution",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌprɑːsɪˈkjuːʃn",
+      "meaning": "sự khởi tố, bên khởi tố"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 11
+    }
+  },
+  {
+    "front": "dignity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdɪɡnəti",
+      "meaning": "phẩm giá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 7
+    }
+  },
+  {
+    "front": "Carry",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'kæri",
+      "meaning": "Mang, chở, vận chuyển"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 5
+    }
+  },
+  {
+    "front": "create",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kriˈeɪt",
+      "meaning": "tạo ra"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 6
+    }
+  },
+  {
+    "front": "white",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "waɪt",
+      "meaning": "màu trắng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 5
+    }
+  },
+  {
+    "front": "Hold",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hould",
+      "meaning": "Tổ chức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 4
+    }
+  },
+  {
+    "front": "Break",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "breık",
+      "meaning": "Vi phạm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 5
+    }
+  },
+  {
+    "front": "breakfast",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbrekfəst",
+      "meaning": "bữa sáng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 9
+    }
+  },
+  {
+    "front": "grab",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɡræb",
+      "meaning": "chộp lấy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 4
+    }
+  },
+  {
+    "front": "architect",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɑːrkɪtekt",
+      "meaning": "kiến trúc sư"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 9
+    }
+  },
+  {
+    "front": "Bring",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "brıŋ",
+      "meaning": "Mang lại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 5
+    }
+  },
+  {
+    "front": "Threshold",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "Oreſhǝuld",
+      "meaning": "Mức, ngưỡng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 9
+    }
+  },
+  {
+    "front": "Repair",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rı'peər",
+      "meaning": "Sự sửa chữa, khắc phục"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 6
+    }
+  },
+  {
+    "front": "paint",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "peɪnt",
+      "meaning": "sơn, vẽ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 5
+    }
+  },
+  {
+    "front": "breakdown",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbreɪkdaʊn",
+      "meaning": "sự hỏng hóc, suy sụp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 9
+    }
+  },
+  {
+    "front": "cute",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kjuːt",
+      "meaning": "dễ thương"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 4
+    }
+  },
+  {
+    "front": "bring",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "brɪŋ",
+      "meaning": "mang lại, mang đến"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 5
+    }
+  },
+  {
+    "front": "Hit",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hit",
+      "meaning": "Trúng, vấp phải"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 3
+    }
+  },
+  {
+    "front": "Push",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pʊʃ",
+      "meaning": "Thúc đẩy; giục"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 4
+    }
+  },
+  {
+    "front": "painter",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpeɪntər",
+      "meaning": "họa sĩ, thợ sơn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 7
+    }
+  },
+  {
+    "front": "painting",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpeɪntɪŋ",
+      "meaning": "bức tranh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 8
+    }
+  },
+  {
+    "front": "architectural",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌɑːrkɪˈtektʃərəl",
+      "meaning": "thuộc về kiến trúc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 13
+    }
+  },
+  {
+    "front": "household",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhaʊshoʊld",
+      "meaning": "hộ gia đình"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 9
+    }
+  },
+  {
+    "front": "architecture",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɑːrkɪtektʃər",
+      "meaning": "kiến trúc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 12
+    }
+  },
+  {
+    "front": "breakthrough",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbreɪkθruː",
+      "meaning": "bước đột phá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 12
+    }
+  },
+  {
+    "front": "Lift",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "lıft",
+      "meaning": "Nâng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 4
+    }
+  },
+  {
+    "front": "cooperate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "koʊˈɑːpəreɪt",
+      "meaning": "hợp tác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 9
+    }
+  },
+  {
+    "front": "Installment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'stɔ:lmənt",
+      "meaning": "Sự trả góp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 11
+    }
+  },
+  {
+    "front": "Install",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'stɔ:l",
+      "meaning": "Lắp đặt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 7
+    }
+  },
+  {
+    "front": "consecutive",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈsekjətɪv",
+      "meaning": "liên tục, liên tiếp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 11
+    }
+  },
+  {
+    "front": "Holding",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hǝuldıŋ",
+      "meaning": "Cổ phần"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 7
+    }
+  },
+  {
+    "front": "Executive",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ıg'zekjətıv",
+      "meaning": "Cấp cao"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 9
+    }
+  },
+  {
+    "front": "Execution",
+    "back": {
+      "pos": "Noun",
+      "phonetic": ",eksı'kju:ʃn",
+      "meaning": "Sự tiến hành"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 9
+    }
+  },
+  {
+    "front": "prosecutor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈprɑːsɪkjuːtər",
+      "meaning": "công tố viên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 10
+    }
+  },
+  {
+    "front": "Mishandle",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mıs'hændl",
+      "meaning": "Thiếu kiểm soát, thiếu cẩn trọng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 9
+    }
+  },
+  {
+    "front": "Shareholder",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ʃeəhəʊldər",
+      "meaning": "Cổ đông"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Manual Work & Tools",
+      "length": 11
+    }
+  }
+]

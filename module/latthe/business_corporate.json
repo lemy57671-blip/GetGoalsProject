@@ -1,0 +1,431 @@
+[
+  {
+    "front": "Commerce",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ka:mɜ:rs",
+      "meaning": "Thương mại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 8
+    }
+  },
+  {
+    "front": "Confirmation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ka:nfər'meıʃn",
+      "meaning": "Sự xác nhận, sự chứng thực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 12
+    }
+  },
+  {
+    "front": "confirmation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌkɑːnfərˈmeɪʃn",
+      "meaning": "sự xác nhận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 12
+    }
+  },
+  {
+    "front": "commerce",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːmɜːrs",
+      "meaning": "thương mại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 8
+    }
+  },
+  {
+    "front": "Retail",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ri:teıl",
+      "meaning": "Bán lẻ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 6
+    }
+  },
+  {
+    "front": "Partner",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'pa:rtnər",
+      "meaning": "Đối tác, hội viên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 7
+    }
+  },
+  {
+    "front": "Confirm",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kən'fɜ:rm",
+      "meaning": "Xác nhận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 7
+    }
+  },
+  {
+    "front": "market",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmɑːrkɪt",
+      "meaning": "tiếp thị"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 6
+    }
+  },
+  {
+    "front": "marketplace",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmɑːrkɪtpleɪs",
+      "meaning": "nơi họp chợ, thương trường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 11
+    }
+  },
+  {
+    "front": "Subcontract",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌsʌbkən'trækt",
+      "meaning": "Hợp đồng phụ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 11
+    }
+  },
+  {
+    "front": "contract",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈtrækt",
+      "meaning": "ký hợp đồng, nhiễm (bệnh)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 8
+    }
+  },
+  {
+    "front": "Company",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'kæmpəni",
+      "meaning": "Công ty"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 7
+    }
+  },
+  {
+    "front": "Market",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ma:rkıt",
+      "meaning": "Thị trường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 6
+    }
+  },
+  {
+    "front": "Trademark",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'treidma:k",
+      "meaning": "Nhãn hiệu Đăng ký nhãn hiệu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 9
+    }
+  },
+  {
+    "front": "Affirmative",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'f3:rmətıv",
+      "meaning": "Khẳng định, quả quyết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 11
+    }
+  },
+  {
+    "front": "Firm",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "f3:rm",
+      "meaning": "Làm cho vững vàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 4
+    }
+  },
+  {
+    "front": "Industry",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mdəstri",
+      "meaning": "Công nghiệp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 8
+    }
+  },
+  {
+    "front": "Staff",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sta:f",
+      "meaning": "Bố trí nhân viên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 5
+    }
+  },
+  {
+    "front": "contractor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːntræktər",
+      "meaning": "nhà thầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 10
+    }
+  },
+  {
+    "front": "marketing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmɑːrkɪtɪŋ",
+      "meaning": "công việc tiếp thị"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 9
+    }
+  },
+  {
+    "front": "Enterprise",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'entərpraız",
+      "meaning": "Công ty, xí nghiệp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 10
+    }
+  },
+  {
+    "front": "firmly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfɜːrmli",
+      "meaning": "vững chắc, kiên quyết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 6
+    }
+  },
+  {
+    "front": "company",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkʌmpəni",
+      "meaning": "công ty, sự bầu bạn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 7
+    }
+  },
+  {
+    "front": "Manager",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'mænıdʒər",
+      "meaning": "Người quản lý"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 7
+    }
+  },
+  {
+    "front": "confirm",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈfɜːrm",
+      "meaning": "xác nhận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 7
+    }
+  },
+  {
+    "front": "Wholesale",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'həʊlseıl",
+      "meaning": "Số lượng lớn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 9
+    }
+  },
+  {
+    "front": "Merger",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'mɜ:rdʒər",
+      "meaning": "Sự liên kết, liên doanh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 6
+    }
+  },
+  {
+    "front": "Trade",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "trerd",
+      "meaning": "Sự kinh doanh Kinh doanh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 5
+    }
+  },
+  {
+    "front": "Unconfirmed",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "Ankǝn'f3:md",
+      "meaning": "Chưa xác nhận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 11
+    }
+  },
+  {
+    "front": "Market",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'ma:rkıt",
+      "meaning": "Bán, tiếp thị"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 6
+    }
+  },
+  {
+    "front": "supermarket",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsuːpərmɑːrkɪt",
+      "meaning": "siêu thị"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 11
+    }
+  },
+  {
+    "front": "Contract",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "",
+      "meaning": "'ka:ntrækt Hợp đồng / Giao kèo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 8
+    }
+  },
+  {
+    "front": "accompany",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈkʌmpəni",
+      "meaning": "đi cùng, hộ tống"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Business & Corporate",
+      "length": 9
+    }
+  }
+]

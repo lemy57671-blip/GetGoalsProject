@@ -1,0 +1,444 @@
+[
+  {
+    "front": "detective",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈtektɪv",
+      "meaning": "thám tử"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 9
+    }
+  },
+  {
+    "front": "Interviewee",
+    "back": {
+      "pos": "Noun",
+      "phonetic": ",ıntəvju'i:",
+      "meaning": "Người được phỏng vấn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 11
+    }
+  },
+  {
+    "front": "hearing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhɪrɪŋ",
+      "meaning": "thính giác, phiên điều trần"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 7
+    }
+  },
+  {
+    "front": "viewpoint",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈvjuːpɔɪnt",
+      "meaning": "quan điểm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 9
+    }
+  },
+  {
+    "front": "Seek",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "si:k",
+      "meaning": "Tìm kiếm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 4
+    }
+  },
+  {
+    "front": "heart",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hɑːrt",
+      "meaning": "trái tim"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 5
+    }
+  },
+  {
+    "front": "feel",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fiːl",
+      "meaning": "cảm thấy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 4
+    }
+  },
+  {
+    "front": "look",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "lʊk",
+      "meaning": "nhìn, trông có vẻ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 4
+    }
+  },
+  {
+    "front": "viewer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈvjuːər",
+      "meaning": "người xem"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 6
+    }
+  },
+  {
+    "front": "Interviewer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ıntəvju:ər",
+      "meaning": "Người phỏng vấn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 11
+    }
+  },
+  {
+    "front": "feeling",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfiːlɪŋ",
+      "meaning": "cảm xúc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 7
+    }
+  },
+  {
+    "front": "hear",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hɪr",
+      "meaning": "nghe"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 4
+    }
+  },
+  {
+    "front": "oversee",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌoʊvərˈsiː",
+      "meaning": "giám sát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 7
+    }
+  },
+  {
+    "front": "Touch",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tatf",
+      "meaning": "Đụng, chạm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 5
+    }
+  },
+  {
+    "front": "seeker",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsiːkər",
+      "meaning": "người tìm kiếm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 6
+    }
+  },
+  {
+    "front": "glance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɡlæns",
+      "meaning": "liếc nhìn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 6
+    }
+  },
+  {
+    "front": "stare",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ster",
+      "meaning": "nhìn chằm chằm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 5
+    }
+  },
+  {
+    "front": "watch",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wɑːtʃ",
+      "meaning": "xem, quan sát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 5
+    }
+  },
+  {
+    "front": "detect",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈtekt",
+      "meaning": "phát hiện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 6
+    }
+  },
+  {
+    "front": "see",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "siː",
+      "meaning": "nhìn thấy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 3
+    }
+  },
+  {
+    "front": "listener",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlɪsnər",
+      "meaning": "người nghe"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 8
+    }
+  },
+  {
+    "front": "listen",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlɪsn",
+      "meaning": "lắng nghe"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 6
+    }
+  },
+  {
+    "front": "overlook",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌoʊvərˈlʊk",
+      "meaning": "bỏ qua, nhìn ra"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 8
+    }
+  },
+  {
+    "front": "detection",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈtekʃn",
+      "meaning": "sự phát hiện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 9
+    }
+  },
+  {
+    "front": "Outlook",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'aʊtlʊk",
+      "meaning": "Viễn cảnh, quang cảnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 7
+    }
+  },
+  {
+    "front": "Taste",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "terst",
+      "meaning": "Thị hiếu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Notice",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'nəʊtıs",
+      "meaning": "Sự chú ý, thông báo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 6
+    }
+  },
+  {
+    "front": "seem",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "siːm",
+      "meaning": "có vẻ như"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 4
+    }
+  },
+  {
+    "front": "seed",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "siːd",
+      "meaning": "hạt giống"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 4
+    }
+  },
+  {
+    "front": "Review",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rı'vju:",
+      "meaning": "Xem lại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 6
+    }
+  },
+  {
+    "front": "smell",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "smel",
+      "meaning": "ngửi, có mùi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Interview",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ıntəvju:",
+      "meaning": "Cuộc phỏng vấn Phỏng vấn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 9
+    }
+  },
+  {
+    "front": "seemingly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsiːmɪŋli",
+      "meaning": "có vẻ, bề ngoài"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 9
+    }
+  },
+  {
+    "front": "View",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "vju:",
+      "meaning": "Nhận xét"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Senses & Perceptions",
+      "length": 4
+    }
+  }
+]

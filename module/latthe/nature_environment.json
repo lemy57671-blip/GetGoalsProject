@@ -1,0 +1,275 @@
+[
+  {
+    "front": "wildlife",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈwaɪldlaɪf",
+      "meaning": "động vật hoang dã"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Nature & Environment",
+      "length": 8
+    }
+  },
+  {
+    "front": "climate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈklaɪmət",
+      "meaning": "khí hậu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Nature & Environment",
+      "length": 7
+    }
+  },
+  {
+    "front": "Sunday",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsʌndeɪ",
+      "meaning": "Chủ nhật"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Nature & Environment",
+      "length": 6
+    }
+  },
+  {
+    "front": "cave",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "keɪv",
+      "meaning": "hang động"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Nature & Environment",
+      "length": 4
+    }
+  },
+  {
+    "front": "valley",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈvæli",
+      "meaning": "thung lũng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Nature & Environment",
+      "length": 6
+    }
+  },
+  {
+    "front": "flower",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈflaʊər",
+      "meaning": "bông hoa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Nature & Environment",
+      "length": 6
+    }
+  },
+  {
+    "front": "stark",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "stɑːrk",
+      "meaning": "rõ rệt, ảm đạm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Nature & Environment",
+      "length": 5
+    }
+  },
+  {
+    "front": "tsunami",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tsuːˈnɑːmi",
+      "meaning": "sóng thần"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Nature & Environment",
+      "length": 7
+    }
+  },
+  {
+    "front": "earth",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɜːrθ",
+      "meaning": "trái đất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Nature & Environment",
+      "length": 5
+    }
+  },
+  {
+    "front": "tree",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "triː",
+      "meaning": "cái cây"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Nature & Environment",
+      "length": 4
+    }
+  },
+  {
+    "front": "Mountain",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'maʊntən",
+      "meaning": "Núi, số lượng lớn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Nature & Environment",
+      "length": 8
+    }
+  },
+  {
+    "front": "earthquake",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈɜːrθkweɪk",
+      "meaning": "trận động đất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Nature & Environment",
+      "length": 10
+    }
+  },
+  {
+    "front": "desert",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈzɜːrt",
+      "meaning": "ruồng bỏ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Nature & Environment",
+      "length": 6
+    }
+  },
+  {
+    "front": "ocean",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈoʊʃn",
+      "meaning": "đại dương"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Nature & Environment",
+      "length": 5
+    }
+  },
+  {
+    "front": "starve",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "stɑːrv",
+      "meaning": "chết đói"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Nature & Environment",
+      "length": 6
+    }
+  },
+  {
+    "front": "river",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈrɪvər",
+      "meaning": "con sông"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Nature & Environment",
+      "length": 5
+    }
+  },
+  {
+    "front": "island",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈaɪlənd",
+      "meaning": "hòn đảo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Nature & Environment",
+      "length": 6
+    }
+  },
+  {
+    "front": "star",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "stɑːr",
+      "meaning": "đóng vai chính"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Nature & Environment",
+      "length": 4
+    }
+  },
+  {
+    "front": "street",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "striːt",
+      "meaning": "con đường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Nature & Environment",
+      "length": 6
+    }
+  },
+  {
+    "front": "moon",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "muːn",
+      "meaning": "mặt trăng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Nature & Environment",
+      "length": 4
+    }
+  },
+  {
+    "front": "sun",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sʌn",
+      "meaning": "mặt trời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Nature & Environment",
+      "length": 3
+    }
+  }
+]

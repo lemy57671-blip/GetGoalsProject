@@ -1,0 +1,1263 @@
+[
+  {
+    "front": "seldom",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈseldəm",
+      "meaning": "hiếm khi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 6
+    }
+  },
+  {
+    "front": "frequently",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfriːkwəntli",
+      "meaning": "một cách thường xuyên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 10
+    }
+  },
+  {
+    "front": "everyday",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈevrideɪ",
+      "meaning": "hàng ngày"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 8
+    }
+  },
+  {
+    "front": "Deflate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'fleıt",
+      "meaning": "Giảm phát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 7
+    }
+  },
+  {
+    "front": "Deregulate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdiː'reɡjʊleıt",
+      "meaning": "Thả nổi, bãi bỏ điều lệ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 10
+    }
+  },
+  {
+    "front": "daily",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdeɪli",
+      "meaning": "mỗi ngày"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 5
+    }
+  },
+  {
+    "front": "nevertheless",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌnevərðəˈles",
+      "meaning": "tuy nhiên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 12
+    }
+  },
+  {
+    "front": "day",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "deɪ",
+      "meaning": "ngày"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 3
+    }
+  },
+  {
+    "front": "again",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈɡen",
+      "meaning": "lại, một lần nữa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 5
+    }
+  },
+  {
+    "front": "midst",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mɪdst",
+      "meaning": "ở giữa, giữa lúc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 5
+    }
+  },
+  {
+    "front": "Calculate",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'kælkjəleıt",
+      "meaning": "Tính toán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 9
+    }
+  },
+  {
+    "front": "five",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "faɪv",
+      "meaning": "số năm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 4
+    }
+  },
+  {
+    "front": "upon",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈpɑːn",
+      "meaning": "trên, vào lúc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 4
+    }
+  },
+  {
+    "front": "full-time",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌfʊl ˈtaɪm",
+      "meaning": "làm việc toàn thời gian"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 9
+    }
+  },
+  {
+    "front": "rarely",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈrerli",
+      "meaning": "hiếm khi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 6
+    }
+  },
+  {
+    "front": "Stipulate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'stıpjuleıt",
+      "meaning": "Quy định"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 9
+    }
+  },
+  {
+    "front": "lately",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈleɪtli",
+      "meaning": "dạo này, gần đây"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 6
+    }
+  },
+  {
+    "front": "manipulate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "məˈnɪpjuleɪt",
+      "meaning": "thao túng, điều khiển"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 10
+    }
+  },
+  {
+    "front": "Multilateral",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mʌltı'lætərəl",
+      "meaning": "Nhiều phía, đa phương"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 12
+    }
+  },
+  {
+    "front": "Circulate",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'sɜ:rkjəleıt",
+      "meaning": "Lưu thông"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 9
+    }
+  },
+  {
+    "front": "contempt",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈtempt",
+      "meaning": "sự khinh thường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 8
+    }
+  },
+  {
+    "front": "later",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈleɪtər",
+      "meaning": "lát nữa, sau đó"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 5
+    }
+  },
+  {
+    "front": "already",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɔːlˈredi",
+      "meaning": "đã, rồi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 7
+    }
+  },
+  {
+    "front": "related",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈleɪtɪd",
+      "meaning": "có liên quan"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 7
+    }
+  },
+  {
+    "front": "Conduct",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kən'dʌkt",
+      "meaning": "Chỉ đạo, điều khiển"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 7
+    }
+  },
+  {
+    "front": "relate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈleɪt",
+      "meaning": "liên hệ, kể lại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 6
+    }
+  },
+  {
+    "front": "unless",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ənˈles",
+      "meaning": "trừ khi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 6
+    }
+  },
+  {
+    "front": "Accumulate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'kju:mjəleit",
+      "meaning": "Chồng chất, tích lũy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 10
+    }
+  },
+  {
+    "front": "Triple",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tripl",
+      "meaning": "Gấp ba lần"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 6
+    }
+  },
+  {
+    "front": "Uncontrollable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ankən'trələbl",
+      "meaning": "Không thể điều khiển được"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 14
+    }
+  },
+  {
+    "front": "leisure",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈliːʒər",
+      "meaning": "thời gian rảnh rỗi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 7
+    }
+  },
+  {
+    "front": "once",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wʌns",
+      "meaning": "một khi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 4
+    }
+  },
+  {
+    "front": "Late",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "leıt",
+      "meaning": "Trễ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 4
+    }
+  },
+  {
+    "front": "whilst",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "waɪlst",
+      "meaning": "trong khi (giống while)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 6
+    }
+  },
+  {
+    "front": "always",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɔːlweɪz",
+      "meaning": "luôn luôn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 6
+    }
+  },
+  {
+    "front": "dictate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdɪkteɪt",
+      "meaning": "tuyên bố, sai khiến"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 7
+    }
+  },
+  {
+    "front": "Until",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʌn'tıl",
+      "meaning": "Đến khi, cho đến khi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 5
+    }
+  },
+  {
+    "front": "Daily",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "'deıli",
+      "meaning": "Thường nhật"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 5
+    }
+  },
+  {
+    "front": "interval",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɪntərvl",
+      "meaning": "khoảng thời gian, lúc nghỉ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 8
+    }
+  },
+  {
+    "front": "calculate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkælkjuleɪt",
+      "meaning": "tính toán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 9
+    }
+  },
+  {
+    "front": "now",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "naʊ",
+      "meaning": "giờ thì"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 3
+    }
+  },
+  {
+    "front": "increasingly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈkriːsɪŋli",
+      "meaning": "ngày càng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 12
+    }
+  },
+  {
+    "front": "Escalate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'eskəleıt",
+      "meaning": "Leo thang"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 8
+    }
+  },
+  {
+    "front": "Translate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "trzænz leit",
+      "meaning": "Dịch thuật"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 9
+    }
+  },
+  {
+    "front": "whereas",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "werˈæz",
+      "meaning": "trong khi đó"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 7
+    }
+  },
+  {
+    "front": "ever",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈevər",
+      "meaning": "bao giờ, từng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 4
+    }
+  },
+  {
+    "front": "whenever",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wenˈevər",
+      "meaning": "bất cứ khi nào"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 8
+    }
+  },
+  {
+    "front": "balloon",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bəˈluːn",
+      "meaning": "khinh khí cầu, bóng bay"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 7
+    }
+  },
+  {
+    "front": "annually",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈænjuəli",
+      "meaning": "mỗi năm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 8
+    }
+  },
+  {
+    "front": "hour",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈaʊər",
+      "meaning": "giờ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 4
+    }
+  },
+  {
+    "front": "Violate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'vaıəleıt",
+      "meaning": "Vi phạm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 7
+    }
+  },
+  {
+    "front": "often",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɔːfn",
+      "meaning": "thường xuyên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 5
+    }
+  },
+  {
+    "front": "sometimes",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsʌmtaɪmz",
+      "meaning": "thỉnh thoảng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 9
+    }
+  },
+  {
+    "front": "Congratulate",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kən'grætʃuleıt",
+      "meaning": "Chúc mừng, khen ngợi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 12
+    }
+  },
+  {
+    "front": "nowadays",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈnaʊədeɪz",
+      "meaning": "ngày nay"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 8
+    }
+  },
+  {
+    "front": "panel",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpænl",
+      "meaning": "hội đồng, bảng điều khiển"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 5
+    }
+  },
+  {
+    "front": "Latest",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'leıtıst",
+      "meaning": "Mới nhất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 6
+    }
+  },
+  {
+    "front": "regulate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈreɡjəleɪt",
+      "meaning": "quy định, điều chỉnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 8
+    }
+  },
+  {
+    "front": "today",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "təˈdeɪ",
+      "meaning": "ngày hôm nay"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 5
+    }
+  },
+  {
+    "front": "simulate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɪmjəleɪt",
+      "meaning": "mô phỏng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 8
+    }
+  },
+  {
+    "front": "circulate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɜːrkjəleɪt",
+      "meaning": "lưu thông, tuần hoàn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 9
+    }
+  },
+  {
+    "front": "meantime",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmiːntaɪm",
+      "meaning": "trong khi chờ đợi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 8
+    }
+  },
+  {
+    "front": "Stimulate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'stımjuleıt",
+      "meaning": "Kích động"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 9
+    }
+  },
+  {
+    "front": "soon",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "suːn",
+      "meaning": "sớm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 4
+    }
+  },
+  {
+    "front": "o'clock",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈklɑːk",
+      "meaning": "giờ (đúng)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 7
+    }
+  },
+  {
+    "front": "routine",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ruːˈtiːn",
+      "meaning": "thói quen, công việc thường ngày"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 7
+    }
+  },
+  {
+    "front": "Claim",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "",
+      "meaning": "kleım Yêu sáchkhiếu nại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 5
+    }
+  },
+  {
+    "front": "contemporary",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈtempəreri",
+      "meaning": "đương đại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 12
+    }
+  },
+  {
+    "front": "never",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈnevər",
+      "meaning": "không bao giờ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 5
+    }
+  },
+  {
+    "front": "twice",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "twaɪs",
+      "meaning": "hai lần"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 5
+    }
+  },
+  {
+    "front": "modest",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmɑːdɪst",
+      "meaning": "khiêm tốn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 6
+    }
+  },
+  {
+    "front": "Temporary",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'temprəri",
+      "meaning": "Tạm thời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 9
+    }
+  },
+  {
+    "front": "Early",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ɜːrli",
+      "meaning": "Sớm, đầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 5
+    }
+  },
+  {
+    "front": "correlate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɔːrəleɪt",
+      "meaning": "có tương quan"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 9
+    }
+  },
+  {
+    "front": "Timely",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tamli",
+      "meaning": "Xảy ra đúng lúc, kịp thời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 6
+    }
+  },
+  {
+    "front": "yesterday",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈjestərdeɪ",
+      "meaning": "ngày hôm qua"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 9
+    }
+  },
+  {
+    "front": "awful",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɔːfl",
+      "meaning": "tồi tệ, khủng khiếp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 5
+    }
+  },
+  {
+    "front": "clearly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈklɪrli",
+      "meaning": "một cách rõ ràng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 7
+    }
+  },
+  {
+    "front": "plate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pleɪt",
+      "meaning": "cái đĩa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 5
+    }
+  },
+  {
+    "front": "since",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sɪns",
+      "meaning": "từ khi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 5
+    }
+  },
+  {
+    "front": "forever",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fərˈevər",
+      "meaning": "mãi mãi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 7
+    }
+  },
+  {
+    "front": "Inflate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "in'flert",
+      "meaning": "Lạm phát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 7
+    }
+  },
+  {
+    "front": "articulate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɑːrˈtɪkjuleɪt",
+      "meaning": "phát âm rõ ràng, diễn đạt lưu loát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 10
+    }
+  },
+  {
+    "front": "chocolate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtʃɑːklət",
+      "meaning": "sô cô la"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 9
+    }
+  },
+  {
+    "front": "formulate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfɔːrmjəleɪt",
+      "meaning": "xây dựng (công thức, kế hoạch)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 9
+    }
+  },
+  {
+    "front": "isolate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈaɪsəleɪt",
+      "meaning": "cô lập"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 7
+    }
+  },
+  {
+    "front": "duration",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "duˈreɪʃn",
+      "meaning": "khoảng thời gian"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 8
+    }
+  },
+  {
+    "front": "Thursday",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈθɜːrzdeɪ",
+      "meaning": "thứ Năm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 8
+    }
+  },
+  {
+    "front": "Till",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "il",
+      "meaning": "Cho đến khi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 4
+    }
+  },
+  {
+    "front": "contemplate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːntəmpleɪt",
+      "meaning": "suy ngẫm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 11
+    }
+  },
+  {
+    "front": "provoke",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prəˈvoʊk",
+      "meaning": "khiêu khích"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 7
+    }
+  },
+  {
+    "front": "nearly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈnɪrli",
+      "meaning": "gần như"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 6
+    }
+  },
+  {
+    "front": "congratulate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈɡrætʃəleɪt",
+      "meaning": "chúc mừng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 12
+    }
+  },
+  {
+    "front": "yet",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "jet",
+      "meaning": "tuy nhiên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 3
+    }
+  },
+  {
+    "front": "occasionally",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈkeɪʒənəli",
+      "meaning": "đôi khi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 12
+    }
+  },
+  {
+    "front": "isolated",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈaɪsəleɪtɪd",
+      "meaning": "bị cô lập"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 8
+    }
+  },
+  {
+    "front": "Speculate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'spekjuleıt",
+      "meaning": "Đầu cơ, tích trữ, nghiên cứu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Time & Frequency",
+      "length": 9
+    }
+  }
+]

@@ -1,0 +1,938 @@
+[
+  {
+    "front": "wheel",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wiːl",
+      "meaning": "bánh xe"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 5
+    }
+  },
+  {
+    "front": "championship",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtʃæmpiənʃɪp",
+      "meaning": "giải vô địch"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 12
+    }
+  },
+  {
+    "front": "carbon",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːrbən",
+      "meaning": "cacbon"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 6
+    }
+  },
+  {
+    "front": "scare",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "sker",
+      "meaning": "làm sợ hãi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 5
+    }
+  },
+  {
+    "front": "careful",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkerfl",
+      "meaning": "cẩn thận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 7
+    }
+  },
+  {
+    "front": "Miscarriage",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mıs,kærıdʒ",
+      "meaning": "Thất bại, sơ sẩy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 11
+    }
+  },
+  {
+    "front": "Bridge",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "brıdʒ",
+      "meaning": "Xây cầu, vắt ngang, vượt qua, thuyết phục"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 6
+    }
+  },
+  {
+    "front": "motorcycle",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmoʊtərsaɪkl",
+      "meaning": "xe máy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 10
+    }
+  },
+  {
+    "front": "carefully",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkerfəli",
+      "meaning": "một cách cẩn thận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 9
+    }
+  },
+  {
+    "front": "relationship",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈleɪʃənʃɪp",
+      "meaning": "mối quan hệ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 12
+    }
+  },
+  {
+    "front": "care",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ker",
+      "meaning": "quan tâm, chăm sóc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 4
+    }
+  },
+  {
+    "front": "Abuse",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'bju:s",
+      "meaning": "Sự lạm dụng, lạm dụng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 5
+    }
+  },
+  {
+    "front": "broadly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbrɔːdli",
+      "meaning": "nhìn chung, rộng rãi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 7
+    }
+  },
+  {
+    "front": "trainer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtreɪnər",
+      "meaning": "huấn luyện viên, giày thể thao"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 7
+    }
+  },
+  {
+    "front": "robust",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "roʊˈbʌst",
+      "meaning": "mạnh mẽ, tráng kiện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 6
+    }
+  },
+  {
+    "front": "engineer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌendʒɪˈnɪr",
+      "meaning": "kỹ sư"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 8
+    }
+  },
+  {
+    "front": "railway",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈreɪlweɪ",
+      "meaning": "đường sắt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 7
+    }
+  },
+  {
+    "front": "card",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kɑːrd",
+      "meaning": "thẻ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 4
+    }
+  },
+  {
+    "front": "Transship",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "trænſip",
+      "meaning": "Chuyển vận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 9
+    }
+  },
+  {
+    "front": "broadcaster",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbrɔːdkæstər",
+      "meaning": "phát thanh viên, đài phát thanh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 11
+    }
+  },
+  {
+    "front": "road",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "roʊd",
+      "meaning": "con đường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 4
+    }
+  },
+  {
+    "front": "businessman",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbɪznəsmæn",
+      "meaning": "doanh nhân"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 11
+    }
+  },
+  {
+    "front": "business",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbɪznəs",
+      "meaning": "việc kinh doanh, doanh nghiệp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 8
+    }
+  },
+  {
+    "front": "boat",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "boʊt",
+      "meaning": "chiếc thuyền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 4
+    }
+  },
+  {
+    "front": "Bridge",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "brıdʒ",
+      "meaning": "Cầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 6
+    }
+  },
+  {
+    "front": "airport",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈerpɔːrt",
+      "meaning": "sân bay"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 7
+    }
+  },
+  {
+    "front": "Business",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'bıznəs",
+      "meaning": "Việc kinh doanh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 8
+    }
+  },
+  {
+    "front": "Partnership",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'pa:tnəʃıp",
+      "meaning": "Sự cộng tác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 11
+    }
+  },
+  {
+    "front": "Carrier",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'kærıər",
+      "meaning": "Hãng vận tải, người chở hàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 7
+    }
+  },
+  {
+    "front": "carrot",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkærət",
+      "meaning": "củ cà rốt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 6
+    }
+  },
+  {
+    "front": "engineering",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌendʒɪˈnɪrɪŋ",
+      "meaning": "ngành kỹ thuật"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 11
+    }
+  },
+  {
+    "front": "discard",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪsˈkɑːrd",
+      "meaning": "vứt bỏ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 7
+    }
+  },
+  {
+    "front": "constraint",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈstreɪnt",
+      "meaning": "sự hạn chế, sự ép buộc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 10
+    }
+  },
+  {
+    "front": "membership",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmembərʃɪp",
+      "meaning": "tư cách thành viên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 10
+    }
+  },
+  {
+    "front": "citizenship",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɪtɪzənʃɪp",
+      "meaning": "quyền công dân"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 11
+    }
+  },
+  {
+    "front": "Train",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "trein",
+      "meaning": "Đào tạo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 5
+    }
+  },
+  {
+    "front": "friendship",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfrendʃɪp",
+      "meaning": "tình bạn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 10
+    }
+  },
+  {
+    "front": "Ship",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʃıp",
+      "meaning": "Vận chuyển hàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 4
+    }
+  },
+  {
+    "front": "broadcast",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbrɔːdkæst",
+      "meaning": "phát sóng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 9
+    }
+  },
+  {
+    "front": "bus",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bʌs",
+      "meaning": "xe buýt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 3
+    }
+  },
+  {
+    "front": "scary",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈskeri",
+      "meaning": "đáng sợ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 5
+    }
+  },
+  {
+    "front": "bush",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bʊʃ",
+      "meaning": "bụi cây"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 4
+    }
+  },
+  {
+    "front": "career",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəˈrɪr",
+      "meaning": "sự nghiệp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 6
+    }
+  },
+  {
+    "front": "shipping",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈʃɪpɪŋ",
+      "meaning": "việc vận chuyển hàng hóa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 8
+    }
+  },
+  {
+    "front": "Care",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ker",
+      "meaning": "Sự quan tâm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 4
+    }
+  },
+  {
+    "front": "Distributorship",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'strıbjʊtəʃıp",
+      "meaning": "Sự phân phối"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 15
+    }
+  },
+  {
+    "front": "broad",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "brɔːd",
+      "meaning": "rộng lớn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 5
+    }
+  },
+  {
+    "front": "Traffic",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "træfik",
+      "meaning": "Sự vận chuyển Vận chuyển"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 7
+    }
+  },
+  {
+    "front": "cartoon",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kɑːrˈtuːn",
+      "meaning": "phim hoạt hình"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 7
+    }
+  },
+  {
+    "front": "careless",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkerləs",
+      "meaning": "bất cẩn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 8
+    }
+  },
+  {
+    "front": "Vehicle",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'vi:ǝkl",
+      "meaning": "Xe cộ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 7
+    }
+  },
+  {
+    "front": "truck",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "trʌk",
+      "meaning": "xe tải"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 5
+    }
+  },
+  {
+    "front": "strain",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "streɪn",
+      "meaning": "sự căng thẳng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 6
+    }
+  },
+  {
+    "front": "Scarce",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "skeəs",
+      "meaning": "Khan hiếm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 6
+    }
+  },
+  {
+    "front": "Ownership",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'əʊnəʃıp",
+      "meaning": "Quyền sở hữu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 9
+    }
+  },
+  {
+    "front": "worship",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwɜːrʃɪp",
+      "meaning": "thờ cúng, tôn thờ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 7
+    }
+  },
+  {
+    "front": "Salesmanship",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'seılzmənʃıp",
+      "meaning": "Nghệ thuật bán hàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 12
+    }
+  },
+  {
+    "front": "scholarship",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈskɑːlərʃɪp",
+      "meaning": "học bổng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 11
+    }
+  },
+  {
+    "front": "Training",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tremın",
+      "meaning": "Khóa huấn luyện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 8
+    }
+  },
+  {
+    "front": "car",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kɑːr",
+      "meaning": "xe hơi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 3
+    }
+  },
+  {
+    "front": "healthcare",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhelθker",
+      "meaning": "chăm sóc sức khỏe"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 10
+    }
+  },
+  {
+    "front": "carriage",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkærɪdʒ",
+      "meaning": "xe ngựa, toa tàu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 8
+    }
+  },
+  {
+    "front": "carve",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kɑːrv",
+      "meaning": "chạm khắc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 5
+    }
+  },
+  {
+    "front": "Carriage",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'kærıdʒ",
+      "meaning": "Phí vận chuyển"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 8
+    }
+  },
+  {
+    "front": "Shipment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ʃıpmənt",
+      "meaning": "Sự chuyên chở hàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 8
+    }
+  },
+  {
+    "front": "engine",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈendʒɪn",
+      "meaning": "động cơ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 6
+    }
+  },
+  {
+    "front": "bicycle",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbaɪsɪkl",
+      "meaning": "xe đạp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 7
+    }
+  },
+  {
+    "front": "broadband",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbrɔːdbænd",
+      "meaning": "băng thông rộng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 9
+    }
+  },
+  {
+    "front": "busy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbɪzi",
+      "meaning": "bận rộn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 4
+    }
+  },
+  {
+    "front": "Sponsorship",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'spɒnsəʃıp",
+      "meaning": "Sự tài trợ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 11
+    }
+  },
+  {
+    "front": "Abroad",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'brɔ:d",
+      "meaning": "Ở nước ngoài"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 6
+    }
+  },
+  {
+    "front": "Transshipment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "træns ſipmənt",
+      "meaning": "Sự chuyển tàu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Transportation",
+      "length": 13
+    }
+  }
+]

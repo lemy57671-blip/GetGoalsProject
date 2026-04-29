@@ -21,6 +21,8 @@ from app.models.entities import (
     UserRoadmapWeekItem,
     UserSkillAnalytics,
     UserSkillProfile,
+    FlashcardTopic,
+    Flashcard,
 )
 
 __all__ = [
@@ -46,4 +48,6 @@ __all__ = [
     "UserRoadmapWeekItem",
     "UserSkillAnalytics",
     "UserSkillProfile",
+    "FlashcardTopic",
+    "Flashcard",
 ]

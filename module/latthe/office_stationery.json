@@ -1,0 +1,548 @@
+[
+  {
+    "front": "penny",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpeni",
+      "meaning": "đồng xu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 5
+    }
+  },
+  {
+    "front": "pen",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pen",
+      "meaning": "cây bút"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 3
+    }
+  },
+  {
+    "front": "Expenditure",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ık'spendıtʃər",
+      "meaning": "Sự tiêu dùng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 11
+    }
+  },
+  {
+    "front": "compensate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːmpenseɪt",
+      "meaning": "bồi thường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 10
+    }
+  },
+  {
+    "front": "pencil",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpensl",
+      "meaning": "bút chì"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 6
+    }
+  },
+  {
+    "front": "Invoice",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ınvɔıs",
+      "meaning": "Hoá đơn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 7
+    }
+  },
+  {
+    "front": "Opening",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'əʊpənıŋ",
+      "meaning": "Lễ khai trương"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 7
+    }
+  },
+  {
+    "front": "suspension",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "səˈspenʃən",
+      "meaning": "sự đình chỉ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 10
+    }
+  },
+  {
+    "front": "Spend",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "spend",
+      "meaning": "Dành, sử dụng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 5
+    }
+  },
+  {
+    "front": "compensation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌkɑːmpenˈseɪʃn",
+      "meaning": "sự bồi thường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 12
+    }
+  },
+  {
+    "front": "Open",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'əʊpən",
+      "meaning": "Mở"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 4
+    }
+  },
+  {
+    "front": "deadline",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdedlaɪn",
+      "meaning": "hạn chót"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 8
+    }
+  },
+  {
+    "front": "Application",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "æplı'keıʃn",
+      "meaning": "Đơn xin"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 11
+    }
+  },
+  {
+    "front": "high-profile",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌhaɪ ˈproʊfaɪl",
+      "meaning": "nổi bật, thu hút sự chú ý"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 12
+    }
+  },
+  {
+    "front": "Expensive",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ık'spensıv",
+      "meaning": "Mắc tiền, đắt đỏ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 9
+    }
+  },
+  {
+    "front": "Suspend",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "se'spend",
+      "meaning": "Trì hoãn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 7
+    }
+  },
+  {
+    "front": "Resume",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rı'zju:m",
+      "meaning": "Lại tiếp tục, khôi phục"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 6
+    }
+  },
+  {
+    "front": "Expense",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ık'spens",
+      "meaning": "Chi phí"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 7
+    }
+  },
+  {
+    "front": "Paper",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'peıpər",
+      "meaning": "Giấy tờ, tài liệu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 5
+    }
+  },
+  {
+    "front": "Pension",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'penʃn",
+      "meaning": "Tiền trợ cấp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 7
+    }
+  },
+  {
+    "front": "newspaper",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈnuːzpeɪpər",
+      "meaning": "tờ báo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 9
+    }
+  },
+  {
+    "front": "reportedly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈpɔːrtɪdli",
+      "meaning": "theo báo cáo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 10
+    }
+  },
+  {
+    "front": "profile",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈproʊfaɪl",
+      "meaning": "hồ sơ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 7
+    }
+  },
+  {
+    "front": "independent",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌɪndɪˈpendənt",
+      "meaning": "độc lập"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 11
+    }
+  },
+  {
+    "front": "openly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈoʊpənli",
+      "meaning": "công khai"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 6
+    }
+  },
+  {
+    "front": "Vacancy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'verkənsi",
+      "meaning": "Chỗ trống (cần lao động)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 7
+    }
+  },
+  {
+    "front": "Expend",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ık'spend",
+      "meaning": "Chi ra, bỏ ra"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 6
+    }
+  },
+  {
+    "front": "desk",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "desk",
+      "meaning": "bàn làm việc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 4
+    }
+  },
+  {
+    "front": "Dependent",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'pendənt",
+      "meaning": "Phụ thuộc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 9
+    }
+  },
+  {
+    "front": "Presume",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prı'zju:m",
+      "meaning": "Đoán chừng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 7
+    }
+  },
+  {
+    "front": "notebook",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈnoʊtbʊk",
+      "meaning": "cuốn sổ tay"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 8
+    }
+  },
+  {
+    "front": "independence",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌɪndɪˈpendəns",
+      "meaning": "sự độc lập"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 12
+    }
+  },
+  {
+    "front": "Deadline",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'dedlaın",
+      "meaning": "Thời hạn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 8
+    }
+  },
+  {
+    "front": "Dependence",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'pendəns",
+      "meaning": "Sự phụ thuộc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 10
+    }
+  },
+  {
+    "front": "reporter",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈpɔːrtər",
+      "meaning": "phóng viên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 8
+    }
+  },
+  {
+    "front": "desktop",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdesktɑːp",
+      "meaning": "máy tính để bàn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 7
+    }
+  },
+  {
+    "front": "spending",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈspendɪŋ",
+      "meaning": "sự chi tiêu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 8
+    }
+  },
+  {
+    "front": "Depend",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'pend",
+      "meaning": "Phụ thuộc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 6
+    }
+  },
+  {
+    "front": "Penalty",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'penəlti",
+      "meaning": "Mức phạt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 7
+    }
+  },
+  {
+    "front": "Report",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rı'pɔ:rt",
+      "meaning": "Báo cáo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 6
+    }
+  },
+  {
+    "front": "reporting",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈpɔːrtɪŋ",
+      "meaning": "công việc báo cáo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 9
+    }
+  },
+  {
+    "front": "File",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "faıl",
+      "meaning": "Sắp xếp, sắp đặt giấy tờ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Office & Stationery",
+      "length": 4
+    }
+  }
+]

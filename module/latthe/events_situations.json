@@ -1,0 +1,756 @@
+[
+  {
+    "front": "Consignment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kən'saınmənt",
+      "meaning": "Việc gửi hàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 11
+    }
+  },
+  {
+    "front": "anniversary",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌænɪˈvɜːrsəri",
+      "meaning": "lễ kỷ niệm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 11
+    }
+  },
+  {
+    "front": "conference",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːnfərəns",
+      "meaning": "hội nghị"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 10
+    }
+  },
+  {
+    "front": "coup",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kuː",
+      "meaning": "cuộc đảo chính"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 4
+    }
+  },
+  {
+    "front": "ballot",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbælət",
+      "meaning": "lá phiếu, việc bỏ phiếu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 6
+    }
+  },
+  {
+    "front": "Emergency",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ı'm3:rdʒənsi",
+      "meaning": "Khẩn cấp Việc khẩn cấp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 9
+    }
+  },
+  {
+    "front": "gaming",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɡeɪmɪŋ",
+      "meaning": "việc chơi game"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 6
+    }
+  },
+  {
+    "front": "expedition",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌekspəˈdɪʃn",
+      "meaning": "cuộc thám hiểm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 10
+    }
+  },
+  {
+    "front": "marathon",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmærəθɑːn",
+      "meaning": "cuộc chạy marathon"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 8
+    }
+  },
+  {
+    "front": "decision-making",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈsɪʒn meɪkɪŋ",
+      "meaning": "việc ra quyết định"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 15
+    }
+  },
+  {
+    "front": "Conference",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ka:nfərəns",
+      "meaning": "Hội nghị, hiệp hội"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 10
+    }
+  },
+  {
+    "front": "controversy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːntrəvɜːrsi",
+      "meaning": "cuộc tranh cãi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 11
+    }
+  },
+  {
+    "front": "convention",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈvenʃn",
+      "meaning": "hội nghị, quy ước"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 10
+    }
+  },
+  {
+    "front": "Discharge",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'dıstʃɑːrdʒ",
+      "meaning": "Việc bốc dỡ Bốc dỡ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 9
+    }
+  },
+  {
+    "front": "referendum",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌrefəˈrendəm",
+      "meaning": "cuộc trưng cầu dân ý"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 10
+    }
+  },
+  {
+    "front": "summit",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsʌmɪt",
+      "meaning": "đỉnh cao, hội nghị thượng đỉnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 6
+    }
+  },
+  {
+    "front": "reading",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈriːdɪŋ",
+      "meaning": "việc đọc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 7
+    }
+  },
+  {
+    "front": "parking",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpɑːrkɪŋ",
+      "meaning": "việc đỗ xe"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 7
+    }
+  },
+  {
+    "front": "programming",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈproʊɡræmɪŋ",
+      "meaning": "việc lập trình"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 11
+    }
+  },
+  {
+    "front": "Venture",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ventſər",
+      "meaning": "Việc kinh doanh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 7
+    }
+  },
+  {
+    "front": "printing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈprɪntɪŋ",
+      "meaning": "việc in ấn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 8
+    }
+  },
+  {
+    "front": "charity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtʃærəti",
+      "meaning": "hội từ thiện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 7
+    }
+  },
+  {
+    "front": "Subscription",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "səb'skrıpʃn",
+      "meaning": "Hội phí"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 12
+    }
+  },
+  {
+    "front": "dialogue",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdaɪəlɔːɡ",
+      "meaning": "cuộc hội thoại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 8
+    }
+  },
+  {
+    "front": "coverage",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkʌvərɪdʒ",
+      "meaning": "việc đưa tin, độ phủ sóng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 8
+    }
+  },
+  {
+    "front": "racing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈreɪsɪŋ",
+      "meaning": "cuộc đua, môn đua (xe, ngựa...)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 6
+    }
+  },
+  {
+    "front": "living",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlɪvɪŋ",
+      "meaning": "cuộc sống, kế sinh nhai"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 6
+    }
+  },
+  {
+    "front": "Packing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'pækıŋ",
+      "meaning": "Việc đóng gói"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 7
+    }
+  },
+  {
+    "front": "council",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkaʊnsl",
+      "meaning": "hội đồng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 7
+    }
+  },
+  {
+    "front": "singing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɪŋɪŋ",
+      "meaning": "tiếng hát, việc ca hát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 7
+    }
+  },
+  {
+    "front": "sailing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈseɪlɪŋ",
+      "meaning": "môn đua thuyền, việc đi thuyền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 7
+    }
+  },
+  {
+    "front": "Layoff",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'leıɔ:f",
+      "meaning": "Việc giảm nhân công"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 6
+    }
+  },
+  {
+    "front": "fundraising",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfʌndreɪzɪŋ",
+      "meaning": "việc gây quỹ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 11
+    }
+  },
+  {
+    "front": "rental",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈrentəl",
+      "meaning": "việc cho thuê"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 6
+    }
+  },
+  {
+    "front": "testing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtestɪŋ",
+      "meaning": "việc thử nghiệm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 7
+    }
+  },
+  {
+    "front": "voting",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈvoʊtɪŋ",
+      "meaning": "việc bỏ phiếu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 6
+    }
+  },
+  {
+    "front": "crisis",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkraɪsɪs",
+      "meaning": "cuộc khủng hoảng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 6
+    }
+  },
+  {
+    "front": "gathering",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɡæðərɪŋ",
+      "meaning": "cuộc tụ họp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 9
+    }
+  },
+  {
+    "front": "conversation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌkɑːnvərˈseɪʃn",
+      "meaning": "cuộc hội thoại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 12
+    }
+  },
+  {
+    "front": "shower",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈʃaʊər",
+      "meaning": "vòi hoa sen, trận mưa rào"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 6
+    }
+  },
+  {
+    "front": "discourse",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdɪskɔːrs",
+      "meaning": "bài luận, cuộc đàm luận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 9
+    }
+  },
+  {
+    "front": "driving",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdraɪvɪŋ",
+      "meaning": "việc lái xe"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 7
+    }
+  },
+  {
+    "front": "massacre",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmæsəkər",
+      "meaning": "cuộc thảm sát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 8
+    }
+  },
+  {
+    "front": "Incident",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "msıdənt",
+      "meaning": "Vụ việc rắc rối"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 8
+    }
+  },
+  {
+    "front": "Fair",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fer",
+      "meaning": "Hội chợ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 4
+    }
+  },
+  {
+    "front": "festival",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfestɪvl",
+      "meaning": "lễ hội"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 8
+    }
+  },
+  {
+    "front": "Engagement",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'geıdʒmənt",
+      "meaning": "Cuộc hẹn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 10
+    }
+  },
+  {
+    "front": "invasion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈveɪʒn",
+      "meaning": "cuộc xâm lược"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 8
+    }
+  },
+  {
+    "front": "syndrome",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɪndroʊm",
+      "meaning": "hội chứng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 8
+    }
+  },
+  {
+    "front": "deed",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "diːd",
+      "meaning": "hành động, việc làm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 4
+    }
+  },
+  {
+    "front": "hall",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hɔːl",
+      "meaning": "hội trường, hành lang"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 4
+    }
+  },
+  {
+    "front": "confer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈfɜːr",
+      "meaning": "bàn bạc, hội ý"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 6
+    }
+  },
+  {
+    "front": "burial",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈberiəl",
+      "meaning": "việc chôn cất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 6
+    }
+  },
+  {
+    "front": "parade",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pəˈreɪd",
+      "meaning": "cuộc diễu hành"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 6
+    }
+  },
+  {
+    "front": "seminar",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsemənɑːr",
+      "meaning": "hội thảo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 7
+    }
+  },
+  {
+    "front": "riot",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈraɪət",
+      "meaning": "cuộc bạo động"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 4
+    }
+  },
+  {
+    "front": "offering",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɔːfərɪŋ",
+      "meaning": "vật hiến tế, lễ vật"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 8
+    }
+  },
+  {
+    "front": "Entertainment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": ",entər'teınmənt",
+      "meaning": "Việc tiếp đãi, việc giải trí"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Events & Situations",
+      "length": 13
+    }
+  }
+]

@@ -1,0 +1,327 @@
+[
+  {
+    "front": "Conclusive",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "kən'klu:sıv",
+      "meaning": "Quyết định"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Adjectives",
+      "length": 10
+    }
+  },
+  {
+    "front": "Conservative",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "kən'sɜ:rvətıv",
+      "meaning": "Thận trọng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Adjectives",
+      "length": 12
+    }
+  },
+  {
+    "front": "Cheap",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "tʃi:p",
+      "meaning": "Rẻ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Adjectives",
+      "length": 5
+    }
+  },
+  {
+    "front": "Close",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "kləuz",
+      "meaning": "Gần"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Adjectives",
+      "length": 5
+    }
+  },
+  {
+    "front": "Compound",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "'ka:mpaund",
+      "meaning": "Phức hợp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Adjectives",
+      "length": 8
+    }
+  },
+  {
+    "front": "Commercial",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "kə'mɜ:rʃl",
+      "meaning": "Thuộc về thương mại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Adjectives",
+      "length": 10
+    }
+  },
+  {
+    "front": "Present",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "'preznt",
+      "meaning": "Có mặt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Adjectives",
+      "length": 7
+    }
+  },
+  {
+    "front": "Key",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "ki:",
+      "meaning": "Quan trọng, chính yếu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Adjectives",
+      "length": 3
+    }
+  },
+  {
+    "front": "Chief",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "tʃi:f",
+      "meaning": "Trọng yếu, chủ yếu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Adjectives",
+      "length": 5
+    }
+  },
+  {
+    "front": "Concerned",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "kən'sɜ:rnd",
+      "meaning": "Liên quan"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Adjectives",
+      "length": 9
+    }
+  },
+  {
+    "front": "Confident",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "'ka:nfıdənt",
+      "meaning": "Tin chắc, chắc chắn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Adjectives",
+      "length": 9
+    }
+  },
+  {
+    "front": "Comprehensive",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "'ka:mprı'hensıv",
+      "meaning": "Toàn diện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Adjectives",
+      "length": 13
+    }
+  },
+  {
+    "front": "Brisk",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "brısk",
+      "meaning": "Phát đạt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Adjectives",
+      "length": 5
+    }
+  },
+  {
+    "front": "Material",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "mə'tıərıəl",
+      "meaning": "Thuộc về vật chất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Adjectives",
+      "length": 8
+    }
+  },
+  {
+    "front": "Conductive",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "kən'dʌktıv",
+      "meaning": "Dẫn, truyền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Adjectives",
+      "length": 10
+    }
+  },
+  {
+    "front": "Aggregate",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "'ægrıgət",
+      "meaning": "Toàn thể, tổng cộng (tính từ)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Adjectives",
+      "length": 9
+    }
+  },
+  {
+    "front": "Routine",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "ru:'ti:n",
+      "meaning": "Thông thường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Adjectives",
+      "length": 7
+    }
+  },
+  {
+    "front": "Chronic",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "'krænık",
+      "meaning": "Kinh niên, thường xuyên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Adjectives",
+      "length": 7
+    }
+  },
+  {
+    "front": "Concrete",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "'kænkri:t",
+      "meaning": "Cụ thể"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Adjectives",
+      "length": 8
+    }
+  },
+  {
+    "front": "Defective",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "dı'fektıv",
+      "meaning": "Thiếu sót"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Adjectives",
+      "length": 9
+    }
+  },
+  {
+    "front": "Confidential",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "'kænfı'denʃl",
+      "meaning": "Bí mật"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Adjectives",
+      "length": 12
+    }
+  },
+  {
+    "front": "Conditional",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "kən'dıʃənl",
+      "meaning": "Phụ thuộc, có điều kiện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Adjectives",
+      "length": 11
+    }
+  },
+  {
+    "front": "Constructive",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "kən'strʌktıv",
+      "meaning": "Có tính xây dựng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Adjectives",
+      "length": 12
+    }
+  },
+  {
+    "front": "Certain",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "'sɜ:rtn",
+      "meaning": "Chắc chắn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Adjectives",
+      "length": 7
+    }
+  },
+  {
+    "front": "Manual",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "'mænjuəl",
+      "meaning": "Thủ công"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Adjectives",
+      "length": 6
+    }
+  }
+]

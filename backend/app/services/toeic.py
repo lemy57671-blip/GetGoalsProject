@@ -102,6 +102,7 @@ def get_bundle_summary(db: Session) -> ToeicBundleSummaryDto | None:
                 part=part,
                 name=_resolve_part_name(part),
                 skill="listening" if part <= 4 else "reading",
+                count=len(rows),
                 audioCount=sum(1 for value in audio_rows.values() if value == part),
                 testsAvailable=sorted({row.test_number for row in rows if row.test_number and row.test_number > 0}),
                 sampleQuestionRange="" if not rows else f"{min(row.question_number for row in rows)}-{max(row.question_number for row in rows)}",

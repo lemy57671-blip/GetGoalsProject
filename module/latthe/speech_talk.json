@@ -1,0 +1,457 @@
+[
+  {
+    "front": "speak",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "spiːk",
+      "meaning": "nói"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 5
+    }
+  },
+  {
+    "front": "debate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈbeɪt",
+      "meaning": "tranh luận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 6
+    }
+  },
+  {
+    "front": "whisper",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwɪspər",
+      "meaning": "thì thầm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 7
+    }
+  },
+  {
+    "front": "basically",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbeɪsɪkli",
+      "meaning": "về cơ bản"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 9
+    }
+  },
+  {
+    "front": "say",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "seɪ",
+      "meaning": "nói"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 3
+    }
+  },
+  {
+    "front": "lecture",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlektʃər",
+      "meaning": "giảng bài"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 7
+    }
+  },
+  {
+    "front": "devastate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdevəsteɪt",
+      "meaning": "tàn phá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 9
+    }
+  },
+  {
+    "front": "Estate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ı'steıt",
+      "meaning": "Tài sản"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 6
+    }
+  },
+  {
+    "front": "greet",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɡriːt",
+      "meaning": "chào hỏi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 5
+    }
+  },
+  {
+    "front": "declare",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈkler",
+      "meaning": "tuyên bố"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 7
+    }
+  },
+  {
+    "front": "call",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kɔːl",
+      "meaning": "gọi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 4
+    }
+  },
+  {
+    "front": "critically",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkrɪtɪkli",
+      "meaning": "một cách chỉ trích, trầm trọng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 10
+    }
+  },
+  {
+    "front": "Tell",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tel",
+      "meaning": "Cho biết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 4
+    }
+  },
+  {
+    "front": "Declare",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "dı'kler",
+      "meaning": "Tuyên bố"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 7
+    }
+  },
+  {
+    "front": "State",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "stert",
+      "meaning": "Nói rõ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 5
+    }
+  },
+  {
+    "front": "intelligent",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈtelɪdʒənt",
+      "meaning": "thông minh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 11
+    }
+  },
+  {
+    "front": "intellectual",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌɪntəˈlektʃuəl",
+      "meaning": "người trí thức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 12
+    }
+  },
+  {
+    "front": "Discuss",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'skʌs",
+      "meaning": "Thảo luận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 7
+    }
+  },
+  {
+    "front": "mention",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmenʃn",
+      "meaning": "đề cập"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 7
+    }
+  },
+  {
+    "front": "speaker",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈspiːkər",
+      "meaning": "người nói, loa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 7
+    }
+  },
+  {
+    "front": "so-called",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌsoʊˈkɔːld",
+      "meaning": "cái gọi là"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 9
+    }
+  },
+  {
+    "front": "specifically",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "spəˈsɪfɪkli",
+      "meaning": "một cách cụ thể"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 12
+    }
+  },
+  {
+    "front": "ironically",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "aɪˈrɑːnɪkli",
+      "meaning": "trớ trêu thay"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 10
+    }
+  },
+  {
+    "front": "Statement",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'stertmənt",
+      "meaning": "Bản kê; báo cáo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 9
+    }
+  },
+  {
+    "front": "dramatically",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "drəˈmætɪkli",
+      "meaning": "một cách đáng kể"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 12
+    }
+  },
+  {
+    "front": "shout",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʃaʊt",
+      "meaning": "la hét"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 5
+    }
+  },
+  {
+    "front": "satellite",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsætəlaɪt",
+      "meaning": "vệ tinh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 9
+    }
+  },
+  {
+    "front": "essay",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈeseɪ",
+      "meaning": "bài tiểu luận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 5
+    }
+  },
+  {
+    "front": "automatically",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌɔːtəˈmætɪkli",
+      "meaning": "một cách tự động"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 13
+    }
+  },
+  {
+    "front": "recall",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈkɔːl",
+      "meaning": "nhớ lại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 6
+    }
+  },
+  {
+    "front": "Canvass",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'kænvəs",
+      "meaning": "Chào hàng, thăm dò thị trường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 7
+    }
+  },
+  {
+    "front": "intelligence",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈtelɪdʒəns",
+      "meaning": "trí thông minh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 12
+    }
+  },
+  {
+    "front": "Talk",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "to:k",
+      "meaning": "Cuộc nói chuyện Nói chuyện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 4
+    }
+  },
+  {
+    "front": "Discussion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'skʌʃn",
+      "meaning": "Sự thảo luận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 10
+    }
+  },
+  {
+    "front": "typically",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtɪpɪkəli",
+      "meaning": "một cách điển hình"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Speech & Talk",
+      "length": 9
+    }
+  }
+]

@@ -1,0 +1,2017 @@
+[
+  {
+    "front": "vacuum",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈvækjuːm",
+      "meaning": "máy hút bụi, chân không"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 6
+    }
+  },
+  {
+    "front": "Privilege",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'prıvəlıdʒ",
+      "meaning": "Sự ưu đãi; đặc quyền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 9
+    }
+  },
+  {
+    "front": "shoulder",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈʃoʊldər",
+      "meaning": "bờ vai"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 8
+    }
+  },
+  {
+    "front": "foot",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fʊt",
+      "meaning": "bàn chân"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "legacy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈleɡəsi",
+      "meaning": "di sản"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 6
+    }
+  },
+  {
+    "front": "accident",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈæksɪdənt",
+      "meaning": "tai nạn, sự tình cờ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 8
+    }
+  },
+  {
+    "front": "alarm",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "əˈlɑːrm",
+      "meaning": "báo động, làm cho hoảng sợ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 5
+    }
+  },
+  {
+    "front": "headache",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhedeɪk",
+      "meaning": "cơn đau đầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 8
+    }
+  },
+  {
+    "front": "headline",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhedlaɪn",
+      "meaning": "tiêu đề (báo)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 8
+    }
+  },
+  {
+    "front": "rear",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪr",
+      "meaning": "phía sau"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "palm",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pɑːm",
+      "meaning": "lòng bàn tay, cây cọ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "line-up",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlaɪn ʌp",
+      "meaning": "đội hình, danh sách"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 7
+    }
+  },
+  {
+    "front": "head",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hed",
+      "meaning": "hướng về, chỉ huy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "ahead",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈhed",
+      "meaning": "phía trước"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 5
+    }
+  },
+  {
+    "front": "near",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "nɪr",
+      "meaning": "gần"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "interface",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɪntərfeɪs",
+      "meaning": "giao diện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 9
+    }
+  },
+  {
+    "front": "tough",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tʌf",
+      "meaning": "khó khăn, dai, cứng rắn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 5
+    }
+  },
+  {
+    "front": "farmer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfɑːrmər",
+      "meaning": "nông dân"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 6
+    }
+  },
+  {
+    "front": "elbow",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈelboʊ",
+      "meaning": "khuỷu tay"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 5
+    }
+  },
+  {
+    "front": "invest",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈvest",
+      "meaning": "đầu tư"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 6
+    }
+  },
+  {
+    "front": "terminal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtɜːrmɪnəl",
+      "meaning": "nhà ga, thiết bị đầu cuối"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 8
+    }
+  },
+  {
+    "front": "thumb",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "θʌm",
+      "meaning": "ngón tay cái"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 5
+    }
+  },
+  {
+    "front": "genuine",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdʒenjuɪn",
+      "meaning": "chân thật"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Indent",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "m'dent",
+      "meaning": "Danh mục"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 6
+    }
+  },
+  {
+    "front": "backdrop",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbækdrɑːp",
+      "meaning": "phông nền, bối cảnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Feedback",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'fi:dbæk",
+      "meaning": "Phản hồi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 8
+    }
+  },
+  {
+    "front": "footage",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfʊtɪdʒ",
+      "meaning": "cảnh phim"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 7
+    }
+  },
+  {
+    "front": "delegation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdelɪˈɡeɪʃn",
+      "meaning": "phái đoàn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Earn",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "3:rn",
+      "meaning": "Kiếm được"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "football",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfʊtbɔːl",
+      "meaning": "bóng đá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 8
+    }
+  },
+  {
+    "front": "chef",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʃef",
+      "meaning": "đầu bếp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "chest",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tʃest",
+      "meaning": "ngực, rương"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 5
+    }
+  },
+  {
+    "front": "knee",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "niː",
+      "meaning": "đầu gối"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "Head",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "hed",
+      "meaning": "Đứng đầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "Research",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rı'sɜ:rtʃ",
+      "meaning": "Nghiên cứu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Commence",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kə'mens",
+      "meaning": "Khởi đầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 8
+    }
+  },
+  {
+    "front": "confront",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈfrʌnt",
+      "meaning": "đương đầu, đối diện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Float",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "filout",
+      "meaning": "Sự khởi đầu / Khởi đầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 5
+    }
+  },
+  {
+    "front": "legend",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈledʒənd",
+      "meaning": "huyền thoại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 6
+    }
+  },
+  {
+    "front": "listing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlɪstɪŋ",
+      "meaning": "sự lập danh sách, danh sách"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 7
+    }
+  },
+  {
+    "front": "farming",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfɑːrmɪŋ",
+      "meaning": "công việc đồng áng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 7
+    }
+  },
+  {
+    "front": "handful",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhændfʊl",
+      "meaning": "một nhúm, một ít"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 7
+    }
+  },
+  {
+    "front": "arrow",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈæroʊ",
+      "meaning": "mũi tên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 5
+    }
+  },
+  {
+    "front": "Handmade",
+    "back": {
+      "pos": "Verb",
+      "phonetic": ", hænd' meid",
+      "meaning": "Làm bằng tay"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Delegate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'delıɡət",
+      "meaning": "Người ủy thác; Ủy thác; đại biểu; đại diện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Dear",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "dıər",
+      "meaning": "Đắt đỏ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "Fluctuation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "flaktfu'erſn",
+      "meaning": "Sự dao động"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 11
+    }
+  },
+  {
+    "front": "elegant",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈelɪɡənt",
+      "meaning": "thanh lịch"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Head",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hed",
+      "meaning": "Trưởng, chính"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "Appear",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'pır",
+      "meaning": "Xuất hiện, có vẻ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 6
+    }
+  },
+  {
+    "front": "nearby",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌnɪrˈbaɪ",
+      "meaning": "ở gần"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 6
+    }
+  },
+  {
+    "front": "learn",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "lɜːrn",
+      "meaning": "học"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 5
+    }
+  },
+  {
+    "front": "Earnings",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'3:rnıŋz",
+      "meaning": "Thu nhập, tiền lương"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 8
+    }
+  },
+  {
+    "front": "backup",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbækʌp",
+      "meaning": "dự phòng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 6
+    }
+  },
+  {
+    "front": "bow",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "baʊ",
+      "meaning": "cúi đầu, cúi chào"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 3
+    }
+  },
+  {
+    "front": "bleed",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bliːd",
+      "meaning": "chảy máu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 5
+    }
+  },
+  {
+    "front": "vessel",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈvesəl",
+      "meaning": "tàu thuyền, mạch máu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 6
+    }
+  },
+  {
+    "front": "nail",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "neɪl",
+      "meaning": "móng tay, cái đinh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "Initial",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'nıʃl",
+      "meaning": "Đầu tiên, ban đầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Legal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'li:gl",
+      "meaning": "Hợp pháp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 5
+    }
+  },
+  {
+    "front": "fame",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "feɪm",
+      "meaning": "danh tiếng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "input",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɪnpʊt",
+      "meaning": "đầu vào"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 5
+    }
+  },
+  {
+    "front": "Telegraph",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "telıgra:f",
+      "meaning": "Gửi điện báo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 9
+    }
+  },
+  {
+    "front": "applaud",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈplɔːd",
+      "meaning": "vỗ tay tán thưởng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 7
+    }
+  },
+  {
+    "front": "firearm",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfaɪərɑːrm",
+      "meaning": "súng, vũ khí"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 7
+    }
+  },
+  {
+    "front": "chief",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tʃiːf",
+      "meaning": "thủ lĩnh, người đứng đầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 5
+    }
+  },
+  {
+    "front": "legitimate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "lɪˈdʒɪtɪmət",
+      "meaning": "hợp pháp, chính đáng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 10
+    }
+  },
+  {
+    "front": "diagnose",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdaɪəɡˈnoʊs",
+      "meaning": "chẩn đoán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 8
+    }
+  },
+  {
+    "front": "ankle",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈæŋkl",
+      "meaning": "mắt cá chân"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 5
+    }
+  },
+  {
+    "front": "Speculation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌspekju'leıʃn",
+      "meaning": "Sự đầu cơ, sự tích trữ, sự nghiên cứu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 11
+    }
+  },
+  {
+    "front": "allegation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌæləˈɡeɪʃn",
+      "meaning": "sự cáo buộc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 10
+    }
+  },
+  {
+    "front": "hand",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hænd",
+      "meaning": "trao tay"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "cope",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "koʊp",
+      "meaning": "đối phó, đương đầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "researcher",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈriːsɜːrtʃər",
+      "meaning": "nhà nghiên cứu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 10
+    }
+  },
+  {
+    "front": "premier",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpremiər",
+      "meaning": "hàng đầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 7
+    }
+  },
+  {
+    "front": "initially",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪˈnɪʃəli",
+      "meaning": "vào lúc ban đầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Payback",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'peıbæk",
+      "meaning": "Lợi tức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Clearance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'klıərəns",
+      "meaning": "Sự thanh toán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 9
+    }
+  },
+  {
+    "front": "blade",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bleɪd",
+      "meaning": "lưỡi (dao, kiếm)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 5
+    }
+  },
+  {
+    "front": "ear",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪr",
+      "meaning": "tai"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 3
+    }
+  },
+  {
+    "front": "Initiate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ı'nıʃıeıt",
+      "meaning": "Bắt đầu, khởi xướng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 8
+    }
+  },
+  {
+    "front": "legendary",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈledʒəndri",
+      "meaning": "mang tính huyền thoại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 9
+    }
+  },
+  {
+    "front": "back",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bæk",
+      "meaning": "ủng hộ, lùi lại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "brain",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "breɪn",
+      "meaning": "não bộ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 5
+    }
+  },
+  {
+    "front": "Reputation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "repju'teıʃn",
+      "meaning": "Danh tiếng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 10
+    }
+  },
+  {
+    "front": "heel",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hiːl",
+      "meaning": "gót chân"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "farm",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fɑːrm",
+      "meaning": "canh tác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "dear",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪr",
+      "meaning": "ôi trời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "mouth",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "maʊθ",
+      "meaning": "cái miệng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 5
+    }
+  },
+  {
+    "front": "Prime",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "praım",
+      "meaning": "Đầu tiên, đắc địa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 5
+    }
+  },
+  {
+    "front": "body",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbɑːdi",
+      "meaning": "cơ thể"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "eye",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "aɪ",
+      "meaning": "con mắt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 3
+    }
+  },
+  {
+    "front": "nose",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "noʊz",
+      "meaning": "cái mũi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "Merchandise",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'mɜ:rtʃəndaıs",
+      "meaning": "Hàng hoá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 11
+    }
+  },
+  {
+    "front": "confrontation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌkɑːnfrənˈteɪʃn",
+      "meaning": "sự đối đầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 13
+    }
+  },
+  {
+    "front": "year",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "jɪr",
+      "meaning": "năm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "bone",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "boʊn",
+      "meaning": "xương"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "List",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "lıst",
+      "meaning": "Danh sách"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "fear",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fɪr",
+      "meaning": "sợ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "surface",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɜːrfɪs",
+      "meaning": "bề mặt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 7
+    }
+  },
+  {
+    "front": "armed",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɑːrmd",
+      "meaning": "có vũ trang"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 5
+    }
+  },
+  {
+    "front": "anonymous",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈnɑːnɪməs",
+      "meaning": "vô danh, ẩn danh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Earnest",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'3:rnıst",
+      "meaning": "Sự đặt cọc tiền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Disinvest",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdısın'vest",
+      "meaning": "Ngừng đầu tư"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 9
+    }
+  },
+  {
+    "front": "illegal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪˈliːɡl",
+      "meaning": "bất hợp pháp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 7
+    }
+  },
+  {
+    "front": "limb",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "lɪm",
+      "meaning": "chi (chân, tay)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "handy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhændi",
+      "meaning": "tiện lợi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 5
+    }
+  },
+  {
+    "front": "leg",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "leɡ",
+      "meaning": "cái chân"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 3
+    }
+  },
+  {
+    "front": "Verbal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ve:bl",
+      "meaning": "Bằng miệng, dùng lời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 6
+    }
+  },
+  {
+    "front": "allegedly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈledʒɪdli",
+      "meaning": "được cho là"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Face",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "feıs",
+      "meaning": "Đối mặt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "Variation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "veǝri'erfn",
+      "meaning": "Sự dao động"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Hand",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "hænd",
+      "meaning": "Đưa, chuyển giao"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "nod",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "nɑːd",
+      "meaning": "gật đầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 3
+    }
+  },
+  {
+    "front": "allege",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈledʒ",
+      "meaning": "cho là, quả quyết (mà không có chứng cứ)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 6
+    }
+  },
+  {
+    "front": "commence",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəˈmens",
+      "meaning": "bắt đầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 8
+    }
+  },
+  {
+    "front": "disappear",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdɪsəˈpɪr",
+      "meaning": "biến mất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 9
+    }
+  },
+  {
+    "front": "breast",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "brest",
+      "meaning": "ngực, vú"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 6
+    }
+  },
+  {
+    "front": "arm",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɑːrm",
+      "meaning": "trang bị vũ khí"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 3
+    }
+  },
+  {
+    "front": "Drawback",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'drɔːbæk",
+      "meaning": "Hạn chế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Fluctuate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "filaktſueit",
+      "meaning": "Dao động"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 9
+    }
+  },
+  {
+    "front": "skin",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "skɪn",
+      "meaning": "làn da"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "legislative",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈledʒɪslətɪv",
+      "meaning": "thuộc lập pháp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 11
+    }
+  },
+  {
+    "front": "Gearing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "grarıŋ",
+      "meaning": "Sự ăn khớp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 7
+    }
+  },
+  {
+    "front": "finger",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfɪŋɡər",
+      "meaning": "ngón tay"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 6
+    }
+  },
+  {
+    "front": "arms",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɑːrmz",
+      "meaning": "vũ khí, binh giới"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "nuclear",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈnuːkliər",
+      "meaning": "thuộc hạt nhân"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Name",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "neım",
+      "meaning": "Tên, danh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "laptop",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlæptɑːp",
+      "meaning": "máy tính xách tay"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 6
+    }
+  },
+  {
+    "front": "learning",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlɜːrnɪŋ",
+      "meaning": "việc học"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Undertake",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "Andə teık",
+      "meaning": "Bắt đầu làm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 9
+    }
+  },
+  {
+    "front": "sincere",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sɪnˈsɪr",
+      "meaning": "chân thành"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Hand",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hænd",
+      "meaning": "Bàn tay"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "Gear",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "gir",
+      "meaning": "Khớp, đáp ứng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "search",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sɜːrtʃ",
+      "meaning": "tìm kiếm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 6
+    }
+  },
+  {
+    "front": "backing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbækɪŋ",
+      "meaning": "sự ủng hộ, hậu thuẫn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 7
+    }
+  },
+  {
+    "front": "cocktail",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːkteɪl",
+      "meaning": "cốc-tai"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Handbook",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hændbok",
+      "meaning": "Sách hướng dẫn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Clear",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "klıər",
+      "meaning": "Thanh toán hết nợ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 5
+    }
+  },
+  {
+    "front": "injection",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈdʒekʃn",
+      "meaning": "mũi tiêm, sự tiêm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 9
+    }
+  },
+  {
+    "front": "blood",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "blʌd",
+      "meaning": "máu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 5
+    }
+  },
+  {
+    "front": "enrol",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈroʊl",
+      "meaning": "ghi danh, kết nạp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 5
+    }
+  },
+  {
+    "front": "appearance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈpɪrəns",
+      "meaning": "ngoại hình, sự xuất hiện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Handling",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hændlıŋ",
+      "meaning": "Sự giải quyết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 8
+    }
+  },
+  {
+    "front": "wrist",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪst",
+      "meaning": "cổ tay"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 5
+    }
+  },
+  {
+    "front": "army",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɑːrmi",
+      "meaning": "quân đội"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "linear",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlɪniər",
+      "meaning": "tuyến tính"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 6
+    }
+  },
+  {
+    "front": "wave",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "weɪv",
+      "meaning": "vẫy tay"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 4
+    }
+  },
+  {
+    "front": "legislation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌledʒɪsˈleɪʃn",
+      "meaning": "pháp luật, sự lập pháp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 11
+    }
+  },
+  {
+    "front": "college",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːlɪdʒ",
+      "meaning": "trường cao đẳng, đại học"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 7
+    }
+  },
+  {
+    "front": "identity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "aɪˈdentəti",
+      "meaning": "danh tính"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 8
+    }
+  },
+  {
+    "front": "legislature",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈledʒɪslətʃər",
+      "meaning": "cơ quan lập pháp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 11
+    }
+  },
+  {
+    "front": "Handover",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hændǝuvər",
+      "meaning": "Sự chuyển giao"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 8
+    }
+  },
+  {
+    "front": "toe",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "toʊ",
+      "meaning": "ngón chân"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 3
+    }
+  },
+  {
+    "front": "skirt",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "skɜːrt",
+      "meaning": "chân váy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Body Parts",
+      "length": 5
+    }
+  }
+]

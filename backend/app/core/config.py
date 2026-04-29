@@ -9,7 +9,7 @@ ENV_FILE = BACKEND_ROOT / ".env"
 
 # Always resolve the backend environment file relative to this backend folder,
 # not the caller's current working directory.
-load_dotenv(dotenv_path=ENV_FILE)
+load_dotenv(dotenv_path=ENV_FILE, override=True)
 
 
 def _resolve_backend_path(raw_value: str, default_relative_path: str) -> Path:

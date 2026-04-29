@@ -1,0 +1,444 @@
+[
+  {
+    "front": "Vote",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "vəʊt",
+      "meaning": "Sự bầu cử Bầu cử"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 4
+    }
+  },
+  {
+    "front": "peaceful",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpiːsfl",
+      "meaning": "thanh bình"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 8
+    }
+  },
+  {
+    "front": "assassination",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˌsæsɪˈneɪʃn",
+      "meaning": "vụ ám sát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 13
+    }
+  },
+  {
+    "front": "Nomination",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ndmı'neıʃn",
+      "meaning": "Sự tiến cử"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 10
+    }
+  },
+  {
+    "front": "Resignation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rezıg'neıʃn",
+      "meaning": "Sự từ chức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 11
+    }
+  },
+  {
+    "front": "Policy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ppləsi",
+      "meaning": "Chính sách"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 6
+    }
+  },
+  {
+    "front": "combination",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌkɑːmbɪˈneɪʃn",
+      "meaning": "sự kết hợp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 11
+    }
+  },
+  {
+    "front": "Public",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'pʌblık",
+      "meaning": "Công cộng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 6
+    }
+  },
+  {
+    "front": "authority",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈθɔːrəti",
+      "meaning": "thẩm quyền, chính quyền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 9
+    }
+  },
+  {
+    "front": "election",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪˈlekʃn",
+      "meaning": "cuộc bầu cử"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 8
+    }
+  },
+  {
+    "front": "imagination",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪˌmædʒɪˈneɪʃn",
+      "meaning": "trí tưởng tượng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 11
+    }
+  },
+  {
+    "front": "devote",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈvoʊt",
+      "meaning": "cống hiến"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 6
+    }
+  },
+  {
+    "front": "citizen",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɪtɪzn",
+      "meaning": "công dân"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 7
+    }
+  },
+  {
+    "front": "population",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌpɑːpjuˈleɪʃn",
+      "meaning": "dân số"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 10
+    }
+  },
+  {
+    "front": "Termination",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "t3:mi'nerſn",
+      "meaning": "Sự chấm dứt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 11
+    }
+  },
+  {
+    "front": "Nationalization",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'næʃənəlaı'zeıʃn",
+      "meaning": "Sự quốc gia hoá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 15
+    }
+  },
+  {
+    "front": "republic",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈpʌblɪk",
+      "meaning": "nước cộng hòa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 8
+    }
+  },
+  {
+    "front": "National",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'næʃənəl",
+      "meaning": "Thuộc quốc gia, toàn quốc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 8
+    }
+  },
+  {
+    "front": "Nationalize",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'næʃənəlaız",
+      "meaning": "Quốc hữu hoá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 11
+    }
+  },
+  {
+    "front": "administer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ədˈmɪnɪstər",
+      "meaning": "quản lý, thi hành"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 10
+    }
+  },
+  {
+    "front": "determination",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˌtɜːrmɪˈneɪʃn",
+      "meaning": "sự quyết tâm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 13
+    }
+  },
+  {
+    "front": "nation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈneɪʃn",
+      "meaning": "quốc gia"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 6
+    }
+  },
+  {
+    "front": "Discrimination",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dıˌskrımı'neıʃn",
+      "meaning": "Sự phân biệt đối xử"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 14
+    }
+  },
+  {
+    "front": "minister",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmɪnɪstər",
+      "meaning": "bộ trưởng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 8
+    }
+  },
+  {
+    "front": "politics",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpɑːlətɪks",
+      "meaning": "chính trị học"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 8
+    }
+  },
+  {
+    "front": "Destination",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdestı'neıʃn",
+      "meaning": "Đích đến"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 11
+    }
+  },
+  {
+    "front": "Multinational",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mʌltı'næʃənl",
+      "meaning": "Đa quốc gia"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 13
+    }
+  },
+  {
+    "front": "Official",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'fıʃl",
+      "meaning": "Chính thức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 8
+    }
+  },
+  {
+    "front": "Combination",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'kəmbı'neıʃn",
+      "meaning": "Sự kết hợp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 11
+    }
+  },
+  {
+    "front": "Selection",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sı'lekʃn",
+      "meaning": "Sự lựa chọn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 9
+    }
+  },
+  {
+    "front": "International",
+    "back": {
+      "pos": "Noun",
+      "phonetic": ",ıntə'næʃənl",
+      "meaning": "Quốc tế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 13
+    }
+  },
+  {
+    "front": "coordination",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "koʊˌɔːrdɪˈneɪʃn",
+      "meaning": "sự điều phối"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 12
+    }
+  },
+  {
+    "front": "donation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "doʊˈneɪʃn",
+      "meaning": "sự quyên góp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 8
+    }
+  },
+  {
+    "front": "peace",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "piːs",
+      "meaning": "hòa bình"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Politics & Government",
+      "length": 5
+    }
+  }
+]

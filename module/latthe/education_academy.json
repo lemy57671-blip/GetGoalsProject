@@ -1,0 +1,184 @@
+[
+  {
+    "front": "school",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "skuːl",
+      "meaning": "trường học"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Education & Academy",
+      "length": 6
+    }
+  },
+  {
+    "front": "degree",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈɡriː",
+      "meaning": "mức độ, bằng cấp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Education & Academy",
+      "length": 6
+    }
+  },
+  {
+    "front": "academy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈkædəmi",
+      "meaning": "học viện, viện hàn lâm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Education & Academy",
+      "length": 7
+    }
+  },
+  {
+    "front": "curriculum",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəˈrɪkjələm",
+      "meaning": "chương trình học"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Education & Academy",
+      "length": 10
+    }
+  },
+  {
+    "front": "professor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prəˈfesər",
+      "meaning": "giáo sư"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Education & Academy",
+      "length": 9
+    }
+  },
+  {
+    "front": "campus",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkæmpəs",
+      "meaning": "khuôn viên trường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Education & Academy",
+      "length": 6
+    }
+  },
+  {
+    "front": "diplomat",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdɪpləmæt",
+      "meaning": "nhà ngoại giao"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Education & Academy",
+      "length": 8
+    }
+  },
+  {
+    "front": "diplomatic",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdɪpləˈmætɪk",
+      "meaning": "thuộc ngoại giao"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Education & Academy",
+      "length": 10
+    }
+  },
+  {
+    "front": "example",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪɡˈzæmpl",
+      "meaning": "ví dụ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Education & Academy",
+      "length": 7
+    }
+  },
+  {
+    "front": "university",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌjuːnəˈvɜːrsəti",
+      "meaning": "trường đại học"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Education & Academy",
+      "length": 10
+    }
+  },
+  {
+    "front": "Examine",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ıg'zæmın",
+      "meaning": "Kiểm tra, nghiên cứu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Education & Academy",
+      "length": 7
+    }
+  },
+  {
+    "front": "student",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈstuːdənt",
+      "meaning": "học sinh, sinh viên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Education & Academy",
+      "length": 7
+    }
+  },
+  {
+    "front": "Examination",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ıg,zæmı'neıʃn",
+      "meaning": "Kiểm tra"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Education & Academy",
+      "length": 11
+    }
+  },
+  {
+    "front": "exam",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪɡˈzæm",
+      "meaning": "kỳ thi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Education & Academy",
+      "length": 4
+    }
+  }
+]

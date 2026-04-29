@@ -1,0 +1,197 @@
+[
+  {
+    "front": "board",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bɔːrd",
+      "meaning": "lên tàu / máy bay"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Objects & Infrastructure",
+      "length": 5
+    }
+  },
+  {
+    "front": "van",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "væn",
+      "meaning": "xe tải nhỏ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Objects & Infrastructure",
+      "length": 3
+    }
+  },
+  {
+    "front": "leaf",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "liːf",
+      "meaning": "chiếc lá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Objects & Infrastructure",
+      "length": 4
+    }
+  },
+  {
+    "front": "trailer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtreɪlər",
+      "meaning": "xe moóc, đoạn phim giới thiệu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Objects & Infrastructure",
+      "length": 7
+    }
+  },
+  {
+    "front": "jet",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dʒet",
+      "meaning": "máy bay phản lực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Objects & Infrastructure",
+      "length": 3
+    }
+  },
+  {
+    "front": "Machine",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mə'ʃi:n",
+      "meaning": "Máy móc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Objects & Infrastructure",
+      "length": 7
+    }
+  },
+  {
+    "front": "printer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈprɪntər",
+      "meaning": "máy in"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Objects & Infrastructure",
+      "length": 7
+    }
+  },
+  {
+    "front": "machinery",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "məˈʃiːnəri",
+      "meaning": "máy móc (nói chung)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Objects & Infrastructure",
+      "length": 9
+    }
+  },
+  {
+    "front": "aircraft",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈerkræft",
+      "meaning": "máy bay, phi cơ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Objects & Infrastructure",
+      "length": 8
+    }
+  },
+  {
+    "front": "shoe",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʃuː",
+      "meaning": "chiếc giày"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Objects & Infrastructure",
+      "length": 4
+    }
+  },
+  {
+    "front": "camera",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkæmrə",
+      "meaning": "máy ảnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Objects & Infrastructure",
+      "length": 6
+    }
+  },
+  {
+    "front": "cabin",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkæbɪn",
+      "meaning": "túp lều, khoang máy bay"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Objects & Infrastructure",
+      "length": 5
+    }
+  },
+  {
+    "front": "disk",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪsk",
+      "meaning": "đĩa (máy tính)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Objects & Infrastructure",
+      "length": 4
+    }
+  },
+  {
+    "front": "Embark",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ım'ba:rk",
+      "meaning": "Lên tàu, lên máy bay"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Objects & Infrastructure",
+      "length": 6
+    }
+  },
+  {
+    "front": "Navigable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'nævıgəbl",
+      "meaning": "Thích hợp cho tàu bè qua lại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Objects & Infrastructure",
+      "length": 9
+    }
+  }
+]

@@ -1,0 +1,56 @@
+# Environments
+.venv/
+env/
+venv/
+ENV/
+bin/
+lib/
+include/
+share/
+.env
+
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# AI Models & Large Binaries
+backend/runtime/models/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.onnx
+
+# Data & Documents
+module/baitap/
+*.docx
+*.pdf
+*.zip
+*.rar
+*.7z
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Frontend Builds
+frontend/dist/
+frontend/.next/
+frontend/out/
+frontend/build/
+
+# System Files
+.DS_Store
+Thumbs.db

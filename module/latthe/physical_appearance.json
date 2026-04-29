@@ -1,0 +1,600 @@
+[
+  {
+    "front": "credible",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkredəbl",
+      "meaning": "đáng tin cậy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 8
+    }
+  },
+  {
+    "front": "scared",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "skerd",
+      "meaning": "bị sợ hãi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 6
+    }
+  },
+  {
+    "front": "prediction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prɪˈdɪkʃn",
+      "meaning": "lời dự đoán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 10
+    }
+  },
+  {
+    "front": "Sharp",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʃa:rp",
+      "meaning": "Sâu sắc, nhiều"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 5
+    }
+  },
+  {
+    "front": "prepared",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prɪˈperd",
+      "meaning": "đã sẵn sàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 8
+    }
+  },
+  {
+    "front": "predecessor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpredəsesər",
+      "meaning": "người tiền nhiệm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 11
+    }
+  },
+  {
+    "front": "scattered",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈskætərd",
+      "meaning": "rải rác, thưa thớt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 9
+    }
+  },
+  {
+    "front": "dark",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɑːrk",
+      "meaning": "bóng tối"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 4
+    }
+  },
+  {
+    "front": "bored",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bɔːrd",
+      "meaning": "buồn chán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 5
+    }
+  },
+  {
+    "front": "reduction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈdʌkʃən",
+      "meaning": "sự giảm sút"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 9
+    }
+  },
+  {
+    "front": "credit",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkredɪt",
+      "meaning": "ghi nhận, tín nhiệm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 6
+    }
+  },
+  {
+    "front": "incredible",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈkredəbl",
+      "meaning": "đáng kinh ngạc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 10
+    }
+  },
+  {
+    "front": "covered",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkʌvərd",
+      "meaning": "được bao phủ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 7
+    }
+  },
+  {
+    "front": "darkness",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdɑːrknəs",
+      "meaning": "sự tối tăm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 8
+    }
+  },
+  {
+    "front": "Black",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "blæk",
+      "meaning": "Ảm đạm, vô vọng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 5
+    }
+  },
+  {
+    "front": "yellow",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈjeloʊ",
+      "meaning": "màu vàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 6
+    }
+  },
+  {
+    "front": "Throughout",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "oru: aut",
+      "meaning": "Trọn vẹn, hoàn toàn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 10
+    }
+  },
+  {
+    "front": "roughly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈrʌfli",
+      "meaning": "đại khái, xấp xỉ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 7
+    }
+  },
+  {
+    "front": "greenhouse",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɡriːnhaʊs",
+      "meaning": "nhà kính"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 10
+    }
+  },
+  {
+    "front": "retired",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈtaɪərd",
+      "meaning": "đã nghỉ hưu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 7
+    }
+  },
+  {
+    "front": "credibility",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌkredəˈbɪləti",
+      "meaning": "sự tín nhiệm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 11
+    }
+  },
+  {
+    "front": "Through",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "0ru:",
+      "meaning": "Thông qua"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 7
+    }
+  },
+  {
+    "front": "green",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɡriːn",
+      "meaning": "màu xanh lá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 5
+    }
+  },
+  {
+    "front": "dirty",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdɜːrti",
+      "meaning": "bẩn thỉu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 5
+    }
+  },
+  {
+    "front": "predator",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈpredətər",
+      "meaning": "động vật ăn thịt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 8
+    }
+  },
+  {
+    "front": "hatred",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈheɪtrɪd",
+      "meaning": "lòng căm thù"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 6
+    }
+  },
+  {
+    "front": "predictable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prɪˈdɪktəbl",
+      "meaning": "có thể đoán trước"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 11
+    }
+  },
+  {
+    "front": "drought",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "draʊt",
+      "meaning": "hạn hán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 7
+    }
+  },
+  {
+    "front": "incredibly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈkredəbli",
+      "meaning": "vô cùng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 10
+    }
+  },
+  {
+    "front": "Smooth",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "smu:ð",
+      "meaning": "Dàn xếp ổn thoả"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 6
+    }
+  },
+  {
+    "front": "Rough",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rʌf",
+      "meaning": "Đại khái"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 5
+    }
+  },
+  {
+    "front": "thorough",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈθɜːroʊ",
+      "meaning": "kỹ lưỡng, thấu đáo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 8
+    }
+  },
+  {
+    "front": "thoroughly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈθɜːroʊli",
+      "meaning": "một cách kỹ lưỡng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 10
+    }
+  },
+  {
+    "front": "beautiful",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbjuːtɪfl",
+      "meaning": "xinh đẹp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 9
+    }
+  },
+  {
+    "front": "hundred",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhʌndrəd",
+      "meaning": "một trăm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 7
+    }
+  },
+  {
+    "front": "Unexpired",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "Anık' sparǝd",
+      "meaning": "Đã hết hiệu lực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 9
+    }
+  },
+  {
+    "front": "blue",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bluː",
+      "meaning": "màu xanh dương"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 4
+    }
+  },
+  {
+    "front": "ugly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈʌɡli",
+      "meaning": "xấu xí"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 4
+    }
+  },
+  {
+    "front": "red",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "red",
+      "meaning": "màu đỏ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 3
+    }
+  },
+  {
+    "front": "coloured",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkʌlərd",
+      "meaning": "có màu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 8
+    }
+  },
+  {
+    "front": "predict",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prɪˈdɪkt",
+      "meaning": "dự đoán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 7
+    }
+  },
+  {
+    "front": "predominantly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prɪˈdɑːmɪnəntli",
+      "meaning": "phần lớn, chủ yếu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 13
+    }
+  },
+  {
+    "front": "tired",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtaɪərd",
+      "meaning": "mệt mỏi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 5
+    }
+  },
+  {
+    "front": "sacred",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈseɪkrɪd",
+      "meaning": "thiêng liêng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 6
+    }
+  },
+  {
+    "front": "bright",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "braɪt",
+      "meaning": "sáng chói, thông minh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 6
+    }
+  },
+  {
+    "front": "reduce",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈduːs",
+      "meaning": "giảm bớt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Physical Appearance",
+      "length": 6
+    }
+  }
+]

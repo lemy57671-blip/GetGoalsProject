@@ -1,0 +1,2303 @@
+[
+  {
+    "front": "substantial",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "səbˈstænʃəl",
+      "meaning": "đáng kể, quan trọng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 11
+    }
+  },
+  {
+    "front": "Involve",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'vplv",
+      "meaning": "Liên quan, dính dáng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "lawsuit",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlɔːsuːt",
+      "meaning": "vụ kiện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "Judge",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dʒʌdʒ",
+      "meaning": "Quan tòa, thẩm phán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 5
+    }
+  },
+  {
+    "front": "tribunal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "traɪˈbjuːnəl",
+      "meaning": "tòa án, ban xét xử"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 8
+    }
+  },
+  {
+    "front": "cafe",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kæˈfeɪ",
+      "meaning": "quán cà phê"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 4
+    }
+  },
+  {
+    "front": "July",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dʒuˈlaɪ",
+      "meaning": "tháng Bảy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 4
+    }
+  },
+  {
+    "front": "magistrate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmædʒɪstreɪt",
+      "meaning": "quan tòa, thẩm phán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 10
+    }
+  },
+  {
+    "front": "August",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɔːɡəst",
+      "meaning": "tháng Tám"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 6
+    }
+  },
+  {
+    "front": "neighbouring",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈneɪbərɪŋ",
+      "meaning": "láng giềng, bên cạnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 12
+    }
+  },
+  {
+    "front": "Appraise",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'preız",
+      "meaning": "Đánh giá, định giá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 8
+    }
+  },
+  {
+    "front": "imprisonment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪmˈprɪznmənt",
+      "meaning": "sự bỏ tù"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 12
+    }
+  },
+  {
+    "front": "June",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dʒuːn",
+      "meaning": "tháng Sáu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 4
+    }
+  },
+  {
+    "front": "Appraisal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'preızl",
+      "meaning": "Sự đánh giá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 9
+    }
+  },
+  {
+    "front": "Overcharge",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əʊvə'tʃa:rdʒ",
+      "meaning": "Bán giá đắt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 10
+    }
+  },
+  {
+    "front": "pose",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "poʊz",
+      "meaning": "tạo dáng, đặt ra"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 4
+    }
+  },
+  {
+    "front": "compute",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəmˈpjuːt",
+      "meaning": "tính toán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "courtesy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɜːrtəsi",
+      "meaning": "sự lịch sự"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 8
+    }
+  },
+  {
+    "front": "Evaluate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ı'væljʊeıt",
+      "meaning": "Đánh giá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 8
+    }
+  },
+  {
+    "front": "Comparable",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "'ka:mpərəbl",
+      "meaning": "Có thể so sánh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 10
+    }
+  },
+  {
+    "front": "Dumping",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'dʌmpıŋ",
+      "meaning": "Sự bán phá giá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "beam",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "biːm",
+      "meaning": "tia sáng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 4
+    }
+  },
+  {
+    "front": "January",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdʒænjueri",
+      "meaning": "tháng Một"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "Gamble",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "gembl",
+      "meaning": "Đánh cược"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 6
+    }
+  },
+  {
+    "front": "than",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ðæn",
+      "meaning": "hơn (so sánh)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 4
+    }
+  },
+  {
+    "front": "founder",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfaʊndər",
+      "meaning": "người sáng lập"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "Nominal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ndmınl",
+      "meaning": "Nhỏ bé, không đáng kể"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "lovely",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlʌvli",
+      "meaning": "đáng yêu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 6
+    }
+  },
+  {
+    "front": "disappointing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdɪsəˈpɔɪntɪŋ",
+      "meaning": "đáng thất vọng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 13
+    }
+  },
+  {
+    "front": "Branch",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bra:ntʃ",
+      "meaning": "Chi nhánh / Phân nhánh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 6
+    }
+  },
+  {
+    "front": "court",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kɔːrt",
+      "meaning": "tòa án"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 5
+    }
+  },
+  {
+    "front": "crime",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kraɪm",
+      "meaning": "tội phạm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 5
+    }
+  },
+  {
+    "front": "remote",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈmoʊt",
+      "meaning": "xa xôi, hẻo lánh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 6
+    }
+  },
+  {
+    "front": "jail",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dʒeɪl",
+      "meaning": "bỏ tù"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 4
+    }
+  },
+  {
+    "front": "convict",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈvɪkt",
+      "meaning": "kết án"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "Auction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'okʃn",
+      "meaning": "Sự bán đấu giá  Bán đấu giá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "encounter",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈkaʊntər",
+      "meaning": "chạm trán, bắt gặp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 9
+    }
+  },
+  {
+    "front": "spell",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "spel",
+      "meaning": "đánh vần"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 5
+    }
+  },
+  {
+    "front": "Type",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tarp",
+      "meaning": "Đánh máy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 4
+    }
+  },
+  {
+    "front": "burden",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbɜːrdn",
+      "meaning": "gánh nặng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 6
+    }
+  },
+  {
+    "front": "monthly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmʌnθli",
+      "meaning": "hàng tháng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "surprising",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sərˈpraɪzɪŋ",
+      "meaning": "đáng ngạc nhiên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 10
+    }
+  },
+  {
+    "front": "prison",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈprɪzn",
+      "meaning": "nhà tù"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 6
+    }
+  },
+  {
+    "front": "conventional",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈvenʃənl",
+      "meaning": "thông thường, theo tập quán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 12
+    }
+  },
+  {
+    "front": "depressing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈpresɪŋ",
+      "meaning": "gây chán nản"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 10
+    }
+  },
+  {
+    "front": "Project",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'prpdʒekt",
+      "meaning": "Dự án"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "accounting",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈkaʊntɪŋ",
+      "meaning": "công việc kế toán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 10
+    }
+  },
+  {
+    "front": "reflect",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈflekt",
+      "meaning": "phản chiếu, phản ánh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "encouraging",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈkɜːrɪdʒɪŋ",
+      "meaning": "đáng khích lệ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 11
+    }
+  },
+  {
+    "front": "conviction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈvɪkʃn",
+      "meaning": "sức thuyết phục, sự kết án"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 10
+    }
+  },
+  {
+    "front": "Settle",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'setl",
+      "meaning": "Thanh toán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 6
+    }
+  },
+  {
+    "front": "diagnosis",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdaɪəɡˈnoʊsɪs",
+      "meaning": "sự chẩn đoán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 9
+    }
+  },
+  {
+    "front": "whip",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wɪp",
+      "meaning": "đánh roi, quất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 4
+    }
+  },
+  {
+    "front": "Unduly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "An'dju:li",
+      "meaning": "Quá mức thích đáng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 6
+    }
+  },
+  {
+    "front": "Date",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "deıt",
+      "meaning": "Đề ngày tháng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 4
+    }
+  },
+  {
+    "front": "risk",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪsk",
+      "meaning": "đánh liều"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 4
+    }
+  },
+  {
+    "front": "shiny",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈʃaɪni",
+      "meaning": "sáng bóng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 5
+    }
+  },
+  {
+    "front": "reliability",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˌlaɪəˈbɪləti",
+      "meaning": "sự đáng tin cậy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 11
+    }
+  },
+  {
+    "front": "attorney",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈtɜːrni",
+      "meaning": "luật sư"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 8
+    }
+  },
+  {
+    "front": "accountant",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈkaʊntənt",
+      "meaning": "nhân viên kế toán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 10
+    }
+  },
+  {
+    "front": "regulation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌreɡjəˈleɪʃən",
+      "meaning": "quy định, điều lệ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 10
+    }
+  },
+  {
+    "front": "Consistent",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "kən'sıstənt",
+      "meaning": "Nhất quán, kiên định"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 10
+    }
+  },
+  {
+    "front": "Discontinue",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdıskən'tınjuː",
+      "meaning": "Gián đoạn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 11
+    }
+  },
+  {
+    "front": "verdict",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈvɜːrdɪkt",
+      "meaning": "phán quyết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "reckon",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈrekən",
+      "meaning": "tính toán, cho là"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 6
+    }
+  },
+  {
+    "front": "criminal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkrɪmɪnl",
+      "meaning": "kẻ tội phạm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 8
+    }
+  },
+  {
+    "front": "December",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈsembər",
+      "meaning": "tháng Mười hai"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 8
+    }
+  },
+  {
+    "front": "compose",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəmˈpoʊz",
+      "meaning": "soạn, sáng tác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "suspicious",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "səˈspɪʃəs",
+      "meaning": "đáng nghi ngờ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 10
+    }
+  },
+  {
+    "front": "critical",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkrɪtɪkl",
+      "meaning": "mang tính phê phán, quan trọng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 8
+    }
+  },
+  {
+    "front": "police",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pəˈliːs",
+      "meaning": "cảnh sát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 6
+    }
+  },
+  {
+    "front": "avoid",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈvɔɪd",
+      "meaning": "tránh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 5
+    }
+  },
+  {
+    "front": "condemn",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈdem",
+      "meaning": "lên án"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "Wire",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'waıə(r)",
+      "meaning": "Điện báo Đánh điện báo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 4
+    }
+  },
+  {
+    "front": "sentence",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsentəns",
+      "meaning": "kết án"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 8
+    }
+  },
+  {
+    "front": "timing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtaɪmɪŋ",
+      "meaning": "sự tính toán thời gian"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 6
+    }
+  },
+  {
+    "front": "Calculation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'kælkjə'leıʃn",
+      "meaning": "Sự tính toán, cân nhắc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 11
+    }
+  },
+  {
+    "front": "embassy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈembəsi",
+      "meaning": "đại sứ quán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "regard",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈɡɑːrd",
+      "meaning": "đánh giá, nhìn nhận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 6
+    }
+  },
+  {
+    "front": "mathematical",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌmæθəˈmætɪkl",
+      "meaning": "thuộc toán học"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 12
+    }
+  },
+  {
+    "front": "comparative",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəmˈpærətɪv",
+      "meaning": "tương đối, so sánh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 11
+    }
+  },
+  {
+    "front": "imprison",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪmˈprɪzn",
+      "meaning": "bỏ tù"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 8
+    }
+  },
+  {
+    "front": "Deregulation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdiːˌreɡjʊ'leıʃn",
+      "meaning": "Sự thả nổi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 12
+    }
+  },
+  {
+    "front": "ray",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "reɪ",
+      "meaning": "tia sáng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 3
+    }
+  },
+  {
+    "front": "April",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈeɪprəl",
+      "meaning": "tháng Tư"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 5
+    }
+  },
+  {
+    "front": "lawyer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlɔːjər",
+      "meaning": "luật sư"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 6
+    }
+  },
+  {
+    "front": "Second",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'sekənd",
+      "meaning": "Tán thành"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 6
+    }
+  },
+  {
+    "front": "frightening",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfraɪtnɪŋ",
+      "meaning": "đáng sợ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 11
+    }
+  },
+  {
+    "front": "cake",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "keɪk",
+      "meaning": "bánh ngọt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 4
+    }
+  },
+  {
+    "front": "Indirect",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ındı'rekt",
+      "meaning": "Gián tiếp, quanh co, không trực tiếp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 8
+    }
+  },
+  {
+    "front": "label",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈleɪbl",
+      "meaning": "dán nhãn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 5
+    }
+  },
+  {
+    "front": "Judgment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'dʒʌdʒmənt",
+      "meaning": "Phán quyết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 8
+    }
+  },
+  {
+    "front": "Date",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "deıt",
+      "meaning": "Ngày tháng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 4
+    }
+  },
+  {
+    "front": "Undue",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "An'dju:",
+      "meaning": "Quá đáng, quá mức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 5
+    }
+  },
+  {
+    "front": "flash",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "flæʃ",
+      "meaning": "lóe sáng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 5
+    }
+  },
+  {
+    "front": "divine",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈvaɪn",
+      "meaning": "thần thánh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 6
+    }
+  },
+  {
+    "front": "Prevail",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prı'veıl",
+      "meaning": "Đánh bại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "notably",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈnoʊtəbli",
+      "meaning": "đáng kể, đặc biệt là"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "Fetch",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fetʃ",
+      "meaning": "Bán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 5
+    }
+  },
+  {
+    "front": "Evaluation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ı,væljʊ'eıʃn",
+      "meaning": "Sự đánh giá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 10
+    }
+  },
+  {
+    "front": "Issue",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ıʃu:",
+      "meaning": "Việc phát hành; việc bán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 5
+    }
+  },
+  {
+    "front": "trading",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtreɪdɪŋ",
+      "meaning": "sự buôn bán, giao dịch"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "Law",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "lɔ:",
+      "meaning": "Luật, bộ luật"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 3
+    }
+  },
+  {
+    "front": "remarkable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈmɑːrkəbəl",
+      "meaning": "đáng chú ý"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 10
+    }
+  },
+  {
+    "front": "Witness",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'wıtnəs",
+      "meaning": "Sự chứng kiến Chứng kiến"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "policeman",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pəˈliːsmən",
+      "meaning": "nam cảnh sát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 9
+    }
+  },
+  {
+    "front": "desirable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈzaɪərəbl",
+      "meaning": "đáng khao khát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 9
+    }
+  },
+  {
+    "front": "Sales",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "seılz",
+      "meaning": "Thuộc về bán hàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 5
+    }
+  },
+  {
+    "front": "astonishing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈstɑːnɪʃɪŋ",
+      "meaning": "đáng kinh ngạc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 11
+    }
+  },
+  {
+    "front": "Bond",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bond",
+      "meaning": "Chứng khoán, trái phiếu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 4
+    }
+  },
+  {
+    "front": "Acceptance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ək'septəns",
+      "meaning": "Sự tán thành, sự chấp thuận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 10
+    }
+  },
+  {
+    "front": "Rule",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ru:l",
+      "meaning": "Phán quyết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 4
+    }
+  },
+  {
+    "front": "pub",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pʌb",
+      "meaning": "quán rượu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 3
+    }
+  },
+  {
+    "front": "Incur",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "in'k3:r",
+      "meaning": "Gánh chịu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 5
+    }
+  },
+  {
+    "front": "stroke",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "stroʊk",
+      "meaning": "cú đánh, đột quỵ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 6
+    }
+  },
+  {
+    "front": "interrupt",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˌɪntəˈrʌpt",
+      "meaning": "ngắt lời, làm gián đoạn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 9
+    }
+  },
+  {
+    "front": "dealer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdiːlər",
+      "meaning": "người buôn bán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 6
+    }
+  },
+  {
+    "front": "Account",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'kaunt",
+      "meaning": "Bản quyết toán, kê khai"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "discipline",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdɪsəplɪn",
+      "meaning": "kỷ luật"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 10
+    }
+  },
+  {
+    "front": "reliable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈlaɪəbəl",
+      "meaning": "đáng tin cậy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 8
+    }
+  },
+  {
+    "front": "Justice",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'dʒʌstıs",
+      "meaning": "Sự công bằng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "September",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sepˈtembər",
+      "meaning": "tháng Chín"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 9
+    }
+  },
+  {
+    "front": "consistent",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈsɪstənt",
+      "meaning": "kiên định, nhất quán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 10
+    }
+  },
+  {
+    "front": "mark",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mɑːrk",
+      "meaning": "đánh dấu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 4
+    }
+  },
+  {
+    "front": "linger",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlɪŋɡər",
+      "meaning": "nán lại, chần chừ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 6
+    }
+  },
+  {
+    "front": "rating",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈreɪtɪŋ",
+      "meaning": "sự đánh giá, xếp hạng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 6
+    }
+  },
+  {
+    "front": "February",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfebrueri",
+      "meaning": "tháng Hai"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 8
+    }
+  },
+  {
+    "front": "biscuit",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbɪskɪt",
+      "meaning": "bánh quy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "jurisdiction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdʒʊrɪsˈdɪkʃn",
+      "meaning": "quyền tài phán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 12
+    }
+  },
+  {
+    "front": "Evade",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ı'veıd",
+      "meaning": "Tránh né"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 5
+    }
+  },
+  {
+    "front": "rule",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ruːl",
+      "meaning": "cai trị, phán quyết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 4
+    }
+  },
+  {
+    "front": "arbitrary",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɑːrbɪtreri",
+      "meaning": "tùy ý, độc đoán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 9
+    }
+  },
+  {
+    "front": "maths",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mæθs",
+      "meaning": "môn toán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 5
+    }
+  },
+  {
+    "front": "shine",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʃaɪn",
+      "meaning": "chiếu sáng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 5
+    }
+  },
+  {
+    "front": "November",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "noʊˈvembər",
+      "meaning": "tháng Mười một"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 8
+    }
+  },
+  {
+    "front": "prisoner",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈprɪzənər",
+      "meaning": "tù nhân"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 8
+    }
+  },
+  {
+    "front": "Anticipation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "æn,tısı'peıʃn",
+      "meaning": "Sự đoán trước, sự dự tính"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 12
+    }
+  },
+  {
+    "front": "mineral",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmɪnərəl",
+      "meaning": "khoáng chất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "mathematics",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌmæθəˈmætɪks",
+      "meaning": "môn toán học"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 11
+    }
+  },
+  {
+    "front": "Discrepancy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'skrepənsi",
+      "meaning": "Không nhất quán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 11
+    }
+  },
+  {
+    "front": "Liquidate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'lıkwıdeıt",
+      "meaning": "Thanh toán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 9
+    }
+  },
+  {
+    "front": "Approval",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'pru:vl",
+      "meaning": "Sự tán thành, phê chuẩn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 8
+    }
+  },
+  {
+    "front": "Unavoidable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "anə vàidəbl",
+      "meaning": "Không thể tránh được"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 11
+    }
+  },
+  {
+    "front": "October",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɑːkˈtoʊbər",
+      "meaning": "tháng Mười"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "fry",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fraɪ",
+      "meaning": "chiên, rán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 3
+    }
+  },
+  {
+    "front": "enact",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪˈnækt",
+      "meaning": "ban hành (đạo luật)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 5
+    }
+  },
+  {
+    "front": "consistency",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈsɪstənsi",
+      "meaning": "tính nhất quán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 11
+    }
+  },
+  {
+    "front": "Accede",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ək'si:d",
+      "meaning": "Đồng ý, tán thành"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 6
+    }
+  },
+  {
+    "front": "judge",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dʒʌdʒ",
+      "meaning": "xét xử, đánh giá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 5
+    }
+  },
+  {
+    "front": "Tick",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tik",
+      "meaning": "Dấu hiệu Đánh dấu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 4
+    }
+  },
+  {
+    "front": "Duly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'djuːli",
+      "meaning": "Thích đáng, đúng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 4
+    }
+  },
+  {
+    "front": "cop",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kɑːp",
+      "meaning": "cảnh sát (tiếng lóng)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 3
+    }
+  },
+  {
+    "front": "injustice",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈdʒʌstɪs",
+      "meaning": "sự bất công"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 9
+    }
+  },
+  {
+    "front": "disrupt",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "dɪsˈrʌpt",
+      "meaning": "làm gián đoạn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "Payable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'peıəbl",
+      "meaning": "Có thể trả, thanh toán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "Compute",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kəm'pju:t",
+      "meaning": "Tính toán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "calculation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌkælkjuˈleɪʃn",
+      "meaning": "sự tính toán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 11
+    }
+  },
+  {
+    "front": "inflict",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈflɪkt",
+      "meaning": "giáng đòn, bắt chịu đựng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "Escape",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ı'skeıp",
+      "meaning": "Trốn tránh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 6
+    }
+  },
+  {
+    "front": "stun",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "stʌn",
+      "meaning": "làm choáng váng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 4
+    }
+  },
+  {
+    "front": "Anticipate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "æn'tısıpeıt",
+      "meaning": "Liệu trước, đoán trước"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 10
+    }
+  },
+  {
+    "front": "inmate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɪnmeɪt",
+      "meaning": "tù nhân"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 6
+    }
+  },
+  {
+    "front": "evacuate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪˈvækjueɪt",
+      "meaning": "sơ tán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 8
+    }
+  },
+  {
+    "front": "Approve",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'pru:v",
+      "meaning": "Tán thành, chấp thuận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "Defray",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'freı",
+      "meaning": "Thanh toán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 6
+    }
+  },
+  {
+    "front": "judgement",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdʒʌdʒmənt",
+      "meaning": "sự phán xét"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 9
+    }
+  },
+  {
+    "front": "Depressed",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'prest",
+      "meaning": "Đáng chán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 9
+    }
+  },
+  {
+    "front": "comparable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːmpərəbl",
+      "meaning": "có thể so sánh được"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 10
+    }
+  },
+  {
+    "front": "disruption",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪsˈrʌpʃn",
+      "meaning": "sự gián đoạn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 10
+    }
+  },
+  {
+    "front": "part-time",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌpɑːrt ˈtaɪm",
+      "meaning": "bán thời gian"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 9
+    }
+  },
+  {
+    "front": "compare",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəmˈper",
+      "meaning": "so sánh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 7
+    }
+  },
+  {
+    "front": "bet",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bet",
+      "meaning": "đánh cược"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 3
+    }
+  },
+  {
+    "front": "Sale",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "seıl",
+      "meaning": "Sự bán hạ giá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 4
+    }
+  },
+  {
+    "front": "month",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mʌnθ",
+      "meaning": "tháng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 5
+    }
+  },
+  {
+    "front": "bat",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bæt",
+      "meaning": "đánh bóng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 3
+    }
+  },
+  {
+    "front": "Kite",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kaıt",
+      "meaning": "Viết séc trái pháp luật"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 4
+    }
+  },
+  {
+    "front": "Judge",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "dʒʌdʒ",
+      "meaning": "Kết án"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Law & Justice",
+      "length": 5
+    }
+  }
+]

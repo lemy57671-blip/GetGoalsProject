@@ -1,0 +1,522 @@
+[
+  {
+    "front": "kill",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kɪl",
+      "meaning": "giết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "skill",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "skɪl",
+      "meaning": "kỹ năng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "die",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "daɪ",
+      "meaning": "chết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 3
+    }
+  },
+  {
+    "front": "Established",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ı'stæblıʃt",
+      "meaning": "Đã thành lập"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 11
+    }
+  },
+  {
+    "front": "destroy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈstrɔɪ",
+      "meaning": "phá hủy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "firefighter",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfaɪərfaɪtər",
+      "meaning": "lính cứu hỏa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 11
+    }
+  },
+  {
+    "front": "stab",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "stæb",
+      "meaning": "đâm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "stabilize",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈsteɪbəlaɪz",
+      "meaning": "làm ổn định"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 9
+    }
+  },
+  {
+    "front": "killing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɪlɪŋ",
+      "meaning": "vụ giết người"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "charm",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tʃɑːrm",
+      "meaning": "sức quyến rũ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "harmony",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhɑːrməni",
+      "meaning": "sự hài hòa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "Establish",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ı'stæblıʃ",
+      "meaning": "Thành lập, thiết lập"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 9
+    }
+  },
+  {
+    "front": "charming",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtʃɑːrmɪŋ",
+      "meaning": "quyến rũ, duyên dáng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "Hurt",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "h3:rt",
+      "meaning": "Tổn hại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "damage",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈdæmɪdʒ",
+      "meaning": "làm hỏng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "Expedient",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ık'spi:diənt",
+      "meaning": "Thủ đoạn, mưu chước"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 9
+    }
+  },
+  {
+    "front": "fight",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "faɪt",
+      "meaning": "đánh nhau, chiến đấu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "explode",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪkˈsploʊd",
+      "meaning": "nổ tung"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "audience",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɔːdiəns",
+      "meaning": "khán giả"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "Harmless",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ha:rmləs",
+      "meaning": "Vô hại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "harmful",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhɑːrmfl",
+      "meaning": "có hại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "Harm",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hairm",
+      "meaning": "Sự gây hại Gây hại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "skilled",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "skɪld",
+      "meaning": "lành nghề, có kỹ năng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "diet",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdaɪət",
+      "meaning": "chế độ ăn uống"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "burn",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bɜːrn",
+      "meaning": "đốt cháy, bị bỏng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "soldier",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsoʊldʒər",
+      "meaning": "người lính"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "fighting",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfaɪtɪŋ",
+      "meaning": "sự chiến đấu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "injure",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈɪndʒər",
+      "meaning": "làm bị thương"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "Establishment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ı'stæblıʃmənt",
+      "meaning": "Sự tạo dựng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 13
+    }
+  },
+  {
+    "front": "injured",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɪndʒərd",
+      "meaning": "bị thương"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "Damage",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'dæmıdʒ",
+      "meaning": "Làm hư hại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "shoot",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʃuːt",
+      "meaning": "bắn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "attack",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈtæk",
+      "meaning": "tấn công"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "crash",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kræʃ",
+      "meaning": "va chạm, đâm sầm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "shooting",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈʃuːtɪŋ",
+      "meaning": "vụ nổ súng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "medieval",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌmediˈiːvl",
+      "meaning": "thời trung cổ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "Stability",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "stə'bıləti",
+      "meaning": "Sự ổn định, sự kiên quyết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 9
+    }
+  },
+  {
+    "front": "Stable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'steıbl",
+      "meaning": "Ổn định, bền vững, kiên quyết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "ingredient",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈɡriːdiənt",
+      "meaning": "thành phần, nguyên liệu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 10
+    }
+  },
+  {
+    "front": "Damage",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'dæmıdʒ",
+      "meaning": "Tổn thất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Destructive Actions",
+      "length": 6
+    }
+  }
+]

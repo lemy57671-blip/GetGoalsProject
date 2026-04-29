@@ -1,0 +1,6047 @@
+[
+  {
+    "front": "commander",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəˈmændər",
+      "meaning": "người chỉ huy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "foreigner",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfɔːrənər",
+      "meaning": "người nước ngoài"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "Borrow",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'borəu",
+      "meaning": "Vay mượn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Modify",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'mpdıfaı",
+      "meaning": "Sửa đổi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Formula",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fo:rmjələ",
+      "meaning": "Công thức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "Accordance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'kɔ:dns",
+      "meaning": "Sự phù hợp, sự theo đúng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "motor",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈmoʊtər",
+      "meaning": "động cơ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "Importer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "m'pɔ:rtər",
+      "meaning": "Nhà nhập khẩu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "landlord",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlændlɔːrd",
+      "meaning": "chủ nhà"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "workforce",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwɜːrkfɔːrs",
+      "meaning": "lực lượng lao động"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "moral",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmɔːrəl",
+      "meaning": "bài học đạo đức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "Grand",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "grænd",
+      "meaning": "Lớn, vĩ đại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "Consolidate",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kən'splıdeıt",
+      "meaning": "Làm chắc, củng cố, hợp nhất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "coordinator",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "koʊˈɔːrdɪneɪtər",
+      "meaning": "điều phối viên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "word",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wɜːrd",
+      "meaning": "từ ngữ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "exploration",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌekspləˈreɪʃn",
+      "meaning": "sự thăm dò, thám hiểm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "solid",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɑːlɪd",
+      "meaning": "chất rắn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "Information",
+    "back": {
+      "pos": "Noun",
+      "phonetic": ",infə'meıʃn",
+      "meaning": "Thông tin"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "core",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kɔːr",
+      "meaning": "phần lõi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "formerly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfɔːrmərli",
+      "meaning": "trước đây"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "some",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sʌm",
+      "meaning": "một số"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "worthwhile",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwɜːrθwaɪl",
+      "meaning": "đáng giá, bõ công"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "Sacrifice",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'sækrıfaıs",
+      "meaning": "Sự bán lỗ Bán lỗ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "forthcoming",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfɔːrθkʌmɪŋ",
+      "meaning": "sắp tới"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "sometime",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsʌmtaɪm",
+      "meaning": "một lúc nào đó"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "Solution",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sə'lu:ʃn",
+      "meaning": "Cách giải quyết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "temporarily",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌtempəˈrerəli",
+      "meaning": "một cách tạm thời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "collaborate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəˈlæbəreɪt",
+      "meaning": "cộng tác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "landing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlændɪŋ",
+      "meaning": "sự hạ cánh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "Sound",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "saʊnd",
+      "meaning": "Đầy đủ, hoàn chỉnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "Resolution",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rezə'lu:ʃn",
+      "meaning": "Nghị quyết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "orientation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌɔːriənˈteɪʃn",
+      "meaning": "sự định hướng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "husband",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhʌzbənd",
+      "meaning": "người chồng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "clarify",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈklærəfaɪ",
+      "meaning": "làm rõ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "sword",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sɔːrd",
+      "meaning": "thanh kiếm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "lesson",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlesn",
+      "meaning": "bài học"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Norm",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "nɔ:rm",
+      "meaning": "Quy tắc, quy chuẩn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "absolutely",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈæbsəluːtli",
+      "meaning": "hoàn toàn, tuyệt đối"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "Favorite",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'feıvərıt",
+      "meaning": "Thích nhất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "corner",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɔːrnər",
+      "meaning": "góc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Sector",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'sektər",
+      "meaning": "Ngành"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Manifest",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'mænıfest",
+      "meaning": "Bản kê khai hàng hoá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "maybe",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmeɪbi",
+      "meaning": "có lẽ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "terrify",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈterəfaɪ",
+      "meaning": "làm khiếp sợ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "Source",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sɔ:rs",
+      "meaning": "Nguồn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "form",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fɔːrm",
+      "meaning": "hình thành"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "inspector",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈspektər",
+      "meaning": "thanh tra viên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "decorate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdekəreɪt",
+      "meaning": "trang trí"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "soccer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɑːkər",
+      "meaning": "bóng đá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "landmark",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlændmɑːrk",
+      "meaning": "mốc ranh giới, bước ngoặt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "homework",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhoʊmwɜːrk",
+      "meaning": "bài tập về nhà"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "Notify",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'nəʊtıfaı",
+      "meaning": "Thông báo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "soak",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "soʊk",
+      "meaning": "ngâm, nhúng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "so",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "soʊ",
+      "meaning": "vì vậy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 2
+    }
+  },
+  {
+    "front": "Import",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mpɔ:t",
+      "meaning": "Sự nhập khẩu / Nhập khẩu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "correlation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌkɔːrəˈleɪʃn",
+      "meaning": "sự tương quan"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "drift",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "drɪft",
+      "meaning": "trôi dạt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "ambassador",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "æmˈbæsədər",
+      "meaning": "đại sứ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "rifle",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈraɪfəl",
+      "meaning": "súng trường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "worry",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwɜːri",
+      "meaning": "lo lắng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "Resource",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rı'sɔ:rs",
+      "meaning": "Tài nguyên, nguồn lực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "correspondent",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌkɔːrəˈspɑːndənt",
+      "meaning": "phóng viên, người trao đổi thư từ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 13
+    }
+  },
+  {
+    "front": "correspond",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌkɔːrəˈspɑːnd",
+      "meaning": "tương ứng, trao đổi thư từ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "director",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈrektər",
+      "meaning": "giám đốc, đạo diễn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "random",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈrændəm",
+      "meaning": "ngẫu nhiên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "socialist",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsoʊʃəlɪst",
+      "meaning": "thuộc xã hội chủ nghĩa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "torture",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtɔːrtʃər",
+      "meaning": "tra tấn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "Memorandum",
+    "back": {
+      "pos": "Noun",
+      "phonetic": ",memə'rændəm",
+      "meaning": "Thư báo, bản ghi nhớ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "wife",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "waɪf",
+      "meaning": "người vợ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "organized",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɔːrɡənaɪzd",
+      "meaning": "có tổ chức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "Authorize",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'o:təraız",
+      "meaning": "Cho quyền, phê chuẩn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "furthermore",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌfɜːrðərˈmɔːr",
+      "meaning": "hơn nữa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "fifty",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfɪfti",
+      "meaning": "số năm mươi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "terror",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈterər",
+      "meaning": "sự kinh hoàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Personnel",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pɜ:sə'nel",
+      "meaning": "Nhân sự, nhân viên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "mandate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmændeɪt",
+      "meaning": "chỉ thị, ủy nhiệm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "memory",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmeməri",
+      "meaning": "trí nhớ, kỷ niệm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "testify",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈtestəfaɪ",
+      "meaning": "làm chứng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "deteriorate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈtɪriəreɪt",
+      "meaning": "xấu đi, tồi tệ hơn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "Nullify",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'nʌlıfaı",
+      "meaning": "Vô hiệu hóa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "Fortune",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'fo:rtfən",
+      "meaning": "Vận may, may mắn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "according to",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈkɔːrdɪŋ tu",
+      "meaning": "theo như"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 12
+    }
+  },
+  {
+    "front": "scientific",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌsaɪənˈtɪfɪk",
+      "meaning": "mang tính khoa học"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "Distribution",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdıstrı'bjuːʃn",
+      "meaning": "Sự phân phối"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 12
+    }
+  },
+  {
+    "front": "cliff",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "klɪf",
+      "meaning": "vách đá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "more",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mɔːr",
+      "meaning": "nhiều hơn nữa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "sandwich",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsændwɪtʃ",
+      "meaning": "bánh kẹp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "Oral",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ərəl",
+      "meaning": "Bằng miệng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "Outstanding",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "aʊt'stændıŋ",
+      "meaning": "Tồn đọng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "somewhere",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsʌmwer",
+      "meaning": "một nơi nào đó"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "Exportation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": ",ekspɔ:r'teıʃn",
+      "meaning": "Sự xuất khẩu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "classify",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈklæsɪfaɪ",
+      "meaning": "phân loại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "disorder",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪsˈɔːrdər",
+      "meaning": "sự rối loạn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "Diversify",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "daı'vɜːrsıfaı",
+      "meaning": "Đa dạng hóa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "originally",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈrɪdʒənəli",
+      "meaning": "ban đầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "Justified",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'dʒʌstıfaıd",
+      "meaning": "Hợp lý"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "poor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pʊr",
+      "meaning": "nghèo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "solicitor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "səˈlɪsɪtər",
+      "meaning": "luật sư (tư vấn)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "terrorism",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈterərɪzəm",
+      "meaning": "chủ nghĩa khủng bố"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "gift",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɡɪft",
+      "meaning": "món quà"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "Indemnify",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "an'demnifai",
+      "meaning": "Bồi thường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "workout",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwɜːrkaʊt",
+      "meaning": "buổi tập thể dục"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "correction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəˈrekʃn",
+      "meaning": "sự sửa chữa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "Command",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "",
+      "meaning": "kə'ma:nd Sự chỉ huy / Chỉ huy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "worm",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wɜːrm",
+      "meaning": "con giun, sâu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "Standard",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'stændəd",
+      "meaning": "Tiêu chuẩn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "also",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɔːlsoʊ",
+      "meaning": "cũng, ngoài ra"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "platform",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈplætfɔːrm",
+      "meaning": "nền tảng, sân ga"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "history",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhɪstri",
+      "meaning": "lịch sử"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "personally",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpɜːrsənəli",
+      "meaning": "đích thân, theo cá nhân"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "spokesperson",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈspoʊkspɜːrsən",
+      "meaning": "người phát ngôn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 12
+    }
+  },
+  {
+    "front": "pastor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpæstər",
+      "meaning": "mục sư"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "something",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsʌmθɪŋ",
+      "meaning": "một điều gì đó"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "Endeavor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'devər",
+      "meaning": "Sự gắng sức Gắng sức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "ignorance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɪɡnərəns",
+      "meaning": "sự ngu dốt, sự thiếu hiểu biết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "absolute",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈæbsəluːt",
+      "meaning": "tuyệt đối"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "solar",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsoʊlər",
+      "meaning": "thuộc hệ mặt trời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "horror",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhɔːrər",
+      "meaning": "sự kinh hoàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Obsolescence",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'pbsə'lesns",
+      "meaning": "Sự lỗi thời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 12
+    }
+  },
+  {
+    "front": "glorious",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɡlɔːriəs",
+      "meaning": "vẻ vang, huy hoàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "Guarantor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "gærən'tɔ:r",
+      "meaning": "Người bảo lãnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "mayor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmeɪər",
+      "meaning": "thị trưởng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "Force",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fo:rs",
+      "meaning": "Bắt buộc, thúc ép"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "debut",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "deɪˈbjuː",
+      "meaning": "sự ra mắt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "Error",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'erər",
+      "meaning": "Lỗi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "Work",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "w3:k",
+      "meaning": "Công việc Làm việc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "administrator",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ədˈmɪnɪstreɪtər",
+      "meaning": "người quản lý, quản trị viên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 13
+    }
+  },
+  {
+    "front": "intensify",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ɪnˈtensɪfaɪ",
+      "meaning": "tăng cường, làm dữ dội"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "Senior",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'si:niər",
+      "meaning": "Cao hơn cấp bậc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "corruption",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəˈrʌpʃn",
+      "meaning": "sự tham nhũng, sự đồi bại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "Conformity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kən'fɔ:rməti",
+      "meaning": "Sự phù hợp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "corresponding",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌkɔːrəˈspɑːndɪŋ",
+      "meaning": "tương ứng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 13
+    }
+  },
+  {
+    "front": "correspondence",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌkɔːrəˈspɑːndəns",
+      "meaning": "thư từ, sự tương ứng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 14
+    }
+  },
+  {
+    "front": "nor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "nɔːr",
+      "meaning": "cũng không"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 3
+    }
+  },
+  {
+    "front": "significantly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sɪɡˈnɪfɪkəntli",
+      "meaning": "một cách đáng kể"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 13
+    }
+  },
+  {
+    "front": "sailor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈseɪlər",
+      "meaning": "thủy thủ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Therefore",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ðeǝfɔ:r",
+      "meaning": "Bởi vậy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "corrupt",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəˈrʌpt",
+      "meaning": "tham nhũng, đồi bại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "world",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wɜːrld",
+      "meaning": "thế giới"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "Land",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "lænd",
+      "meaning": "Dỡ hàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "Organize",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ɔ:rgənaız",
+      "meaning": "Tổ chức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "society",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "səˈsaɪəti",
+      "meaning": "xã hội"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "survivor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sərˈvaɪvər",
+      "meaning": "người sống sót"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "correctly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəˈrektli",
+      "meaning": "một cách chính xác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "directory",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈrektəri",
+      "meaning": "danh bạ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "motorist",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmoʊtərɪst",
+      "meaning": "người lái xe ô tô"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "or",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɔːr",
+      "meaning": "hoặc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 2
+    }
+  },
+  {
+    "front": "uniform",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈjuːnəfɔːrm",
+      "meaning": "đồng phục"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "Abandon",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'bændən",
+      "meaning": "Từ bỏ, bỏ rơi, ruồng bỏ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "orchestra",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɔːrkɪstrə",
+      "meaning": "dàn nhạc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "actor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈæktər",
+      "meaning": "nam diễn viên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "Forfeit",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fo:rfit",
+      "meaning": "Bị tước, bị mất quyền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "north",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "nɔːrθ",
+      "meaning": "hướng bắc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "coordinate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "koʊˈɔːrdɪneɪt",
+      "meaning": "điều phối"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "Conform",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kən'fɔ:rm",
+      "meaning": "Tuân theo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "however",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "haʊˈevər",
+      "meaning": "tuy nhiên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "Sort",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sɔ:rt",
+      "meaning": "Phân loại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "corridor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɔːrɪdɔːr",
+      "meaning": "hành lang"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "ordinary",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɔːrdneri",
+      "meaning": "bình thường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "processor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈprɑːsesər",
+      "meaning": "bộ xử lý"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "interior",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈtɪriər",
+      "meaning": "phần bên trong"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "Enormous",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ı'nɔ:rməs",
+      "meaning": "Đồ sộ, to lớn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "Forbid",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fər bid",
+      "meaning": "Cấm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Unfortunate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "An'fo:tsənət",
+      "meaning": "Đáng tiếc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "Forge",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fo rdz",
+      "meaning": "Giả mạo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "unfortunately",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʌnˈfɔːrtʃənətli",
+      "meaning": "thật không may"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 13
+    }
+  },
+  {
+    "front": "solidarity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌsɑːlɪˈdærəti",
+      "meaning": "sự đoàn kết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "corporate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɔːrpərət",
+      "meaning": "thuộc đoàn thể, công ty"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "portrait",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpɔːrtrət",
+      "meaning": "bức chân dung"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "Superior",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "su:'pıəriər",
+      "meaning": "Cao cấp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "Specific",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "spə'sıfık",
+      "meaning": "Rõ ràng, cụ thể, riêng biệt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "memorial",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "məˈmɔːriəl",
+      "meaning": "đài tưởng niệm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "horizon",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "həˈraɪzn",
+      "meaning": "đường chân trời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "wander",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwɑːndər",
+      "meaning": "đi lang thang"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "spectator",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈspekteɪtər",
+      "meaning": "khán giả"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "originate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈrɪdʒɪneɪt",
+      "meaning": "bắt nguồn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "Port",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pɔ:rt",
+      "meaning": "Cảng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "Absorb",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əb'zɔ:b",
+      "meaning": "Sáp nhập, gộp, tập trung vào"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Transportation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "trænspo: teiſn",
+      "meaning": "Phương tiện vận chuyển"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 14
+    }
+  },
+  {
+    "front": "if",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪf",
+      "meaning": "nếu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 2
+    }
+  },
+  {
+    "front": "Export",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ık'spɔ:rt",
+      "meaning": "Hàng xuất khẩu Xuất khẩu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "grandmother",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɡrændmʌðər",
+      "meaning": "bà nội / ngoại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "fork",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fɔːrk",
+      "meaning": "cái nĩa, ngã ba"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "Life",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "laıf",
+      "meaning": "Thời hạn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "significant",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sɪɡˈnɪfɪkənt",
+      "meaning": "có ý nghĩa, đáng kể"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "editor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈedɪtər",
+      "meaning": "biên tập viên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Store",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "stɔ:r",
+      "meaning": "Dự trữ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "any more",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌeni ˈmɔːr",
+      "meaning": "nữa (thường dùng trong câu phủ định)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "comparison",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəmˈpærɪsn",
+      "meaning": "sự so sánh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "Absorption",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əb'zɔ:rpʃn",
+      "meaning": "Sự sáp nhập, sự nhập chung công ty"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "reform",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈfɔːrm",
+      "meaning": "cải cách"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "worst",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wɜːrst",
+      "meaning": "điều tồi tệ nhất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "Qualify",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'kwplıfaı",
+      "meaning": "Khả năng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "Person",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'pɜ:sn",
+      "meaning": "Người"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "fortunately",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfɔːrtʃənətli",
+      "meaning": "may mắn thay"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "memorable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmemərəbl",
+      "meaning": "đáng nhớ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "Worth",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "w3:θ",
+      "meaning": "Đáng giá Giá trị"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "storm",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "stɔːrm",
+      "meaning": "cơn bão"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "fortunate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfɔːrtʃənət",
+      "meaning": "may mắn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "Obsolete",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'pbsəli:t",
+      "meaning": "Lỗi thời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "soul",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "soʊl",
+      "meaning": "linh hồn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "reinforce",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌriːɪnˈfɔːrs",
+      "meaning": "củng cố, tăng cường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "south",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "saʊθ",
+      "meaning": "phía nam"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "poisonous",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpɔɪzənəs",
+      "meaning": "có độc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "Satisfactory",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌsætıs'fæktəri",
+      "meaning": "Vừa ý"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 12
+    }
+  },
+  {
+    "front": "transformation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌtrænsfərˈmeɪʃən",
+      "meaning": "sự biến đổi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 14
+    }
+  },
+  {
+    "front": "transform",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "trænsˈfɔːrm",
+      "meaning": "biến đổi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "worker",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwɜːrkər",
+      "meaning": "công nhân"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Demand",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'mænd",
+      "meaning": "Cầu / Yêu cầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Inferior",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "n' fiəriər",
+      "meaning": "Thấp Thuộc cấp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "Soar",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sɔ:r",
+      "meaning": "Tăng vọt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "command",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəˈmænd",
+      "meaning": "ra lệnh, chỉ huy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "Prior",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'praıər",
+      "meaning": "Trước"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "Performance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pər'fɔ:rməns",
+      "meaning": "Việc thi hành, làm việc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "artwork",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɑːrtwɜːrk",
+      "meaning": "tác phẩm nghệ thuật"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "Labor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'leıbər",
+      "meaning": "Người lao động"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "band",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bænd",
+      "meaning": "ban nhạc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "Brand",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "brænd",
+      "meaning": "Nhãn mác Đóng nhãn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "forth",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fɔːrθ",
+      "meaning": "về phía trước"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "lorry",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlɔːri",
+      "meaning": "xe tải"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "Associate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'souʃıeıt",
+      "meaning": "Cộng tác, liên hợp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "Harbor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ha:rbər",
+      "meaning": "Cảng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "isolation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌaɪsəˈleɪʃn",
+      "meaning": "sự cô lập"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "Enforcement",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'fɔ:rsmənt",
+      "meaning": "Sự bắt buộc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "episode",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈepɪsoʊd",
+      "meaning": "tập (phim, kịch)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "Forgery",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fo rdzəri",
+      "meaning": "Sự giả mạo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "Association",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə,souʃı'eıʃn",
+      "meaning": "Hội, liên hiệp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "social",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsoʊʃəl",
+      "meaning": "thuộc về xã hội"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Major",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'meıdʒər",
+      "meaning": "Chính yếu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "metaphor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmetəfɔːr",
+      "meaning": "phép ẩn dụ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "Origin",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'prıdʒın",
+      "meaning": "Nguồn gốc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "homeland",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhoʊmlænd",
+      "meaning": "quê hương"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "terrific",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "təˈrɪfɪk",
+      "meaning": "tuyệt vời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "tribute",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtrɪbjuːt",
+      "meaning": "vật cống nạp, lời tri ân"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "organizational",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌɔːrɡənəˈzeɪʃənl",
+      "meaning": "thuộc về tổ chức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 14
+    }
+  },
+  {
+    "front": "framework",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfreɪmwɜːrk",
+      "meaning": "khuôn khổ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "organ",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɔːrɡən",
+      "meaning": "cơ quan (cơ thể), đàn organ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "dictator",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdɪkteɪtər",
+      "meaning": "kẻ độc tài"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "supporter",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "səˈpɔːrtər",
+      "meaning": "người ủng hộ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "son",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sʌn",
+      "meaning": "con trai"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 3
+    }
+  },
+  {
+    "front": "Formal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "foɔ:rml",
+      "meaning": "Trang trọng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Difference",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'dıfrəns",
+      "meaning": "Sự khác biệt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "when",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wen",
+      "meaning": "khi nào"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "thousand",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈθaʊzənd",
+      "meaning": "một nghìn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "victory",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈvɪktəri",
+      "meaning": "chiến thắng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "Organization",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ɔ:rgənaı'zeıʃn",
+      "meaning": "Sự tổ chức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 12
+    }
+  },
+  {
+    "front": "lord",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "lɔːrd",
+      "meaning": "chúa tể, ngài"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "Land",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "lænd",
+      "meaning": "Đất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "humorous",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhjuːmərəs",
+      "meaning": "hài hước"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "although",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɔːlˈðoʊ",
+      "meaning": "mặc dù"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "morality",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "məˈræləti",
+      "meaning": "đạo lý"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "worthy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwɜːrði",
+      "meaning": "xứng đáng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Forecast",
+    "back": {
+      "pos": "Noun",
+      "phonetic": ":rka:st",
+      "meaning": "Sự dự đoán Dự đoán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "historian",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hɪˈstɔːriən",
+      "meaning": "nhà sử học"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "Normal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'nd:ml",
+      "meaning": "Bình thường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "forum",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfɔːrəm",
+      "meaning": "diễn đàn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "philosophy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fəˈlɑːsəfi",
+      "meaning": "triết học"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "reason",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈriːzən",
+      "meaning": "lý do"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "sport",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "spɔːrt",
+      "meaning": "thể thao"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "fifteen",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌfɪfˈtiːn",
+      "meaning": "số mười lăm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "Importance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "m'pɔ:rtns",
+      "meaning": "Tầm quan trọng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "formation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fɔːrˈmeɪʃn",
+      "meaning": "sự hình thành"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "Candidate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'kændıdət",
+      "meaning": "Ứng cử viên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "Modified",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'mpdıfaıd",
+      "meaning": "Được chỉnh sửa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "Ratify",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rætı'faı",
+      "meaning": "Thông qua"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "lifetime",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlaɪftaɪm",
+      "meaning": "cả đời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "sovereignty",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɑːvrənti",
+      "meaning": "chủ quyền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "editorial",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌedɪˈtɔːriəl",
+      "meaning": "thuộc biên tập"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "Opportunity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "a:pər'tu:nəti",
+      "meaning": "Cơ hội"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "donor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdoʊnər",
+      "meaning": "người hiến tặng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "Junior",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'dʒu:nıər",
+      "meaning": "Cấp dưới"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "divorce",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈvɔːrs",
+      "meaning": "ly hôn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "Clarify",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'klærəfaı",
+      "meaning": "Làm sáng sủa, dễ hiểu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "Consignor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kən'saınər",
+      "meaning": "Người gửi hàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "Honor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "onǝr",
+      "meaning": "Thực hiện chi trả"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "unify",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈjuːnəfaɪ",
+      "meaning": "thống nhất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "investigator",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈvestɪɡeɪtər",
+      "meaning": "điều tra viên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 12
+    }
+  },
+  {
+    "front": "format",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfɔːrmæt",
+      "meaning": "định dạng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "forty",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfɔːrti",
+      "meaning": "số bốn mươi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "solo",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsoʊloʊ",
+      "meaning": "bản độc tấu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "grandparent",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɡrændperənt",
+      "meaning": "ông bà"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "scandal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈskændəl",
+      "meaning": "vụ bê bối"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "decoration",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdekəˈreɪʃn",
+      "meaning": "sự trang trí"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "minority",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "maɪˈnɔːrəti",
+      "meaning": "thiểu số"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "Sole",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "səul",
+      "meaning": "Độc quyền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "foreign",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfɔːrən",
+      "meaning": "nước ngoài"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "Incorporate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "in'kɔ:pǝreit",
+      "meaning": "Hợp nhất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "affordable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈfɔːrdəbl",
+      "meaning": "giá cả phải chăng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "born",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bɔːrn",
+      "meaning": "được sinh ra"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "organic",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɔːrˈɡænɪk",
+      "meaning": "hữu cơ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "meanwhile",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmiːnwaɪl",
+      "meaning": "trong khi đó"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "Perform",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pə'fɔ:m",
+      "meaning": "Thi hành"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "Specify",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'spesıfaı",
+      "meaning": "Định rõ, chỉ rõ, ghi rõ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "mentor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmentɔːr",
+      "meaning": "người cố vấn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "perhaps",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pərˈhæps",
+      "meaning": "có lẽ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "while",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "waɪl",
+      "meaning": "một khoảng thời gian"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "too",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tuː",
+      "meaning": "quá, cũng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 3
+    }
+  },
+  {
+    "front": "supportive",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "səˈpɔːrtɪv",
+      "meaning": "mang tính hỗ trợ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "associated",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈsoʊʃieɪtɪd",
+      "meaning": "liên quan, gắn liền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "distort",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈstɔːrt",
+      "meaning": "bóp méo, xuyên tạc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "poison",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpɔɪzn",
+      "meaning": "đầu độc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Accordingly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'kɔ:rdıŋli",
+      "meaning": "Theo đó"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "solely",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsoʊlli",
+      "meaning": "chỉ có, đơn độc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Form",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "form",
+      "meaning": "Hình thức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "Attribute",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'trıbju:t",
+      "meaning": "Chỉ định, cho là do..."
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "but",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bʌt",
+      "meaning": "ngoại trừ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 3
+    }
+  },
+  {
+    "front": "candidate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkændɪdət",
+      "meaning": "ứng cử viên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "rhetoric",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈretərɪk",
+      "meaning": "thuật hùng biện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "fifth",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fɪfθ",
+      "meaning": "thứ năm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "worried",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwɜːrid",
+      "meaning": "lo lắng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "collector",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəˈlektər",
+      "meaning": "người sưu tầm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "landscape",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlændskeɪp",
+      "meaning": "phong cảnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "mainland",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmeɪnlænd",
+      "meaning": "lục địa, đất liền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "tool",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tuːl",
+      "meaning": "công cụ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "artificial",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌɑːrtɪˈfɪʃl",
+      "meaning": "nhân tạo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "incorrect",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌɪnkəˈrekt",
+      "meaning": "không chính xác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "reasonably",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈriːzənəbli",
+      "meaning": "một cách hợp lý"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "abortion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈbɔːrʃn",
+      "meaning": "sự phá thai"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "butter",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbʌtər",
+      "meaning": "bơ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Solemn",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'sɒləm",
+      "meaning": "Trang trọng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "shore",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʃɔːr",
+      "meaning": "bờ biển"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "corporation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌkɔːrpəˈreɪʃn",
+      "meaning": "tập đoàn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "Stand",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "stænd",
+      "meaning": "Có giá trị"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "commentator",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːmənteɪtər",
+      "meaning": "bình luận viên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "informal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈfɔːrml",
+      "meaning": "không trang trọng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "Favor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'feıvər",
+      "meaning": "Sự ưu đãi Ưu đãi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "contribution",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌkɑːntrɪˈbjuːʃn",
+      "meaning": "sự đóng góp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 12
+    }
+  },
+  {
+    "front": "organizer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɔːrɡənaɪzər",
+      "meaning": "người tổ chức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "northern",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈnɔːrðərn",
+      "meaning": "thuộc phương bắc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "tooth",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tuːθ",
+      "meaning": "răng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "factory",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfæktəri",
+      "meaning": "nhà máy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "morning",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmɔːrnɪŋ",
+      "meaning": "buổi sáng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "Personal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'pɜ:sənl",
+      "meaning": "Cá nhân"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "Justify",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'dʒʌstıfaı",
+      "meaning": "Thanh minh; bào chữa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "Workload",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'w3:kləʊd",
+      "meaning": "Lượng công việc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "successor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "səkˈsesər",
+      "meaning": "người kế nhiệm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "Majority",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mə'dʒprəti",
+      "meaning": "Đa số"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "Gratifying",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'grætifanŋ",
+      "meaning": "Làm hài lòng, làm phấn khởi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "operator",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɑːpəreɪtər",
+      "meaning": "người vận hành, tổng đài viên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "Stiff",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "stıf",
+      "meaning": "Quá đáng, quyết liệt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "philosopher",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fəˈlɑːsəfər",
+      "meaning": "nhà triết học"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "Effort",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'efərt",
+      "meaning": "Nỗ lực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Afford",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'fə:d",
+      "meaning": "Đủ sức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "somehow",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsʌmhaʊ",
+      "meaning": "bằng cách nào đó"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "ancestor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈænsestər",
+      "meaning": "tổ tiên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "Distributor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'strıbjʊtər",
+      "meaning": "Nhà phân phối"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "worse",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wɜːrs",
+      "meaning": "điều tệ hơn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "sporting",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈspɔːrtɪŋ",
+      "meaning": "thuộc thể thao"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "soap",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "soʊp",
+      "meaning": "xà phòng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "strand",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "strænd",
+      "meaning": "sợi dây, vấn đề"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "electoral",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪˈlektərəl",
+      "meaning": "thuộc bầu cử"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "Support",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sə'pɔ:t",
+      "meaning": "Sự ủng hộ Ủng hộ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "Territory",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "teritəri",
+      "meaning": "Khu vực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "and",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ænd",
+      "meaning": "và"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 3
+    }
+  },
+  {
+    "front": "Season",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'si:zn",
+      "meaning": "Mùa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Inform",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'fɔ:m",
+      "meaning": "Thông báo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Unfavorable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʌn' fervərəbl",
+      "meaning": "Bất lợi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "Depositor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'pɒzıtər",
+      "meaning": "Người gửi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "Order",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ɔ:rdər",
+      "meaning": "Đơn đặt hàng Đặt hàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "normally",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈnɔːrməli",
+      "meaning": "thông thường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "Sponsor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'spɒnsər",
+      "meaning": "Bảo trợ, đỡ đầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "horn",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hɔːrn",
+      "meaning": "sừng, còi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "For",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "for, fer",
+      "meaning": "Dành cho, về"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 3
+    }
+  },
+  {
+    "front": "button",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbʌtn",
+      "meaning": "nút bấm, cái khuy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "moreover",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mɔːrˈoʊvər",
+      "meaning": "hơn thế nữa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "compulsory",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəmˈpʌlsəri",
+      "meaning": "bắt buộc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "horrible",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhɔːrəbl",
+      "meaning": "kinh khủng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "portfolio",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pɔːrtˈfoʊlioʊ",
+      "meaning": "danh mục đầu tư, hồ sơ năng lực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "Endorse",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'dɔ:rs",
+      "meaning": "Xác nhận, chứng thực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "senator",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsenətər",
+      "meaning": "thượng nghị sĩ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "anchor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈæŋkər",
+      "meaning": "mỏ neo, biên tập viên tin tức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Subordinate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sə'bɔ:dınət",
+      "meaning": "Cấp dưới"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "Certify",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'sɜ:rtıfaı",
+      "meaning": "Chứng nhận, cấp chứng nhận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "Importation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mpɔ:  terſn",
+      "meaning": "Sự nhập khẩu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "propaganda",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌprɑːpəˈɡændə",
+      "meaning": "sự tuyên truyền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "terrorist",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈterərɪst",
+      "meaning": "kẻ khủng bố"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "Elaborate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ı'læbəreıt",
+      "meaning": "Soạn thảo kỹ lưỡng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "reasoning",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈriːzənɪŋ",
+      "meaning": "lập luận, lý lẽ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "former",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfɔːrmər",
+      "meaning": "trước đây, cũ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "workplace",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈwɜːrkpleɪs",
+      "meaning": "nơi làm việc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "historic",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hɪˈstɔːrɪk",
+      "meaning": "mang tính lịch sử"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "Shift",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʃıft",
+      "meaning": "Ca"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "magnificent",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mæɡˈnɪfɪsnt",
+      "meaning": "tráng lệ, lộng lẫy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "grandfather",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɡrændfɑːðər",
+      "meaning": "ông nội / ngoại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "contributor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈtrɪbjuːtər",
+      "meaning": "người đóng góp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "notorious",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "noʊˈtɔːriəs",
+      "meaning": "khét tiếng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "Standardize",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'stændədaız",
+      "meaning": "Tiêu chuẩn hoá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "Classify",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'klæsıfaı",
+      "meaning": "Phân loại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "laboratory",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlæbrətɔːri",
+      "meaning": "phòng thí nghiệm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "Supervisor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'su:pəvaızər",
+      "meaning": "Người giám sát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "investor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈvestər",
+      "meaning": "nhà đầu tư"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "Qualified",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'kwplıfaıd",
+      "meaning": "Đủ khả năng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "reasonable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈriːzənəbəl",
+      "meaning": "hợp lý"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "Transport",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "trænspɔ:t",
+      "meaning": "Sự vận chuyển Vận chuyển"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "tomorrow",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "təˈmɑːroʊ",
+      "meaning": "ngày mai"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "comfort",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈkʌmfərt",
+      "meaning": "an ủi, làm khuây khỏa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "Exporter",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ık'spɔ:rtər",
+      "meaning": "Nhà xuất khẩu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "Deterioration",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dıˌtıəriə'reıʃn",
+      "meaning": "Tình trạng xấu đi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 13
+    }
+  },
+  {
+    "front": "Endorsement",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'dɔ:rsmənt",
+      "meaning": "Sự xác nhận, sự chứng thực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "Identify",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ar'dentifai",
+      "meaning": "Nhận biết, nhận ra"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "instructor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈstrʌktər",
+      "meaning": "người hướng dẫn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "Difficulty",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'dıfəkəlti",
+      "meaning": "Sự khó khăn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "someone",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsʌmwʌn",
+      "meaning": "một ai đó"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "orange",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɔːrɪndʒ",
+      "meaning": "quả cam, màu cam"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Enforce",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'fɔ:rs",
+      "meaning": "Bắt buộc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "working",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈwɜːrkɪŋ",
+      "meaning": "đang làm việc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "somebody",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsʌmbədi",
+      "meaning": "ai đó"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "contribute",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈtrɪbjuːt",
+      "meaning": "đóng góp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "firework",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfaɪərwɜːrk",
+      "meaning": "pháo hoa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "Collaborate",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kə'læbəreıt",
+      "meaning": "Cộng tác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "personality",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌpɜːrsəˈnæləti",
+      "meaning": "tính cách"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "Minor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'maınər",
+      "meaning": "Thứ yếu, nhỏ hơn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "Resort",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rı'zɔ:rt",
+      "meaning": "Phải sử dụng đến, kế sách"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "portray",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pɔːrˈtreɪ",
+      "meaning": "khắc họa, miêu tả"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "Unreasonable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "an'ri:zənəbl",
+      "meaning": "Vô lý"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 12
+    }
+  },
+  {
+    "front": "Inventory",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ınvəntɔ:ri",
+      "meaning": "Bản kê khai, hàng trong kho"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "Form",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "form",
+      "meaning": "Tạo ra"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "Original",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'rıdʒənl",
+      "meaning": "Gốc Bản gốc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "Explore",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ık'splɔ:r",
+      "meaning": "Thám hiểm, khảo sát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "Ignore",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "1g'no:r",
+      "meaning": "Lờ đi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Oriented",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ɔ:rıentıd",
+      "meaning": "Định hướng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "glory",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɡlɔːri",
+      "meaning": "vinh quang"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "Expand",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ık'spænd",
+      "meaning": "Mở rộng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "song",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sɔːŋ",
+      "meaning": "bài hát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "Seasonal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'si:zənl",
+      "meaning": "Theo mùa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "Storage",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'stɔ:rıdʒ",
+      "meaning": "Kho"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "candle",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkændl",
+      "meaning": "ngọn nến"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "theoretical",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌθiːəˈretɪkəl",
+      "meaning": "thuộc về lý thuyết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "score",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "skɔːr",
+      "meaning": "ghi điểm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "regulator",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈreɡjəleɪtər",
+      "meaning": "người điều chỉnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "knife",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "naɪf",
+      "meaning": "con dao"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "Consolidation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kən,splı'deıʃn",
+      "meaning": "Sự hợp nhất, sự củng cố"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 13
+    }
+  },
+  {
+    "front": "Verify",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'verıfaı",
+      "meaning": "Thẩm tra, xác nhận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "theory",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈθiːəri",
+      "meaning": "lý thuyết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Mandatory",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'mændətɔ:ri",
+      "meaning": "Tính bắt buộc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "Difficult",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'dıfıkəlt",
+      "meaning": "Khó khăn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "monitor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmɑːnɪtər",
+      "meaning": "giám sát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "Differ",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'dıfər",
+      "meaning": "Khác với"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Priority",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "praı'prəti",
+      "meaning": "Sự ưu tiên hàng đầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "collaboration",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəˌlæbəˈreɪʃn",
+      "meaning": "sự cộng tác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 13
+    }
+  },
+  {
+    "front": "Standing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'stændıŋ",
+      "meaning": "Tình trạng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "divorced",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈvɔːrst",
+      "meaning": "đã ly hôn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "recording",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈkɔːrdɪŋ",
+      "meaning": "bản ghi âm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "land",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "lænd",
+      "meaning": "hạ cánh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "record",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈkɔːrd",
+      "meaning": "ghi âm, ghi lại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "story",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈstɔːri",
+      "meaning": "câu chuyện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 5
+    }
+  },
+  {
+    "front": "Standardization",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌstændədaı'zeıʃn",
+      "meaning": "Sự tiêu chuẩn hoá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 15
+    }
+  },
+  {
+    "front": "southern",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsʌðərn",
+      "meaning": "thuộc miền nam"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 8
+    }
+  },
+  {
+    "front": "Portion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'pɔ:rʃn",
+      "meaning": "Phần"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "councillor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkaʊnsələr",
+      "meaning": "ủy viên hội đồng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "philosophical",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌfɪləˈsɑːfɪkl",
+      "meaning": "thuộc về triết học"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 13
+    }
+  },
+  {
+    "front": "historical",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hɪˈstɔːrɪkl",
+      "meaning": "thuộc về lịch sử"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "Factor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'fæktər",
+      "meaning": "Nhân tố"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "Abandonment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'bændənmənt",
+      "meaning": "Sự từ bỏ, sự ruồng bỏ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "Favorable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'feıvərəbl",
+      "meaning": "Có thiện chí, thuận lợi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 9
+    }
+  },
+  {
+    "front": "correct",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəˈrekt",
+      "meaning": "sửa chữa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 7
+    }
+  },
+  {
+    "front": "sand",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sænd",
+      "meaning": "cát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 4
+    }
+  },
+  {
+    "front": "Tariff",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tærif",
+      "meaning": "Thuế quan Đánh thuế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "author",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɔːθər",
+      "meaning": "tác giả"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "before",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bɪˈfɔːr",
+      "meaning": "trước"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 6
+    }
+  },
+  {
+    "front": "consolidate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈsɑːlɪdeɪt",
+      "meaning": "củng cố, hợp nhất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 11
+    }
+  },
+  {
+    "front": "significance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sɪɡˈnɪfɪkəns",
+      "meaning": "tầm quan trọng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 12
+    }
+  },
+  {
+    "front": "Proportion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prə'pɔ:fn",
+      "meaning": "Phần"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "regulatory",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈreɡjələtɔːri",
+      "meaning": "mang tính quản lý"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  },
+  {
+    "front": "Distribute",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'strıbjuːt",
+      "meaning": "Phân phát, phân phối"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Adverbs & Connectors",
+      "length": 10
+    }
+  }
+]

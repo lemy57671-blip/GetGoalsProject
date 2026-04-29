@@ -110,9 +110,17 @@ async def handle_unexpected_exception(request: Request, exc: Exception):
     )
 
 
+class CORSStaticFiles(StaticFiles):
+    async def get_response(self, path: str, scope):
+        response = await super().get_response(path, scope)
+        response.headers["Access-Control-Allow-Origin"] = "*"
+        response.headers["Access-Control-Allow-Methods"] = "GET, OPTIONS"
+        response.headers["Access-Control-Allow-Headers"] = "*"
+        return response
+
 def _mount_static_directory(url_path: str, directory: Path) -> None:
     if directory.exists():
-        app.mount(url_path, StaticFiles(directory=directory), name=url_path.strip("/"))
+        app.mount(url_path, CORSStaticFiles(directory=directory), name=url_path.strip("/"))
         logger.info("Mounted static path %s -> %s", url_path, directory)
     else:
         logger.warning("Skipped static mount %s because directory does not exist: %s", url_path, directory)

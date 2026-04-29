@@ -1,0 +1,5462 @@
+[
+  {
+    "front": "Connection",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kə'nekʃn",
+      "meaning": "Sự liên hệ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "caution",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɔːʃn",
+      "meaning": "sự thận trọng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "immigration",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌɪmɪˈɡreɪʃn",
+      "meaning": "sự nhập cư"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "suicide",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsuːɪsaɪd",
+      "meaning": "sự tự sát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "convenience",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈviːniəns",
+      "meaning": "sự tiện lợi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "preservation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌprezərˈveɪʃn",
+      "meaning": "sự bảo tồn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "closure",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkloʊʒər",
+      "meaning": "sự bế mạc, sự đóng cửa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Slack",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "slæk",
+      "meaning": "Sự ế ẩm Ế ẩm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "assistance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈsɪstəns",
+      "meaning": "sự giúp đỡ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "gentleman",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdʒentlmən",
+      "meaning": "quý ông"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "conversion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈvɜːrʒn",
+      "meaning": "sự chuyển đổi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "danger",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdeɪndʒər",
+      "meaning": "sự nguy hiểm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "bias",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbaɪəs",
+      "meaning": "sự thiên vị"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 4
+    }
+  },
+  {
+    "front": "Violation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "vaıə'leıʃn",
+      "meaning": "Sự vi phạm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Conciliation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kən,sıli'eıʃn",
+      "meaning": "Sự hòa giải"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "anger",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈæŋɡər",
+      "meaning": "sự tức giận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "pursuit",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pərˈsuːt",
+      "meaning": "sự theo đuổi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "choice",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tʃɔɪs",
+      "meaning": "sự lựa chọn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "Commitment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kə'mıtmənt",
+      "meaning": "Sự cam kết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Invalidate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'vælıdeıt",
+      "meaning": "Sự không hiệu lực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "pollution",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pəˈluːʃn",
+      "meaning": "sự ô nhiễm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Appointment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'pɔıntmənt",
+      "meaning": "Sự bổ nhiệm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "surveillance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sərˈveɪləns",
+      "meaning": "sự giám sát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "inequality",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌɪnɪˈkwɑːləti",
+      "meaning": "sự bất bình đẳng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Event",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ı'vent",
+      "meaning": "Sự kiện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "offence",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈfens",
+      "meaning": "sự phạm tội, sự xúc phạm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "privacy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpraɪvəsi",
+      "meaning": "sự riêng tư"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "quest",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "",
+      "meaning": "kwest /  / cuộc tìm kiếm, sự truy tìm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "Exploitation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": ",eksplɔı'teıʃn",
+      "meaning": "Sự khai thác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "rational",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈræʃənəl",
+      "meaning": "có lý trí, hợp lý"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Guarantee",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "gærǝn'ti:",
+      "meaning": "Sự bảo hành Bảo hành"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "thought",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "θɔːt",
+      "meaning": "ý nghĩ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Stress",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "stres",
+      "meaning": "Sự nhấn mạnh Nhấn mạnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "Arbitration",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "a:rbı'treıʃn",
+      "meaning": "Sự phân xử"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "mess",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mes",
+      "meaning": "sự bừa bộn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 4
+    }
+  },
+  {
+    "front": "analogy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈnælədʒi",
+      "meaning": "sự tương tự, phép loại suy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "curiosity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌkjʊriˈɑːsəti",
+      "meaning": "sự tò mò"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "wit",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wɪt",
+      "meaning": "sự hóm hỉnh, trí thông minh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 3
+    }
+  },
+  {
+    "front": "commitment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəˈmɪtmənt",
+      "meaning": "sự cam kết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "harassment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "həˈræsmənt",
+      "meaning": "sự quấy rối"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "attendance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈtendəns",
+      "meaning": "sự tham dự, lượng người dự"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "simulation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌsɪmjəˈleɪʃən",
+      "meaning": "sự mô phỏng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Deficiency",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'fıʃnsi",
+      "meaning": "Sự thiếu hụt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Popularity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pppju'lærəti",
+      "meaning": "Sự phổ biến"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "recovery",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈkʌvəri",
+      "meaning": "sự phục hồi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "projection",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prəˈdʒekʃn",
+      "meaning": "sự dự báo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Dissatisfaction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdısˌsætıs'fækʃn",
+      "meaning": "Sự không hài lòng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 15
+    }
+  },
+  {
+    "front": "prosperity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prɑːˈsperəti",
+      "meaning": "sự thịnh vượng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "dancing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdænsɪŋ",
+      "meaning": "sự nhảy múa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "transparency",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "trænsˈpærənsi",
+      "meaning": "sự minh bạch"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "Overproduction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əʊvəprə'dʌkʃn",
+      "meaning": "Sự thừa sản xuất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 14
+    }
+  },
+  {
+    "front": "Variety",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "və'rarǝti",
+      "meaning": "Sự khác biệt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Transmission",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "trænz'miſn",
+      "meaning": "Sự chuyển giao"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "misery",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmɪzəri",
+      "meaning": "sự khốn khổ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "consult",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈsʌlt",
+      "meaning": "hỏi ý kiến, tham khảo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Protection",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prə'tekʃn",
+      "meaning": "Sự bảo hộ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Expansion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ık'spænʃn",
+      "meaning": "Sự bành trướng, sự mở rộng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "manipulation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "məˌnɪpjuˈleɪʃn",
+      "meaning": "sự thao túng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "Devaluation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdiːˌvæljʊ'eıʃn",
+      "meaning": "Sự phá giá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "distinction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈstɪŋkʃn",
+      "meaning": "sự khác biệt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "adaptation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌædæpˈteɪʃn",
+      "meaning": "sự thích nghi, bản chuyển thể"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Arrangement",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'reındʒmənt",
+      "meaning": "Sự sắp xếp, lên lịch"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "suffering",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsʌfərɪŋ",
+      "meaning": "sự đau khổ, sự chịu đựng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Grace",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "greis",
+      "meaning": "Sự gia hạn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "Evasion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ı'veıʒn",
+      "meaning": "Sự thoái thác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Utilization",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ju:təlar'zeiſn",
+      "meaning": "Sự sử dụng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "reference",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈrefrəns",
+      "meaning": "sự tham khảo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "laughter",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlæftər",
+      "meaning": "tiếng cười, sự cười"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "emergence",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪˈmɜːrdʒəns",
+      "meaning": "sự xuất hiện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Shrinkage",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ʃrıŋkıdʒ",
+      "meaning": "Sự tụt giá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Choice",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tʃɔıs",
+      "meaning": "Sự lựa chọn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "motion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmoʊʃn",
+      "meaning": "sự chuyển động"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "Indemnity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "m'demnǝti",
+      "meaning": "Sự bồi thường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Preference",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'prefrəns",
+      "meaning": "Sở thích, sự ưu tiên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Veto",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'vi:təʊ",
+      "meaning": "Sự bác bỏ Bác bỏ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 4
+    }
+  },
+  {
+    "front": "Sanction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'sæŋkʃn",
+      "meaning": "Sự phê chuẩn Phê chuẩn Sự trừng phạt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Improvement",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ım'pru:vmənt",
+      "meaning": "Sự cải thiện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "congregation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌkɑːnɡrɪˈɡeɪʃn",
+      "meaning": "sự tụ tập, giáo đoàn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "literacy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlɪtərəsi",
+      "meaning": "sự biết chữ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "complexity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəmˈpleksəti",
+      "meaning": "sự phức tạp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Alteration",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɔ:ltə'reıʃn",
+      "meaning": "Sự thay đổi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Negligence",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'neglıdʒəns",
+      "meaning": "Sự cẩu thả"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Retirement",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rı'taıəmənt",
+      "meaning": "Sự nghỉ hưu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "construction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈstrʌkʃn",
+      "meaning": "sự xây dựng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "deployment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈplɔɪmənt",
+      "meaning": "sự triển khai"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Token",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'təkən",
+      "meaning": "Sự biểu hiện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "sensation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "senˈseɪʃən",
+      "meaning": "cảm giác, sự giật gân"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Implementation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "implimen teiſn",
+      "meaning": "Sự thực hiện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 14
+    }
+  },
+  {
+    "front": "Proposition",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prppə'zıʃn",
+      "meaning": "Sự đề nghị"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "Absence",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'æbsəns",
+      "meaning": "Sự vắng mặt, sự thiếu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "romance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "roʊˈmæns",
+      "meaning": "sự lãng mạn, mối tình"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Equality",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ı'kwa:ləti",
+      "meaning": "Sự bình đẳng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "attraction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈtrækʃn",
+      "meaning": "sự thu hút, điểm du lịch"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "rehabilitation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌriːhəˌbɪlɪˈteɪʃən",
+      "meaning": "sự phục hồi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 14
+    }
+  },
+  {
+    "front": "psychology",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "saɪˈkɑːlədʒi",
+      "meaning": "tâm lý học"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Strike",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "straık",
+      "meaning": "Sự đình côngĐình công"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "refusal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈfjuːzəl",
+      "meaning": "sự từ chối"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "revelation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌrevəˈleɪʃən",
+      "meaning": "sự tiết lộ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Existence",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ıg'zıstəns",
+      "meaning": "Sự tồn tại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "precision",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prɪˈsɪʒn",
+      "meaning": "sự chính xác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Conflict",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "",
+      "meaning": "'kænflıkt Sự mâu thuẫn / Mâu thuẫn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "reception",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈsepʃən",
+      "meaning": "sự tiếp đón, quầy lễ tân"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Attention",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'tenʃn",
+      "meaning": "Sự chú ý, sự chăm sóc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Supply",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sə'plai",
+      "meaning": "Sự cung cấp Cung cấp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "Intervention",
+    "back": {
+      "pos": "Noun",
+      "phonetic": ",ıntə'venʃn",
+      "meaning": "Sự can thiệp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "liberty",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlɪbərti",
+      "meaning": "sự tự do"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Employ",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ım'plɔı",
+      "meaning": "Sự thuê mướn Thuê mướn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "Hesitation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hezi teiſn",
+      "meaning": "Sự do dự"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "evolution",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌevəˈluːʃn",
+      "meaning": "sự tiến hóa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Opinion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'pınjən",
+      "meaning": "Ý kiến"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Inspection",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'spekʃn",
+      "meaning": "Sự kiểm tra"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Obligation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'pblı'geıʃn",
+      "meaning": "Sự bắt buộc, trách nhiệm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Argument",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'a:rgjumənt",
+      "meaning": "Sự tranh cãi, cuộc tranh luận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Lack",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "læk",
+      "meaning": "Sự thiếu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 4
+    }
+  },
+  {
+    "front": "concession",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈseʃn",
+      "meaning": "sự nhượng bộ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "fraud",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "frɔːd",
+      "meaning": "sự gian lận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "detention",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈtenʃn",
+      "meaning": "sự giam cầm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "being",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbiːɪŋ",
+      "meaning": "sinh vật, sự tồn tại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "Fact",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fækt",
+      "meaning": "Việc, sự thật, thực tế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 4
+    }
+  },
+  {
+    "front": "dominance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdɑːmɪnəns",
+      "meaning": "sự thống trị"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Lapse",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "læps",
+      "meaning": "Sự hết hiệu lực; sự sai sót"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "Sack",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "",
+      "meaning": "sæk Sự sa thải Sa thải"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 4
+    }
+  },
+  {
+    "front": "happiness",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhæpinəs",
+      "meaning": "niềm hạnh phúc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Desire",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'zaıər",
+      "meaning": "Sự khao khát / Khao khát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "mercy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmɜːrsi",
+      "meaning": "lòng nhân từ, sự khoan dung"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "Embezzlement",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ım'bezlmənt",
+      "meaning": "Sự biển thủ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "ideal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "aɪˈdiːəl",
+      "meaning": "hình mẫu lý tưởng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "meaningful",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmiːnɪŋfl",
+      "meaning": "có ý nghĩa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "aggression",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈɡreʃn",
+      "meaning": "sự gây hấn, sự xâm lược"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "poverty",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpɑːvərti",
+      "meaning": "sự nghèo đói"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "commentary",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːmənteri",
+      "meaning": "bài bình luận, sự tường thuật"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Permission",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pə'mıʃn",
+      "meaning": "Sự cho phép, giấy phép"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Manufacture",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mænjə'fæktʃər",
+      "meaning": "Sản xuất Sự chế tạo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "completion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəmˈpliːʃn",
+      "meaning": "sự hoàn thành"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "meaning",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmiːnɪŋ",
+      "meaning": "ý nghĩa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Circulation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'sɜ:rkjə'leıʃn",
+      "meaning": "Sự lưu thông, sự lưu hành"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "Incentive",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "m'sentrv",
+      "meaning": "Sự khuyến khích Khuyến khích"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "rejection",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈdʒekʃən",
+      "meaning": "sự bác bỏ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Writing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'raıtıŋ",
+      "meaning": "Sự viết, lối viết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Feasibility",
+    "back": {
+      "pos": "Noun",
+      "phonetic": ",fi:zə'bıləti",
+      "meaning": "Sự khả thi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "Answer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ænsər",
+      "meaning": "Sự trả lời, thư trả lời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "contention",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈtenʃn",
+      "meaning": "sự tranh cãi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Hire",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hair",
+      "meaning": "Sự thuê mướn Thuê mướn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 4
+    }
+  },
+  {
+    "front": "frequency",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfriːkwənsi",
+      "meaning": "tần số, sự thường xuyên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Immunity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rmju:nǝti",
+      "meaning": "Sự miễn dịch"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "relevance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈreləvəns",
+      "meaning": "sự liên quan"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "innovation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌɪnəˈveɪʃn",
+      "meaning": "sự đổi mới"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Downturn",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'daʊntɜːrn",
+      "meaning": "Sự suy sụp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "excellence",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈeksələns",
+      "meaning": "sự xuất sắc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "disability",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdɪsəˈbɪləti",
+      "meaning": "sự khuyết tật"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Deduction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'dʌkʃn",
+      "meaning": "Sự khấu trừ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Necessity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "nə'sesəti",
+      "meaning": "Sự cần thiết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "circulation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌsɜːrkjəˈleɪʃn",
+      "meaning": "sự lưu thông, lượng phát hành"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "Exercise",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'eksərsaız",
+      "meaning": "Sự tập luyện Tập luyện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "optimism",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɑːptɪmɪzəm",
+      "meaning": "sự lạc quan"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Failure",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'feıljər",
+      "meaning": "Sự thất bại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Pleasure",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'pleʒə",
+      "meaning": "Sự vui thích"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "processing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈprɑːsesɪŋ",
+      "meaning": "sự chế biến, xử lý"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Attempt",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'tempt",
+      "meaning": "Sự cố gắng / Cố gắng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Bribe",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "braıb",
+      "meaning": "Sự hối lộHối lộ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "measurement",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmeʒərmənt",
+      "meaning": "sự đo lường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "Transfer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "trens'f3:r",
+      "meaning": "Sự chuyển giao / Chuyển giao"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "embarrassment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪmˈbærəsmənt",
+      "meaning": "sự lúng túng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 13
+    }
+  },
+  {
+    "front": "inability",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌɪnəˈbɪləti",
+      "meaning": "sự bất lực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "placement",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpleɪsmənt",
+      "meaning": "sự sắp đặt, việc làm tạm thời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Withdrawal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wıð'drɔ:əl",
+      "meaning": "Sự rút ra"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Deal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "di:l",
+      "meaning": "Sự giao dịch"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 4
+    }
+  },
+  {
+    "front": "Preparation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prepə'reıʃn",
+      "meaning": "Sự chuẩn bị"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "Congestion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kən'dʒestʃən",
+      "meaning": "Sự ứ lại, sự quá tải"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "substitution",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌsʌbstɪˈtuːʃən",
+      "meaning": "sự thay thế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "Expiration",
+    "back": {
+      "pos": "Noun",
+      "phonetic": ",ekspə'reıʃn",
+      "meaning": "Sự mãn hạn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "diversity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "daɪˈvɜːrsəti",
+      "meaning": "sự đa dạng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "succession",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "səkˈseʃən",
+      "meaning": "sự liên tiếp, sự kế vị"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Test",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "test",
+      "meaning": "Sự thử nghiệm Thử nghiệm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 4
+    }
+  },
+  {
+    "front": "psychologist",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "saɪˈkɑːlədʒɪst",
+      "meaning": "nhà tâm lý học"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "Management",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'mænıdʒmənt",
+      "meaning": "Sự quản lý"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Misconduct",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mıs'kpndʌkt",
+      "meaning": "Sự quản lí kém, hành vi thiếu sự quản lý"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Extension",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ık'stenʃn",
+      "meaning": "Sự mở rộng, kéo dài"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "abundance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈbʌndəns",
+      "meaning": "sự phong phú, dư dật"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "sympathy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɪmpəθi",
+      "meaning": "sự thông cảm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Patronage",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'pætrənıdʒ",
+      "meaning": "Sự bảo trợ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Truth",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tru:0",
+      "meaning": "Sự thật"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "Drop",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "drɒp",
+      "meaning": "Sự giảm / Giảm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 4
+    }
+  },
+  {
+    "front": "conscious",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːnʃəs",
+      "meaning": "tỉnh táo, có ý thức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "sensitivity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌsensəˈtɪvəti",
+      "meaning": "sự nhạy cảm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "Participation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pa:,tısı'peıʃn",
+      "meaning": "Sự tham gia"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 13
+    }
+  },
+  {
+    "front": "Conjunction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kən'dʒʌŋkʃn",
+      "meaning": "Sự kết hợp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "Neglect",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "nı'glekt",
+      "meaning": "Sự xao lãng Xao lãng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "lady",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈleɪdi",
+      "meaning": "quý bà"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 4
+    }
+  },
+  {
+    "front": "Breach",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "brıttʃ",
+      "meaning": "Sự vi phạm hợp đồng / Vi phạm hợp đồng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "Hazard",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "\"hæzərd",
+      "meaning": "Sự rủi ro"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "conception",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈsepʃn",
+      "meaning": "quan niệm, sự thụ thai"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "clarity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈklærəti",
+      "meaning": "sự rõ ràng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "unity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈjuːnəti",
+      "meaning": "sự đoàn kết, thống nhất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "birth",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bɜːrθ",
+      "meaning": "sự ra đời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "Direction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'rekʃn",
+      "meaning": "Sự chỉ đạo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Transit",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "trænzít",
+      "meaning": "Sự quá cảnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "cult",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kʌlt",
+      "meaning": "sự sùng bái, giáo phái"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 4
+    }
+  },
+  {
+    "front": "Revision",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rı'vızn",
+      "meaning": "Sự sửa lại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "meditation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌmedɪˈteɪʃn",
+      "meaning": "sự thiền định"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "tolerance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtɑːlərəns",
+      "meaning": "sự khoan dung, sự chịu đựng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Objection",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əb'dʒekʃn",
+      "meaning": "Sự phản đối"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Instruction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'strakʃn",
+      "meaning": "Sự chỉ thị"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "concentration",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌkɑːnsnˈtreɪʃn",
+      "meaning": "sự tập trung"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 13
+    }
+  },
+  {
+    "front": "ideology",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌaɪdiˈɑːlədʒi",
+      "meaning": "hệ tư tưởng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Consumption",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kən'sʌmpʃn",
+      "meaning": "Sự tiêu thụ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "Approach",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'prəutʃ",
+      "meaning": "Sự tiếp cận; tiếp cận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Comment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "",
+      "meaning": "'kæment Sự bình luận / Bình luận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "assertion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈsɜːrʃn",
+      "meaning": "sự khẳng định"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "synthesis",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɪnθəsɪs",
+      "meaning": "sự tổng hợp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "animation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌænɪˈmeɪʃn",
+      "meaning": "phim hoạt hình, sự sống động"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "survival",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sərˈvaɪvəl",
+      "meaning": "sự sinh tồn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "prevalence",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈprevələns",
+      "meaning": "sự thịnh hành"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Production",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prə'dakʃn",
+      "meaning": "Sự sản xuất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "migration",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "maɪˈɡreɪʃn",
+      "meaning": "sự di cư"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "administration",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ədˌmɪnɪˈstreɪʃn",
+      "meaning": "sự quản trị, chính quyền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 14
+    }
+  },
+  {
+    "front": "Abrogation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "æbrə'geıʃn",
+      "meaning": "Sự hủy bỏ, sự bãi bỏ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "conservation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌkɑːnsərˈveɪʃn",
+      "meaning": "sự bảo tồn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "invention",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈvenʃn",
+      "meaning": "sự phát minh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Sign",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "saın",
+      "meaning": "Ký tên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 4
+    }
+  },
+  {
+    "front": "Analysis",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'næləsıs",
+      "meaning": "Sự phân tích"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "grief",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɡriːf",
+      "meaning": "nỗi đau buồn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "Postponement",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pəʊ'spəʊnmənt",
+      "meaning": "Sự trì hoãn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "accomplishment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈkɑːmplɪʃmənt",
+      "meaning": "thành tựu, sự hoàn thành"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 14
+    }
+  },
+  {
+    "front": "consciousness",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːnʃəsnəs",
+      "meaning": "ý thức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 13
+    }
+  },
+  {
+    "front": "Requirement",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ı'kwaıəmənt",
+      "meaning": "Sự yêu cầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "Deviation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdiːvi'eıʃn",
+      "meaning": "Sự sai lệch"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "humour",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhjuːmər",
+      "meaning": "sự hài hước"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "hostility",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hɑːˈstɪləti",
+      "meaning": "sự thù địch"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Escalation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": ",eskə'leıʃn",
+      "meaning": "Sự leo thang"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Respect",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'spekt",
+      "meaning": "Tôn trọng, sự tôn trọng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Safety",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'seıfti",
+      "meaning": "Sự an toàn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "inclusion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈkluːʒn",
+      "meaning": "sự bao gồm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "notion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈnoʊʃn",
+      "meaning": "khái niệm, ý niệm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "Faith",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "feıθ",
+      "meaning": "Sự tin tưởng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "fun",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fʌn",
+      "meaning": "niềm vui"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 3
+    }
+  },
+  {
+    "front": "fitness",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfɪtnəs",
+      "meaning": "sự khỏe mạnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "suspicion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "səˈspɪʃən",
+      "meaning": "sự nghi ngờ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "tuition",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tuˈɪʃən",
+      "meaning": "học phí, sự giảng dạy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "nutrition",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "nuˈtrɪʃn",
+      "meaning": "sự dinh dưỡng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "screening",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈskriːnɪŋ",
+      "meaning": "sự sàng lọc, buổi chiếu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "freedom",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfriːdəm",
+      "meaning": "sự tự do"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "pity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpɪti",
+      "meaning": "sự thương xót"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 4
+    }
+  },
+  {
+    "front": "Response",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rı'sppns",
+      "meaning": "Sự trả lời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Integration",
+    "back": {
+      "pos": "Noun",
+      "phonetic": ",ıntı'greıʃn",
+      "meaning": "Sự kết hợp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "Construction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kən'strʌkʃn",
+      "meaning": "Sự xây dựng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "addition",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈdɪʃn",
+      "meaning": "sự thêm vào, phép cộng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Intention",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'tenʃn",
+      "meaning": "Sự dự định"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Availability",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə,veılə'bıləti",
+      "meaning": "Sự có hiệu lực, tình trạng hàng sẵn có"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "Design",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'zaın",
+      "meaning": "Sự thiết kếThiết kế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "removal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈmuːvəl",
+      "meaning": "sự gỡ bỏ, di dời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Fall",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fɔ:l",
+      "meaning": "Sự rơi Rơi; giảm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 4
+    }
+  },
+  {
+    "front": "fairness",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfernəs",
+      "meaning": "sự công bằng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "involvement",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈvɑːlvmənt",
+      "meaning": "sự tham gia, sự dính líu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "Influence",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ınfluəns",
+      "meaning": "Sự ảnh hưởng ảnh hưởng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "expression",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪkˈspreʃn",
+      "meaning": "sự biểu hiện, thành ngữ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "confusion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈfjuːʒn",
+      "meaning": "sự lộn xộn, sự nhầm lẫn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Imitation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "teiſn",
+      "meaning": "Sự bắt chước"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "vulnerability",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌvʌlnərəˈbɪləti",
+      "meaning": "sự dễ bị tổn thương"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 13
+    }
+  },
+  {
+    "front": "reconstruction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌriːkənˈstrʌkʃən",
+      "meaning": "sự tái thiết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 14
+    }
+  },
+  {
+    "front": "compliance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəmˈplaɪəns",
+      "meaning": "sự tuân thủ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "reproduction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌriːprəˈdʌkʃən",
+      "meaning": "sự sinh sản, bản sao"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "enthusiasm",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈθuːziæzəm",
+      "meaning": "sự nhiệt tình"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Signature",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'sıgnətʃər",
+      "meaning": "Sự ký kết, chữ ký"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Inefficiency",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ınıfıſǝnsi",
+      "meaning": "Sự không hiệu quả"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "Excess",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ık'ses",
+      "meaning": "Sự quá mức, dư thừa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "liberation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌlɪbəˈreɪʃn",
+      "meaning": "sự giải phóng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "transition",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "trænˈzɪʃən",
+      "meaning": "sự chuyển tiếp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Fulfillment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ful fılmənt",
+      "meaning": "Sự thi hành, sự thực hiện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "Concession",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kən'seʃn",
+      "meaning": "Sự nhượng bộ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "mixture",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmɪkstʃər",
+      "meaning": "sự pha trộn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Assurance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'ʃurəns",
+      "meaning": "Sự chắc chắn, sự cam đoan"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Resistance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rı'zıstəns",
+      "meaning": "Sự phản ứng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "acquisition",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌækwɪˈzɪʃn",
+      "meaning": "sự thâu tóm, mua lại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "Expiry",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ık'spaıəri",
+      "meaning": "Sự hết hạn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "Dismissal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'smısl",
+      "meaning": "Sự sa thải"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "concept",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːnsept",
+      "meaning": "khái niệm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "coincidence",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "koʊˈɪnsɪdəns",
+      "meaning": "sự trùng hợp ngẫu nhiên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "Submission",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "səb'mıʃn",
+      "meaning": "Sự đệ trình"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "accuracy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈækjərəsi",
+      "meaning": "sự chính xác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Substitute",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'sʌbstıtju:t",
+      "meaning": "Sự thay thế Thay thế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "exposure",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪkˈspoʊʒər",
+      "meaning": "sự phơi nhiễm, sự vạch trần"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Leakage",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'li:kıdʒ",
+      "meaning": "Sự lọt ra, sự rò rỉ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "destruction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈstrʌkʃn",
+      "meaning": "sự phá hủy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "fantasy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfæntəsi",
+      "meaning": "sự tưởng tượng, giả tưởng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Haggling",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hæglin",
+      "meaning": "Sự mặc cả, sự thương thảo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Inducement",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mdzu:smənt",
+      "meaning": "Sự thuyết phục"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Consultation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ka:nsl'teıʃn",
+      "meaning": "Sự cố vấn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "Concern",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kən'sɜ:rn",
+      "meaning": "Sự quan tâm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "precious",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpreʃəs",
+      "meaning": "quý giá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Flexibility",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fleksə biləti",
+      "meaning": "Sự linh hoạt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "ideological",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌaɪdiəˈlɑːdʒɪkl",
+      "meaning": "thuộc hệ tư tưởng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "booking",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbʊkɪŋ",
+      "meaning": "sự đặt chỗ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "connection",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəˈnekʃn",
+      "meaning": "sự kết nối"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Spread",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "spred",
+      "meaning": "Sự lan rộng Lan rộng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "alignment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈlaɪnmənt",
+      "meaning": "sự thẳng hàng, sự liên kết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Possession",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pə'zeʃn",
+      "meaning": "Tài sản, sự chiếm hữu, sự có"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Haste",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "herst",
+      "meaning": "Sự gấp rút"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "reaction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "riˈækʃən",
+      "meaning": "sự phản ứng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Estimate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'estımət",
+      "meaning": "Sự đo lường Đo lường; ước lượng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Affiliation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə,fılı'eiʃn",
+      "meaning": "Sự liên kết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "recruitment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈkruːtmənt",
+      "meaning": "sự tuyển dụng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "contrary",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːntreri",
+      "meaning": "sự trái ngược"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Chance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tʃæns",
+      "meaning": "Cơ hội, sự tình cờ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "Encouragement",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'k3:rıdʒmənt",
+      "meaning": "Sự khích lệ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 13
+    }
+  },
+  {
+    "front": "insertion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈsɜːrʃn",
+      "meaning": "sự chèn vào"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "hunger",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhʌŋɡər",
+      "meaning": "sự đói khát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "Purchase",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'pɜ:tʃəs",
+      "meaning": "Sự mua"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Deflation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdiː'fleıʃn",
+      "meaning": "Sự giảm phát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Depreciation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dıˌpriːʃi'eıʃn",
+      "meaning": "Sự sụt giá, sự khấu hao"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "interaction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌɪntərˈækʃn",
+      "meaning": "sự tương tác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "Collapse",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "",
+      "meaning": "kə'læps Sự sụp đổSụp đổ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "belief",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bɪˈliːf",
+      "meaning": "niềm tin"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "endeavour",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈdevər",
+      "meaning": "sự nỗ lực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Exertion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ıg'z3:rʃn",
+      "meaning": "Sự nỗ lực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "exclusion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪkˈskluːʒn",
+      "meaning": "sự loại trừ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Pledge",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pledʒ",
+      "meaning": "Sự thế chấp Thế chấp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "Reservation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rezə'veıʃn",
+      "meaning": "Sự đặt trước"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "consumption",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈsʌmpʃn",
+      "meaning": "sự tiêu thụ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "Development",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'veləpmənt",
+      "meaning": "Sự phát triển"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "opposition",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌɑːpəˈzɪʃn",
+      "meaning": "sự phản đối, phe đối lập"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "excitement",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪkˈsaɪtmənt",
+      "meaning": "sự phấn khích"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "defence",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈfens",
+      "meaning": "sự phòng thủ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "wisdom",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwɪzdəm",
+      "meaning": "sự khôn ngoan"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "Embarkation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "emba:r'keıʃn",
+      "meaning": "Sự cho lên tàu, máy bay"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "reflection",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈflekʃən",
+      "meaning": "sự phản chiếu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "shame",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʃeɪm",
+      "meaning": "sự xấu hổ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "luxury",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlʌkʃəri",
+      "meaning": "sự xa xỉ, hàng xa xỉ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "willingness",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwɪlɪŋnəs",
+      "meaning": "sự sẵn lòng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "default",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈfɔːlt",
+      "meaning": "sự mặc định"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Cancellation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'kænsə'leıʃn",
+      "meaning": "Sự hủy bỏ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "addiction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈdɪkʃn",
+      "meaning": "sự nghiện ngập"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "clash",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "klæʃ",
+      "meaning": "sự đụng độ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "Dip",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dıp",
+      "meaning": "Sự lắng Lắng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 3
+    }
+  },
+  {
+    "front": "revival",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈvaɪvəl",
+      "meaning": "sự phục hưng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Access",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ækses",
+      "meaning": "Sự tiếp cận, tiếp cận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "intent",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈtent",
+      "meaning": "ý định"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "intake",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɪnteɪk",
+      "meaning": "lượng tiêu thụ, sự lấy vào"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "perception",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pərˈsepʃn",
+      "meaning": "sự nhận thức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "recognition",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌrekəɡˈnɪʃən",
+      "meaning": "sự công nhận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "Presence",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'prezns",
+      "meaning": "Sự hiện diện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Amendment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'mendmənt",
+      "meaning": "Sự bổ sung, sự sửa đổi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "consultation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌkɑːnslˈteɪʃn",
+      "meaning": "sự tham khảo ý kiến"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "Observation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'pbzə'veıʃn",
+      "meaning": "Sự quan sát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "Dispute",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'spjuːt",
+      "meaning": "Sự tranh cãi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Decontrol",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'di:kən'trəul",
+      "meaning": "Sự bãi bỏ kiểm soát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "cold",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "koʊld",
+      "meaning": "sự lạnh lẽo, cảm lạnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 4
+    }
+  },
+  {
+    "front": "Introduction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": ",ıntrə'dʌkʃn",
+      "meaning": "Sự hướng dẫn; sự giới thiệu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "contradiction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌkɑːntrəˈdɪkʃn",
+      "meaning": "sự mâu thuẫn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 13
+    }
+  },
+  {
+    "front": "Slump",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "slʌmp",
+      "meaning": "Sự sụt giảm nhanh Sụt giảm nhanh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "Discretion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'skreʃn",
+      "meaning": "Sự xem xét thận trọng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "expectation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌekspekˈteɪʃn",
+      "meaning": "sự mong đợi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "separation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌsepəˈreɪʃən",
+      "meaning": "sự chia cắt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "exile",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈeksaɪl",
+      "meaning": "sự lưu đày"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "Frustration",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "",
+      "meaning": "Sự thất bại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "making",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmeɪkɪŋ",
+      "meaning": "sự chế tạo, quá trình làm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "departure",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈpɑːrtʃər",
+      "meaning": "sự khởi hành"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "idea",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "aɪˈdiːə",
+      "meaning": "ý tưởng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 4
+    }
+  },
+  {
+    "front": "uncertainty",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʌnˈsɜːrtənti",
+      "meaning": "sự không chắc chắn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "Guidance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "gardns",
+      "meaning": "Sự hướng dẫn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "revenge",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈvendʒ",
+      "meaning": "sự trả thù"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Durability",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdjʊərə'bıləti",
+      "meaning": "Sự lâu bền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "accumulation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˌkjuːmjəˈleɪʃn",
+      "meaning": "sự tích lũy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "Boost",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bu:st",
+      "meaning": "Sự nâng giá Nâng giá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "Maintenance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'meıntənəns",
+      "meaning": "Sự bảo dưỡng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "criticism",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkrɪtɪsɪzəm",
+      "meaning": "sự phê bình"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Erosion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ı'rəʊʒn",
+      "meaning": "Sự mòn dần"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Accommodation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə,kəmə'deıʃn",
+      "meaning": "Sự hòa giải, sự điều tiết, sự thích ứng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 13
+    }
+  },
+  {
+    "front": "inquiry",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɪnkwəri",
+      "meaning": "sự điều tra, câu hỏi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "patience",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpeɪʃns",
+      "meaning": "sự kiên nhẫn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Interference",
+    "back": {
+      "pos": "Noun",
+      "phonetic": ",ıntə'fıərəns",
+      "meaning": "Sự can thiệp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "privatization",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌpraɪvətəˈzeɪʃn",
+      "meaning": "sự tư nhân hóa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 13
+    }
+  },
+  {
+    "front": "Deadlock",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'dedlæk",
+      "meaning": "Sự đình trệ, sự bế tắc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "activation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌæktɪˈveɪʃn",
+      "meaning": "sự kích hoạt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Post",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pəʊst",
+      "meaning": "Sự chuyển thư"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 4
+    }
+  },
+  {
+    "front": "Monopoly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mə'nvpəli",
+      "meaning": "Sự độc quyền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "joy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dʒɔɪ",
+      "meaning": "niềm vui"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 3
+    }
+  },
+  {
+    "front": "Consent",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "",
+      "meaning": "kən'sent Sự bằng lòng / Bằng lòng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "custody",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkʌstədi",
+      "meaning": "quyền giám hộ, sự tạm giam"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "pregnancy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpreɡnənsi",
+      "meaning": "sự mang thai"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Irregularity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ı,regjə'lærəti",
+      "meaning": "Sự trái quy tắc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "Limitation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": ",lımı'teıʃn",
+      "meaning": "Sự hạn chế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Bid",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bıd",
+      "meaning": "Sự trả giáTrả giá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 3
+    }
+  },
+  {
+    "front": "Investigation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın,vestı'geıʃn",
+      "meaning": "Sự điều tra"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 13
+    }
+  },
+  {
+    "front": "celebration",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌselɪˈbreɪʃn",
+      "meaning": "sự kỷ niệm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "intriguing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈtriːɡɪŋ",
+      "meaning": "hấp dẫn, gợi sự tò mò"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Update",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "Ap'deit",
+      "meaning": "Sự cập nhật"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "Disclosure",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dıs'kləʊʒər",
+      "meaning": "Sự tiết lộ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Rally",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ræli",
+      "meaning": "Sự phục hồi Phục hồi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "Replacement",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rı'pleısmənt",
+      "meaning": "Sự thay thế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "Observance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əb'zɜ:rvəns",
+      "meaning": "Sự tuân thủ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "rotation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "roʊˈteɪʃən",
+      "meaning": "sự quay, sự luân phiên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "confidence",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːnfɪdəns",
+      "meaning": "sự tự tin, lòng tin"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "demonstration",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdemənˈstreɪʃn",
+      "meaning": "cuộc biểu tình, sự chứng minh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 13
+    }
+  },
+  {
+    "front": "relief",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈliːf",
+      "meaning": "sự giảm nhẹ, sự cứu trợ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "silence",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsaɪləns",
+      "meaning": "sự im lặng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "poll",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "poʊl",
+      "meaning": "cuộc thăm dò ý kiến"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 4
+    }
+  },
+  {
+    "front": "blog",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "blɑːɡ",
+      "meaning": "nhật ký mạng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 4
+    }
+  },
+  {
+    "front": "Gratitude",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "grætitu:d",
+      "meaning": "Sự biết ơn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Waste",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "weıst",
+      "meaning": "Sự lãng phí Lãng phí"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "emission",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪˈmɪʃn",
+      "meaning": "sự phát thải"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Satisfaction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌsætıs'fækʃn",
+      "meaning": "Sự làm cho vừa lòng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 12
+    }
+  },
+  {
+    "front": "navigation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌnævɪˈɡeɪʃn",
+      "meaning": "sự định hướng, ngành hàng hải"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "parallel",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpærəlel",
+      "meaning": "sự song song, điểm tương đồng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "Surrender",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sə'rendə(r)",
+      "meaning": "Sự giao lại / Giao lại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "infection",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈfekʃn",
+      "meaning": "sự nhiễm trùng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "assembly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈsembli",
+      "meaning": "hội đồng, sự lắp ráp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "supervision",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌsuːpərˈvɪʒən",
+      "meaning": "sự giám sát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 11
+    }
+  },
+  {
+    "front": "Adjustment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'dʒastmənt",
+      "meaning": "Sự điều chỉnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "Resumption",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rı'zampʃn",
+      "meaning": "Sự tiếp tục lại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 10
+    }
+  },
+  {
+    "front": "consensus",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈsensəs",
+      "meaning": "sự đồng thuận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "intensity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈtensəti",
+      "meaning": "cường độ, sự mãnh liệt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "Drain",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dreın",
+      "meaning": "Sự cạn kiệt Làm cạn kiệt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "chaos",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkeɪɑːs",
+      "meaning": "sự hỗn loạn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 5
+    }
+  },
+  {
+    "front": "Decline",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'klaın",
+      "meaning": "Sự sa sút, sự suy sụp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 7
+    }
+  },
+  {
+    "front": "Disappointment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdısə'pɔıntmənt",
+      "meaning": "Sự thất vọng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 14
+    }
+  },
+  {
+    "front": "Abeyance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'beıəns",
+      "meaning": "Sự đình chỉ, sự hoãn lại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 8
+    }
+  },
+  {
+    "front": "obsession",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əbˈseʃn",
+      "meaning": "nỗi ám ảnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 9
+    }
+  },
+  {
+    "front": "denial",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈnaɪəl",
+      "meaning": "sự phủ nhận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 6
+    }
+  },
+  {
+    "front": "interpretation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˌtɜːrprəˈteɪʃn",
+      "meaning": "sự giải thích, sự phiên dịch"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Concepts",
+      "length": 14
+    }
+  }
+]

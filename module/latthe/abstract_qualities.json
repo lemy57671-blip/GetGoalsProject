@@ -1,0 +1,392 @@
+[
+  {
+    "front": "tremendous",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "trɪˈmendəs",
+      "meaning": "to lớn, khủng khiếp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 10
+    }
+  },
+  {
+    "front": "problematic",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌprɑːbləˈmætɪk",
+      "meaning": "có vấn đề"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 11
+    }
+  },
+  {
+    "front": "unprecedented",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʌnˈpresədentɪd",
+      "meaning": "chưa từng có"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 13
+    }
+  },
+  {
+    "front": "important",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪmˈpɔːrtnt",
+      "meaning": "quan trọng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 9
+    }
+  },
+  {
+    "front": "special",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈspeʃəl",
+      "meaning": "đặc biệt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 7
+    }
+  },
+  {
+    "front": "realistic",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌriːəˈlɪstɪk",
+      "meaning": "thực tế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 9
+    }
+  },
+  {
+    "front": "True",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tru:",
+      "meaning": "Đúng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 4
+    }
+  },
+  {
+    "front": "reality",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "riˈæləti",
+      "meaning": "thực tại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 7
+    }
+  },
+  {
+    "front": "False",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fɔ:ls",
+      "meaning": "Sai, giả"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 5
+    }
+  },
+  {
+    "front": "boring",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbɔːrɪŋ",
+      "meaning": "nhàm chán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 6
+    }
+  },
+  {
+    "front": "similar",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɪmələr",
+      "meaning": "tương tự"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 7
+    }
+  },
+  {
+    "front": "similarly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɪmələrli",
+      "meaning": "một cách tương tự"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 9
+    }
+  },
+  {
+    "front": "especially",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪˈspeʃəli",
+      "meaning": "đặc biệt là"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 10
+    }
+  },
+  {
+    "front": "real",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈriːəl",
+      "meaning": "có thật, thực tế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 4
+    }
+  },
+  {
+    "front": "excellent",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈeksələnt",
+      "meaning": "xuất sắc, tuyệt vời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 9
+    }
+  },
+  {
+    "front": "realization",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌriːələˈzeɪʃən",
+      "meaning": "sự nhận thức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 11
+    }
+  },
+  {
+    "front": "differentiate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdɪfəˈrenʃieɪt",
+      "meaning": "phân biệt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 13
+    }
+  },
+  {
+    "front": "similarity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌsɪməˈlærəti",
+      "meaning": "sự giống nhau"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 10
+    }
+  },
+  {
+    "front": "specialize",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈspeʃəlaɪz",
+      "meaning": "chuyên môn hóa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 10
+    }
+  },
+  {
+    "front": "wrong",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɔːŋ",
+      "meaning": "điều sai trái"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 5
+    }
+  },
+  {
+    "front": "Different",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'dıfrənt",
+      "meaning": "Khác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 9
+    }
+  },
+  {
+    "front": "Construe",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kən'stru:",
+      "meaning": "Hiểu, phân tích"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 8
+    }
+  },
+  {
+    "front": "realm",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "relm",
+      "meaning": "lĩnh vực, vương quốc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 5
+    }
+  },
+  {
+    "front": "Differentiation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdıfəˌrenʃi'eıʃn",
+      "meaning": "Sự phân biệt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 15
+    }
+  },
+  {
+    "front": "differently",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdɪfrəntli",
+      "meaning": "một cách khác biệt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 11
+    }
+  },
+  {
+    "front": "terrible",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈterəbəl",
+      "meaning": "tồi tệ, khủng khiếp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 8
+    }
+  },
+  {
+    "front": "Differential",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdıfə'renʃl",
+      "meaning": "Sự chênh lệch"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 12
+    }
+  },
+  {
+    "front": "specialized",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈspeʃəlaɪzd",
+      "meaning": "chuyên dụng, chuyên ngành"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 11
+    }
+  },
+  {
+    "front": "really",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈriːəli",
+      "meaning": "thực sự"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 6
+    }
+  },
+  {
+    "front": "specialist",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈspeʃəlɪst",
+      "meaning": "chuyên gia"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Qualities",
+      "length": 10
+    }
+  }
+]

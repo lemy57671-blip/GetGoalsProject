@@ -1,0 +1,522 @@
+[
+  {
+    "front": "Grant",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "grænt",
+      "meaning": "Đồng ý, chấp nhận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Ensure",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'ʃʊr",
+      "meaning": "Bảo đảm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "Exchange",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ıks'tʃeındʒ",
+      "meaning": "Hối đoái; đổi chác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "Occurrence",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'kʌrəns",
+      "meaning": "Sự cố"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 10
+    }
+  },
+  {
+    "front": "grant",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɡrænt",
+      "meaning": "ban cho, cấp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "cause",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kɔːz",
+      "meaning": "gây ra"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Happening",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hæpǝnıŋ",
+      "meaning": "Biến cố"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 9
+    }
+  },
+  {
+    "front": "Disallow",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdısə'laʊ",
+      "meaning": "Không thông qua"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "Provide",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prə'vaıd",
+      "meaning": "Cung cấp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "Cause",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kɔ:z",
+      "meaning": "Nguyên nhân"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Prevent",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prı'vent",
+      "meaning": "Cản trở; ngăn ngừa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "Happen",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "\"hæpən",
+      "meaning": "Xảy ra"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "affect",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈfekt",
+      "meaning": "ảnh hưởng, tác động"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "Keeping",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ki:pıŋ",
+      "meaning": "Sự bảo quản; trông nom"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "affection",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈfekʃn",
+      "meaning": "tình cảm, sự yêu mến"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 9
+    }
+  },
+  {
+    "front": "Cause",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kɔ:z",
+      "meaning": "Gây ra"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "prevention",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prɪˈvenʃn",
+      "meaning": "sự phòng ngừa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 10
+    }
+  },
+  {
+    "front": "immigrant",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɪmɪɡrənt",
+      "meaning": "người nhập cư"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 9
+    }
+  },
+  {
+    "front": "Change",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "",
+      "meaning": "tʃeındʒ Sự thay đổi / Thay đổi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "remains",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈmeɪnz",
+      "meaning": "di tích, hài cốt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "swallow",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈswɑːloʊ",
+      "meaning": "nuốt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "begin",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bɪˈɡɪn",
+      "meaning": "bắt đầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Grant",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "grænt",
+      "meaning": "Sự trợ cấp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Provided",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prə'vaıdıd",
+      "meaning": "Với điều kiện là"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "Unchanged",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʌn'tſeind3d",
+      "meaning": "Không thay đổi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 9
+    }
+  },
+  {
+    "front": "become",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bɪˈkʌm",
+      "meaning": "trở nên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "remainder",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈmeɪndər",
+      "meaning": "phần còn lại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 9
+    }
+  },
+  {
+    "front": "Allowance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'lauəns",
+      "meaning": "Tiền trợ cấp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 9
+    }
+  },
+  {
+    "front": "Result",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rı'zalt",
+      "meaning": "Kết quả"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "Stop",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "stɒp",
+      "meaning": "Dừng lại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "remain",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈmeɪn",
+      "meaning": "duy trì, còn lại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "Keep",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ki:p",
+      "meaning": "Giữ, chứa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "Finish",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'fınıʃ",
+      "meaning": "Hoàn tất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "shallow",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈʃæloʊ",
+      "meaning": "nông cạn, cạn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "Start",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sta:rt",
+      "meaning": "Bắt đầu, khởi đầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Allow",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'lau",
+      "meaning": "Cho phép, chấp nhận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Occur",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'kɜ:r",
+      "meaning": "Xảy ra"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "beginning",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bɪˈɡɪnɪŋ",
+      "meaning": "sự bắt đầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 9
+    }
+  },
+  {
+    "front": "because",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bɪˈkəz",
+      "meaning": "bởi vì"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "change",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tʃeɪndʒ",
+      "meaning": "thay đổi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Abstract Actions",
+      "length": 6
+    }
+  }
+]

@@ -1,0 +1,574 @@
+[
+  {
+    "front": "software",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɔːftwer",
+      "meaning": "phần mềm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 8
+    }
+  },
+  {
+    "front": "Forward",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fɔ:rwǝd",
+      "meaning": "Phía trước"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 7
+    }
+  },
+  {
+    "front": "backwards",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbækwərdz",
+      "meaning": "về phía sau"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 9
+    }
+  },
+  {
+    "front": "award",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈwɔːrd",
+      "meaning": "trao tặng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 5
+    }
+  },
+  {
+    "front": "Warehouse",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'weəhaʊs",
+      "meaning": "Kho hàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 9
+    }
+  },
+  {
+    "front": "reward",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈwɔːrd",
+      "meaning": "thưởng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 6
+    }
+  },
+  {
+    "front": "accused",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈkjuːzd",
+      "meaning": "bị cáo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 7
+    }
+  },
+  {
+    "front": "Warn",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wɔ:n",
+      "meaning": "Cảnh báo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 4
+    }
+  },
+  {
+    "front": "warning",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwɔːrnɪŋ",
+      "meaning": "lời cảnh báo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 7
+    }
+  },
+  {
+    "front": "rebel",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈrebəl",
+      "meaning": "người nổi loạn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 5
+    }
+  },
+  {
+    "front": "aware",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈwer",
+      "meaning": "nhận thức, biết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 5
+    }
+  },
+  {
+    "front": "accuse",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈkjuːz",
+      "meaning": "buộc tội, kết tội"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 6
+    }
+  },
+  {
+    "front": "warfare",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwɔːrfer",
+      "meaning": "cuộc chiến, xung đột"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 7
+    }
+  },
+  {
+    "front": "afterwards",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈæftərwərdz",
+      "meaning": "về sau"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 10
+    }
+  },
+  {
+    "front": "blame",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bleɪm",
+      "meaning": "khiển trách, đổ lỗi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 5
+    }
+  },
+  {
+    "front": "warm",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "wɔːrm",
+      "meaning": "làm ấm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 4
+    }
+  },
+  {
+    "front": "Warrant",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'wprənt",
+      "meaning": "Chứng nhận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 7
+    }
+  },
+  {
+    "front": "Protest",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'prəʊtest",
+      "meaning": "Kháng nghị, phản đối"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 7
+    }
+  },
+  {
+    "front": "ward",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wɔːrd",
+      "meaning": "phòng bệnh, phường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 4
+    }
+  },
+  {
+    "front": "complaint",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəmˈpleɪnt",
+      "meaning": "lời phàn nàn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 9
+    }
+  },
+  {
+    "front": "Protest",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "",
+      "meaning": "'prəʊtest Xác nhận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 7
+    }
+  },
+  {
+    "front": "Reward",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rı'wɔ:rd",
+      "meaning": "Phần thưởng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 6
+    }
+  },
+  {
+    "front": "Reward",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "rı'wɔ:rd",
+      "meaning": "Được thưởng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 6
+    }
+  },
+  {
+    "front": "struggle",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈstrʌɡəl",
+      "meaning": "đấu tranh, chật vật"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 8
+    }
+  },
+  {
+    "front": "post-war",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌpoʊst ˈwɔːr",
+      "meaning": "sau chiến tranh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 8
+    }
+  },
+  {
+    "front": "insult",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈsʌlt",
+      "meaning": "xúc phạm, lăng mạ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 6
+    }
+  },
+  {
+    "front": "awareness",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈwernəs",
+      "meaning": "nhận thức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 9
+    }
+  },
+  {
+    "front": "downwards",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdaʊnwərdz",
+      "meaning": "hướng xuống"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 9
+    }
+  },
+  {
+    "front": "hardware",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhɑːrdwer",
+      "meaning": "phần cứng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 8
+    }
+  },
+  {
+    "front": "war",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wɔːr",
+      "meaning": "chiến tranh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 3
+    }
+  },
+  {
+    "front": "complain",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəmˈpleɪn",
+      "meaning": "phàn nàn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 8
+    }
+  },
+  {
+    "front": "protest",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prəˈtest",
+      "meaning": "phản đối"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 7
+    }
+  },
+  {
+    "front": "upwards",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈʌpwərdz",
+      "meaning": "hướng lên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 7
+    }
+  },
+  {
+    "front": "Warranty",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'wprənti",
+      "meaning": "Giấy bảo hành"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 8
+    }
+  },
+  {
+    "front": "straightforward",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌstreɪtˈfɔːrwərd",
+      "meaning": "dễ hiểu, thẳng thắn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 15
+    }
+  },
+  {
+    "front": "towards",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "twɔːrdz",
+      "meaning": "về phía"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 7
+    }
+  },
+  {
+    "front": "awkward",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɔːkwərd",
+      "meaning": "lúng túng, vụng về"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 7
+    }
+  },
+  {
+    "front": "enemy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈenəmi",
+      "meaning": "kẻ thù"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 5
+    }
+  },
+  {
+    "front": "rebellion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈbeljən",
+      "meaning": "cuộc nổi loạn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 9
+    }
+  },
+  {
+    "front": "Argue",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'a:rgju:",
+      "meaning": "Tranh cãi, tranh luận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 5
+    }
+  },
+  {
+    "front": "warming",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwɔːrmɪŋ",
+      "meaning": "sự nóng lên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 7
+    }
+  },
+  {
+    "front": "warrior",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwɔːriər",
+      "meaning": "chiến binh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 7
+    }
+  },
+  {
+    "front": "protester",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈproʊtestər",
+      "meaning": "người biểu tình"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 9
+    }
+  },
+  {
+    "front": "Upward",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "Apwǝd",
+      "meaning": "Đi lên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Arguments & Conflict",
+      "length": 6
+    }
+  }
+]

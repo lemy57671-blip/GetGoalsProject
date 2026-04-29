@@ -1,0 +1,2095 @@
+[
+  {
+    "front": "nothing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈnʌθɪŋ",
+      "meaning": "không có gì"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 7
+    }
+  },
+  {
+    "front": "youngster",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈjʌŋstər",
+      "meaning": "người thanh niên, đứa trẻ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 9
+    }
+  },
+  {
+    "front": "Representative",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "reprı'zentətıv",
+      "meaning": "Người đại diện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 14
+    }
+  },
+  {
+    "front": "agricultural",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌæɡrɪˈkʌltʃərəl",
+      "meaning": "thuộc nông nghiệp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 12
+    }
+  },
+  {
+    "front": "station",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsteɪʃən",
+      "meaning": "nhà ga, trạm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 7
+    }
+  },
+  {
+    "front": "owner",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈoʊnər",
+      "meaning": "người chủ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 5
+    }
+  },
+  {
+    "front": "insider",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈsaɪdər",
+      "meaning": "người trong cuộc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 7
+    }
+  },
+  {
+    "front": "beneficiary",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌbenɪˈfɪʃieri",
+      "meaning": "người thụ hưởng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 11
+    }
+  },
+  {
+    "front": "consumer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈsuːmər",
+      "meaning": "người tiêu dùng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 8
+    }
+  },
+  {
+    "front": "Immaterial",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mə'tıriǝl",
+      "meaning": "Không quan trọng, vụn vặt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 10
+    }
+  },
+  {
+    "front": "Intangible",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'tændʒəbl",
+      "meaning": "Không thể thấy được"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 10
+    }
+  },
+  {
+    "front": "Negative",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'negətıv",
+      "meaning": "Không, phủ nhận, không tốt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 8
+    }
+  },
+  {
+    "front": "favourite",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfeɪvərɪt",
+      "meaning": "người / vật được yêu thích"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 9
+    }
+  },
+  {
+    "front": "recognize",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈrekəɡnaɪz",
+      "meaning": "nhận ra, công nhận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 9
+    }
+  },
+  {
+    "front": "scientist",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsaɪəntɪst",
+      "meaning": "nhà khoa học"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 9
+    }
+  },
+  {
+    "front": "Consignee",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'kænsaı'ni:",
+      "meaning": "Người nhận hàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 9
+    }
+  },
+  {
+    "front": "civic",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɪvɪk",
+      "meaning": "thuộc công dân, đô thị"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 5
+    }
+  },
+  {
+    "front": "alien",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈeɪliən",
+      "meaning": "người ngoài hành tinh, người ngoại quốc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 5
+    }
+  },
+  {
+    "front": "constant",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːnstənt",
+      "meaning": "liên tục, không đổi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 8
+    }
+  },
+  {
+    "front": "no one",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈnoʊ wʌn",
+      "meaning": "không ai"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "receiver",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈsiːvər",
+      "meaning": "ống nghe, người nhận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 8
+    }
+  },
+  {
+    "front": "Void",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "vɔıd",
+      "meaning": "Mất hiệu lực, không có giá trị"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 4
+    }
+  },
+  {
+    "front": "Invalid",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'vælıd",
+      "meaning": "Không có hiệu lực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 7
+    }
+  },
+  {
+    "front": "journalist",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdʒɜːrnəlɪst",
+      "meaning": "nhà báo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 10
+    }
+  },
+  {
+    "front": "defender",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈfendər",
+      "meaning": "hậu vệ, người bảo vệ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 8
+    }
+  },
+  {
+    "front": "designer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈzaɪnər",
+      "meaning": "nhà thiết kế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 8
+    }
+  },
+  {
+    "front": "neighbour",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈneɪbər",
+      "meaning": "người hàng xóm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 9
+    }
+  },
+  {
+    "front": "other",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈʌðər",
+      "meaning": "người / vật khác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 5
+    }
+  },
+  {
+    "front": "boss",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bɔːs",
+      "meaning": "ông chủ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 4
+    }
+  },
+  {
+    "front": "critic",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkrɪtɪk",
+      "meaning": "nhà phê bình"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "Adopt",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'da:pt",
+      "meaning": "Chấp nhận, thông qua"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 5
+    }
+  },
+  {
+    "front": "Journey",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'dʒɜ:rni",
+      "meaning": "Hành trình, công tác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 7
+    }
+  },
+  {
+    "front": "Task",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ta:sk",
+      "meaning": "Công việc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 4
+    }
+  },
+  {
+    "front": "housing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhaʊzɪŋ",
+      "meaning": "nhà ở"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 7
+    }
+  },
+  {
+    "front": "unlike",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʌnˈlaɪk",
+      "meaning": "không giống như"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "Agent",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'eıdʒənt",
+      "meaning": "Người đại lý"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 5
+    }
+  },
+  {
+    "front": "refugee",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌrefjuˈdʒiː",
+      "meaning": "người tị nạn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 7
+    }
+  },
+  {
+    "front": "native",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈneɪtɪv",
+      "meaning": "người bản xứ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "Industrialize",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'dastriǝlaız",
+      "meaning": "Công nghiệp hóa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 13
+    }
+  },
+  {
+    "front": "Marginal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ma:rdʒınl",
+      "meaning": "Không có lời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 8
+    }
+  },
+  {
+    "front": "via",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈvaɪə",
+      "meaning": "thông qua"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 3
+    }
+  },
+  {
+    "front": "parameter",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pəˈræmɪtər",
+      "meaning": "thông số"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 9
+    }
+  },
+  {
+    "front": "Technology",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tek'nolǝdzi",
+      "meaning": "Công nghệ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 10
+    }
+  },
+  {
+    "front": "applicant",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈæplɪkənt",
+      "meaning": "ứng viên, người nộp đơn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 9
+    }
+  },
+  {
+    "front": "cottage",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːtɪdʒ",
+      "meaning": "nhà tranh, chòi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 7
+    }
+  },
+  {
+    "front": "Vital",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'vaıtl",
+      "meaning": "Không thể thiếu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 5
+    }
+  },
+  {
+    "front": "economist",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪˈkɑːnəmɪst",
+      "meaning": "nhà kinh tế học"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 9
+    }
+  },
+  {
+    "front": "mob",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mɑːb",
+      "meaning": "đám đông hỗn loạn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 3
+    }
+  },
+  {
+    "front": "activist",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈæktɪvɪst",
+      "meaning": "nhà hoạt động"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 8
+    }
+  },
+  {
+    "front": "liberal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlɪbərəl",
+      "meaning": "người theo chủ nghĩa tự do"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 7
+    }
+  },
+  {
+    "front": "Surety",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fəzrəti",
+      "meaning": "Người bảo lãnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "settler",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsetlər",
+      "meaning": "người định cư"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 7
+    }
+  },
+  {
+    "front": "therapist",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈθerəpɪst",
+      "meaning": "nhà trị liệu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 9
+    }
+  },
+  {
+    "front": "nobody",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈnoʊbədi",
+      "meaning": "không ai"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "analyst",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈænəlɪst",
+      "meaning": "nhà phân tích"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 7
+    }
+  },
+  {
+    "front": "undoubtedly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʌnˈdaʊtɪdli",
+      "meaning": "không nghi ngờ gì"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 11
+    }
+  },
+  {
+    "front": "mosque",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mɑːsk",
+      "meaning": "nhà thờ Hồi giáo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "participant",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pɑːrˈtɪsɪpənt",
+      "meaning": "người tham gia"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 11
+    }
+  },
+  {
+    "front": "champion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtʃæmpiən",
+      "meaning": "nhà vô địch"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 8
+    }
+  },
+  {
+    "front": "unhappy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʌnˈhæpi",
+      "meaning": "không hạnh phúc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 7
+    }
+  },
+  {
+    "front": "Pioneer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "paıə'nır",
+      "meaning": "Tiên phong Người tiên phong"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 7
+    }
+  },
+  {
+    "front": "Broker",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'brəukər",
+      "meaning": "Người môi giới, công ty môi giới"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "Invisible",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'vızəbl",
+      "meaning": "Không thấy, vô hình"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 9
+    }
+  },
+  {
+    "front": "player",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpleɪər",
+      "meaning": "người chơi, cầu thủ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "without",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wɪðˈaʊt",
+      "meaning": "mà không có"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 7
+    }
+  },
+  {
+    "front": "columnist",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːləmnɪst",
+      "meaning": "người phụ trách chuyên mục"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 9
+    }
+  },
+  {
+    "front": "Supplier",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sə'plaıər",
+      "meaning": "Nhà cung cấp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 8
+    }
+  },
+  {
+    "front": "conservative",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈsɜːrvətɪv",
+      "meaning": "người bảo thủ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 12
+    }
+  },
+  {
+    "front": "woman",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwʊmən",
+      "meaning": "người phụ nữ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 5
+    }
+  },
+  {
+    "front": "Expect",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ık'spekt",
+      "meaning": "Đòi hỏi; trông đợi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "fairly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈferli",
+      "meaning": "khá, công bằng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "Employment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ım'plɔımənt",
+      "meaning": "Công việc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 10
+    }
+  },
+  {
+    "front": "alcoholic",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌælkəˈhɔːlɪk",
+      "meaning": "có chứa cồn, người nghiện rượu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 9
+    }
+  },
+  {
+    "front": "feminist",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfemənɪst",
+      "meaning": "người ủng hộ nữ quyền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 8
+    }
+  },
+  {
+    "front": "fool",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fuːl",
+      "meaning": "kẻ ngốc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 4
+    }
+  },
+  {
+    "front": "unexpected",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌʌnɪkˈspektɪd",
+      "meaning": "bất ngờ, không mong đợi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 10
+    }
+  },
+  {
+    "front": "extremist",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪkˈstriːmɪst",
+      "meaning": "người cực đoan"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 9
+    }
+  },
+  {
+    "front": "Industrial",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "n'dastriǝl",
+      "meaning": "Thuộc về công nghiệp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 10
+    }
+  },
+  {
+    "front": "technological",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌteknəˈlɑːdʒɪkəl",
+      "meaning": "thuộc công nghệ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 13
+    }
+  },
+  {
+    "front": "outsider",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌaʊtˈsaɪdər",
+      "meaning": "người ngoài cuộc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 8
+    }
+  },
+  {
+    "front": "such",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sʌtʃ",
+      "meaning": "những người / vật như vậy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 4
+    }
+  },
+  {
+    "front": "Lodge",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "lpdʒ",
+      "meaning": "Trao đổi thông tin; gửi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 5
+    }
+  },
+  {
+    "front": "monk",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mʌŋk",
+      "meaning": "nhà sư"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 4
+    }
+  },
+  {
+    "front": "giant",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdʒaɪənt",
+      "meaning": "người khổng lồ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 5
+    }
+  },
+  {
+    "front": "Deputy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'depjʊti",
+      "meaning": "Người đại diện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "tenant",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtenənt",
+      "meaning": "người thuê nhà"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "Integral",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ıntıgrəl",
+      "meaning": "Cần thiết, không thể thiếu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 8
+    }
+  },
+  {
+    "front": "atmosphere",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈætməsfɪr",
+      "meaning": "bầu không khí"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 10
+    }
+  },
+  {
+    "front": "agriculture",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈæɡrɪkʌltʃər",
+      "meaning": "ngành nông nghiệp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 11
+    }
+  },
+  {
+    "front": "producer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prəˈduːsər",
+      "meaning": "nhà sản xuất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 8
+    }
+  },
+  {
+    "front": "friend",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "frend",
+      "meaning": "người bạn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "idiot",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɪdiət",
+      "meaning": "kẻ ngốc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 5
+    }
+  },
+  {
+    "front": "princess",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈprɪnses",
+      "meaning": "công chúa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 8
+    }
+  },
+  {
+    "front": "user",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈjuːzər",
+      "meaning": "người dùng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 4
+    }
+  },
+  {
+    "front": "Usual",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ju:zuǝl",
+      "meaning": "Thông thường, thường lệ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 5
+    }
+  },
+  {
+    "front": "dislike",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪsˈlaɪk",
+      "meaning": "không thích"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 7
+    }
+  },
+  {
+    "front": "celebrity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "səˈlebrəti",
+      "meaning": "người nổi tiếng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 9
+    }
+  },
+  {
+    "front": "info",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɪnfoʊ",
+      "meaning": "thông tin (viết tắt)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 4
+    }
+  },
+  {
+    "front": "Imperfect",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "im'p3:rfikt",
+      "meaning": "Không hoàn chỉnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 9
+    }
+  },
+  {
+    "front": "relative",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈrelətɪv",
+      "meaning": "họ hàng, người thân"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 8
+    }
+  },
+  {
+    "front": "commonly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːmənli",
+      "meaning": "thông thường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 8
+    }
+  },
+  {
+    "front": "Indefinite",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın' definǝt",
+      "meaning": "Không hạn định"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 10
+    }
+  },
+  {
+    "front": "racist",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈreɪsɪst",
+      "meaning": "người phân biệt chủng tộc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "punk",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pʌŋk",
+      "meaning": "nhạc punk, kẻ vô dụng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 4
+    }
+  },
+  {
+    "front": "Dull",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dʌl",
+      "meaning": "Không chạy, ế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 4
+    }
+  },
+  {
+    "front": "Merit",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'merıt",
+      "meaning": "Công lao, tặng thưởng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 5
+    }
+  },
+  {
+    "front": "Merchant",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'mɜ:rtʃənt",
+      "meaning": "Nhà buôn, thương gia"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 8
+    }
+  },
+  {
+    "front": "winner",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwɪnər",
+      "meaning": "người chiến thắng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "recipient",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈsɪpiənt",
+      "meaning": "người nhận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 9
+    }
+  },
+  {
+    "front": "turnout",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtɜːrnaʊt",
+      "meaning": "số lượng người tham dự"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 7
+    }
+  },
+  {
+    "front": "Inefficient",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ını fıſənt",
+      "meaning": "Không hiệu quả"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 11
+    }
+  },
+  {
+    "front": "Unfit",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "An' fit",
+      "meaning": "Không phù hợp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 5
+    }
+  },
+  {
+    "front": "Dissatisfy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'sætısfaı",
+      "meaning": "Không hài lòng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 10
+    }
+  },
+  {
+    "front": "Assistant",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'sıstənt",
+      "meaning": "Trợ lí, người phụ giúp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 9
+    }
+  },
+  {
+    "front": "bike",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "baɪk",
+      "meaning": "xe đạp (thông tục)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 4
+    }
+  },
+  {
+    "front": "union",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈjuːnjən",
+      "meaning": "liên hiệp, công đoàn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 5
+    }
+  },
+  {
+    "front": "air",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "er",
+      "meaning": "không khí"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 3
+    }
+  },
+  {
+    "front": "amateur",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈæmətʃər",
+      "meaning": "người nghiệp dư"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 7
+    }
+  },
+  {
+    "front": "affair",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈfer",
+      "meaning": "công việc, vụ việc, chuyện tình cảm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "stranger",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈstreɪndʒər",
+      "meaning": "người lạ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 8
+    }
+  },
+  {
+    "front": "Announce",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'nauns",
+      "meaning": "Thông báo, tuyên bố"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 8
+    }
+  },
+  {
+    "front": "otherwise",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈʌðərwaɪz",
+      "meaning": "nếu không thì, mặt khác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 9
+    }
+  },
+  {
+    "front": "peer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pɪr",
+      "meaning": "người ngang hàng, người đồng trang lứa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 4
+    }
+  },
+  {
+    "front": "another",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈnʌðər",
+      "meaning": "người / vật khác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 7
+    }
+  },
+  {
+    "front": "numerous",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈnuːmərəs",
+      "meaning": "đông đảo, vô số"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 8
+    }
+  },
+  {
+    "front": "continuous",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈtɪnjuəs",
+      "meaning": "liên tục, không ngừng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 10
+    }
+  },
+  {
+    "front": "clever",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈklevər",
+      "meaning": "thông minh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "inappropriate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌɪnəˈproʊpriət",
+      "meaning": "không thích hợp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 13
+    }
+  },
+  {
+    "front": "unveil",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʌnˈveɪl",
+      "meaning": "tiết lộ, công bố"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "peasant",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpeznt",
+      "meaning": "nông dân"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 7
+    }
+  },
+  {
+    "front": "single",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɪŋɡəl",
+      "meaning": "người độc thân, đĩa đơn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "Unclaimed",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʌn'klermd",
+      "meaning": "Không bị đòi hỏi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 9
+    }
+  },
+  {
+    "front": "folk",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "foʊk",
+      "meaning": "người dân, dân gian"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 4
+    }
+  },
+  {
+    "front": "latter",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlætər",
+      "meaning": "người / vật thứ hai"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "composer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəmˈpoʊzər",
+      "meaning": "nhà soạn nhạc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 8
+    }
+  },
+  {
+    "front": "patron",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpeɪtrən",
+      "meaning": "người bảo trợ, khách quen"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "nominee",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌnɑːmɪˈniː",
+      "meaning": "người được đề cử"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 7
+    }
+  },
+  {
+    "front": "Consumer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kən'su:mər",
+      "meaning": "Người tiêu dùng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 8
+    }
+  },
+  {
+    "front": "practitioner",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prækˈtɪʃənər",
+      "meaning": "người hành nghề"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 12
+    }
+  },
+  {
+    "front": "offensive",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈfensɪv",
+      "meaning": "mang tính công kích, phản cảm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 9
+    }
+  },
+  {
+    "front": "offender",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈfendər",
+      "meaning": "người phạm tội"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 8
+    }
+  },
+  {
+    "front": "irrelevant",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪˈreləvənt",
+      "meaning": "không liên quan"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 10
+    }
+  },
+  {
+    "front": "enthusiast",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈθuːziæst",
+      "meaning": "người đam mê"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 10
+    }
+  },
+  {
+    "front": "Principal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'prınsəpəl",
+      "meaning": "Người ủy nhiệm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 9
+    }
+  },
+  {
+    "front": "church",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tʃɜːrtʃ",
+      "meaning": "nhà thờ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "servant",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɜːrvənt",
+      "meaning": "người hầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 7
+    }
+  },
+  {
+    "front": "cannot",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkænɑːt",
+      "meaning": "không thể"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "counterpart",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkaʊntərpɑːrt",
+      "meaning": "đối tác, người đồng cấp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 11
+    }
+  },
+  {
+    "front": "garage",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɡəˈrɑːʒ",
+      "meaning": "nhà để xe"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "crowded",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkraʊdɪd",
+      "meaning": "đông đúc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 7
+    }
+  },
+  {
+    "front": "nowhere",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈnoʊwer",
+      "meaning": "không nơi nào"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 7
+    }
+  },
+  {
+    "front": "unnecessary",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʌnˈnesəseri",
+      "meaning": "không cần thiết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 11
+    }
+  },
+  {
+    "front": "poet",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpoʊət",
+      "meaning": "nhà thơ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 4
+    }
+  },
+  {
+    "front": "adult",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈdʌlt",
+      "meaning": "người lớn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 5
+    }
+  },
+  {
+    "front": "king",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kɪŋ",
+      "meaning": "nhà vua"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 4
+    }
+  },
+  {
+    "front": "she",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʃiː",
+      "meaning": "cô ấy, bà ấy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 3
+    }
+  },
+  {
+    "front": "Irrevocable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ı'revəkəbl",
+      "meaning": "Không thể hủy bỏ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 11
+    }
+  },
+  {
+    "front": "Unfair",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "An' fear",
+      "meaning": "Không công bằng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "Dealer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'di:lər",
+      "meaning": "Người buôn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 6
+    }
+  },
+  {
+    "front": "impossible",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪmˈpɑːsəbl",
+      "meaning": "không thể"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 10
+    }
+  },
+  {
+    "front": "Unlimited",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʌn'lımıtıd",
+      "meaning": "Không hạn chế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "People & Occupations",
+      "length": 9
+    }
+  }
+]

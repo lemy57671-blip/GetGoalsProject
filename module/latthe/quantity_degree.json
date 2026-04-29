@@ -1,0 +1,327 @@
+[
+  {
+    "front": "Extra",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ekstrə",
+      "meaning": "Phí trả thêm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Quantity & Degree",
+      "length": 5
+    }
+  },
+  {
+    "front": "Self-sufficient",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌself sə'fıʃnt",
+      "meaning": "Tự túc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Quantity & Degree",
+      "length": 15
+    }
+  },
+  {
+    "front": "behalf",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bɪˈhæf",
+      "meaning": "thay mặt, đại diện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Quantity & Degree",
+      "length": 6
+    }
+  },
+  {
+    "front": "half",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hæf",
+      "meaning": "một nửa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Quantity & Degree",
+      "length": 4
+    }
+  },
+  {
+    "front": "mostly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmoʊstli",
+      "meaning": "chủ yếu là"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Quantity & Degree",
+      "length": 6
+    }
+  },
+  {
+    "front": "Total",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tǝutl",
+      "meaning": "Tính tổng, đếm tổng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Quantity & Degree",
+      "length": 5
+    }
+  },
+  {
+    "front": "totally",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtoʊtəli",
+      "meaning": "hoàn toàn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Quantity & Degree",
+      "length": 7
+    }
+  },
+  {
+    "front": "Quarter",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'kwɔ:tə(r)",
+      "meaning": "Một phần tư"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Quantity & Degree",
+      "length": 7
+    }
+  },
+  {
+    "front": "Sufficient",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sə'fıʃnt",
+      "meaning": "Đủ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Quantity & Degree",
+      "length": 10
+    }
+  },
+  {
+    "front": "sufficiently",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "səˈfɪʃəntli",
+      "meaning": "một cách đầy đủ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Quantity & Degree",
+      "length": 12
+    }
+  },
+  {
+    "front": "Extravagant",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ık'strævəgənt",
+      "meaning": "Quá đáng, vô lí"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Quantity & Degree",
+      "length": 11
+    }
+  },
+  {
+    "front": "Insufficient",
+    "back": {
+      "pos": "Noun",
+      "phonetic": ",ınsə'fıʃnt",
+      "meaning": "Không đủ, thiếu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Quantity & Degree",
+      "length": 12
+    }
+  },
+  {
+    "front": "many",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmeni",
+      "meaning": "nhiều người / vật"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Quantity & Degree",
+      "length": 4
+    }
+  },
+  {
+    "front": "Extremely",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ık'stri:mli",
+      "meaning": "Cực kỳ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Quantity & Degree",
+      "length": 9
+    }
+  },
+  {
+    "front": "few",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fjuː",
+      "meaning": "một số ít"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Quantity & Degree",
+      "length": 3
+    }
+  },
+  {
+    "front": "enough",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪˈnʌf",
+      "meaning": "đủ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Quantity & Degree",
+      "length": 6
+    }
+  },
+  {
+    "front": "excessive",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪkˈsesɪv",
+      "meaning": "quá mức, thái quá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Quantity & Degree",
+      "length": 9
+    }
+  },
+  {
+    "front": "extract",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪkˈstrækt",
+      "meaning": "chiết xuất, trích xuất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Quantity & Degree",
+      "length": 7
+    }
+  },
+  {
+    "front": "extreme",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪkˈstriːm",
+      "meaning": "sự cực đoan"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Quantity & Degree",
+      "length": 7
+    }
+  },
+  {
+    "front": "extraordinary",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪkˈstrɔːrdəneri",
+      "meaning": "phi thường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Quantity & Degree",
+      "length": 13
+    }
+  },
+  {
+    "front": "Headquarters",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'hedkwɔ:rtərz",
+      "meaning": "Trụ sở chính"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Quantity & Degree",
+      "length": 12
+    }
+  },
+  {
+    "front": "much",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mʌtʃ",
+      "meaning": "nhiều"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Quantity & Degree",
+      "length": 4
+    }
+  },
+  {
+    "front": "Quarterly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'kwɔ:tərli",
+      "meaning": "Hàng quý"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Quantity & Degree",
+      "length": 9
+    }
+  },
+  {
+    "front": "little",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlɪtl",
+      "meaning": "một ít"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Quantity & Degree",
+      "length": 6
+    }
+  },
+  {
+    "front": "halfway",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌhæfˈweɪ",
+      "meaning": "nửa đường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Quantity & Degree",
+      "length": 7
+    }
+  }
+]

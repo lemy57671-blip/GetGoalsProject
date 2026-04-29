@@ -28,6 +28,7 @@ class ToeicPartInventoryDto(BaseModel):
     part: int = 0
     name: str = ""
     skill: str = ""
+    count: int = 0
     audioCount: int = 0
     testsAvailable: list[int] = Field(default_factory=list)
     sampleQuestionRange: str = ""

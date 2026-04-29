@@ -1,0 +1,522 @@
+[
+  {
+    "front": "downstairs",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdaʊnˈsterz",
+      "meaning": "xuống lầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 10
+    }
+  },
+  {
+    "front": "floor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "flɔːr",
+      "meaning": "sàn nhà, tầng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 5
+    }
+  },
+  {
+    "front": "Respectable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rı'spektəbl",
+      "meaning": "Khá lớn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 11
+    }
+  },
+  {
+    "front": "tablet",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtæblət",
+      "meaning": "máy tính bảng, viên thuốc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 6
+    }
+  },
+  {
+    "front": "window",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwɪndoʊ",
+      "meaning": "cửa sổ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 6
+    }
+  },
+  {
+    "front": "shelf",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʃelf",
+      "meaning": "cái kệ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 5
+    }
+  },
+  {
+    "front": "Unacceptable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "Anǝk septəbl",
+      "meaning": "Không thể chấp nhận được"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 12
+    }
+  },
+  {
+    "front": "Table",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'terbl",
+      "meaning": "Đệ trình, đưa ra"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 5
+    }
+  },
+  {
+    "front": "embed",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪmˈbed",
+      "meaning": "nhúng, gắn vào"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 5
+    }
+  },
+  {
+    "front": "bed",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bed",
+      "meaning": "cái giường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 3
+    }
+  },
+  {
+    "front": "blanket",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈblæŋkɪt",
+      "meaning": "cái chăn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 7
+    }
+  },
+  {
+    "front": "chair",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tʃer",
+      "meaning": "chủ trì (cuộc họp)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 5
+    }
+  },
+  {
+    "front": "comfortable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkʌmftəbl",
+      "meaning": "thoải mái"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 11
+    }
+  },
+  {
+    "front": "Suitable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'su:təbl",
+      "meaning": "Thích hợp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 8
+    }
+  },
+  {
+    "front": "oven",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈʌvn",
+      "meaning": "lò nướng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 4
+    }
+  },
+  {
+    "front": "Unprofitable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "an profitǝbl",
+      "meaning": "Không có lời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 12
+    }
+  },
+  {
+    "front": "chairman",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtʃermən",
+      "meaning": "chủ tịch"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 8
+    }
+  },
+  {
+    "front": "furniture",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfɜːrnɪtʃər",
+      "meaning": "đồ nội thất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 9
+    }
+  },
+  {
+    "front": "bedroom",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbedruːm",
+      "meaning": "phòng ngủ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 7
+    }
+  },
+  {
+    "front": "outdoor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈaʊtdɔːr",
+      "meaning": "ngoài trời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 7
+    }
+  },
+  {
+    "front": "uncomfortable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʌnˈkʌmfərtəbəl",
+      "meaning": "không thoải mái"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 13
+    }
+  },
+  {
+    "front": "inevitable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈevɪtəbl",
+      "meaning": "không thể tránh khỏi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 10
+    }
+  },
+  {
+    "front": "upstairs",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌʌpˈsterz",
+      "meaning": "ở tầng trên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 8
+    }
+  },
+  {
+    "front": "indoor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɪndɔːr",
+      "meaning": "trong nhà"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 6
+    }
+  },
+  {
+    "front": "fridge",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "frɪdʒ",
+      "meaning": "tủ lạnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 6
+    }
+  },
+  {
+    "front": "indoors",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌɪnˈdɔːrz",
+      "meaning": "ở trong nhà"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 7
+    }
+  },
+  {
+    "front": "outdoors",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌaʊtˈdɔːrz",
+      "meaning": "ở ngoài trời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 8
+    }
+  },
+  {
+    "front": "kitchen",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɪtʃɪn",
+      "meaning": "nhà bếp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 7
+    }
+  },
+  {
+    "front": "stair",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ster",
+      "meaning": "bậc thang"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 5
+    }
+  },
+  {
+    "front": "Timetable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "taumteibl",
+      "meaning": "Thời gian biểu, lịch trình"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 9
+    }
+  },
+  {
+    "front": "notable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈnoʊtəbl",
+      "meaning": "đáng chú ý"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 7
+    }
+  },
+  {
+    "front": "profitable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈprɑːfɪtəbl",
+      "meaning": "sinh lời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 10
+    }
+  },
+  {
+    "front": "Chair",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "",
+      "meaning": "tʃer Chức chủ tịch, chủ tọaĐề cử làm chủ tịch, chủ tọa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 5
+    }
+  },
+  {
+    "front": "door",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɔːr",
+      "meaning": "cánh cửa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 4
+    }
+  },
+  {
+    "front": "accountable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈkaʊntəbl",
+      "meaning": "có trách nhiệm, chịu trách nhiệm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 11
+    }
+  },
+  {
+    "front": "mirror",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmɪrər",
+      "meaning": "cái gương"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 6
+    }
+  },
+  {
+    "front": "lamp",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "læmp",
+      "meaning": "cây đèn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 4
+    }
+  },
+  {
+    "front": "Acceptable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ək'septəbl",
+      "meaning": "Có thể chấp nhận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 10
+    }
+  },
+  {
+    "front": "vegetable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈvedʒtəbəl",
+      "meaning": "rau củ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 9
+    }
+  },
+  {
+    "front": "wall",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wɔːl",
+      "meaning": "bức tường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Household & Furniture",
+      "length": 4
+    }
+  }
+]

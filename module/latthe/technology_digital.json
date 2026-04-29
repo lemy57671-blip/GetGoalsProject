@@ -1,0 +1,197 @@
+[
+  {
+    "front": "Data",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'deıtə",
+      "meaning": "Dữ liệu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Technology & Digital",
+      "length": 4
+    }
+  },
+  {
+    "front": "virtual",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈvɜːrtʃuəl",
+      "meaning": "ảo, thực sự"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Technology & Digital",
+      "length": 7
+    }
+  },
+  {
+    "front": "computer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəmˈpjuːtər",
+      "meaning": "máy tính"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Technology & Digital",
+      "length": 8
+    }
+  },
+  {
+    "front": "mobile",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmoʊbl",
+      "meaning": "điện thoại di động"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Technology & Digital",
+      "length": 6
+    }
+  },
+  {
+    "front": "Network",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'netwɜ:rk",
+      "meaning": "Mạng lưới"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Technology & Digital",
+      "length": 7
+    }
+  },
+  {
+    "front": "database",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdeɪtəbeɪs",
+      "meaning": "cơ sở dữ liệu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Technology & Digital",
+      "length": 8
+    }
+  },
+  {
+    "front": "Computerize",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kəm'pju:təraız",
+      "meaning": "Máy tính hóa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Technology & Digital",
+      "length": 11
+    }
+  },
+  {
+    "front": "System",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'sıstəm",
+      "meaning": "Hệ thống"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Technology & Digital",
+      "length": 6
+    }
+  },
+  {
+    "front": "internet",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɪntərnet",
+      "meaning": "mạng internet"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Technology & Digital",
+      "length": 8
+    }
+  },
+  {
+    "front": "data",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdeɪtə",
+      "meaning": "dữ liệu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Technology & Digital",
+      "length": 4
+    }
+  },
+  {
+    "front": "online",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌɑːnˈlaɪn",
+      "meaning": "trực tuyến"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Technology & Digital",
+      "length": 6
+    }
+  },
+  {
+    "front": "systematic",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌsɪstəˈmætɪk",
+      "meaning": "có hệ thống"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Technology & Digital",
+      "length": 10
+    }
+  },
+  {
+    "front": "robot",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈroʊbɑːt",
+      "meaning": "người máy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Technology & Digital",
+      "length": 5
+    }
+  },
+  {
+    "front": "Computer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəm'pju:tər",
+      "meaning": "Máy tính"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Technology & Digital",
+      "length": 8
+    }
+  },
+  {
+    "front": "device",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈvaɪs",
+      "meaning": "thiết bị"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Technology & Digital",
+      "length": 6
+    }
+  }
+]

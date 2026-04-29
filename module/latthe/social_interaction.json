@@ -1,0 +1,405 @@
+[
+  {
+    "front": "Agree",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'gri:",
+      "meaning": "Đồng ý, chấp nhận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 5
+    }
+  },
+  {
+    "front": "Compromise",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "",
+      "meaning": "'ka:mprəmaız Sự thỏa hiệp / Thỏa hiệp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 10
+    }
+  },
+  {
+    "front": "Meet",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mi:t",
+      "meaning": "Gặp gỡ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 4
+    }
+  },
+  {
+    "front": "Entrust",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'trʌst",
+      "meaning": "Giao phó"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 7
+    }
+  },
+  {
+    "front": "trustee",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "trʌsˈtiː",
+      "meaning": "người được ủy thác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 7
+    }
+  },
+  {
+    "front": "disagreement",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdɪsəˈɡriːmənt",
+      "meaning": "sự bất đồng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 12
+    }
+  },
+  {
+    "front": "visitor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈvɪzɪtər",
+      "meaning": "du khách"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 7
+    }
+  },
+  {
+    "front": "Suggestion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sə'dʒestʃən",
+      "meaning": "Lời đề nghị, đề xuất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 10
+    }
+  },
+  {
+    "front": "sorry",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɔːri",
+      "meaning": "xin lỗi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 5
+    }
+  },
+  {
+    "front": "Persuade",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pə'sweıd",
+      "meaning": "Thuyết phục"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 8
+    }
+  },
+  {
+    "front": "thankfully",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈθæŋkfəli",
+      "meaning": "may mắn thay"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 10
+    }
+  },
+  {
+    "front": "thanks",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "θæŋks",
+      "meaning": "lời cảm ơn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 6
+    }
+  },
+  {
+    "front": "Pleased",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pli:zd",
+      "meaning": "Vui"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 7
+    }
+  },
+  {
+    "front": "Excuse",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ık'skju:s",
+      "meaning": "Miễn cho, tha thứ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 6
+    }
+  },
+  {
+    "front": "Help",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "help",
+      "meaning": "Sự giúp đỡ Giúp đỡ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 4
+    }
+  },
+  {
+    "front": "Promise",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'pra:mıs",
+      "meaning": "Cam đoan"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 7
+    }
+  },
+  {
+    "front": "compromise",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːmprəmaɪz",
+      "meaning": "thỏa hiệp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 10
+    }
+  },
+  {
+    "front": "Meeting",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'mi:tıŋ",
+      "meaning": "Cuộc họp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 7
+    }
+  },
+  {
+    "front": "Forgive",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fər giv",
+      "meaning": "Tha thứ, thứ lỗi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 7
+    }
+  },
+  {
+    "front": "refuse",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈfjuːz",
+      "meaning": "từ chối"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 6
+    }
+  },
+  {
+    "front": "Invite",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'vaıt",
+      "meaning": "Mời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 6
+    }
+  },
+  {
+    "front": "Disagree",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdısə'ɡriː",
+      "meaning": "Bất đồng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 8
+    }
+  },
+  {
+    "front": "Thankful",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'æŋkfi",
+      "meaning": "Cảm ơn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 8
+    }
+  },
+  {
+    "front": "please",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "pliːz",
+      "meaning": "làm hài lòng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 6
+    }
+  },
+  {
+    "front": "Share",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʃeər",
+      "meaning": "Cổ phiếu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 5
+    }
+  },
+  {
+    "front": "Thank",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "æŋk",
+      "meaning": "Sự cảm ơn Cảm ơn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 5
+    }
+  },
+  {
+    "front": "Trust",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "trast",
+      "meaning": "Tin tưởng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 5
+    }
+  },
+  {
+    "front": "Suggest",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sə'dʒest",
+      "meaning": "Đề nghị"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 7
+    }
+  },
+  {
+    "front": "helpful",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhelpfl",
+      "meaning": "có ích"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 7
+    }
+  },
+  {
+    "front": "Visit",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'vızıt",
+      "meaning": "Chuyến thăm quan Thăm quan"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 5
+    }
+  },
+  {
+    "front": "Agreement",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'gri:mənt",
+      "meaning": "Thỏa thuận, hiệp định"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Social Interaction",
+      "length": 9
+    }
+  }
+]

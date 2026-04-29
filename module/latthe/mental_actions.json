@@ -1,0 +1,587 @@
+[
+  {
+    "front": "Consider",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kən'sıdər",
+      "meaning": "Xem xét"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "Knowledge",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ndlıdʒ",
+      "meaning": "Kiến thức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 9
+    }
+  },
+  {
+    "front": "think",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "θɪŋk",
+      "meaning": "nghĩ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "wonderful",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwʌndərfəl",
+      "meaning": "tuyệt vời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 9
+    }
+  },
+  {
+    "front": "master",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈmæstər",
+      "meaning": "tinh thông, làm chủ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "Assume",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'su:m",
+      "meaning": "Đảm đương, gánh vác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "Guess",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ges",
+      "meaning": "Đoán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Hope",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hoop",
+      "meaning": "Sự hy vọng / Hy vọng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "remember",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈmembər",
+      "meaning": "nhớ lại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "considerable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈsɪdərəbl",
+      "meaning": "đáng kể"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 12
+    }
+  },
+  {
+    "front": "unknown",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌʌnˈnoʊn",
+      "meaning": "không biết, vô danh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "decide",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈsaɪd",
+      "meaning": "quyết định"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "imagine",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪˈmædʒɪn",
+      "meaning": "tưởng tượng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "planet",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈplænɪt",
+      "meaning": "hành tinh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "Deem",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "di:m",
+      "meaning": "Thấy rằng, nghĩ rằng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "plant",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "plænt",
+      "meaning": "trồng trọt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "hopefully",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhoʊpfəli",
+      "meaning": "hy vọng rằng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 9
+    }
+  },
+  {
+    "front": "Decide",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "dı'saıd",
+      "meaning": "Quyết định"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "planning",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈplænɪŋ",
+      "meaning": "việc lập kế hoạch"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "Understand",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "Andə stænd",
+      "meaning": "Hiểu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 10
+    }
+  },
+  {
+    "front": "Insolvent",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'splvənt",
+      "meaning": "Vỡ nợ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 9
+    }
+  },
+  {
+    "front": "Consideration",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kən'sıdə'reıʃn",
+      "meaning": "Sự cân nhắc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 13
+    }
+  },
+  {
+    "front": "Considering",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kən'sıdərıŋ",
+      "meaning": "Xét đến"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 11
+    }
+  },
+  {
+    "front": "plane",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pleɪn",
+      "meaning": "máy bay"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Wish",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wıʃ",
+      "meaning": "Muốn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "Know",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "nəʊ",
+      "meaning": "Biết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "hopeful",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhoʊpfl",
+      "meaning": "đầy hy vọng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "Dissolve",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'zɒlv",
+      "meaning": "Giải thể"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "consideration",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˌsɪdəˈreɪʃn",
+      "meaning": "sự cân nhắc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 13
+    }
+  },
+  {
+    "front": "considerably",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈsɪdərəbli",
+      "meaning": "một cách đáng kể"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 12
+    }
+  },
+  {
+    "front": "wonder",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwʌndər",
+      "meaning": "tự hỏi, thắc mắc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "consider",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈsɪdər",
+      "meaning": "cân nhắc, xem xét"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "thinking",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈθɪŋkɪŋ",
+      "meaning": "suy nghĩ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "explanation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌekspləˈneɪʃn",
+      "meaning": "sự giải thích"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 11
+    }
+  },
+  {
+    "front": "Understanding",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "Andə stændıŋ",
+      "meaning": "Điều kiện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 13
+    }
+  },
+  {
+    "front": "Misunderstanding",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mısʌndə'stændıŋ",
+      "meaning": "Sự hiểu lầm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 16
+    }
+  },
+  {
+    "front": "realize",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈriːəlaɪz",
+      "meaning": "nhận ra"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "believe",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bɪˈliːv",
+      "meaning": "tin tưởng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "acknowledge",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əkˈnɑːlɪdʒ",
+      "meaning": "công nhận, thừa nhận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 11
+    }
+  },
+  {
+    "front": "Solve",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sɒlv",
+      "meaning": "Giải quyết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "dream",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "driːm",
+      "meaning": "mơ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Resolve",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rı'zplv",
+      "meaning": "Giải quyết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "forget",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fərˈɡet",
+      "meaning": "quên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "Considerable",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "kən'sıdərəbl",
+      "meaning": "Đáng kể"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 12
+    }
+  },
+  {
+    "front": "Plan",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "plæn",
+      "meaning": "Lên kế hoạch, tính toán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Mental Actions",
+      "length": 4
+    }
+  }
+]

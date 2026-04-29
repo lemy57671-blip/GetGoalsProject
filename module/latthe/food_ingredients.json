@@ -1,0 +1,2212 @@
+[
+  {
+    "front": "Raise",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "reız",
+      "meaning": "Gia tăng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "Room",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ru:m",
+      "meaning": "Khả năng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "register",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈredʒɪstər",
+      "meaning": "đăng ký"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 8
+    }
+  },
+  {
+    "front": "gang",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɡæŋ",
+      "meaning": "băng đảng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "Bill",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bıl",
+      "meaning": "Đăng lên quảng cáo, dán quảng cáo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "meal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "miːl",
+      "meaning": "bữa ăn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "Tally",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tæli",
+      "meaning": "Ăn khớp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "Grow",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "grou",
+      "meaning": "Tăng trưởng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "Instrument",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ınstrəmənt",
+      "meaning": "Văn kiện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 10
+    }
+  },
+  {
+    "front": "pathway",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpæθweɪ",
+      "meaning": "đường dẫn, lộ trình"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 7
+    }
+  },
+  {
+    "front": "dish",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪʃ",
+      "meaning": "món ăn, cái đĩa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "Dealings",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'di:lıŋz",
+      "meaning": "Quan hệ làm ăn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 8
+    }
+  },
+  {
+    "front": "soup",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "suːp",
+      "meaning": "món súp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "delicious",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈlɪʃəs",
+      "meaning": "thơm ngon"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 9
+    }
+  },
+  {
+    "front": "inhibit",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈhɪbɪt",
+      "meaning": "ngăn chặn, ức chế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 7
+    }
+  },
+  {
+    "front": "radical",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈrædɪkəl",
+      "meaning": "căn bản, triệt để"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 7
+    }
+  },
+  {
+    "front": "Energy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'enərdʒi",
+      "meaning": "Năng lượng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 6
+    }
+  },
+  {
+    "front": "bargain",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbɑːrɡən",
+      "meaning": "món hời, sự mặc cả"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 7
+    }
+  },
+  {
+    "front": "spice",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "spaɪs",
+      "meaning": "gia vị"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "Plunge",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "plʌndʒ",
+      "meaning": "Sự giảm xuống Giảm xuống"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 6
+    }
+  },
+  {
+    "front": "Productivity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prndʌk'tıvəti",
+      "meaning": "Năng suất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 12
+    }
+  },
+  {
+    "front": "food",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fuːd",
+      "meaning": "thức ăn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "Likelihood",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'laıklıhʊd",
+      "meaning": "Việc có khả năng xảy ra"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 10
+    }
+  },
+  {
+    "front": "apartment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈpɑːrtmənt",
+      "meaning": "căn hộ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 9
+    }
+  },
+  {
+    "front": "Seize",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "si:z",
+      "meaning": "Đóng băng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "towel",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtaʊəl",
+      "meaning": "khăn tắm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "curved",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kɜːrvd",
+      "meaning": "có đường cong"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 6
+    }
+  },
+  {
+    "front": "Upgrade",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "Ap'greid",
+      "meaning": "Thăng chức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 7
+    }
+  },
+  {
+    "front": "Promotion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prə'məʊʃn",
+      "meaning": "Sự thăng chức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 9
+    }
+  },
+  {
+    "front": "tea",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tiː",
+      "meaning": "trà"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 3
+    }
+  },
+  {
+    "front": "slot",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "slɑːt",
+      "meaning": "khe hở, vị trí"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "troubled",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtrʌbəld",
+      "meaning": "gặp khó khăn, băn khoăn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 8
+    }
+  },
+  {
+    "front": "capable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkeɪpəbl",
+      "meaning": "có khả năng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 7
+    }
+  },
+  {
+    "front": "celebrate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈselɪbreɪt",
+      "meaning": "ăn mừng, kỷ niệm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 9
+    }
+  },
+  {
+    "front": "Boom",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bu:m",
+      "meaning": "Sự tăng vọt Tăng vọt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "teaching",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtiːtʃɪŋ",
+      "meaning": "việc giảng dạy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 8
+    }
+  },
+  {
+    "front": "Increase",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "n'kri:s",
+      "meaning": "Sự tăng Tăng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 8
+    }
+  },
+  {
+    "front": "tunnel",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtʌnəl",
+      "meaning": "đường hầm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 6
+    }
+  },
+  {
+    "front": "path",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pæθ",
+      "meaning": "con đường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "Bottom",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ba:təm",
+      "meaning": "Tụt xuống mức thấp nhất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 6
+    }
+  },
+  {
+    "front": "Additional",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'dıʃənl",
+      "meaning": "Thêm vào, phụ vào, tăng thêm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 10
+    }
+  },
+  {
+    "front": "instinct",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɪnstɪŋkt",
+      "meaning": "bản năng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 8
+    }
+  },
+  {
+    "front": "fruit",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fruːt",
+      "meaning": "trái cây"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "Treble",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "trebl",
+      "meaning": "Tăng gấp ba"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 6
+    }
+  },
+  {
+    "front": "teacher",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtiːtʃər",
+      "meaning": "giáo viên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 7
+    }
+  },
+  {
+    "front": "ice",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "aɪs",
+      "meaning": "băng, đá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 3
+    }
+  },
+  {
+    "front": "potentially",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pəˈtenʃəli",
+      "meaning": "có khả năng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 11
+    }
+  },
+  {
+    "front": "clerk",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "klɜːrk",
+      "meaning": "nhân viên văn thư, thư ký"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "Function",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "faŋkſn",
+      "meaning": "Chức năng, nhiệm vụ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 8
+    }
+  },
+  {
+    "front": "literature",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlɪtərətʃər",
+      "meaning": "văn học"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 10
+    }
+  },
+  {
+    "front": "steadily",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈstedəli",
+      "meaning": "một cách đều đặn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 8
+    }
+  },
+  {
+    "front": "Severe",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sı'vıər",
+      "meaning": "Đòi hỏi khả năng rất cao"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 6
+    }
+  },
+  {
+    "front": "Sink",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sıŋk",
+      "meaning": "Chìm xuống, giảm xuống"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "cloth",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "klɔːθ",
+      "meaning": "vải, khăn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "egg",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "eɡ",
+      "meaning": "quả trứng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 3
+    }
+  },
+  {
+    "front": "Prohibit",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prə'hıbıt",
+      "meaning": "Ngăn cản"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 8
+    }
+  },
+  {
+    "front": "Freeze",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fri:z",
+      "meaning": "Đóng băng, niêm phong"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 6
+    }
+  },
+  {
+    "front": "Fare",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "fer",
+      "meaning": "Làm ăn sinh sống, phát triển tốt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "tank",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tæŋk",
+      "meaning": "xe tăng, thùng chứa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "team",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tiːm",
+      "meaning": "đội ngũ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "steam",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "stiːm",
+      "meaning": "hơi nước"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "function",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfʌŋkʃn",
+      "meaning": "hoạt động, thực hiện chức năng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 8
+    }
+  },
+  {
+    "front": "steal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "stiːl",
+      "meaning": "ăn cắp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "tape",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "teɪp",
+      "meaning": "cuộn băng, băng dính"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "Position",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pə'zıʃn",
+      "meaning": "Vị trí"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 8
+    }
+  },
+  {
+    "front": "frozen",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfroʊzn",
+      "meaning": "bị đóng băng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 6
+    }
+  },
+  {
+    "front": "Universal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ju:ni'v3:sl",
+      "meaning": "Vạn năng; toàn cầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 9
+    }
+  },
+  {
+    "front": "Patent",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'peıtənt",
+      "meaning": "Giấy đăng kí bản quyền sáng chế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 6
+    }
+  },
+  {
+    "front": "Pattern",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'pætn",
+      "meaning": "Mẫu, hoa văn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 7
+    }
+  },
+  {
+    "front": "beef",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "biːf",
+      "meaning": "thịt bò"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "talent",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtælənt",
+      "meaning": "tài năng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 6
+    }
+  },
+  {
+    "front": "Hike",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hark",
+      "meaning": "Sự tăng đột xuất Tăng đột xuất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "lane",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "leɪn",
+      "meaning": "làn đường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "feeding",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfiːdɪŋ",
+      "meaning": "việc cho ăn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 7
+    }
+  },
+  {
+    "front": "myth",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mɪθ",
+      "meaning": "thần thoại, chuyện hoang đường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "odds",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɑːdz",
+      "meaning": "khả năng, tỷ lệ cược"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "water",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwɔːtər",
+      "meaning": "tưới nước"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "coffee",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɔːfi",
+      "meaning": "cà phê"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 6
+    }
+  },
+  {
+    "front": "Office",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ɔ:fıs",
+      "meaning": "Văn phòng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 6
+    }
+  },
+  {
+    "front": "across",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈkrɔːs",
+      "meaning": "băng qua, ở bên kia"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 6
+    }
+  },
+  {
+    "front": "cultural",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkʌltʃərəl",
+      "meaning": "thuộc về văn hóa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 8
+    }
+  },
+  {
+    "front": "Item",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'aıtəm",
+      "meaning": "Món đồ, khoản"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "beg",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "beɡ",
+      "meaning": "cầu xin, ăn mày"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 3
+    }
+  },
+  {
+    "front": "capability",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌkeɪpəˈbɪləti",
+      "meaning": "khả năng, năng lực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 10
+    }
+  },
+  {
+    "front": "saint",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "seɪnt",
+      "meaning": "vị thánh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "Efficient",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ı'fıʃnt",
+      "meaning": "Có năng suất, hiệu quả"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 9
+    }
+  },
+  {
+    "front": "instead",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈsted",
+      "meaning": "thay vào đó"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 7
+    }
+  },
+  {
+    "front": "litre",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈliːtər",
+      "meaning": "lít (đơn vị đo)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "Equilibrium",
+    "back": {
+      "pos": "Noun",
+      "phonetic": ",i:kwı'lıbriəm",
+      "meaning": "Trạng thái thăng bằng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 11
+    }
+  },
+  {
+    "front": "rail",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "reɪl",
+      "meaning": "đường ray"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "productive",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prəˈdʌktɪv",
+      "meaning": "năng suất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 10
+    }
+  },
+  {
+    "front": "gallon",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɡælən",
+      "meaning": "ga-lông (đơn vị đo)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 6
+    }
+  },
+  {
+    "front": "tissue",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtɪʃuː",
+      "meaning": "mô (sinh học), khăn giấy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 6
+    }
+  },
+  {
+    "front": "Upturn",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "Apt3:n",
+      "meaning": "Sự tăng cao"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 6
+    }
+  },
+  {
+    "front": "Check",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "tʃek",
+      "meaning": "Dừng lại, ngăn chặn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "thesis",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈθiːsɪs",
+      "meaning": "luận văn, luận án"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 6
+    }
+  },
+  {
+    "front": "Growth",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "grouθ",
+      "meaning": "Sự tăng trưởng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 6
+    }
+  },
+  {
+    "front": "Block",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bla:k",
+      "meaning": "Ngăn chặn, khóa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "Spot",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "spɒt",
+      "meaning": "Vị trí"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "Possibility",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ppse'bıləti",
+      "meaning": "Khả năng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 11
+    }
+  },
+  {
+    "front": "civilization",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌsɪvələˈzeɪʃn",
+      "meaning": "nền văn minh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 12
+    }
+  },
+  {
+    "front": "paragraph",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpærəɡræf",
+      "meaning": "đoạn văn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 9
+    }
+  },
+  {
+    "front": "Power",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'paʊər",
+      "meaning": "Khả năng, sức mạnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "cross",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "krɔːs",
+      "meaning": "băng qua"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "heighten",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhaɪtn",
+      "meaning": "tăng cường, nâng cao"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 8
+    }
+  },
+  {
+    "front": "salad",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsæləd",
+      "meaning": "món súp lơ, sa lát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "recipe",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈresəpi",
+      "meaning": "công thức nấu ăn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 6
+    }
+  },
+  {
+    "front": "pipeline",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpaɪplaɪn",
+      "meaning": "đường ống"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 8
+    }
+  },
+  {
+    "front": "Ability",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'bıləti",
+      "meaning": "Khả năng, năng lực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 7
+    }
+  },
+  {
+    "front": "beer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bɪr",
+      "meaning": "bia"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "teach",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tiːtʃ",
+      "meaning": "dạy học"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "aggressive",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈɡresɪv",
+      "meaning": "hung hăng, xông xáo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 10
+    }
+  },
+  {
+    "front": "anxiety",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "æŋˈzaɪəti",
+      "meaning": "sự lo âu, mối băn khoăn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 7
+    }
+  },
+  {
+    "front": "cabinet",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkæbɪnət",
+      "meaning": "tủ có ngăn kéo, nội các"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 7
+    }
+  },
+  {
+    "front": "route",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ruːt",
+      "meaning": "tuyến đường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "hunting",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhʌntɪŋ",
+      "meaning": "việc săn bắn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 7
+    }
+  },
+  {
+    "front": "subscriber",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "səbˈskraɪbər",
+      "meaning": "người đăng ký"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 10
+    }
+  },
+  {
+    "front": "hunt",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hʌnt",
+      "meaning": "săn bắn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "Appreciate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'pri:ʃıeıt",
+      "meaning": "Tăng giá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 10
+    }
+  },
+  {
+    "front": "Capable",
+    "back": {
+      "pos": "Adjective",
+      "phonetic": "'eıpəbl",
+      "meaning": "Có khả năng; năng lực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 7
+    }
+  },
+  {
+    "front": "likely",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlaɪkli",
+      "meaning": "có khả năng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 6
+    }
+  },
+  {
+    "front": "Able",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'eıbl",
+      "meaning": "Có khả năng, có tư cách"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "culture",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkʌltʃər",
+      "meaning": "văn hóa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 7
+    }
+  },
+  {
+    "front": "Down",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "daʊn",
+      "meaning": "Xuống"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "Book",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "buk",
+      "meaning": "Ghi sổ, đăng ký, đặt phòng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "helicopter",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhelɪkɑːptər",
+      "meaning": "trực thăng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 10
+    }
+  },
+  {
+    "front": "Rise",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "raız",
+      "meaning": "Nâng lên; tăng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "post",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "poʊst",
+      "meaning": "gửi thư, đăng bài"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "Increment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ınŋkrəmənt",
+      "meaning": "Sự tăng lên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 9
+    }
+  },
+  {
+    "front": "feed",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fiːd",
+      "meaning": "cho ăn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "sugar",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈʃʊɡər",
+      "meaning": "đường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "Enhance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'hæns",
+      "meaning": "Tăng cường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 7
+    }
+  },
+  {
+    "front": "download",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdaʊnloʊd",
+      "meaning": "tải xuống"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 8
+    }
+  },
+  {
+    "front": "Advance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əd'væns",
+      "meaning": "Tăng tiến"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 7
+    }
+  },
+  {
+    "front": "Variance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "veəriəns",
+      "meaning": "Sự không ăn khớp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 8
+    }
+  },
+  {
+    "front": "Unable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "An'eıbl",
+      "meaning": "Không có khả năng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 6
+    }
+  },
+  {
+    "front": "Tear",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "teǝr",
+      "meaning": "Phá vỡ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "flesh",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fleʃ",
+      "meaning": "thịt, xác thịt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "Potential",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pəʊ'tenʃl",
+      "meaning": "Có tiềm năng Tiềm năng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 9
+    }
+  },
+  {
+    "front": "Steady",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'stedi",
+      "meaning": "Ổn định"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 6
+    }
+  },
+  {
+    "front": "salt",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sɔːlt",
+      "meaning": "muối"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "Toll",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tǝul",
+      "meaning": "Lệ phí cầu đường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "Promote",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prə'məʊt",
+      "meaning": "Thăng chức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 7
+    }
+  },
+  {
+    "front": "registration",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌredʒɪˈstreɪʃən",
+      "meaning": "sự đăng ký"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 12
+    }
+  },
+  {
+    "front": "surge",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sɜːrdʒ",
+      "meaning": "dâng trào, tăng vọt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "acre",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈeɪkər",
+      "meaning": "mẫu Anh (đơn vị đo diện tích)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "writer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈraɪtər",
+      "meaning": "nhà văn, người viết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 6
+    }
+  },
+  {
+    "front": "tension",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtenʃən",
+      "meaning": "sự căng thẳng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 7
+    }
+  },
+  {
+    "front": "heaven",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhevn",
+      "meaning": "thiên đường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 6
+    }
+  },
+  {
+    "front": "metre",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmiːtər",
+      "meaning": "mét (đơn vị đo)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "Double",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'dʌbl",
+      "meaning": "Làm tăng gấp đôi Gấp đôi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 6
+    }
+  },
+  {
+    "front": "milk",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mɪlk",
+      "meaning": "sữa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "roll",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "roʊl",
+      "meaning": "lăn, cuộn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "rice",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "raɪs",
+      "meaning": "gạo, cơm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "Chase",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "tʃeıs",
+      "meaning": "Săn đuổi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "wine",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "waɪn",
+      "meaning": "rượu vang"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "illness",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɪlnəs",
+      "meaning": "căn bệnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 7
+    }
+  },
+  {
+    "front": "descend",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈsend",
+      "meaning": "đi xuống"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 7
+    }
+  },
+  {
+    "front": "Multiply",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'mʌltıplaı",
+      "meaning": "Tăng nhiều"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 8
+    }
+  },
+  {
+    "front": "toss",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tɔːs",
+      "meaning": "tung, quăng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "literary",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlɪtəreri",
+      "meaning": "thuộc văn học"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 8
+    }
+  },
+  {
+    "front": "descent",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈsent",
+      "meaning": "sự đi xuống, nguồn gốc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 7
+    }
+  },
+  {
+    "front": "bread",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bred",
+      "meaning": "bánh mì"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "gut",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɡʌt",
+      "meaning": "ruột, bản năng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 3
+    }
+  },
+  {
+    "front": "dairy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈderi",
+      "meaning": "cửa hàng bơ sữa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "written",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈrɪtən",
+      "meaning": "bằng văn bản"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 7
+    }
+  },
+  {
+    "front": "inch",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪntʃ",
+      "meaning": "inch (đơn vị đo)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  },
+  {
+    "front": "curly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɜːrli",
+      "meaning": "xoăn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 5
+    }
+  },
+  {
+    "front": "Appreciation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə,pri:ʃı'eıʃn",
+      "meaning": "Sự tăng giá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 12
+    }
+  },
+  {
+    "front": "host",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hoʊst",
+      "meaning": "đăng cai, dẫn chương trình"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Food & Ingredients",
+      "length": 4
+    }
+  }
+]

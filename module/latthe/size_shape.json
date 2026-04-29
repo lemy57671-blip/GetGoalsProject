@@ -1,0 +1,730 @@
+[
+  {
+    "front": "widely",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwaɪdli",
+      "meaning": "một cách rộng rãi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 6
+    }
+  },
+  {
+    "front": "lifelong",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlaɪflɔːŋ",
+      "meaning": "suốt đời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 8
+    }
+  },
+  {
+    "front": "narrow",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈnæroʊ",
+      "meaning": "thu hẹp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 6
+    }
+  },
+  {
+    "front": "large",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "lɑːrdʒ",
+      "meaning": "lớn, rộng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 5
+    }
+  },
+  {
+    "front": "delight",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "dɪˈlaɪt",
+      "meaning": "làm vui thích"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 7
+    }
+  },
+  {
+    "front": "highlight",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈhaɪlaɪt",
+      "meaning": "làm nổi bật"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 9
+    }
+  },
+  {
+    "front": "Large-scale",
+    "back": {
+      "pos": "Noun",
+      "phonetic": ",la:rdʒ'skeıl",
+      "meaning": "Quy mô lớn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 11
+    }
+  },
+  {
+    "front": "Shortfall",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ʃɔ:rtfɔ:l",
+      "meaning": "Số lượng thiếu hụt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 9
+    }
+  },
+  {
+    "front": "largely",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlɑːrdʒli",
+      "meaning": "phần lớn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 7
+    }
+  },
+  {
+    "front": "Prolong",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prə'lpŋ",
+      "meaning": "Kéo dài"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 7
+    }
+  },
+  {
+    "front": "long-term",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌlɔːŋ ˈtɜːrm",
+      "meaning": "về lâu dài"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 9
+    }
+  },
+  {
+    "front": "worldwide",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwɜːrldwaɪd",
+      "meaning": "trên toàn thế giới"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 9
+    }
+  },
+  {
+    "front": "tiny",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtaɪni",
+      "meaning": "nhỏ xíu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 4
+    }
+  },
+  {
+    "front": "deep",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "diːp",
+      "meaning": "sâu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 4
+    }
+  },
+  {
+    "front": "Short",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʃɔ:rt",
+      "meaning": "Thiếu, không đủ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 5
+    }
+  },
+  {
+    "front": "hard",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hɑːrd",
+      "meaning": "chăm chỉ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 4
+    }
+  },
+  {
+    "front": "Harden",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "hairdn",
+      "meaning": "Làm cứng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 6
+    }
+  },
+  {
+    "front": "Short-term",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ʃɔ:tt3:rm",
+      "meaning": "Ngắn hạn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 10
+    }
+  },
+  {
+    "front": "belong",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bɪˈlɔːŋ",
+      "meaning": "thuộc về"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 6
+    }
+  },
+  {
+    "front": "surround",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "səˈraʊnd",
+      "meaning": "bao quanh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 8
+    }
+  },
+  {
+    "front": "long-standing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌlɔːŋ ˈstændɪŋ",
+      "meaning": "lâu đời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 13
+    }
+  },
+  {
+    "front": "slightly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈslaɪtli",
+      "meaning": "hơi, một chút"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 8
+    }
+  },
+  {
+    "front": "hardly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhɑːrdli",
+      "meaning": "hầu như không"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 6
+    }
+  },
+  {
+    "front": "scrutiny",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈskruːtəni",
+      "meaning": "sự xem xét kỹ lưỡng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 8
+    }
+  },
+  {
+    "front": "widespread",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwaɪdspred",
+      "meaning": "lan rộng, phổ biến"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 10
+    }
+  },
+  {
+    "front": "Nationwide",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'neıʃn'waıd",
+      "meaning": "Toàn quốc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 10
+    }
+  },
+  {
+    "front": "Square",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "skweər",
+      "meaning": "Được giải quyết trả tiền, được quyết toán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 6
+    }
+  },
+  {
+    "front": "Long",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "lpŋ",
+      "meaning": "Lâu, dài"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 4
+    }
+  },
+  {
+    "front": "spotlight",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈspɑːtlaɪt",
+      "meaning": "đèn chiếu điểm, sự chú ý"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 9
+    }
+  },
+  {
+    "front": "delighted",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈlaɪtɪd",
+      "meaning": "vui mừng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 9
+    }
+  },
+  {
+    "front": "around",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈraʊnd",
+      "meaning": "xung quanh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 6
+    }
+  },
+  {
+    "front": "surrounding",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "səˈraʊndɪŋ",
+      "meaning": "xung quanh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 11
+    }
+  },
+  {
+    "front": "Slight",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "slaıt",
+      "meaning": "Nhẹ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 6
+    }
+  },
+  {
+    "front": "Shortage",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ʃɔ:rtıdʒ",
+      "meaning": "Sự thiếu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 8
+    }
+  },
+  {
+    "front": "small",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "smɔːl",
+      "meaning": "nhỏ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 5
+    }
+  },
+  {
+    "front": "circle",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɜːrkl",
+      "meaning": "khoanh tròn, bay lượn vòng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 6
+    }
+  },
+  {
+    "front": "along",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈlɔːŋ",
+      "meaning": "dọc theo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 5
+    }
+  },
+  {
+    "front": "big",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bɪɡ",
+      "meaning": "to lớn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 3
+    }
+  },
+  {
+    "front": "widen",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwaɪdən",
+      "meaning": "mở rộng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 5
+    }
+  },
+  {
+    "front": "Ground",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "graond",
+      "meaning": "Lý lẽ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 6
+    }
+  },
+  {
+    "front": "shortly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈʃɔːrtli",
+      "meaning": "trong thời gian ngắn, sớm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 7
+    }
+  },
+  {
+    "front": "lighting",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlaɪtɪŋ",
+      "meaning": "hệ thống ánh sáng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 8
+    }
+  },
+  {
+    "front": "Light",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "laıt",
+      "meaning": "Nhẹ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 5
+    }
+  },
+  {
+    "front": "alongside",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˌlɔːŋˈsaɪd",
+      "meaning": "dọc theo, sát cạnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 9
+    }
+  },
+  {
+    "front": "Heavy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'hevi",
+      "meaning": "Nặng nề, kịch liệt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 5
+    }
+  },
+  {
+    "front": "Turnaround",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'t3:nǝraund",
+      "meaning": "Quay trở lại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 10
+    }
+  },
+  {
+    "front": "huge",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hjuːdʒ",
+      "meaning": "khổng lồ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 4
+    }
+  },
+  {
+    "front": "Groundless",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'graundləs",
+      "meaning": "Vô căn cứ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 10
+    }
+  },
+  {
+    "front": "Soft",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sɒft",
+      "meaning": "Mềm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 4
+    }
+  },
+  {
+    "front": "background",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbækɡraʊnd",
+      "meaning": "lai lịch, nền tảng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 10
+    }
+  },
+  {
+    "front": "underground",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌʌndərˈɡraʊnd",
+      "meaning": "ngầm dưới đất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 11
+    }
+  },
+  {
+    "front": "round",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "raʊnd",
+      "meaning": "quanh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 5
+    }
+  },
+  {
+    "front": "Wide",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "waıd",
+      "meaning": "Rộng lớn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 4
+    }
+  },
+  {
+    "front": "deeply",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdiːpli",
+      "meaning": "một cách sâu sắc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 6
+    }
+  },
+  {
+    "front": "flight",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "flaɪt",
+      "meaning": "chuyến bay"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 6
+    }
+  },
+  {
+    "front": "long-time",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlɔːŋ taɪm",
+      "meaning": "từ lâu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Size & Shape",
+      "length": 9
+    }
+  }
+]

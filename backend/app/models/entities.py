@@ -459,3 +459,32 @@ class ToeicQuestionAsset(Base):
 
     question = relationship("ToeicQuestion", back_populates="assets", foreign_keys=[question_id])
     passage = relationship("ToeicPassage", back_populates="assets", foreign_keys=[passage_id])
+
+
+class FlashcardTopic(Base):
+    __tablename__ = "FlashcardTopics"
+
+    id = Column("Id", Integer, primary_key=True)
+    code = Column("Code", NVARCHAR(100), nullable=False, index=True)
+    title = Column("Title", NVARCHAR(255), nullable=False)
+    description = Column("Description", UnicodeText, nullable=True)
+    icon = Column("Icon", NVARCHAR(50), nullable=True)
+    color = Column("Color", NVARCHAR(50), nullable=True)
+    created_at_utc = Column("CreatedAtUtc", DateTime, nullable=False, server_default=func.sysutcdatetime())
+
+    cards = relationship("Flashcard", back_populates="topic", cascade="all, delete-orphan")
+
+
+class Flashcard(Base):
+    __tablename__ = "Flashcards"
+
+    id = Column("Id", Integer, primary_key=True)
+    topic_id = Column("TopicId", Integer, ForeignKey("FlashcardTopics.Id"), nullable=False, index=True)
+    word = Column("Word", NVARCHAR(255), nullable=False)
+    pos = Column("Pos", NVARCHAR(50), nullable=True)
+    phonetic = Column("Phonetic", NVARCHAR(255), nullable=True)
+    meaning = Column("Meaning", UnicodeText, nullable=False)
+    example = Column("Example", UnicodeText, nullable=True)
+    created_at_utc = Column("CreatedAtUtc", DateTime, nullable=False, server_default=func.sysutcdatetime())
+
+    topic = relationship("FlashcardTopic", back_populates="cards")

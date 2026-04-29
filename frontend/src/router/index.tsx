@@ -25,6 +25,8 @@ import { ProgressPage } from "@src/pages/progress/ProgressPage";
 import { ReviewPage } from "@src/pages/review/ReviewPage";
 import { RoadmapPage } from "@src/pages/roadmap/RoadmapPage";
 import { SettingsPage } from "@src/pages/settings/SettingsPage";
+import { FlashcardPage } from "@src/pages/flashcards/FlashcardPage";
+import { VoiceReaderPage } from "@src/pages/voice-reader/VoiceReaderPage";
 import { NotFoundPage } from "@src/pages/NotFoundPage";
 
 export const router = createBrowserRouter([
@@ -203,6 +205,22 @@ export const router = createBrowserRouter([
     element: (
       <DashboardLayout>
         <SettingsPage />
+      </DashboardLayout>
+    ),
+  },
+  {
+    path: "/flashcards",
+    element: (
+      <DashboardLayout>
+        <FlashcardPage />
+      </DashboardLayout>
+    ),
+  },
+  {
+    path: "/voice-reader",
+    element: (
+      <DashboardLayout>
+        <VoiceReaderPage />
       </DashboardLayout>
     ),
   },

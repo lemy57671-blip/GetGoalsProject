@@ -1,0 +1,262 @@
+[
+  {
+    "front": "Active",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'æktıv",
+      "meaning": "Linh lợi, chủ động"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Personality & Traits",
+      "length": 6
+    }
+  },
+  {
+    "front": "smartphone",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsmɑːrtfoʊn",
+      "meaning": "điện thoại thông minh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Personality & Traits",
+      "length": 10
+    }
+  },
+  {
+    "front": "stupid",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈstuːpɪd",
+      "meaning": "ngu ngốc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Personality & Traits",
+      "length": 6
+    }
+  },
+  {
+    "front": "loyalty",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlɔɪəlti",
+      "meaning": "sự trung thành"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Personality & Traits",
+      "length": 7
+    }
+  },
+  {
+    "front": "patient",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpeɪʃnt",
+      "meaning": "bệnh nhân"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Personality & Traits",
+      "length": 7
+    }
+  },
+  {
+    "front": "loyal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlɔɪəl",
+      "meaning": "trung thành"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Personality & Traits",
+      "length": 5
+    }
+  },
+  {
+    "front": "Generous",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'dzenǝrǝs",
+      "meaning": "Rộng rãi, dễ dãi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Personality & Traits",
+      "length": 8
+    }
+  },
+  {
+    "front": "funny",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfʌni",
+      "meaning": "buồn cười"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Personality & Traits",
+      "length": 5
+    }
+  },
+  {
+    "front": "smart",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "smɑːrt",
+      "meaning": "thông minh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Personality & Traits",
+      "length": 5
+    }
+  },
+  {
+    "front": "seriously",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɪriəsli",
+      "meaning": "một cách nghiêm trọng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Personality & Traits",
+      "length": 9
+    }
+  },
+  {
+    "front": "honesty",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɑːnəsti",
+      "meaning": "sự trung thực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Personality & Traits",
+      "length": 7
+    }
+  },
+  {
+    "front": "Attractive",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ə'træktıv",
+      "meaning": "Hấp dẫn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Personality & Traits",
+      "length": 10
+    }
+  },
+  {
+    "front": "honest",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɑːnɪst",
+      "meaning": "trung thực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Personality & Traits",
+      "length": 6
+    }
+  },
+  {
+    "front": "lazy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈleɪzi",
+      "meaning": "lười biếng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Personality & Traits",
+      "length": 4
+    }
+  },
+  {
+    "front": "brave",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "breɪv",
+      "meaning": "dũng cảm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Personality & Traits",
+      "length": 5
+    }
+  },
+  {
+    "front": "interactive",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌɪntərˈæktɪv",
+      "meaning": "có tính tương tác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Personality & Traits",
+      "length": 11
+    }
+  },
+  {
+    "front": "Serious",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'sıəriəs",
+      "meaning": "Nghiêm túc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Personality & Traits",
+      "length": 7
+    }
+  },
+  {
+    "front": "humble",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhʌmbl",
+      "meaning": "khiêm tốn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Personality & Traits",
+      "length": 6
+    }
+  },
+  {
+    "front": "impatient",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪmˈpeɪʃnt",
+      "meaning": "thiếu kiên nhẫn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Personality & Traits",
+      "length": 9
+    }
+  },
+  {
+    "front": "dishonest",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪsˈɑːnɪst",
+      "meaning": "không trung thực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Personality & Traits",
+      "length": 9
+    }
+  }
+]

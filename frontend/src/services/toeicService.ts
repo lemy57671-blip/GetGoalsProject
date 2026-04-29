@@ -67,6 +67,7 @@ type ToeicSummaryResponse = {
     name: string;
     skill: string;
     audioCount: number;
+    count: number;
     testsAvailable: number[];
     sampleQuestionRange: string;
     audioReady: boolean;
@@ -177,7 +178,7 @@ function mapSummaryPart(part: NonNullable<ToeicSummaryResponse["parts"]>[number]
     name: `Part ${number}`,
     tag,
     description: part.name || fallbackPartDescriptions[number] || `Part ${number}`,
-    count: parseQuestionCount(part.sampleQuestionRange),
+    count: part.count || 0,
     audioReady: part.audioReady,
     testsAvailable: part.testsAvailable || [],
   };

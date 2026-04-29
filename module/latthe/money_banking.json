@@ -1,0 +1,899 @@
+[
+  {
+    "front": "Saving",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'seıvıŋ",
+      "meaning": "Tiền tiết kiệm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 6
+    }
+  },
+  {
+    "front": "Levy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'levi",
+      "meaning": "Thuế Đánh thuế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 4
+    }
+  },
+  {
+    "front": "Indebted",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "n' detid",
+      "meaning": "Mắc nợ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 8
+    }
+  },
+  {
+    "front": "Budget",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "",
+      "meaning": "'bʌdʒıt Ngân sách / Ghi vào ngân sách"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 6
+    }
+  },
+  {
+    "front": "Finance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'faınæns",
+      "meaning": "Tài chính Tài trợ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 7
+    }
+  },
+  {
+    "front": "Surcharge",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "s3:tſa:d3",
+      "meaning": "Thuế phạt thêm Đánh thuế thêm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 9
+    }
+  },
+  {
+    "front": "Impose",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ım'pǝuz",
+      "meaning": "Đánh thuế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 6
+    }
+  },
+  {
+    "front": "Margin",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ma:rdʒın",
+      "meaning": "Tiền dự trữ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 6
+    }
+  },
+  {
+    "front": "Overstock",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'əʊvə'stpk",
+      "meaning": "Tích trữ quá nhiều, hàng tồn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 9
+    }
+  },
+  {
+    "front": "Investment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'vestmənt",
+      "meaning": "Sự đầu tư"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 10
+    }
+  },
+  {
+    "front": "Debt",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "det",
+      "meaning": "Nợ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 4
+    }
+  },
+  {
+    "front": "non-profit",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌnɑːn ˈprɑːfɪt",
+      "meaning": "phi lợi nhuận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 10
+    }
+  },
+  {
+    "front": "inherent",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈhɪrənt",
+      "meaning": "vốn có, cố hữu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 8
+    }
+  },
+  {
+    "front": "Duty free",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdjuːti 'friː",
+      "meaning": "Miễn thuế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 9
+    }
+  },
+  {
+    "front": "wealthy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwelθi",
+      "meaning": "giàu có"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 7
+    }
+  },
+  {
+    "front": "Funding",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fandıŋ",
+      "meaning": "Tiền, sự tích vốn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 7
+    }
+  },
+  {
+    "front": "Asset",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'æset",
+      "meaning": "Tài sản"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 5
+    }
+  },
+  {
+    "front": "bail",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "beɪl",
+      "meaning": "tiền bảo lãnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 4
+    }
+  },
+  {
+    "front": "Loan",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ləʊn",
+      "meaning": "Khoản nợ, khoản vay"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 4
+    }
+  },
+  {
+    "front": "Commission",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kə'mıʃn",
+      "meaning": "Tiền hoa hồng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 10
+    }
+  },
+  {
+    "front": "subsidy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsʌbsɪdi",
+      "meaning": "tiền trợ cấp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 7
+    }
+  },
+  {
+    "front": "proceeds",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈproʊsiːdz",
+      "meaning": "tiền thu được"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 8
+    }
+  },
+  {
+    "front": "Tax",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tæks",
+      "meaning": "Thuế Đánh thuế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 3
+    }
+  },
+  {
+    "front": "Unpaid",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "An'peid",
+      "meaning": "Chưa trả tiền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 6
+    }
+  },
+  {
+    "front": "Debit",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'debıt",
+      "meaning": "Ghi nợ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 5
+    }
+  },
+  {
+    "front": "Pay",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "peı",
+      "meaning": "Trả, thanh toán tiền thanh toán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 3
+    }
+  },
+  {
+    "front": "Cash",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "",
+      "meaning": "kæʃ Tiền mặt / Trả tiền mặt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 4
+    }
+  },
+  {
+    "front": "Payment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'peımənt",
+      "meaning": "Sự trả tiền, sự bồi thường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 7
+    }
+  },
+  {
+    "front": "Imposition",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "impǝ'zı∫n",
+      "meaning": "Sự đánh thuế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 10
+    }
+  },
+  {
+    "front": "Money",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'mʌni",
+      "meaning": "Tiền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 5
+    }
+  },
+  {
+    "front": "cash",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kæʃ",
+      "meaning": "tiền mặt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 4
+    }
+  },
+  {
+    "front": "Maturity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mə'tʃʊərəti",
+      "meaning": "Kỳ hạn trả tiền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 8
+    }
+  },
+  {
+    "front": "Revenue",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'revənju:",
+      "meaning": "Tổng thu nhập"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 7
+    }
+  },
+  {
+    "front": "taxi",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtæksi",
+      "meaning": "xe taxi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 4
+    }
+  },
+  {
+    "front": "Precedent",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'presıdənt",
+      "meaning": "Tiền lệ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 9
+    }
+  },
+  {
+    "front": "stake",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "steɪk",
+      "meaning": "tiền cọc, cổ phần"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 5
+    }
+  },
+  {
+    "front": "taxpayer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtækspeɪər",
+      "meaning": "người nộp thuế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 8
+    }
+  },
+  {
+    "front": "debt",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "det",
+      "meaning": "khoản nợ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 4
+    }
+  },
+  {
+    "front": "Sum",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sʌm",
+      "meaning": "Số tiền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 3
+    }
+  },
+  {
+    "front": "Stock",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "stɒk",
+      "meaning": "Cất hàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 5
+    }
+  },
+  {
+    "front": "Monetary",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'mʌnıtri",
+      "meaning": "Thuộc về tiền tệ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 8
+    }
+  },
+  {
+    "front": "Liquidation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": ",lıkwı'deıʃn",
+      "meaning": "Sự vỡ nợ, đóng cửa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 11
+    }
+  },
+  {
+    "front": "premise",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpremɪs",
+      "meaning": "tiền đề"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 7
+    }
+  },
+  {
+    "front": "Deposit",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'pɒzıt",
+      "meaning": "Tiền đặt cọcĐặt cọc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 7
+    }
+  },
+  {
+    "front": "Tip",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tip",
+      "meaning": "Tiền boa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 3
+    }
+  },
+  {
+    "front": "naturally",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈnætʃrəli",
+      "meaning": "vốn có, đương nhiên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 9
+    }
+  },
+  {
+    "front": "admission",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ədˈmɪʃn",
+      "meaning": "sự nhận vào, tiền vào cửa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 9
+    }
+  },
+  {
+    "front": "Endowment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'daʊmənt",
+      "meaning": "Sự ủng hộ tài chính"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 9
+    }
+  },
+  {
+    "front": "Wealth",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "welθ",
+      "meaning": "Tính chất có nhiều"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 6
+    }
+  },
+  {
+    "front": "Profit",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'prpfit",
+      "meaning": "Lợi nhuận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 6
+    }
+  },
+  {
+    "front": "Wage",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'weıdʒ",
+      "meaning": "Tiền lương, tiền công"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 4
+    }
+  },
+  {
+    "front": "Endow",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'daʊ",
+      "meaning": "Cấp tiền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 5
+    }
+  },
+  {
+    "front": "Mortgage",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'mɔ:rgıdʒ",
+      "meaning": "Sự cầm cố, sự thế chấp Cầm cố, thế chấp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 8
+    }
+  },
+  {
+    "front": "bank",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bæŋk",
+      "meaning": "ngân hàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 4
+    }
+  },
+  {
+    "front": "Owe",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əʊ",
+      "meaning": "Nợ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 3
+    }
+  },
+  {
+    "front": "currency",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɜːrənsi",
+      "meaning": "tiền tệ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 8
+    }
+  },
+  {
+    "front": "audit",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɔːdɪt",
+      "meaning": "sự kiểm toán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 5
+    }
+  },
+  {
+    "front": "Duty",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'duːti",
+      "meaning": "Thuế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 4
+    }
+  },
+  {
+    "front": "Fund",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "fand",
+      "meaning": "Cấp tiền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 4
+    }
+  },
+  {
+    "front": "Owing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'əʊıŋ",
+      "meaning": "Còn nợ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 5
+    }
+  },
+  {
+    "front": "Settlement",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'setlmənt",
+      "meaning": "Sự thanh toán tiền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 10
+    }
+  },
+  {
+    "front": "Financial",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "faı'nænʃl",
+      "meaning": "Thuộc về tài chính"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 9
+    }
+  },
+  {
+    "front": "Overdraft",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əʊvədra:ft",
+      "meaning": "Số tiền thấu chi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 9
+    }
+  },
+  {
+    "front": "Debit",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'debıt",
+      "meaning": "Khoản nợ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 5
+    }
+  },
+  {
+    "front": "Assessment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'sesmənt",
+      "meaning": "Sự định giá, định mức tiền thuế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 10
+    }
+  },
+  {
+    "front": "Default",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'fɔ:lt",
+      "meaning": "Sự vỡ nợ, sự chậm trả"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 7
+    }
+  },
+  {
+    "front": "budget",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbʌdʒɪt",
+      "meaning": "ngân sách"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 6
+    }
+  },
+  {
+    "front": "Disburse",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dıs'bɜːrs",
+      "meaning": "Chi tiền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 8
+    }
+  },
+  {
+    "front": "bonus",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈboʊnəs",
+      "meaning": "tiền thưởng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Money & Banking",
+      "length": 5
+    }
+  }
+]

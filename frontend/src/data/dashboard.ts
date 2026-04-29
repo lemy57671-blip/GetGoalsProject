@@ -30,21 +30,12 @@ export type DashboardUserSummary = {
   plan: string;
 };
 
-export type DiagnosticQuestion = {
-  id: number;
-  section: string;
-  part: string;
-  question: string;
-  audio?: boolean;
-  options: string[];
-  correct: number;
-};
-
 export const dashboardNavigation: DashboardNavItem[] = [
   { name: "Tổng quan", href: "/dashboard", icon: LayoutDashboard },
   { name: "Placement Test", href: "/placement-test", icon: Target },
   { name: "Luyện tập", href: "/practice", icon: BookOpen },
   { name: "Mock Test", href: "/mock-test", icon: FileText },
+  { name: "Thẻ từ vựng", href: "/flashcards", icon: Zap },
   { name: "Roadmap", href: "/roadmap", icon: Map },
   { name: "Tiến độ", href: "/progress", icon: BarChart3 },
   { name: "Ôn tập", href: "/review", icon: BookOpen },
@@ -67,6 +58,11 @@ export const dashboardQuickActions: DashboardQuickAction[] = [
     href: "/mock-test",
     icon: Zap,
   },
+  {
+    label: "Voice Reader",
+    href: "/voice-reader",
+    icon: Headphones,
+  },
 ];
 
 export const dashboardUpgradeBanner = {
@@ -74,6 +70,16 @@ export const dashboardUpgradeBanner = {
   title: "Nâng cấp Pro",
   description: "Mở khóa AI Coach & lộ trình cá nhân hóa",
   icon: Crown,
+};
+
+export type DiagnosticQuestion = {
+  id: number;
+  section: string;
+  part: string;
+  question: string;
+  audio?: boolean;
+  options: string[];
+  correct: number;
 };
 
 export const dashboardUserSummary: DashboardUserSummary = {

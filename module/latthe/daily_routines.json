@@ -1,0 +1,1354 @@
+[
+  {
+    "front": "Defeat",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "dı'fi:t",
+      "meaning": "Làm thất bại, đánh bại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 6
+    }
+  },
+  {
+    "front": "heating",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhiːtɪŋ",
+      "meaning": "hệ thống sưởi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 7
+    }
+  },
+  {
+    "front": "feather",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfeðər",
+      "meaning": "lông vũ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 7
+    }
+  },
+  {
+    "front": "arrest",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈrest",
+      "meaning": "bắt giữ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 6
+    }
+  },
+  {
+    "front": "underwear",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈʌndərwer",
+      "meaning": "đồ lót"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 9
+    }
+  },
+  {
+    "front": "theatre",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈθiːətər",
+      "meaning": "rạp hát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 7
+    }
+  },
+  {
+    "front": "Restructuring",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ri:'straktʃərıŋ",
+      "meaning": "Sự cải tổ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 13
+    }
+  },
+  {
+    "front": "shop",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʃɑːp",
+      "meaning": "mua sắm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 4
+    }
+  },
+  {
+    "front": "prestigious",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "preˈstiːdʒəs",
+      "meaning": "uy tín"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 11
+    }
+  },
+  {
+    "front": "Buy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "",
+      "meaning": "baı Sự mua / Mua"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 3
+    }
+  },
+  {
+    "front": "preserve",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prɪˈzɜːrv",
+      "meaning": "bảo tồn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 8
+    }
+  },
+  {
+    "front": "Treaty",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tri:ti",
+      "meaning": "Thỏa ước"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 6
+    }
+  },
+  {
+    "front": "wash",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wɑːʃ",
+      "meaning": "tắm rửa, giặt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 4
+    }
+  },
+  {
+    "front": "asleep",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈsliːp",
+      "meaning": "đang ngủ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 6
+    }
+  },
+  {
+    "front": "cheat",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tʃiːt",
+      "meaning": "gian lận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 5
+    }
+  },
+  {
+    "front": "feat",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fiːt",
+      "meaning": "kỳ công, chiến công"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 4
+    }
+  },
+  {
+    "front": "creation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kriˈeɪʃn",
+      "meaning": "sự sáng tạo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 8
+    }
+  },
+  {
+    "front": "Sell",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sel",
+      "meaning": "Bán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 4
+    }
+  },
+  {
+    "front": "rest",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rest",
+      "meaning": "nghỉ ngơi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 4
+    }
+  },
+  {
+    "front": "workshop",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwɜːrkʃɑːp",
+      "meaning": "hội thảo, xưởng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 8
+    }
+  },
+  {
+    "front": "address",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈdres",
+      "meaning": "giải quyết, gửi đến"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 7
+    }
+  },
+  {
+    "front": "cooker",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkʊkər",
+      "meaning": "bếp lò, nồi nấu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 6
+    }
+  },
+  {
+    "front": "shopping",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈʃɑːpɪŋ",
+      "meaning": "việc mua sắm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 8
+    }
+  },
+  {
+    "front": "Reserve",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rı'zɜ:rv",
+      "meaning": "Đặt trước"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 7
+    }
+  },
+  {
+    "front": "Threaten",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "Oretn",
+      "meaning": "Đe dọa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 8
+    }
+  },
+  {
+    "front": "restore",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈstɔːr",
+      "meaning": "khôi phục"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 7
+    }
+  },
+  {
+    "front": "greatly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɡreɪtli",
+      "meaning": "rất nhiều, đáng kể"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 7
+    }
+  },
+  {
+    "front": "Delivery",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'lıvəri",
+      "meaning": "Sự giao hàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 8
+    }
+  },
+  {
+    "front": "threat",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "θret",
+      "meaning": "mối đe dọa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 6
+    }
+  },
+  {
+    "front": "live",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "lɪv",
+      "meaning": "sống"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 4
+    }
+  },
+  {
+    "front": "Rest",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "rest",
+      "meaning": "Ngưng; nghỉ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 4
+    }
+  },
+  {
+    "front": "Deserve",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'zɜːrv",
+      "meaning": "Xứng đáng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 7
+    }
+  },
+  {
+    "front": "alive",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈlaɪv",
+      "meaning": "còn sống"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 5
+    }
+  },
+  {
+    "front": "bishop",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbɪʃəp",
+      "meaning": "giám mục"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 6
+    }
+  },
+  {
+    "front": "breathe",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "briːð",
+      "meaning": "thở"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 7
+    }
+  },
+  {
+    "front": "beneath",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bɪˈniːθ",
+      "meaning": "bên dưới"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 7
+    }
+  },
+  {
+    "front": "conserve",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈsɜːrv",
+      "meaning": "bảo quản, giữ gìn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 8
+    }
+  },
+  {
+    "front": "dress",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dres",
+      "meaning": "mặc quần áo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 5
+    }
+  },
+  {
+    "front": "Restructure",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ri:'straktʃər",
+      "meaning": "Tái cơ cấu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 11
+    }
+  },
+  {
+    "front": "heat",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "hiːt",
+      "meaning": "làm nóng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 4
+    }
+  },
+  {
+    "front": "beat",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "biːt",
+      "meaning": "đánh, đánh bại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 4
+    }
+  },
+  {
+    "front": "cooking",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkʊkɪŋ",
+      "meaning": "công việc nấu nướng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 7
+    }
+  },
+  {
+    "front": "forest",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfɔːrɪst",
+      "meaning": "rừng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 6
+    }
+  },
+  {
+    "front": "Cheat",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "",
+      "meaning": "tʃi:t Trò lừa đảo / Lừa đảo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 5
+    }
+  },
+  {
+    "front": "buy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "baɪ",
+      "meaning": "mua"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 3
+    }
+  },
+  {
+    "front": "creator",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kriˈeɪtər",
+      "meaning": "người sáng tạo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 7
+    }
+  },
+  {
+    "front": "breathing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbriːðɪŋ",
+      "meaning": "sự hô hấp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 9
+    }
+  },
+  {
+    "front": "lively",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlaɪvli",
+      "meaning": "sống động, hoạt bát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 6
+    }
+  },
+  {
+    "front": "Restriction",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'strıkʃn",
+      "meaning": "Sự hạn chế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 11
+    }
+  },
+  {
+    "front": "theatrical",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "θiˈætrɪkəl",
+      "meaning": "thuộc về sân khấu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 10
+    }
+  },
+  {
+    "front": "breath",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "breθ",
+      "meaning": "hơi thở"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 6
+    }
+  },
+  {
+    "front": "Interest",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ıntrest",
+      "meaning": "Tiền lãi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 8
+    }
+  },
+  {
+    "front": "clean",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kliːn",
+      "meaning": "dọn dẹp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 5
+    }
+  },
+  {
+    "front": "dressed",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "drest",
+      "meaning": "được mặc quần áo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 7
+    }
+  },
+  {
+    "front": "interesting",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɪntrəstɪŋ",
+      "meaning": "thú vị"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 11
+    }
+  },
+  {
+    "front": "meat",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "miːt",
+      "meaning": "thịt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 4
+    }
+  },
+  {
+    "front": "wear",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wer",
+      "meaning": "mặc, đội, đeo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 4
+    }
+  },
+  {
+    "front": "death",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "deθ",
+      "meaning": "cái chết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 5
+    }
+  },
+  {
+    "front": "swear",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "swer",
+      "meaning": "thề, chửi thề"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 5
+    }
+  },
+  {
+    "front": "creative",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kriˈeɪtɪv",
+      "meaning": "có tính sáng tạo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 8
+    }
+  },
+  {
+    "front": "cleaning",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkliːnɪŋ",
+      "meaning": "công việc dọn dẹp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 8
+    }
+  },
+  {
+    "front": "Rest",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rest",
+      "meaning": "Phần còn lại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 4
+    }
+  },
+  {
+    "front": "retreat",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈtriːt",
+      "meaning": "rút lui"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 7
+    }
+  },
+  {
+    "front": "Feature",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'fi:tʃər",
+      "meaning": "Đặc điểm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 7
+    }
+  },
+  {
+    "front": "counselling",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkaʊnsəlɪŋ",
+      "meaning": "sự tư vấn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 11
+    }
+  },
+  {
+    "front": "eat",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "iːt",
+      "meaning": "ăn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 3
+    }
+  },
+  {
+    "front": "counsellor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkaʊnsələr",
+      "meaning": "cố vấn, người tư vấn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 10
+    }
+  },
+  {
+    "front": "cook",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kʊk",
+      "meaning": "nấu ăn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 4
+    }
+  },
+  {
+    "front": "washing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈwɑːʃɪŋ",
+      "meaning": "công việc giặt giũ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 7
+    }
+  },
+  {
+    "front": "repeated",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈpiːtɪd",
+      "meaning": "được lặp đi lặp lại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 8
+    }
+  },
+  {
+    "front": "wake",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "weɪk",
+      "meaning": "thức dậy, đánh thức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 4
+    }
+  },
+  {
+    "front": "leather",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈleðər",
+      "meaning": "da"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 7
+    }
+  },
+  {
+    "front": "await",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈweɪt",
+      "meaning": "chờ đợi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 5
+    }
+  },
+  {
+    "front": "wait",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "weɪt",
+      "meaning": "chờ đợi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 4
+    }
+  },
+  {
+    "front": "Deliver",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'lıvər",
+      "meaning": "Giao hàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 7
+    }
+  },
+  {
+    "front": "weather",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈweðər",
+      "meaning": "thời tiết"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 7
+    }
+  },
+  {
+    "front": "sweater",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈswetər",
+      "meaning": "áo len"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 7
+    }
+  },
+  {
+    "front": "great",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɡreɪt",
+      "meaning": "tuyệt vời, to lớn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 5
+    }
+  },
+  {
+    "front": "Restrict",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rı'strıkt",
+      "meaning": "Hạn chế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 8
+    }
+  },
+  {
+    "front": "Undersell",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "Andǝ'sel",
+      "meaning": "Bán hạ giá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 9
+    }
+  },
+  {
+    "front": "liver",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlɪvər",
+      "meaning": "gan"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 5
+    }
+  },
+  {
+    "front": "Serve",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "s3:v",
+      "meaning": "Làm việc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 5
+    }
+  },
+  {
+    "front": "restraint",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈstreɪnt",
+      "meaning": "sự kiềm chế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 9
+    }
+  },
+  {
+    "front": "Repeat",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rı'pi:t",
+      "meaning": "Nhắc lại, đặt hàng lại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 6
+    }
+  },
+  {
+    "front": "creativity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌkriːeɪˈtɪvəti",
+      "meaning": "óc sáng tạo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 10
+    }
+  },
+  {
+    "front": "bath",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bæθ",
+      "meaning": "bồn tắm, sự tắm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 4
+    }
+  },
+  {
+    "front": "Underestimate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "Andə restimert",
+      "meaning": "Sự đánh giá quá thấp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 13
+    }
+  },
+  {
+    "front": "Treatment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tri:tmənt",
+      "meaning": "Sự đối đãi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 9
+    }
+  },
+  {
+    "front": "interested",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɪntrəstɪd",
+      "meaning": "quan tâm, thích thú"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 10
+    }
+  },
+  {
+    "front": "Treat",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tri:t",
+      "meaning": "Đối đãi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 5
+    }
+  },
+  {
+    "front": "sleep",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sliːp",
+      "meaning": "ngủ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 5
+    }
+  },
+  {
+    "front": "waiter",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈweɪtər",
+      "meaning": "bồi bàn nam"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 6
+    }
+  },
+  {
+    "front": "restoration",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌrestəˈreɪʃən",
+      "meaning": "sự phục hồi, trùng tu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 11
+    }
+  },
+  {
+    "front": "defeat",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈfiːt",
+      "meaning": "đánh bại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 6
+    }
+  },
+  {
+    "front": "drink",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "drɪŋk",
+      "meaning": "uống"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 5
+    }
+  },
+  {
+    "front": "observer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əbˈzɜːrvər",
+      "meaning": "người quan sát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 8
+    }
+  },
+  {
+    "front": "Selling",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'selıŋ",
+      "meaning": "Việc bán hàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 7
+    }
+  },
+  {
+    "front": "wheat",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wiːt",
+      "meaning": "lúa mì"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 5
+    }
+  },
+  {
+    "front": "bathroom",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbæθruːm",
+      "meaning": "phòng tắm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 8
+    }
+  },
+  {
+    "front": "Observe",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əb'zɜ:rv",
+      "meaning": "Quan sát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 7
+    }
+  },
+  {
+    "front": "restaurant",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈrestrɑːnt",
+      "meaning": "nhà hàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 10
+    }
+  },
+  {
+    "front": "creature",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkriːtʃər",
+      "meaning": "sinh vật"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 8
+    }
+  },
+  {
+    "front": "neat",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "niːt",
+      "meaning": "gọn gàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 4
+    }
+  },
+  {
+    "front": "seat",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "siːt",
+      "meaning": "sắp xếp chỗ ngồi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Daily Routines",
+      "length": 4
+    }
+  }
+]

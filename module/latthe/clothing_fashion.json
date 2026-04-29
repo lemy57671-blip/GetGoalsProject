@@ -1,0 +1,288 @@
+[
+  {
+    "front": "whatever",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wɑːtˈevər",
+      "meaning": "bất cứ thứ gì"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Clothing & Fashion",
+      "length": 8
+    }
+  },
+  {
+    "front": "coat",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "koʊt",
+      "meaning": "áo khoác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Clothing & Fashion",
+      "length": 4
+    }
+  },
+  {
+    "front": "glove",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɡlʌv",
+      "meaning": "găng tay"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Clothing & Fashion",
+      "length": 5
+    }
+  },
+  {
+    "front": "somewhat",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsʌmwʌt",
+      "meaning": "phần nào"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Clothing & Fashion",
+      "length": 8
+    }
+  },
+  {
+    "front": "Fashion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'fæʃn",
+      "meaning": "Thời trang"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Clothing & Fashion",
+      "length": 7
+    }
+  },
+  {
+    "front": "bag",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bæɡ",
+      "meaning": "cái túi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Clothing & Fashion",
+      "length": 3
+    }
+  },
+  {
+    "front": "sock",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sɑːk",
+      "meaning": "chiếc tất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Clothing & Fashion",
+      "length": 4
+    }
+  },
+  {
+    "front": "fashionable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfæʃnəbl",
+      "meaning": "hợp thời trang"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Clothing & Fashion",
+      "length": 11
+    }
+  },
+  {
+    "front": "that",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ðæt",
+      "meaning": "cái đó, điều đó"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Clothing & Fashion",
+      "length": 4
+    }
+  },
+  {
+    "front": "shirt",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʃɜːrt",
+      "meaning": "áo sơ mi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Clothing & Fashion",
+      "length": 5
+    }
+  },
+  {
+    "front": "old-fashioned",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌoʊld ˈfæʃnd",
+      "meaning": "lỗi thời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Clothing & Fashion",
+      "length": 13
+    }
+  },
+  {
+    "front": "hate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "heɪt",
+      "meaning": "ghét"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Clothing & Fashion",
+      "length": 4
+    }
+  },
+  {
+    "front": "shatter",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈʃætər",
+      "meaning": "làm vỡ nát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Clothing & Fashion",
+      "length": 7
+    }
+  },
+  {
+    "front": "lifestyle",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlaɪfstaɪl",
+      "meaning": "lối sống"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Clothing & Fashion",
+      "length": 9
+    }
+  },
+  {
+    "front": "T-shirt",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtiːʃɜːrt",
+      "meaning": "áo phông"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Clothing & Fashion",
+      "length": 7
+    }
+  },
+  {
+    "front": "pocket",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpɑːkɪt",
+      "meaning": "túi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Clothing & Fashion",
+      "length": 6
+    }
+  },
+  {
+    "front": "what",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wɑːt",
+      "meaning": "cái gì, điều gì"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Clothing & Fashion",
+      "length": 4
+    }
+  },
+  {
+    "front": "belt",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "belt",
+      "meaning": "thắt lưng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Clothing & Fashion",
+      "length": 4
+    }
+  },
+  {
+    "front": "chat",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tʃæt",
+      "meaning": "tán gẫu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Clothing & Fashion",
+      "length": 4
+    }
+  },
+  {
+    "front": "whatsoever",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌwɑːtsoʊˈevər",
+      "meaning": "bất cứ điều gì"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Clothing & Fashion",
+      "length": 10
+    }
+  },
+  {
+    "front": "hat",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hæt",
+      "meaning": "cái mũ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Clothing & Fashion",
+      "length": 3
+    }
+  },
+  {
+    "front": "Style",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "staıl",
+      "meaning": "Mẫu mã"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Clothing & Fashion",
+      "length": 5
+    }
+  }
+]

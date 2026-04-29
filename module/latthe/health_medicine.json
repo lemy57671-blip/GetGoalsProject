@@ -1,0 +1,496 @@
+[
+  {
+    "front": "health",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "helθ",
+      "meaning": "sức khỏe"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 6
+    }
+  },
+  {
+    "front": "flu",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fluː",
+      "meaning": "bệnh cúm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 3
+    }
+  },
+  {
+    "front": "medicine",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmedsn",
+      "meaning": "y học, thuốc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 8
+    }
+  },
+  {
+    "front": "remedy",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈremədi",
+      "meaning": "phương thuốc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 6
+    }
+  },
+  {
+    "front": "surgical",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɜːrdʒɪkəl",
+      "meaning": "thuộc phẫu thuật"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 8
+    }
+  },
+  {
+    "front": "cigarette",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɪɡəret",
+      "meaning": "điếu thuốc lá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 9
+    }
+  },
+  {
+    "front": "discovery",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈskʌvəri",
+      "meaning": "sự khám phá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 9
+    }
+  },
+  {
+    "front": "epidemic",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌepɪˈdemɪk",
+      "meaning": "bệnh dịch"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 8
+    }
+  },
+  {
+    "front": "prescription",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prɪˈskrɪpʃn",
+      "meaning": "đơn thuốc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 12
+    }
+  },
+  {
+    "front": "clinic",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈklɪnɪk",
+      "meaning": "phòng khám"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 6
+    }
+  },
+  {
+    "front": "pain",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "peɪn",
+      "meaning": "nỗi đau"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 4
+    }
+  },
+  {
+    "front": "ambulance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈæmbjələns",
+      "meaning": "xe cứu thương"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 9
+    }
+  },
+  {
+    "front": "surgeon",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɜːrdʒən",
+      "meaning": "bác sĩ phẫu thuật"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 7
+    }
+  },
+  {
+    "front": "clinical",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈklɪnɪkl",
+      "meaning": "thuộc lâm sàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 8
+    }
+  },
+  {
+    "front": "AIDS",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "eɪdz",
+      "meaning": "bệnh AIDS"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 4
+    }
+  },
+  {
+    "front": "smoke",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "smoʊk",
+      "meaning": "hút thuốc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 5
+    }
+  },
+  {
+    "front": "pill",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pɪl",
+      "meaning": "viên thuốc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 4
+    }
+  },
+  {
+    "front": "obesity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "oʊˈbiːsəti",
+      "meaning": "bệnh béo phì"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 7
+    }
+  },
+  {
+    "front": "ill",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪl",
+      "meaning": "ốm, bệnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 3
+    }
+  },
+  {
+    "front": "doctor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdɑːktər",
+      "meaning": "bác sĩ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 6
+    }
+  },
+  {
+    "front": "nursing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈnɜːrsɪŋ",
+      "meaning": "nghề y tá, sự chăm sóc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 7
+    }
+  },
+  {
+    "front": "nursery",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈnɜːrsəri",
+      "meaning": "nhà trẻ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 7
+    }
+  },
+  {
+    "front": "physician",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fɪˈzɪʃn",
+      "meaning": "bác sĩ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 9
+    }
+  },
+  {
+    "front": "pipe",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "paɪp",
+      "meaning": "ống nước, tẩu thuốc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 4
+    }
+  },
+  {
+    "front": "finding",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfaɪndɪŋ",
+      "meaning": "kết quả nghiên cứu, sự khám phá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 7
+    }
+  },
+  {
+    "front": "well-being",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌwelˈbiːɪŋ",
+      "meaning": "sự hạnh phúc, sức khỏe"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 10
+    }
+  },
+  {
+    "front": "nurse",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "nɜːrs",
+      "meaning": "y tá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 5
+    }
+  },
+  {
+    "front": "painful",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpeɪnfl",
+      "meaning": "đau đớn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 7
+    }
+  },
+  {
+    "front": "smoking",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsmoʊkɪŋ",
+      "meaning": "việc hút thuốc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 7
+    }
+  },
+  {
+    "front": "tobacco",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "təˈbækoʊ",
+      "meaning": "thuốc lá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 7
+    }
+  },
+  {
+    "front": "surgery",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɜːrdʒəri",
+      "meaning": "ca phẫu thuật"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 7
+    }
+  },
+  {
+    "front": "medical",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmedɪkl",
+      "meaning": "thuộc y tế"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 7
+    }
+  },
+  {
+    "front": "hospital",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhɑːspɪtl",
+      "meaning": "bệnh viện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 8
+    }
+  },
+  {
+    "front": "disease",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈziːz",
+      "meaning": "căn bệnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 7
+    }
+  },
+  {
+    "front": "Discover",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dı'skʌvər",
+      "meaning": "Khám phá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 8
+    }
+  },
+  {
+    "front": "drug",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "drʌɡ",
+      "meaning": "thuốc, ma túy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 4
+    }
+  },
+  {
+    "front": "Sick",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sık",
+      "meaning": "Yếu ớt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 4
+    }
+  },
+  {
+    "front": "cancer",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkænsər",
+      "meaning": "bệnh ung thư"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Health & Medicine",
+      "length": 6
+    }
+  }
+]

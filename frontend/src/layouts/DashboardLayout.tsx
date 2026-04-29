@@ -33,6 +33,7 @@ import {
   dashboardUpgradeBanner,
 } from "@src/data/dashboard";
 import { useAuthSession } from "@src/hooks/useAuthSession";
+import { SelectionTranslator } from "@/components/SelectionTranslator";
 
 type DashboardLayoutProps = {
   children: ReactNode;
@@ -244,6 +245,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
         </header>
 
         <main className="p-4 lg:p-6">{children}</main>
+        <SelectionTranslator />
       </div>
     </div>
   );

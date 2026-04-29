@@ -1,0 +1,3057 @@
+[
+  {
+    "front": "pet",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pet",
+      "meaning": "thú cưng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 3
+    }
+  },
+  {
+    "front": "yard",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "jɑːrd",
+      "meaning": "cái sân"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "Fabricate",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'fæbrıkeıt",
+      "meaning": "Làm giả, chế tạo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 9
+    }
+  },
+  {
+    "front": "Impulse",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "impols",
+      "meaning": "Sự thúc đẩy, sự đẩy mạnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 7
+    }
+  },
+  {
+    "front": "quietly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkwaɪ.ət.li",
+      "meaning": "một cách yên lặng, nhẹ nhàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 7
+    }
+  },
+  {
+    "front": "billion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbɪljən",
+      "meaning": "tỷ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 7
+    }
+  },
+  {
+    "front": "educate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈedʒukeɪt",
+      "meaning": "giáo dục"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 7
+    }
+  },
+  {
+    "front": "apart",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈpɑːrt",
+      "meaning": "tách biệt, cách xa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 5
+    }
+  },
+  {
+    "front": "pole",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "poʊl",
+      "meaning": "cực, cái sào"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "foster",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfɑːstər",
+      "meaning": "nuôi dưỡng, thúc đẩy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "quickly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkwɪk.li",
+      "meaning": "một cách nhanh chóng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 7
+    }
+  },
+  {
+    "front": "species",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈspiːʃiːz",
+      "meaning": "giống loài"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 7
+    }
+  },
+  {
+    "front": "million",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmɪljən",
+      "meaning": "triệu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 7
+    }
+  },
+  {
+    "front": "cup",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kʌp",
+      "meaning": "cái tách, cái cúp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 3
+    }
+  },
+  {
+    "front": "bowl",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "boʊl",
+      "meaning": "cái bát, tô"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "tent",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tent",
+      "meaning": "cái lều"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "complicated",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːmplɪkeɪtɪd",
+      "meaning": "phức tạp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 11
+    }
+  },
+  {
+    "front": "commercial",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəˈmɜːrʃl",
+      "meaning": "quảng cáo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 10
+    }
+  },
+  {
+    "front": "educator",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈedʒukeɪtər",
+      "meaning": "nhà giáo dục"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "effectively",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪˈfektɪvli",
+      "meaning": "một cách hiệu quả"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 11
+    }
+  },
+  {
+    "front": "pan",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pæn",
+      "meaning": "cái chảo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 3
+    }
+  },
+  {
+    "front": "cat",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kæt",
+      "meaning": "con mèo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 3
+    }
+  },
+  {
+    "front": "bottle",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbɑːtl",
+      "meaning": "cái chai"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "offspring",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɔːfsprɪŋ",
+      "meaning": "con cháu, thế hệ sau"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 9
+    }
+  },
+  {
+    "front": "human",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhjuːmən",
+      "meaning": "con người"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 5
+    }
+  },
+  {
+    "front": "freely",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfriːli",
+      "meaning": "một cách tự do"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "Tune",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tju:n",
+      "meaning": "Với tổng số của cái gì"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "click",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "klɪk",
+      "meaning": "nhấp chuột, kêu lách cách"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 5
+    }
+  },
+  {
+    "front": "hostage",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhɑːstɪdʒ",
+      "meaning": "con tin"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 7
+    }
+  },
+  {
+    "front": "trillion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtrɪljən",
+      "meaning": "nghìn tỷ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "communicate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəˈmjuːnɪkeɪt",
+      "meaning": "giao tiếp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 11
+    }
+  },
+  {
+    "front": "pot",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pɑːt",
+      "meaning": "cái nồi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 3
+    }
+  },
+  {
+    "front": "adoption",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈdɑːpʃn",
+      "meaning": "sự nhận con nuôi, sự áp dụng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "snake",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sneɪk",
+      "meaning": "con rắn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 5
+    }
+  },
+  {
+    "front": "Layout",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'leıaʊt",
+      "meaning": "Cách bố trí"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "Expire",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ık'spaıər",
+      "meaning": "Kết thúc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "efficiently",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪˈfɪʃntli",
+      "meaning": "một cách hiệu quả"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 11
+    }
+  },
+  {
+    "front": "indictment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈdaɪtmənt",
+      "meaning": "bản cáo trạng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 10
+    }
+  },
+  {
+    "front": "monkey",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmʌŋki",
+      "meaning": "con khỉ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "publication",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌpʌblɪˈkeɪʃn",
+      "meaning": "sự xuất bản"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 11
+    }
+  },
+  {
+    "front": "bee",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "biː",
+      "meaning": "con ong"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 3
+    }
+  },
+  {
+    "front": "delicate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdelɪkət",
+      "meaning": "tinh tế, mỏng manh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "located",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈloʊkeɪtɪd",
+      "meaning": "nằm ở, tọa lạc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 7
+    }
+  },
+  {
+    "front": "dam",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dæm",
+      "meaning": "con đập"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 3
+    }
+  },
+  {
+    "front": "sheep",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʃiːp",
+      "meaning": "con cừu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 5
+    }
+  },
+  {
+    "front": "simply",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɪmpli",
+      "meaning": "một cách đơn giản, chỉ là"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "competition",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌkɑːmpəˈtɪʃn",
+      "meaning": "cuộc thi, sự cạnh tranh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 11
+    }
+  },
+  {
+    "front": "Vacation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ver'keiſn",
+      "meaning": "Kì nghỉ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "tongue",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tʌŋ",
+      "meaning": "cái lưỡi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "extensively",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪkˈstensɪvli",
+      "meaning": "một cách rộng rãi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 11
+    }
+  },
+  {
+    "front": "Allocate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'æləkeıt",
+      "meaning": "Phân bổ, cấp cho"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "angry",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈæŋɡri",
+      "meaning": "tức giận, cáu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 5
+    }
+  },
+  {
+    "front": "sophisticated",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "səˈfɪstɪkeɪtɪd",
+      "meaning": "tinh vi, phức tạp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 13
+    }
+  },
+  {
+    "front": "regularly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈreɡjələrli",
+      "meaning": "một cách thường xuyên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 9
+    }
+  },
+  {
+    "front": "fan",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fæn",
+      "meaning": "người hâm mộ, cái quạt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 3
+    }
+  },
+  {
+    "front": "accurately",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈækjərətli",
+      "meaning": "một cách chính xác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 10
+    }
+  },
+  {
+    "front": "bell",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bel",
+      "meaning": "cái chuông"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "insight",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɪnsaɪt",
+      "meaning": "cái nhìn sâu sắc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 7
+    }
+  },
+  {
+    "front": "none",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "nʌn",
+      "meaning": "không ai, không cái gì"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "Respective",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rı'spektıv",
+      "meaning": "Riêng, từng cái"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 10
+    }
+  },
+  {
+    "front": "sadly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsædli",
+      "meaning": "một cách buồn bã"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 5
+    }
+  },
+  {
+    "front": "Classification",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'klæsıfı'keıʃn",
+      "meaning": "Sự phân loại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 14
+    }
+  },
+  {
+    "front": "Catch",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kætʃ",
+      "meaning": "Bắt được, nắm lấy, theo kịp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 5
+    }
+  },
+  {
+    "front": "evil",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈiːvl",
+      "meaning": "cái ác, sự xấu xa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "Particularly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pə'tıkjələli",
+      "meaning": "Một cách đặc biệt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 12
+    }
+  },
+  {
+    "front": "dog",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɔːɡ",
+      "meaning": "con chó"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 3
+    }
+  },
+  {
+    "front": "box",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bɑːks",
+      "meaning": "cái hộp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 3
+    }
+  },
+  {
+    "front": "cattle",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkætl",
+      "meaning": "gia súc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "spider",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈspaɪdər",
+      "meaning": "con nhện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "prey",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "preɪ",
+      "meaning": "con mồi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "wing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wɪŋ",
+      "meaning": "cánh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "Vacate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "və'keit",
+      "meaning": "Xin thôi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "rapidly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈræpɪdli",
+      "meaning": "một cách nhanh chóng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 7
+    }
+  },
+  {
+    "front": "Qualification",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kwplıfı'keıʃn",
+      "meaning": "Bằng cấp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 13
+    }
+  },
+  {
+    "front": "implication",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌɪmplɪˈkeɪʃn",
+      "meaning": "sự hàm ý"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 11
+    }
+  },
+  {
+    "front": "as",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "æz",
+      "meaning": "như là, với tư cách là"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 2
+    }
+  },
+  {
+    "front": "entertaining",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌentərˈteɪnɪŋ",
+      "meaning": "thú vị, mang tính giải trí"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 12
+    }
+  },
+  {
+    "front": "elephant",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈelɪfənt",
+      "meaning": "con voi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "genuinely",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdʒenjuɪnli",
+      "meaning": "một cách thành thật"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 9
+    }
+  },
+  {
+    "front": "catalogue",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkætəlɔːɡ",
+      "meaning": "danh mục"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 9
+    }
+  },
+  {
+    "front": "Incompetent",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'ka:mpitənt",
+      "meaning": "Kém cỏi, bất tài"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 11
+    }
+  },
+  {
+    "front": "ladder",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlædər",
+      "meaning": "cái thang"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "set-up",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsetʌp",
+      "meaning": "thiết lập, cách tổ chức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "tempt",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tempt",
+      "meaning": "cám dỗ, xúi giục"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 5
+    }
+  },
+  {
+    "front": "Fabrication",
+    "back": {
+      "pos": "Noun",
+      "phonetic": ",fæbrı'keıʃn",
+      "meaning": "Sự chế tạo, sự làm giả"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 11
+    }
+  },
+  {
+    "front": "petition",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pəˈtɪʃn",
+      "meaning": "đơn kiến nghị"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "compete",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəmˈpiːt",
+      "meaning": "cạnh tranh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 7
+    }
+  },
+  {
+    "front": "educated",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈedʒukeɪtɪd",
+      "meaning": "có giáo dục"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "remarkably",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɪˈmɑːrkəbli",
+      "meaning": "một cách đáng chú ý"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 10
+    }
+  },
+  {
+    "front": "appropriately",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈproʊpriətli",
+      "meaning": "một cách thích hợp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 13
+    }
+  },
+  {
+    "front": "advertising",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈædvərtaɪzɪŋ",
+      "meaning": "ngành quảng cáo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 11
+    }
+  },
+  {
+    "front": "angrily",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈæŋɡrəli",
+      "meaning": "một cách tức giận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 7
+    }
+  },
+  {
+    "front": "suddenly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsʌdənli",
+      "meaning": "một cách đột ngột"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "Press",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pres",
+      "meaning": "Thúc giục"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 5
+    }
+  },
+  {
+    "front": "exclusively",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪkˈskluːsɪvli",
+      "meaning": "một cách độc quyền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 11
+    }
+  },
+  {
+    "front": "neck",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "nek",
+      "meaning": "cái cổ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "inadequate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈædɪkwət",
+      "meaning": "không thỏa đáng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 10
+    }
+  },
+  {
+    "front": "Advocate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ædvəkeıt",
+      "meaning": "Ủng hộ, tán thành"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "fishing",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfɪʃɪŋ",
+      "meaning": "việc câu cá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 7
+    }
+  },
+  {
+    "front": "classification",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌklæsɪfɪˈkeɪʃn",
+      "meaning": "sự phân loại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 14
+    }
+  },
+  {
+    "front": "ad",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "æd",
+      "meaning": "quảng cáo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 2
+    }
+  },
+  {
+    "front": "competitive",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəmˈpetətɪv",
+      "meaning": "có tính cạnh tranh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 11
+    }
+  },
+  {
+    "front": "Ratification",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rætıfı'keıʃn",
+      "meaning": "Phê chuẩn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 12
+    }
+  },
+  {
+    "front": "chicken",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtʃɪkɪn",
+      "meaning": "con gà"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 7
+    }
+  },
+  {
+    "front": "Locate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ləʊ'keıt",
+      "meaning": "Đặt, nằm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "desperately",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdespərətli",
+      "meaning": "một cách tuyệt vọng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 11
+    }
+  },
+  {
+    "front": "pond",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pɑːnd",
+      "meaning": "cái ao"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "you",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "juː",
+      "meaning": "bạn, các bạn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 3
+    }
+  },
+  {
+    "front": "revolution",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌrevəˈluːʃən",
+      "meaning": "cuộc cách mạng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 10
+    }
+  },
+  {
+    "front": "Indicate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mdıkeit",
+      "meaning": "Chỉ ra"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "bug",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bʌɡ",
+      "meaning": "con bọ, lỗi kỹ thuật"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 3
+    }
+  },
+  {
+    "front": "Communication",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kə,mju:nı'keıʃn",
+      "meaning": "Sự liên lạc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 13
+    }
+  },
+  {
+    "front": "Individual",
+    "back": {
+      "pos": "Noun",
+      "phonetic": ", ındı'vidzuǝl",
+      "meaning": "Cá nhân"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 10
+    }
+  },
+  {
+    "front": "by",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "baɪ",
+      "meaning": "bởi, bằng cách"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 2
+    }
+  },
+  {
+    "front": "revolutionary",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌrevəˈluːʃəneri",
+      "meaning": "mang tính cách mạng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 13
+    }
+  },
+  {
+    "front": "horse",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hɔːrs",
+      "meaning": "con ngựa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 5
+    }
+  },
+  {
+    "front": "heavily",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhevɪli",
+      "meaning": "một cách nặng nề"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 7
+    }
+  },
+  {
+    "front": "Accelerate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "æk'seləreit",
+      "meaning": "Thúc mau, giục gấp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 10
+    }
+  },
+  {
+    "front": "Catalogue",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "",
+      "meaning": "'kætəla:g Tập mục lục / Ghi mục lục"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 9
+    }
+  },
+  {
+    "front": "theirs",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ðerz",
+      "meaning": "cái của họ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "Justification",
+    "back": {
+      "pos": "Noun",
+      "phonetic": ",dʒʌstıfı'keıʃn",
+      "meaning": "Lí lẽ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 13
+    }
+  },
+  {
+    "front": "Motivate",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'məʊtıveıt",
+      "meaning": "Thúc đẩy, động viên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "field",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fiːld",
+      "meaning": "cánh đồng, lĩnh vực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 5
+    }
+  },
+  {
+    "front": "Irregular",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ı'regjələr",
+      "meaning": "Không theo quy cách"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 9
+    }
+  },
+  {
+    "front": "mouse",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "maʊs",
+      "meaning": "con chuột"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 5
+    }
+  },
+  {
+    "front": "Speed",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "spi:d",
+      "meaning": "Sự nhanh chóng, mau lẹ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 5
+    }
+  },
+  {
+    "front": "this",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ðɪs",
+      "meaning": "cái này, điều này"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "easily",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈiːzəli",
+      "meaning": "một cách dễ dàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "basket",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbæskɪt",
+      "meaning": "cái rổ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "usage",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈjuːsɪdʒ",
+      "meaning": "cách sử dụng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 5
+    }
+  },
+  {
+    "front": "denounce",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈnaʊns",
+      "meaning": "tố cáo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "permanently",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpɜːrmənəntli",
+      "meaning": "một cách vĩnh viễn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 11
+    }
+  },
+  {
+    "front": "consistently",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈsɪstəntli",
+      "meaning": "một cách nhất quán"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 12
+    }
+  },
+  {
+    "front": "dedicated",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdedɪkeɪtɪd",
+      "meaning": "tận tụy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 9
+    }
+  },
+  {
+    "front": "substantially",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "səbˈstænʃəli",
+      "meaning": "một cách đáng kể"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 13
+    }
+  },
+  {
+    "front": "which",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wɪtʃ",
+      "meaning": "cái nào, điều nào"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 5
+    }
+  },
+  {
+    "front": "loudly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlaʊdli",
+      "meaning": "một cách ồn ào"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "successfully",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "səkˈsesfəli",
+      "meaning": "một cách thành công"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 12
+    }
+  },
+  {
+    "front": "Allocation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ælə'keıʃn",
+      "meaning": "Sự phân bổ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 10
+    }
+  },
+  {
+    "front": "people",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpiːpl",
+      "meaning": "con người, người dân"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "communication",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəˌmjuːnɪˈkeɪʃn",
+      "meaning": "sự giao tiếp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 13
+    }
+  },
+  {
+    "front": "beast",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "biːst",
+      "meaning": "thú vật, quái thú"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 5
+    }
+  },
+  {
+    "front": "slowly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsloʊli",
+      "meaning": "một cách chậm chạp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "yours",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "jɔːrz",
+      "meaning": "cái của bạn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 5
+    }
+  },
+  {
+    "front": "the",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ðə",
+      "meaning": "cái, con, người (mạo từ)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 3
+    }
+  },
+  {
+    "front": "competent",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːmpɪtənt",
+      "meaning": "có đủ khả năng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 9
+    }
+  },
+  {
+    "front": "exciting",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪkˈsaɪtɪŋ",
+      "meaning": "thú vị, đầy hứng thú"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "dedication",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdedɪˈkeɪʃn",
+      "meaning": "sự cống hiến"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 10
+    }
+  },
+  {
+    "front": "Thereof",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "deǝr'pv",
+      "meaning": "Của cái đó"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 7
+    }
+  },
+  {
+    "front": "Advertisement",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əd'v3:tısmənt",
+      "meaning": "Mẫu quảng cáo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 13
+    }
+  },
+  {
+    "front": "accidentally",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌæksɪˈdentəli",
+      "meaning": "một cách tình cờ, ngẫu nhiên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 12
+    }
+  },
+  {
+    "front": "rat",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ræt",
+      "meaning": "con chuột"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 3
+    }
+  },
+  {
+    "front": "strongly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈstrɔːŋli",
+      "meaning": "một cách mạnh mẽ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "properly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈprɑːpərli",
+      "meaning": "một cách đúng đắn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "happily",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈhæpɪli",
+      "meaning": "một cách hạnh phúc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 7
+    }
+  },
+  {
+    "front": "competitor",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəmˈpetɪtər",
+      "meaning": "đối thủ cạnh tranh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 10
+    }
+  },
+  {
+    "front": "education",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌedʒuˈkeɪʃn",
+      "meaning": "nền giáo dục"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 9
+    }
+  },
+  {
+    "front": "equally",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈiːkwəli",
+      "meaning": "một cách công bằng, bằng nhau"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 7
+    }
+  },
+  {
+    "front": "nest",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "nest",
+      "meaning": "cái tổ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "medication",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌmedɪˈkeɪʃn",
+      "meaning": "thuốc men"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 10
+    }
+  },
+  {
+    "front": "Diversification",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "daıˌvɜːrsıfı'keıʃn",
+      "meaning": "Sự đa dạng hóa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 15
+    }
+  },
+  {
+    "front": "Hereby",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hur'bai",
+      "meaning": "Bằng cách này"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "competence",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːmpɪtəns",
+      "meaning": "năng lực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 10
+    }
+  },
+  {
+    "front": "clip",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "klɪp",
+      "meaning": "đoạn video, cái kẹp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "precisely",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "prɪˈsaɪsli",
+      "meaning": "một cách chính xác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 9
+    }
+  },
+  {
+    "front": "manner",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmænər",
+      "meaning": "cách thức, thái độ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "Adequate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ædikwət",
+      "meaning": "Thỏa đáng, tương xứng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "Communicate",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kə'mju:nıkeıt",
+      "meaning": "Truyền đạt, giao tiếp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 11
+    }
+  },
+  {
+    "front": "indulge",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈdʌldʒ",
+      "meaning": "nuông chiều, thỏa mãn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 7
+    }
+  },
+  {
+    "front": "tail",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "teɪl",
+      "meaning": "cái đuôi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "explicitly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪkˈsplɪsɪtli",
+      "meaning": "một cách rõ ràng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 10
+    }
+  },
+  {
+    "front": "bear",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ber",
+      "meaning": "chịu đựng, mang"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "daughter",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdɔːtər",
+      "meaning": "con gái"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "Specification",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌspesıfı'keıʃn",
+      "meaning": "Sự chỉ rõ, sự ghi rõ, sự định rõ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 13
+    }
+  },
+  {
+    "front": "adequately",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈædɪkwətli",
+      "meaning": "một cách đầy đủ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 10
+    }
+  },
+  {
+    "front": "petrol",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpetrəl",
+      "meaning": "xăng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "lion",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈlaɪən",
+      "meaning": "sư tử"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "cow",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kaʊ",
+      "meaning": "con bò"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 3
+    }
+  },
+  {
+    "front": "Identification",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "aı, dentıfı keıſn",
+      "meaning": "Sự nhận dạng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 14
+    }
+  },
+  {
+    "front": "Way",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "weı",
+      "meaning": "Cách thức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 3
+    }
+  },
+  {
+    "front": "appetite",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈæpɪtaɪt",
+      "meaning": "sự thèm ăn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "spoon",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "spuːn",
+      "meaning": "cái thìa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 5
+    }
+  },
+  {
+    "front": "Advertise",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'ædvətaız",
+      "meaning": "Quảng cáo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 9
+    }
+  },
+  {
+    "front": "each",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "iːtʃ",
+      "meaning": "mỗi cái, mỗi người"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "distance",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈdɪstəns",
+      "meaning": "khoảng cách"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "either",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈiːðər",
+      "meaning": "cái này hoặc cái kia"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "fur",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fɜːr",
+      "meaning": "lông thú"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 3
+    }
+  },
+  {
+    "front": "insect",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɪnsekt",
+      "meaning": "côn trùng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "directly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈrektli",
+      "meaning": "một cách trực tiếp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "Admit",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əd'mıt",
+      "meaning": "Thừa nhận, thú nhận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 5
+    }
+  },
+  {
+    "front": "completely",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəmˈpliːtli",
+      "meaning": "một cách hoàn toàn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 10
+    }
+  },
+  {
+    "front": "bird",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bɜːrd",
+      "meaning": "con chim"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "hole",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "hoʊl",
+      "meaning": "cái lỗ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "glimpse",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɡlɪmps",
+      "meaning": "cái nhìn thoáng qua"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 7
+    }
+  },
+  {
+    "front": "exactly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪɡˈzæktli",
+      "meaning": "một cách chính xác"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 7
+    }
+  },
+  {
+    "front": "deliberately",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "dɪˈlɪbərətli",
+      "meaning": "một cách cố ý"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 12
+    }
+  },
+  {
+    "front": "frog",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "frɔːɡ",
+      "meaning": "con ếch"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "cheap",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "tʃiːp",
+      "meaning": "một cách rẻ tiền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 5
+    }
+  },
+  {
+    "front": "accusation",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌækjuˈzeɪʃn",
+      "meaning": "sự buộc tội, cáo buộc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 10
+    }
+  },
+  {
+    "front": "fast",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fæst",
+      "meaning": "nhanh chóng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "fish",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "fɪʃ",
+      "meaning": "câu cá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "instantly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɪnstəntli",
+      "meaning": "một cách ngay lập tức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 9
+    }
+  },
+  {
+    "front": "Piece",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pi:s",
+      "meaning": "Miếng, cái"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 5
+    }
+  },
+  {
+    "front": "Indication",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "undı keiſn",
+      "meaning": "Sự biểu thị"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 10
+    }
+  },
+  {
+    "front": "Notification",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "nəʊtıfı'keıʃn",
+      "meaning": "Khai báo, thông báo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 12
+    }
+  },
+  {
+    "front": "educational",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌedʒuˈkeɪʃənl",
+      "meaning": "thuộc giáo dục"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 11
+    }
+  },
+  {
+    "front": "Close",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kləuz",
+      "meaning": "Đóng, kết thúc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 5
+    }
+  },
+  {
+    "front": "Duplicate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'djuːplıkeıt",
+      "meaning": "Bản sao / Sao"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 9
+    }
+  },
+  {
+    "front": "spelling",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈspelɪŋ",
+      "meaning": "cách đánh vần"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "cable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkeɪbl",
+      "meaning": "dây cáp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 5
+    }
+  },
+  {
+    "front": "carpet",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːrpɪt",
+      "meaning": "tấm thảm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "Number",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'nʌmbər",
+      "meaning": "Con số"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 6
+    }
+  },
+  {
+    "front": "confession",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈfeʃn",
+      "meaning": "lời thú tội"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 10
+    }
+  },
+  {
+    "front": "End",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "end",
+      "meaning": "Cái kết Kết thúc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 3
+    }
+  },
+  {
+    "front": "character",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkærəktər",
+      "meaning": "nhân vật, tính cách"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 9
+    }
+  },
+  {
+    "front": "male",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "meɪl",
+      "meaning": "nam giới, con đực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "obviously",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɑːbviəsli",
+      "meaning": "một cách rõ ràng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 9
+    }
+  },
+  {
+    "front": "pig",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pɪɡ",
+      "meaning": "con lợn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 3
+    }
+  },
+  {
+    "front": "certificate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sərˈtɪfɪkət",
+      "meaning": "chứng chỉ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 11
+    }
+  },
+  {
+    "front": "enjoyable",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪnˈdʒɔɪəbl",
+      "meaning": "thú vị"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 9
+    }
+  },
+  {
+    "front": "strictly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈstrɪktli",
+      "meaning": "một cách nghiêm khắc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "Modification",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'mpdıfı'keıʃn",
+      "meaning": "Sự sửa đổi, thay đổi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 12
+    }
+  },
+  {
+    "front": "umbrella",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ʌmˈbrelə",
+      "meaning": "cái ô"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "indicator",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɪndɪkeɪtər",
+      "meaning": "chỉ số"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 9
+    }
+  },
+  {
+    "front": "perfectly",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈpɜːrfɪktli",
+      "meaning": "một cách hoàn hảo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 9
+    }
+  },
+  {
+    "front": "Urge",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "3:dz",
+      "meaning": "Sự thôi thúc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "thrilled",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "θrɪld",
+      "meaning": "vô cùng thích thú, hồi hộp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "catch",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kætʃ",
+      "meaning": "bắt lấy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 5
+    }
+  },
+  {
+    "front": "Location",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ləʊ'keıʃn",
+      "meaning": "Vị trí, nơi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 8
+    }
+  },
+  {
+    "front": "complication",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌkɑːmplɪˈkeɪʃn",
+      "meaning": "biến chứng, sự phức tạp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 12
+    }
+  },
+  {
+    "front": "rod",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "rɑːd",
+      "meaning": "cái gậy, cần"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 3
+    }
+  },
+  {
+    "front": "Cater",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'keıtər",
+      "meaning": "Cung cấp thực phẩm, phục vụ theo yêu cầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 5
+    }
+  },
+  {
+    "front": "drum",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "drʌm",
+      "meaning": "cái trống"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 4
+    }
+  },
+  {
+    "front": "confess",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kənˈfes",
+      "meaning": "thú nhận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 7
+    }
+  },
+  {
+    "front": "Certificate",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sər'tıfıkət",
+      "meaning": "Giấy chứng nhận"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Animals & Pets",
+      "length": 11
+    }
+  }
+]

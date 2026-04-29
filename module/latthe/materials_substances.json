@@ -1,0 +1,301 @@
+[
+  {
+    "front": "rubber",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈrʌbər",
+      "meaning": "cao su"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Materials & Substances",
+      "length": 6
+    }
+  },
+  {
+    "front": "stone",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "stoʊn",
+      "meaning": "hòn đá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Materials & Substances",
+      "length": 5
+    }
+  },
+  {
+    "front": "spoil",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "spɔɪl",
+      "meaning": "làm hỏng, nuông chiều"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Materials & Substances",
+      "length": 5
+    }
+  },
+  {
+    "front": "cotton",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːtn",
+      "meaning": "bông, vải sơi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Materials & Substances",
+      "length": 6
+    }
+  },
+  {
+    "front": "plastic",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈplæstɪk",
+      "meaning": "nhựa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Materials & Substances",
+      "length": 7
+    }
+  },
+  {
+    "front": "fuel",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈfjuːəl",
+      "meaning": "cung cấp nhiên liệu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Materials & Substances",
+      "length": 4
+    }
+  },
+  {
+    "front": "Environment",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın'vaırənmənt",
+      "meaning": "Môi trường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Materials & Substances",
+      "length": 11
+    }
+  },
+  {
+    "front": "iron",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈaɪərn",
+      "meaning": "ủi (quần áo)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Materials & Substances",
+      "length": 4
+    }
+  },
+  {
+    "front": "Environmental",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ın,vaırən'mentl",
+      "meaning": "Thuộc về môi trường"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Materials & Substances",
+      "length": 13
+    }
+  },
+  {
+    "front": "metal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈmetl",
+      "meaning": "kim loại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Materials & Substances",
+      "length": 5
+    }
+  },
+  {
+    "front": "irony",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈaɪrəni",
+      "meaning": "sự mỉa mai, nghịch lý"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Materials & Substances",
+      "length": 5
+    }
+  },
+  {
+    "front": "gas",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɡæs",
+      "meaning": "khí ga"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Materials & Substances",
+      "length": 3
+    }
+  },
+  {
+    "front": "oil",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɔɪl",
+      "meaning": "dầu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Materials & Substances",
+      "length": 3
+    }
+  },
+  {
+    "front": "silk",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sɪlk",
+      "meaning": "lụa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Materials & Substances",
+      "length": 4
+    }
+  },
+  {
+    "front": "boil",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "bɔɪl",
+      "meaning": "đun sôi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Materials & Substances",
+      "length": 4
+    }
+  },
+  {
+    "front": "wood",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wʊd",
+      "meaning": "gỗ, khu rừng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Materials & Substances",
+      "length": 4
+    }
+  },
+  {
+    "front": "wool",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "wʊl",
+      "meaning": "len, lông cừu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Materials & Substances",
+      "length": 4
+    }
+  },
+  {
+    "front": "ironic",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "aɪˈrɑːnɪk",
+      "meaning": "mỉa mai, trớ trêu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Materials & Substances",
+      "length": 6
+    }
+  },
+  {
+    "front": "glass",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɡlæs",
+      "meaning": "thủy tinh, cái ly"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Materials & Substances",
+      "length": 5
+    }
+  },
+  {
+    "front": "soil",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "sɔɪl",
+      "meaning": "đất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Materials & Substances",
+      "length": 4
+    }
+  },
+  {
+    "front": "wooden",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈwʊdən",
+      "meaning": "làm bằng gỗ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Materials & Substances",
+      "length": 6
+    }
+  },
+  {
+    "front": "silver",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɪlvər",
+      "meaning": "bạc"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Materials & Substances",
+      "length": 6
+    }
+  },
+  {
+    "front": "toilet",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈtɔɪlət",
+      "meaning": "nhà vệ sinh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Materials & Substances",
+      "length": 6
+    }
+  }
+]

@@ -1,0 +1,1627 @@
+[
+  {
+    "front": "Conduce",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kən'du:s",
+      "meaning": "Mang lại, góp phần sinh ra"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "Hurry",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "h3:ri",
+      "meaning": "Làm gấp, mau"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Deduct",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "dı'dʌkt",
+      "meaning": "Khấu trừ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "render",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈrendər",
+      "meaning": "làm cho, cung cấp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "Constitute",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'ka:nstətu:t",
+      "meaning": "Thiết lập, tạo thành"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 10
+    }
+  },
+  {
+    "front": "Route",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ru:t",
+      "meaning": "Gửi hàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Exhaust",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ıg'zɔ:st",
+      "meaning": "Làm cạn kiệt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "animal",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈænɪml",
+      "meaning": "động vật"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "Conceal",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kən'si:l",
+      "meaning": "Che đậy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "spill",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "spɪl",
+      "meaning": "làm tràn, làm đổ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Post",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "pəʊst",
+      "meaning": "Công bố"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "Present",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'preznt",
+      "meaning": "Phô diễn, thể hiện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "Devalue",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˌdiː'væljuː",
+      "meaning": "Làm mất giá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "Consist",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kən'sıst",
+      "meaning": "Bao gồm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "Input",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'ınpʊt",
+      "meaning": "Nhập liệu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Concede",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kən'si:d",
+      "meaning": "Thừa nhận, cho rằng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "Unfulfilled",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "Anful fild",
+      "meaning": "Chưa làm xong"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 11
+    }
+  },
+  {
+    "front": "undermine",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˌʌndərˈmaɪn",
+      "meaning": "làm suy yếu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 9
+    }
+  },
+  {
+    "front": "renew",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "rɪˈnuː",
+      "meaning": "gia hạn, làm mới"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Flow",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "flǝu",
+      "meaning": "Trôi, chảy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "enrich",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ɪnˈrɪtʃ",
+      "meaning": "làm giàu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "motive",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈmoʊtɪv",
+      "meaning": "động cơ (hành động)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "amazing",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "əˈmeɪzɪŋ",
+      "meaning": "làm kinh ngạc, tuyệt vời"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "annoy",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "əˈnɔɪ",
+      "meaning": "làm phiền, chọc tức"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Charge",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "tʃa:rdʒ",
+      "meaning": "Tính giá, trao nhiệm vụ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "Connect",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kə'nekt",
+      "meaning": "Liên hệ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "Progress",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'prəʊgres",
+      "meaning": "Tiến hành"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "Ease",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "i:z",
+      "meaning": "Làm dịu, nới lỏng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "Detract",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "dı'trækt",
+      "meaning": "Làm giảm giá trị"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "screw",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "skruː",
+      "meaning": "bắt vít, làm hỏng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "distress",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "dɪˈstres",
+      "meaning": "làm đau buồn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "Comprise",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kəm'praız",
+      "meaning": "Bao gồm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "Mark",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ma:rk",
+      "meaning": "Ghi dấu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "Consign",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kən'saın",
+      "meaning": "Gửi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "balance",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈbæləns",
+      "meaning": "làm cho cân bằng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "Indent",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "in'dent",
+      "meaning": "Đặt hàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "Fail",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "feıl",
+      "meaning": "Thất bại, không thể làm gì"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "model",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈmɑːdl",
+      "meaning": "làm mẫu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Lapse",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "læps",
+      "meaning": "Mất hiệu lực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Economize",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ı'ka:nəmaız",
+      "meaning": "Làm giảm, tiết kiệm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 9
+    }
+  },
+  {
+    "front": "wound",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "wuːnd",
+      "meaning": "làm bị thương"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Impair",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "im'peǝr",
+      "meaning": "Làm suy yếu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "Employee",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ım'plɔıi:",
+      "meaning": "Người lao động, người làm công"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "weaken",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈwiːkən",
+      "meaning": "làm suy yếu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "calm",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kɑːm",
+      "meaning": "làm dịu, bình tĩnh lại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "Decontrol",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'di:kən'trəul",
+      "meaning": "Bãi bỏ kiểm soát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 9
+    }
+  },
+  {
+    "front": "Satisfy",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'sætısfaı",
+      "meaning": "Làm hài lòng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "dry",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "draɪ",
+      "meaning": "làm khô"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 3
+    }
+  },
+  {
+    "front": "Capture",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'kæptʃər",
+      "meaning": "Đạt được, thu nạp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "Coincide",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'kəuın'saıd",
+      "meaning": "Trùng khớp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "frighten",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈfraɪtn",
+      "meaning": "làm hoảng sợ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "relieve",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "rɪˈliːv",
+      "meaning": "làm dịu đi, an ủi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "athlete",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈæθliːt",
+      "meaning": "vận động viên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "be",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "biː",
+      "meaning": "(trợ động từ)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 2
+    }
+  },
+  {
+    "front": "outrage",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈaʊtreɪdʒ",
+      "meaning": "làm phẫn nộ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "Charter",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'tʃa:rtər",
+      "meaning": "Thuê mướn (tàu, máy bay)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "Consume",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kən'su:m",
+      "meaning": "Tiêu thụ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "bother",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈbɑːðər",
+      "meaning": "làm phiền, bận tâm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "lobby",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈlɑːbi",
+      "meaning": "vận động hành lang"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Mail",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "meıl",
+      "meaning": "Gửi"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "decrease",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "dɪˈkriːs",
+      "meaning": "làm giảm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "Idle",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "aidi",
+      "meaning": "Không làm việc, không dùng đến"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "Facilitate",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "fə'sılıteıt",
+      "meaning": "Làm dễ dàng, làm thuận tiện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 10
+    }
+  },
+  {
+    "front": "Choose",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "tʃu:z",
+      "meaning": "Lựa chọn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "blast",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "blæst",
+      "meaning": "làm nổ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Commit",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kə'mıt",
+      "meaning": "Cam kết, giao phó"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "Channel",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'tʃænl",
+      "meaning": "Chuyển, hướng vào"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "Chance",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "tʃæns",
+      "meaning": "Liều"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "Commercialize",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kə'mɜ:rʃəlaız",
+      "meaning": "Thương mại hóa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 13
+    }
+  },
+  {
+    "front": "empty",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈempti",
+      "meaning": "làm trống"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Cancel",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'kænsl",
+      "meaning": "Hủy bỏ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "accomplish",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "əˈkɑːmplɪʃ",
+      "meaning": "hoàn thành, làm xong"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 10
+    }
+  },
+  {
+    "front": "Lack",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "læk",
+      "meaning": "Thiếu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "concern",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kənˈsɜːrn",
+      "meaning": "liên quan, làm bận tâm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "disturbing",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "dɪˈstɜːrbɪŋ",
+      "meaning": "làm lo âu"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 10
+    }
+  },
+  {
+    "front": "momentum",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "moʊˈmentəm",
+      "meaning": "động lượng, đà"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "do",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "duː",
+      "meaning": "trợ động từ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 2
+    }
+  },
+  {
+    "front": "Depress",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "dı'pres",
+      "meaning": "Làm hạ giá"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "disappoint",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˌdɪsəˈpɔɪnt",
+      "meaning": "làm thất vọng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 10
+    }
+  },
+  {
+    "front": "Construct",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kən'strʌkt",
+      "meaning": "Xây dựng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 9
+    }
+  },
+  {
+    "front": "ruin",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈruːɪn",
+      "meaning": "phá hủy, làm hỏng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "Collect",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kə'lekt",
+      "meaning": "Thu gom"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "have",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "hæv",
+      "meaning": "(trợ động từ)"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "Label",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'leıbl",
+      "meaning": "Ghi nhãn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Generate",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "dzenǝrert",
+      "meaning": "Tạo ra, làm ra"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "volunteer",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˌvɑːlənˈtɪr",
+      "meaning": "làm tình nguyện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 9
+    }
+  },
+  {
+    "front": "Decrease",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "dı'kri:s",
+      "meaning": "Giảm sút"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "Function",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "foŋkſn",
+      "meaning": "Hoạt động, thực hiện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "film-maker",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈfɪlm meɪkər",
+      "meaning": "nhà làm phim"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 10
+    }
+  },
+  {
+    "front": "Process",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'pra:ses",
+      "meaning": "Chế biến, xử lý"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "Concern",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kən'sɜ:rn",
+      "meaning": "Liên quan"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "Diminish",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "dı'mınıʃ",
+      "meaning": "Làm giảm sút"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "motivation",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˌmoʊtɪˈveɪʃn",
+      "meaning": "động lực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 10
+    }
+  },
+  {
+    "front": "crack",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kræk",
+      "meaning": "làm nứt"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "dynamic",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "daɪˈnæmɪk",
+      "meaning": "động lực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "cool",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kuːl",
+      "meaning": "làm mát"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "Gain",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "gen",
+      "meaning": "Lấy được, giành được"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "discourage",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "dɪsˈkɜːrɪdʒ",
+      "meaning": "làm nản lòng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 10
+    }
+  },
+  {
+    "front": "Ruin",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "",
+      "meaning": "'ru:ın Phá sản Làm phá sản"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "Prejudice",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'predʒədıs",
+      "meaning": "Gây tổn hại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 9
+    }
+  },
+  {
+    "front": "Comply",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kəm'plaı",
+      "meaning": "Tuân theo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 6
+    }
+  },
+  {
+    "front": "flood",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "flʌd",
+      "meaning": "làm ngập"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Compose",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kəm'pəuz",
+      "meaning": "Giải quyết, dàn xếp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "surprise",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "sərˈpraɪz",
+      "meaning": "làm ngạc nhiên"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "Combine",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kəm'baın",
+      "meaning": "Kết hợp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "Fill",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "fıl",
+      "meaning": "Làm đầy"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "Lose",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "lu:z",
+      "meaning": "Mất, làm mất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "camping",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˈkæmpɪŋ",
+      "meaning": "hoạt động cắm trại"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "Risk",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "rısk",
+      "meaning": "Có nguy cơ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "Freight",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "frent",
+      "meaning": "Vận chuyển"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "relaxing",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "rɪˈlæksɪŋ",
+      "meaning": "làm thư giãn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "Smash",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "smæʃ",
+      "meaning": "Làm phá sản"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Decline",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "dı'klaın",
+      "meaning": "Từ chối"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "confuse",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kənˈfjuːz",
+      "meaning": "làm bối rối, nhầm lẫn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "Continue",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kən'tınju:",
+      "meaning": "Tiếp tục"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "reassure",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ˌriːəˈʃʊr",
+      "meaning": "cam đoan, làm yên tâm"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "upset",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ʌpˈset",
+      "meaning": "làm buồn bực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "Deal",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "di:l",
+      "meaning": "Giao dịch"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "distract",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "dɪˈstrækt",
+      "meaning": "làm sao nhãng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 8
+    }
+  },
+  {
+    "front": "Erode",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ı'rəʊd",
+      "meaning": "Làm yếu dần"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 5
+    }
+  },
+  {
+    "front": "disturb",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "dɪˈstɜːrb",
+      "meaning": "làm phiền"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 7
+    }
+  },
+  {
+    "front": "Load",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "ləʊd",
+      "meaning": "Chuyển, chất hàng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "Damp",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "dæmp",
+      "meaning": "Làm nản"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 4
+    }
+  },
+  {
+    "front": "Institute",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "'ınstıtʃu:t",
+      "meaning": "Lập ra"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 9
+    }
+  },
+  {
+    "front": "Conclude",
+    "back": {
+      "pos": "Verb",
+      "phonetic": "kən'klu:d",
+      "meaning": "Kết luận, dàn xếp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "General Actions",
+      "length": 8
+    }
+  }
+]

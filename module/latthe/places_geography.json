@@ -1,0 +1,405 @@
+[
+  {
+    "front": "Undercapitalized",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "Andə kæpıtəlaızd",
+      "meaning": "Cấp vốn không đủ"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 16
+    }
+  },
+  {
+    "front": "town",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "taʊn",
+      "meaning": "thị trấn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 4
+    }
+  },
+  {
+    "front": "coast",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "koʊst",
+      "meaning": "bờ biển"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 5
+    }
+  },
+  {
+    "front": "map",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "mæp",
+      "meaning": "vẽ bản đồ, lên kế hoạch"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 3
+    }
+  },
+  {
+    "front": "country",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkʌntri",
+      "meaning": "quốc gia, đất nước"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 7
+    }
+  },
+  {
+    "front": "province",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈprɑːvɪns",
+      "meaning": "tỉnh"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 8
+    }
+  },
+  {
+    "front": "Capital",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'kæpıtl",
+      "meaning": "Vốn, tư bản"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 7
+    }
+  },
+  {
+    "front": "District",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "'dıstrıkt",
+      "meaning": "Khu vực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 8
+    }
+  },
+  {
+    "front": "regional",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈriːdʒənəl",
+      "meaning": "thuộc về khu vực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 8
+    }
+  },
+  {
+    "front": "region",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈriːdʒən",
+      "meaning": "khu vực, vùng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 6
+    }
+  },
+  {
+    "front": "capacity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kəˈpæsəti",
+      "meaning": "sức chứa, công suất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 8
+    }
+  },
+  {
+    "front": "villager",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈvɪlɪdʒər",
+      "meaning": "dân làng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 8
+    }
+  },
+  {
+    "front": "electricity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ɪˌlekˈtrɪsəti",
+      "meaning": "điện"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 11
+    }
+  },
+  {
+    "front": "area",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈeriə",
+      "meaning": "khu vực, diện tích"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 4
+    }
+  },
+  {
+    "front": "rural",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈrʊrəl",
+      "meaning": "thuộc nông thôn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 5
+    }
+  },
+  {
+    "front": "continent",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkɑːntɪnənt",
+      "meaning": "lục địa"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 9
+    }
+  },
+  {
+    "front": "suburban",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "səˈbɜːrbən",
+      "meaning": "thuộc ngoại ô"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 8
+    }
+  },
+  {
+    "front": "urban",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈɜːrbən",
+      "meaning": "thuộc thành thị"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 5
+    }
+  },
+  {
+    "front": "capital",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkæpɪtl",
+      "meaning": "thủ đô, tiền vốn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 7
+    }
+  },
+  {
+    "front": "city",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈsɪti",
+      "meaning": "thành phố"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 4
+    }
+  },
+  {
+    "front": "Capacity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "kə'pæsəti",
+      "meaning": "Dung lượng, năng suất"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 8
+    }
+  },
+  {
+    "front": "capitalism",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkæpɪtəlɪzəm",
+      "meaning": "chủ nghĩa tư bản"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 10
+    }
+  },
+  {
+    "front": "atrocity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "əˈtrɑːsəti",
+      "meaning": "sự tàn bạo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 8
+    }
+  },
+  {
+    "front": "border",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈbɔːrdər",
+      "meaning": "tiếp giáp"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 6
+    }
+  },
+  {
+    "front": "Zone",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "zəʊn",
+      "meaning": "Khu vực"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 4
+    }
+  },
+  {
+    "front": "coastal",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkoʊstl",
+      "meaning": "thuộc bờ biển"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 7
+    }
+  },
+  {
+    "front": "publicity",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "pʌbˈlɪsəti",
+      "meaning": "sự công khai, quảng cáo"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 9
+    }
+  },
+  {
+    "front": "countryside",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkʌntrisaɪd",
+      "meaning": "vùng nông thôn"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 11
+    }
+  },
+  {
+    "front": "capitalist",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈkæpɪtəlɪst",
+      "meaning": "thuộc tư bản"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 10
+    }
+  },
+  {
+    "front": "village",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˈvɪlɪdʒ",
+      "meaning": "ngôi làng"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 7
+    }
+  },
+  {
+    "front": "downtown",
+    "back": {
+      "pos": "Noun",
+      "phonetic": "ˌdaʊnˈtaʊn",
+      "meaning": "trung tâm thành phố"
+    },
+    "metadata": {
+      "difficulty": "Intermediate",
+      "topic": "Places & Geography",
+      "length": 8
+    }
+  }
+]
