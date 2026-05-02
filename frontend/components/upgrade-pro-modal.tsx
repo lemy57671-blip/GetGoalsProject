@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   AlertCircle,
   Check,
@@ -48,6 +48,59 @@ function formatTime(seconds: number) {
     .padStart(2, "0")}`;
 }
 
+function parsePaymentDate(value: string) {
+  const hasTimeZone = /(?:z|[+-]\d{2}:?\d{2})$/i.test(value);
+  const timestamp = Date.parse(hasTimeZone ? value : `${value}Z`);
+
+  return Number.isNaN(timestamp) ? null : timestamp;
+}
+
+function getSecondsUntil(value: string) {
+  const timestamp = parsePaymentDate(value);
+
+  if (timestamp === null) return null;
+
+  return Math.max(0, Math.floor((timestamp - Date.now()) / 1000));
+}
+
+function getPaymentQrImageUrl(payment: CreateProOrderResponse | null) {
+  if (!payment) return "";
+
+  const qrCode = payment.qrCode.trim();
+
+  if (
+    qrCode.startsWith("http://") ||
+    qrCode.startsWith("https://") ||
+    qrCode.startsWith("data:image")
+  ) {
+    return qrCode;
+  }
+
+  if (qrCode) {
+    const query = new URLSearchParams({
+      size: "220x220",
+      data: qrCode,
+    });
+
+    return `https://api.qrserver.com/v1/create-qr-code/?${query.toString()}`;
+  }
+
+  if (!payment.bankCode || !payment.bankAccountNo) return "";
+
+  const query = new URLSearchParams({
+    amount: String(Math.round(payment.amount)),
+    addInfo: payment.description || payment.orderCode,
+  });
+
+  if (payment.bankAccountName) {
+    query.set("accountName", payment.bankAccountName);
+  }
+
+  return `https://img.vietqr.io/image/${encodeURIComponent(
+    payment.bankCode,
+  )}-${encodeURIComponent(payment.bankAccountNo)}-compact2.png?${query.toString()}`;
+}
+
 export function UpgradeProModal({
   open,
   onOpenChange,
@@ -62,34 +115,73 @@ export function UpgradeProModal({
   const [copied, setCopied] = useState<string | null>(null);
   const [countdown, setCountdown] = useState(0);
   const [configStatus, setConfigStatus] = useState<PaymentConfigStatus | null>(null);
+  const [configLoading, setConfigLoading] = useState(false);
+  const [configError, setConfigError] = useState("");
+  const [statusChecking, setStatusChecking] = useState(false);
+  const createAttemptRef = useRef(0);
+  const currentOrderCodeRef = useRef<string | null>(null);
+  const openRef = useRef(open);
+  const statusCheckInFlightRef = useRef(false);
 
   const amountLabel = useMemo(
     () => `${(payment?.amount || amount).toLocaleString("vi-VN")} VND`,
     [payment?.amount, amount],
   );
-  const qrIsImage =
-    !!payment?.qrCode &&
-    (payment.qrCode.startsWith("http://") ||
-      payment.qrCode.startsWith("https://") ||
-      payment.qrCode.startsWith("data:image"));
-  const paymentReady = Boolean(
-    configStatus?.payosConfigured && configStatus?.bankTransferConfigured,
-  );
+  const paymentQrImageUrl = useMemo(() => getPaymentQrImageUrl(payment), [payment]);
+  const paymentReady = Boolean(configStatus?.payosConfigured);
+  const bankTransferReady = Boolean(configStatus?.bankTransferConfigured);
+
+  function resetPaymentFlow(options?: { clearRememberedOrder?: boolean }) {
+    createAttemptRef.current += 1;
+    currentOrderCodeRef.current = null;
+    setPayment(null);
+    setPaymentState("idle");
+    setMessage("");
+    setCopied(null);
+    setCountdown(0);
+    setStatusChecking(false);
+    statusCheckInFlightRef.current = false;
+
+    if (options?.clearRememberedOrder) {
+      paymentsService.clearRememberedOrder();
+    }
+  }
+
+  useEffect(() => {
+    openRef.current = open;
+  }, [open]);
+
+  useEffect(() => {
+    currentOrderCodeRef.current = payment?.orderCode || null;
+  }, [payment?.orderCode]);
 
   useEffect(() => {
     if (!open) return;
+
+    resetPaymentFlow({ clearRememberedOrder: true });
 
     let cancelled = false;
 
     async function loadConfig() {
       try {
+        setConfigLoading(true);
+        setConfigError("");
         const status = await paymentsService.getConfigStatus();
         if (!cancelled) {
           setConfigStatus(status);
         }
-      } catch {
+      } catch (error) {
         if (!cancelled) {
           setConfigStatus(null);
+          setConfigError(
+            error instanceof Error
+              ? error.message
+              : "Khong kiem tra duoc cau hinh thanh toan.",
+          );
+        }
+      } finally {
+        if (!cancelled) {
+          setConfigLoading(false);
         }
       }
     }
@@ -104,11 +196,22 @@ export function UpgradeProModal({
   useEffect(() => {
     if (!payment?.expiredAt || paymentState !== "pending") return;
 
+    const orderCode = payment.orderCode;
+
     const timer = window.setInterval(() => {
-      const secondsLeft = Math.max(
-        0,
-        Math.floor((new Date(payment.expiredAt).getTime() - Date.now()) / 1000),
-      );
+      if (!openRef.current || currentOrderCodeRef.current !== orderCode) {
+        window.clearInterval(timer);
+        return;
+      }
+
+      const secondsLeft = getSecondsUntil(payment.expiredAt);
+
+      if (secondsLeft === null) {
+        setPaymentState("failed");
+        setMessage("Khong doc duoc thoi han thanh toan. Vui long tao lai.");
+        window.clearInterval(timer);
+        return;
+      }
 
       setCountdown(secondsLeft);
 
@@ -120,52 +223,97 @@ export function UpgradeProModal({
     }, 1000);
 
     return () => window.clearInterval(timer);
-  }, [payment?.expiredAt, paymentState]);
+  }, [payment?.expiredAt, payment?.orderCode, paymentState]);
 
   useEffect(() => {
     if (!payment?.orderCode || paymentState !== "pending") return;
 
-    const timer = window.setInterval(async () => {
-      try {
-        const status = await paymentsService.getPaymentStatus(payment.orderCode);
+    const orderCode = payment.orderCode;
 
-        if (status.status === "paid") {
-          setPaymentState("paid");
-          setMessage("Thanh toan da duoc xac nhan thanh cong.");
-          paymentsService.clearRememberedOrder();
-          void refreshSession();
-          try {
-            window.localStorage.setItem(
-              "getgoals_pro_upgrade_success",
-              Date.now().toString(),
-            );
-            window.dispatchEvent(new CustomEvent("getgoals:pro-upgraded"));
-          } catch {
-            // The subscription is already activated; the toast signal is best-effort.
-          }
-          window.clearInterval(timer);
-          window.setTimeout(() => onOpenChange(false), 1200);
-        } else if (status.status === "expired") {
-          setPaymentState("expired");
-          setMessage("Don thanh toan da het han.");
-          window.clearInterval(timer);
-        } else if (status.status === "cancelled" || status.status === "failed") {
-          setPaymentState("failed");
-          setMessage("Thanh toan chua hoan tat.");
-          window.clearInterval(timer);
-        }
-      } catch {
-        // Keep polling gently; the payment page can still confirm via webhook.
-      }
+    void checkPaymentStatus(orderCode);
+
+    const timer = window.setInterval(() => {
+      void checkPaymentStatus(orderCode);
     }, 5000);
 
     return () => window.clearInterval(timer);
   }, [payment?.orderCode, paymentState, onOpenChange, refreshSession]);
 
+  async function checkPaymentStatus(orderCode: string, manual = false) {
+    if (statusCheckInFlightRef.current) return;
+
+    statusCheckInFlightRef.current = true;
+
+    if (manual) {
+      setStatusChecking(true);
+      setMessage("Dang kiem tra trang thai thanh toan...");
+    }
+
+    try {
+      const status = await paymentsService.getPaymentStatus(orderCode);
+
+      if (!openRef.current || currentOrderCodeRef.current !== orderCode) {
+        return;
+      }
+
+      if (status.status === "paid") {
+        setPaymentState("paid");
+        setMessage("Thanh toan da duoc xac nhan thanh cong.");
+        paymentsService.clearRememberedOrder();
+        void refreshSession();
+        try {
+          window.localStorage.setItem(
+            "getgoals_pro_upgrade_success",
+            Date.now().toString(),
+          );
+          window.dispatchEvent(new CustomEvent("getgoals:pro-upgraded"));
+        } catch {
+          // The subscription is already activated; the toast signal is best-effort.
+        }
+        window.setTimeout(() => onOpenChange(false), 1200);
+      } else if (status.status === "expired") {
+        setPaymentState("expired");
+        setMessage("Don thanh toan da het han.");
+      } else if (status.status === "cancelled" || status.status === "failed") {
+        setPaymentState("failed");
+        setMessage("Thanh toan chua hoan tat.");
+      } else if (manual) {
+        setMessage(
+          "Chua thay xac nhan tu PayOS. Neu ban vua chuyen khoan, hay doi them it phut roi kiem tra lai.",
+        );
+      }
+    } catch (error) {
+      if (manual && openRef.current && currentOrderCodeRef.current === orderCode) {
+        setMessage(
+          error instanceof Error
+            ? error.message
+            : "Khong kiem tra duoc trang thai thanh toan.",
+        );
+      }
+    } finally {
+      statusCheckInFlightRef.current = false;
+      if (manual) {
+        setStatusChecking(false);
+      }
+    }
+  }
+
   async function handleCreatePayment() {
+    const attemptId = createAttemptRef.current + 1;
+    createAttemptRef.current = attemptId;
+    currentOrderCodeRef.current = null;
+    setPayment(null);
+    setCountdown(0);
+    setCopied(null);
+
     if (!isAuthenticated) {
       setPaymentState("failed");
       setMessage("Ban can dang nhap truoc khi thanh toan.");
+      return;
+    }
+
+    if (!paymentReady) {
+      setMessage("He thong thanh toan chua san sang. Vui long thu lai sau.");
       return;
     }
 
@@ -174,16 +322,28 @@ export function UpgradeProModal({
 
     try {
       const order = await paymentsService.createProOrder(planCode);
+      if (!openRef.current || createAttemptRef.current !== attemptId) {
+        return;
+      }
+
+      const secondsLeft = getSecondsUntil(order.expiredAt);
+
+      if (secondsLeft === null) {
+        setPaymentState("failed");
+        setMessage("Khong doc duoc thoi han thanh toan. Vui long tao lai.");
+        return;
+      }
+
       setPayment(order);
       paymentsService.rememberOrder(order.orderCode);
       setPaymentState("pending");
-      setCountdown(
-        Math.max(
-          0,
-          Math.floor((new Date(order.expiredAt).getTime() - Date.now()) / 1000),
-        ),
-      );
+      setMessage("Dang cho PayOS xac nhan thanh toan.");
+      setCountdown(secondsLeft);
     } catch (error) {
+      if (!openRef.current || createAttemptRef.current !== attemptId) {
+        return;
+      }
+
       setPaymentState("failed");
       setMessage(
         error instanceof Error
@@ -199,20 +359,13 @@ export function UpgradeProModal({
     window.setTimeout(() => setCopied(null), 2000);
   }
 
-  function handleReset() {
-    setPayment(null);
-    setPaymentState("idle");
-    setMessage("");
-    setCountdown(0);
-  }
-
   return (
     <Dialog
       open={open}
       onOpenChange={(nextOpen) => {
         onOpenChange(nextOpen);
         if (!nextOpen) {
-          handleReset();
+          resetPaymentFlow();
         }
       }}
     >
@@ -227,7 +380,7 @@ export function UpgradeProModal({
           </DialogDescription>
         </DialogHeader>
 
-        {configStatus && (
+        {(configStatus || configLoading || configError) && (
           <div
             className={`rounded-xl border p-3 text-sm ${
               paymentReady
@@ -235,9 +388,13 @@ export function UpgradeProModal({
                 : "border-orange-200 bg-orange-50 text-orange-700"
             }`}
           >
-            {paymentReady
-              ? "He thong thanh toan da san sang."
-              : "Tam thoi chua the tao thanh toan. Vui long thu lai sau."}
+            {configLoading
+              ? "Dang kiem tra cau hinh thanh toan..."
+              : paymentReady
+                ? bankTransferReady
+                  ? "He thong thanh toan da san sang."
+                  : "Cong thanh toan da san sang. Thong tin ngan hang se duoc cap nhat tu PayOS."
+                : configError || "Tam thoi chua the tao thanh toan. Vui long thu lai sau."}
           </div>
         )}
 
@@ -256,11 +413,14 @@ export function UpgradeProModal({
             <Button
               onClick={() => void handleCreatePayment()}
               className="w-full gap-2"
-              disabled={!paymentReady}
+              disabled={configLoading || !paymentReady}
             >
               <Crown className="h-4 w-4" />
-              Tao thanh toan
+              {configLoading ? "Dang kiem tra..." : "Tao thanh toan"}
             </Button>
+            {message ? (
+              <p className="text-center text-sm text-destructive">{message}</p>
+            ) : null}
           </div>
         )}
 
@@ -275,9 +435,9 @@ export function UpgradeProModal({
           <div className="space-y-6">
             <div className="flex flex-col items-center gap-4">
               <div className="grid h-52 w-52 place-items-center rounded-2xl border bg-white p-4">
-                {qrIsImage ? (
+                {paymentQrImageUrl ? (
                   <img
-                    src={payment.qrCode}
+                    src={paymentQrImageUrl}
                     alt="QR thanh toan"
                     className="h-full w-full object-contain"
                   />
@@ -336,7 +496,31 @@ export function UpgradeProModal({
                   Mo PayOS
                 </a>
               </Button>
-              <Button variant="secondary" onClick={handleReset} className="gap-2">
+              <Button
+                variant="outline"
+                onClick={() => void checkPaymentStatus(payment.orderCode, true)}
+                className="gap-2"
+                disabled={statusChecking}
+              >
+                {statusChecking ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <RefreshCcw className="h-4 w-4" />
+                )}
+                Kiem tra
+              </Button>
+            </div>
+
+            {message ? (
+              <p className="text-center text-sm text-muted-foreground">{message}</p>
+            ) : null}
+
+            <div className="grid gap-3 sm:grid-cols-1">
+              <Button
+                variant="secondary"
+                onClick={() => void handleCreatePayment()}
+                className="gap-2"
+              >
                 <RefreshCcw className="h-4 w-4" />
                 Tao lai
               </Button>
@@ -372,7 +556,12 @@ export function UpgradeProModal({
                 {message || "Vui long thu lai sau it phut."}
               </p>
             </div>
-            <Button onClick={handleReset} variant="outline" className="w-full gap-2">
+            <Button
+              onClick={() => void handleCreatePayment()}
+              variant="outline"
+              className="w-full gap-2"
+              disabled={configLoading || !paymentReady}
+            >
               <RefreshCcw className="h-4 w-4" />
               Thu lai
             </Button>

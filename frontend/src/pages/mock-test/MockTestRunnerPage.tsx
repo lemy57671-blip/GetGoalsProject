@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import {
   AlertCircle,
@@ -16,6 +16,9 @@ import {
 
 import { AudioPlayerBar } from "@/components/audio-player-bar";
 import { ProFeatureGuard } from "@/components/pro-feature-guard";
+import { RightAnswerSheet } from "@src/components/runner/RightAnswerSheet";
+import { RunnerActionButtons } from "@src/components/runner/RunnerActionButtons";
+import { RunnerNotebookPanel } from "@src/components/runner/RunnerNotebookPanel";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -32,8 +35,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { mockQuestions } from "@src/data/mock-test-runner";
+import { useHighlightSelection } from "@src/hooks/useHighlightSelection";
 import { attemptsService } from "@src/services/attemptsService";
+import { ApiError } from "@src/services/apiClient";
+import { reviewService, type ReviewHighlight, type ReviewNote } from "@src/services/reviewService";
 import { toeicService, ToeicRunnerQuestion } from "@src/services/toeicService";
+import { useLanguage } from "@src/contexts/LanguageContext";
 import {
   weeklyCheckService,
   type WeeklyCheckCurrent,
@@ -47,6 +54,8 @@ type MockRunnerQuestion = (typeof mockQuestions)[number] & {
   questionNumber?: number;
   correctAnswerIndex?: number | null;
   explanation?: string;
+  passageTitle?: string | null;
+  passageText?: string | null;
   groupId?: string | null;
   audioPath?: string;
   graphicPath?: string;
@@ -71,13 +80,21 @@ function mapToeicQuestionToMockRunnerQuestion(
     difficulty: "mixed",
     skill: question.skill,
     subskill: question.subskill || "",
-    sourceQuestionId: question.id,
+    sourceQuestionId:
+      question.docxQuestionId ||
+      question.sourceQuestionId ||
+      question.sqlId ||
+      question.dbId ||
+      question.questionId ||
+      question.id,
     section: question.section,
     partLabel: question.part,
     test: question.test,
     questionNumber: question.questionNumber,
     correctAnswerIndex: question.correct,
     explanation: question.explanation,
+    passageTitle: question.passageTitle,
+    passageText: question.passageText,
     groupId: question.groupId,
     audioPath: question.audioPath,
     graphicPath: question.graphicPath,
@@ -97,19 +114,50 @@ function parsePositiveNumber(value: string | null, fallback: number) {
   return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
 }
 
+function getStableQuestionId(question?: MockRunnerQuestion | null) {
+  const candidate =
+    question?.sourceQuestionId ||
+    (question as { questionId?: number | null } | null)?.questionId ||
+    (question as { QuestionId?: number | null } | null)?.QuestionId ||
+    null;
+  const parsed = Number(candidate);
+  return Number.isInteger(parsed) && parsed > 0 ? parsed : null;
+}
+
+function formatFullTestAvailabilityError(error: unknown) {
+  if (!(error instanceof ApiError) || error.status !== 409) {
+    return error instanceof Error ? error.message : "Could not load mock-test questions from FastAPI.";
+  }
+
+  const payload = error.payload as { missing?: Record<string, number> } | null;
+  const missingEntries = Object.entries(payload?.missing || {})
+    .map(([part, count]) => [part, Number(count)] as const)
+    .filter(([, count]) => count > 0);
+
+  if (missingEntries.length === 0) {
+    return "Dữ liệu chưa đủ để tạo Full Test 200 câu.";
+  }
+
+  return `Dữ liệu chưa đủ để tạo Full Test 200 câu. Thiếu ${missingEntries
+    .map(([part, count]) => `Part ${part}: còn thiếu ${count} câu`)
+    .join("; ")}.`;
+}
+
 export function MockTestRunnerPage() {
+  const { t } = useLanguage();
+  const highlightSelection = useHighlightSelection();
   const location = useLocation();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const runnerType = location.pathname.startsWith("/weekly-check/runner")
     ? "weekly"
-    : searchParams.get("type") || "full";
+    : searchParams.get("type") || searchParams.get("mode") || "full";
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [flagged, setFlagged] = useState<number[]>([]);
   const [timeLeft, setTimeLeft] = useState(120 * 60);
   const [showSubmitDialog, setShowSubmitDialog] = useState(false);
-  const [questions, setQuestions] = useState<MockRunnerQuestion[]>(mockQuestions);
+  const [questions, setQuestions] = useState<MockRunnerQuestion[]>([]);
   const [questionSource, setQuestionSource] = useState<"fastapi" | "local">("local");
   const [isLoadingQuestions, setIsLoadingQuestions] = useState(true);
   const [questionError, setQuestionError] = useState<string | null>(null);
@@ -117,6 +165,18 @@ export function MockTestRunnerPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [startedAtUtc, setStartedAtUtc] = useState(() => new Date().toISOString());
   const [weeklyCheck, setWeeklyCheck] = useState<WeeklyCheckCurrent | null>(null);
+  const [savedNotes, setSavedNotes] = useState<ReviewNote[]>([]);
+  const [savedHighlights, setSavedHighlights] = useState<ReviewHighlight[]>([]);
+  const [questionNote, setQuestionNote] = useState("");
+  const [isBookmarked, setIsBookmarked] = useState(false);
+  const [noteFocusKey, setNoteFocusKey] = useState(0);
+  const [noteSaved, setNoteSaved] = useState(false);
+  const [isSavingNote, setIsSavingNote] = useState(false);
+  const [isSavingHighlight, setIsSavingHighlight] = useState(false);
+  const [reviewToolError, setReviewToolError] = useState<string | null>(null);
+  const [notebookStatusByNumber, setNotebookStatusByNumber] = useState<
+    Record<number, { bookmarked?: boolean; hasNote?: boolean; hasHighlight?: boolean }>
+  >({});
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -165,19 +225,21 @@ export function MockTestRunnerPage() {
                 : Math.max(10, result.length) * 90,
           );
         } else if (runnerType === "mini" || runnerType === "full" || runnerType === "weekly") {
-          setQuestionError("The FastAPI test runner returned no questions, so local fallback data is shown.");
-          setQuestions(mockQuestions);
-          setQuestionSource("local");
+          setQuestionError("Chưa có bài test phù hợp với lựa chọn này.");
+          setQuestions([]);
+          setQuestionSource("fastapi");
           setWeeklyCheck(null);
         }
       } catch (error) {
         if (!cancelled) {
           setQuestionError(
-            error instanceof Error
-              ? error.message
-              : "Could not load mock-test questions from FastAPI.",
+            runnerType === "full"
+              ? formatFullTestAvailabilityError(error)
+              : error instanceof Error
+                ? error.message
+                : "Could not load mock-test questions from FastAPI.",
           );
-          setQuestions(mockQuestions);
+          setQuestions([]);
           setQuestionSource("local");
           setWeeklyCheck(null);
         }
@@ -230,8 +292,121 @@ export function MockTestRunnerPage() {
   const totalQuestions = questions.length;
   const answeredCount = Object.keys(answers).length;
   const progress = totalQuestions > 0 ? (answeredCount / totalQuestions) * 100 : 0;
+  const currentQ = questions[currentQuestion - 1] ?? questions[0] ?? mockQuestions[0];
+  const currentSqlQuestionId = getStableQuestionId(currentQ);
+  const currentNotebookStatus = notebookStatusByNumber[currentQuestion] || {};
+  const selectedTextForHighlight = highlightSelection.selection?.selectedText || "";
+  const highlightTerms = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          savedHighlights
+            .map((highlight) => highlight.selectedText.trim())
+            .filter(Boolean),
+        ),
+      ),
+    [savedHighlights],
+  );
 
-  const currentQ = questions[currentQuestion - 1] || mockQuestions[0];
+  const renderHighlightedText = (text?: string | null) => {
+    const value = text || "";
+    if (!value || highlightTerms.length === 0) return value;
+    const escaped = highlightTerms.map((term) => term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+    const regex = new RegExp(`(${escaped.join("|")})`, "gi");
+    return value.split(regex).map((part, index) =>
+      highlightTerms.some((term) => term.toLowerCase() === part.toLowerCase()) ? (
+        <mark key={`${part}-${index}`} className="rounded bg-yellow-200 px-0.5 text-foreground">
+          {part}
+        </mark>
+      ) : (
+        part
+      ),
+    );
+  };
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadReviewTools() {
+      if (!currentSqlQuestionId) {
+        setSavedNotes([]);
+        setSavedHighlights([]);
+        setQuestionNote("");
+        setNoteSaved(false);
+        setIsBookmarked(false);
+        return;
+      }
+
+      setReviewToolError(null);
+      setNoteSaved(false);
+      try {
+        const [notes, highlights, bookmarked] = await Promise.all([
+          reviewService.getNotes(currentSqlQuestionId),
+          reviewService.getHighlights(currentSqlQuestionId),
+          reviewService.getBookmark(currentSqlQuestionId),
+        ]);
+        if (cancelled) return;
+        setSavedNotes(notes);
+        setSavedHighlights(highlights);
+        setQuestionNote(notes[0]?.noteText || "");
+        setNoteSaved(false);
+        setIsBookmarked(bookmarked);
+        setNotebookStatusByNumber((prev) => ({
+          ...prev,
+          [currentQuestion]: {
+            bookmarked,
+            hasNote: notes.length > 0,
+            hasHighlight: highlights.length > 0,
+          },
+        }));
+      } catch (error) {
+        if (!cancelled) {
+          setReviewToolError(error instanceof Error ? error.message : "Could not load review tools.");
+        }
+      }
+    }
+
+    void loadReviewTools();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [currentQuestion, currentSqlQuestionId]);
+
+  if (totalQuestions === 0) {
+    return (
+      <ProFeatureGuard
+        feature="mockTestUnlimited"
+        title={
+          runnerType === "weekly"
+            ? "Weekly Check la tinh nang Pro"
+            : "Mock Test la tinh nang Pro"
+        }
+        description="Nang cap Pro de mo khoa de thi day du, mini test va bai kiem tra hang tuan."
+      >
+        <div className="grid min-h-[calc(100vh-4rem)] place-items-center bg-background p-6">
+          <Card className="max-w-xl rounded-3xl border-border shadow-sm">
+            <CardHeader>
+              <CardTitle>
+                {isLoadingQuestions ? "Đang tải bài test..." : "Chưa có bài test phù hợp"}
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <p className="text-sm text-muted-foreground">
+                {isLoadingQuestions
+                  ? "Đang lấy câu hỏi từ FastAPI."
+                  : questionError || "Chưa có bài test phù hợp với lựa chọn này."}
+              </p>
+              <Button asChild>
+                <Link to="/mock-test">Quay lại Mock Test</Link>
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </ProFeatureGuard>
+    );
+  }
+
   const isListeningSection = currentQ.part <= 4;
   const listeningQuestionNumbers = questions
     .map((question, index) => ({ question, number: index + 1 }))
@@ -336,6 +511,108 @@ export function MockTestRunnerPage() {
       setIsSubmitting(false);
     }
   };
+
+  const handleTextSelect = () => {
+    highlightSelection.captureSelection();
+  };
+
+  const handleToggleBookmark = async () => {
+    if (!currentSqlQuestionId) return;
+    const nextValue = !isBookmarked;
+    setIsBookmarked(nextValue);
+    toggleFlag(currentQuestion);
+    try {
+      const saved = await reviewService.toggleBookmark(currentSqlQuestionId);
+      setIsBookmarked(saved);
+      setNotebookStatusByNumber((prev) => ({
+        ...prev,
+        [currentQuestion]: {
+          ...(prev[currentQuestion] || {}),
+          bookmarked: saved,
+        },
+      }));
+    } catch (error) {
+      setIsBookmarked(!nextValue);
+      setReviewToolError(error instanceof Error ? error.message : "Could not save bookmark.");
+    }
+  };
+
+  const handleSaveNote = async () => {
+    if (!currentSqlQuestionId || !questionNote.trim()) return;
+    setIsSavingNote(true);
+    setReviewToolError(null);
+    try {
+      const note = await reviewService.saveNote(currentSqlQuestionId, questionNote.trim());
+      setSavedNotes([note]);
+      setQuestionNote(note.noteText);
+      setNoteSaved(true);
+      setNotebookStatusByNumber((prev) => ({
+        ...prev,
+        [currentQuestion]: {
+          ...(prev[currentQuestion] || {}),
+          hasNote: true,
+        },
+      }));
+    } catch (error) {
+      setReviewToolError(error instanceof Error ? error.message : "Could not save note.");
+    } finally {
+      setIsSavingNote(false);
+    }
+  };
+
+  const handleCreateHighlight = async () => {
+    const currentSelection = highlightSelection.selection || highlightSelection.captureSelection();
+    if (!currentSelection?.selectedText.trim()) {
+      setReviewToolError(t("runner.selectTextToHighlight"));
+      return;
+    }
+    if (!currentSqlQuestionId) {
+      console.warn("[Highlight] Missing SQL question id for current test question.", currentQ);
+      setReviewToolError("Cannot save highlight: missing question id.");
+      return;
+    }
+    setIsSavingHighlight(true);
+    setReviewToolError(null);
+    try {
+      const highlight = await reviewService.createHighlight({
+        questionId: currentSqlQuestionId,
+        targetType: currentSelection.targetType || "question",
+        targetKey: currentSelection.targetKey || null,
+        selectedText: currentSelection.selectedText.trim(),
+        startOffset: currentSelection.startOffset ?? null,
+        endOffset: currentSelection.endOffset ?? null,
+        color: "yellow",
+      });
+      setSavedHighlights((prev) => [highlight, ...prev]);
+      setNotebookStatusByNumber((prev) => ({
+        ...prev,
+        [currentQuestion]: {
+          ...(prev[currentQuestion] || {}),
+          hasHighlight: true,
+        },
+      }));
+      highlightSelection.clearSelection();
+    } catch (error) {
+      setReviewToolError(error instanceof Error ? error.message : "Could not save highlight.");
+    } finally {
+      setIsSavingHighlight(false);
+    }
+  };
+
+  const answerSheetItems = questions.map((question, index) => {
+    const number = index + 1;
+    return {
+      id: number,
+      label: String(number),
+      part: question.part,
+      section: question.part <= 4 ? "Listening" : "Reading",
+      current: number === currentQuestion,
+      answered: Boolean(answers[number]),
+      bookmarked: Boolean(notebookStatusByNumber[number]?.bookmarked || flagged.includes(number)),
+      hasNote: Boolean(notebookStatusByNumber[number]?.hasNote),
+      hasHighlight: Boolean(notebookStatusByNumber[number]?.hasHighlight),
+    };
+  });
 
   return (
     <ProFeatureGuard
@@ -509,36 +786,61 @@ export function MockTestRunnerPage() {
               />
             )}
 
-            <Card className="shadow-lg">
+            <Card className="shadow-lg" data-highlight-root>
               <CardHeader className="pb-4">
                 <div className="flex items-start justify-between">
-                  <CardTitle className="text-lg leading-relaxed">
-                    {currentQ.question}
+                  <CardTitle
+                    className="text-lg leading-relaxed"
+                    data-highlight-target="question"
+                    data-highlight-key="question"
+                    onMouseUp={handleTextSelect}
+                    onKeyUp={handleTextSelect}
+                  >
+                    {renderHighlightedText(currentQ.question)}
                   </CardTitle>
 
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => toggleFlag(currentQuestion)}
-                    className={
-                      flagged.includes(currentQuestion)
-                        ? "text-yellow-500"
-                        : "text-muted-foreground"
-                    }
-                  >
-                    <Flag
-                      className="h-5 w-5"
-                      fill={
-                        flagged.includes(currentQuestion)
-                          ? "currentColor"
-                          : "none"
-                      }
-                    />
-                  </Button>
+                  <RunnerActionButtons
+                    bookmarked={isBookmarked || flagged.includes(currentQuestion)}
+                    hasNote={Boolean(currentNotebookStatus.hasNote || savedNotes.length)}
+                    hasHighlight={Boolean(currentNotebookStatus.hasHighlight || savedHighlights.length)}
+                    canHighlight={Boolean(selectedTextForHighlight)}
+                    labels={{
+                      mark: t("runner.mark"),
+                      marked: t("runner.marked"),
+                      note: t("runner.note"),
+                      highlight: t("runner.highlight"),
+                      highlightHint: t("runner.selectTextToHighlight"),
+                    }}
+                    onToggleBookmark={() => void handleToggleBookmark()}
+                    onOpenNote={() => setNoteFocusKey((value) => value + 1)}
+                    onHighlight={() => void handleCreateHighlight()}
+                  />
                 </div>
               </CardHeader>
 
-              <CardContent className="space-y-3">
+              <CardContent
+                className="space-y-3"
+                data-highlight-root
+                onMouseUp={handleTextSelect}
+                onKeyUp={handleTextSelect}
+              >
+                {currentQ.passageText ? (
+                  <div
+                    className="rounded-xl border border-[#E6EDF8] bg-[#F8FBFF] p-4 text-sm leading-relaxed text-foreground"
+                    data-highlight-target="passage"
+                    data-highlight-key="passage"
+                    onMouseUp={handleTextSelect}
+                    onKeyUp={handleTextSelect}
+                  >
+                    {currentQ.passageTitle ? (
+                      <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                        {currentQ.passageTitle}
+                      </p>
+                    ) : null}
+                    {renderHighlightedText(currentQ.passageText)}
+                  </div>
+                ) : null}
+
                 {currentQ.options.map((option) => (
                   <button
                     key={option.id}
@@ -559,7 +861,15 @@ export function MockTestRunnerPage() {
                       {option.id}
                     </div>
 
-                    <span className="flex-1">{option.text}</span>
+                    <span
+                      className="flex-1"
+                      data-highlight-target="option"
+                      data-highlight-key={option.id}
+                      onMouseUp={handleTextSelect}
+                      onKeyUp={handleTextSelect}
+                    >
+                      {renderHighlightedText(option.text)}
+                    </span>
 
                     {answers[currentQuestion] === option.id && (
                       <Check className="h-5 w-5 text-primary" />
@@ -597,10 +907,61 @@ export function MockTestRunnerPage() {
                 <ChevronRight className="h-4 w-4" />
               </Button>
             </div>
+
           </div>
         </div>
       </div>
 
+      <aside className="hidden w-[390px] shrink-0 overflow-y-auto border-l border-[#DDE7F7] bg-[#F8FAFC] p-4 lg:block">
+        <div className="sticky top-4 space-y-4">
+          <RunnerNotebookPanel
+            noteValue={questionNote}
+            onNoteChange={(value) => {
+              setQuestionNote(value);
+              setNoteSaved(false);
+            }}
+            onSaveNote={() => void handleSaveNote()}
+            highlights={savedHighlights}
+            focusKey={noteFocusKey}
+            saving={isSavingNote}
+            saved={noteSaved}
+            disabled={!currentSqlQuestionId}
+            error={reviewToolError}
+            labels={{
+              notebook: t("runner.notebook"),
+              notesForQuestion: t("runner.notesForQuestion"),
+              saveNote: t("runner.saveNote"),
+              saved: t("runner.saved"),
+              notePlaceholder: t("runner.notePlaceholder"),
+              noQuestionSelected: t("runner.noQuestionSelected"),
+              loading: t("common.loading"),
+              highlights: t("runner.highlights"),
+            }}
+          />
+
+          <RightAnswerSheet
+            items={answerSheetItems}
+            answeredCount={answeredCount}
+            totalCount={totalQuestions}
+            groupByPart={runnerType === "full"}
+            labels={{
+              title: t("runner.questionList"),
+              answered: t("runner.answered"),
+              unanswered: t("runner.unanswered"),
+              all: t("runner.all"),
+              marked: t("runner.marked"),
+              hasNote: t("runner.hasNote"),
+              hasHighlight: t("runner.hasHighlight"),
+              listening: t("runner.listening"),
+              reading: t("runner.reading"),
+              part: t("runner.part"),
+            }}
+            onSelect={(item) => goToQuestion(Number(item.id))}
+          />
+        </div>
+      </aside>
+
+      {false ? (
       <div className="flex w-80 flex-col border-l bg-card">
         <div className="border-b p-4">
           <h3 className="font-semibold">Danh sách câu hỏi</h3>
@@ -712,6 +1073,7 @@ export function MockTestRunnerPage() {
           </div>
         </div>
       </div>
+      ) : null}
     </div>
     </ProFeatureGuard>
   );

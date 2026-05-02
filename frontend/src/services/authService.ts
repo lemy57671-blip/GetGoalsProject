@@ -17,6 +17,11 @@ export type AuthUser = {
   name: string;
   email: string;
   avatarUrl?: string;
+  avatar_url?: string;
+  picture?: string;
+  photoURL?: string;
+  image?: string;
+  googlePicture?: string;
   provider?: string;
   plan?: string;
   planExpiredAt?: string | null;
@@ -83,6 +88,7 @@ type ChangePasswordInput = {
 };
 
 import {
+  AUTH_TOKEN_STORAGE_KEY,
   apiRequest,
   clearAuthToken,
   getAuthToken,
@@ -94,6 +100,40 @@ function buildNextPath(user: AuthUser, fallback: string) {
 }
 
 let googleConfigPromise: Promise<GoogleAuthConfig> | null = null;
+
+const authCacheKeys = [
+  AUTH_TOKEN_STORAGE_KEY,
+  "access_token",
+  "token",
+  "refresh_token",
+  "getgoals.user",
+  "getgoals.profile",
+  "getgoals.session",
+  "getgoals.authUser",
+  "auth_user",
+  "user",
+  "profile",
+];
+
+let logoutRedirectInProgress = false;
+
+function clearAuthCache() {
+  clearAuthToken();
+
+  if (typeof window === "undefined") return;
+
+  for (const key of authCacheKeys) {
+    window.localStorage.removeItem(key);
+    window.sessionStorage.removeItem(key);
+  }
+}
+
+function redirectAfterLogout(redirectTo: string) {
+  if (typeof window === "undefined") return;
+
+  logoutRedirectInProgress = true;
+  window.location.replace(redirectTo);
+}
 
 export const authService = {
   async login({ email, password, remember = true }: LoginInput): Promise<AuthResult> {
@@ -222,8 +262,17 @@ export const authService = {
     });
   },
 
-  logout() {
-    clearAuthToken();
+  clearSession() {
+    clearAuthCache();
+  },
+
+  logout(redirectTo = "/") {
+    clearAuthCache();
+    redirectAfterLogout(redirectTo);
+  },
+
+  isLogoutRedirectInProgress() {
+    return logoutRedirectInProgress;
   },
 
   isAuthenticated() {

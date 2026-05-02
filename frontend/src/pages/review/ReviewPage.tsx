@@ -2,917 +2,934 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { ProFeatureGuard } from "@/components/pro-feature-guard";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import {
-  CheckCircle,
-  XCircle,
-  AlertCircle,
-  ChevronRight,
-  Highlighter,
   BookMarked,
-  MessageSquare,
-  Languages,
-  Sparkles,
-  Search,
-  Filter,
-  Volume2,
   BookOpen,
-  Play,
-  Plus,
+  CheckCircle,
   FileText,
-  X,
-  Send,
+  Highlighter,
+  MessageSquare,
+  Play,
+  Search,
+  Trash2,
+  XCircle,
 } from "lucide-react";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
 
-import {
-  initialAiMessages,
-  notebookItems,
-  type ReviewChatMessage,
-} from "@src/data/review";
+import { ProFeatureGuard } from "@/components/pro-feature-guard";
+import { ChatPanel } from "@src/components/chat/ChatPanel";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Progress } from "@/components/ui/progress";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Textarea } from "@/components/ui/textarea";
+import { ApiError } from "@src/services/apiClient";
+import { chatService } from "@src/services/chatService";
 import {
   reviewService,
-  ReviewQueueQuestion,
-  ReviewSummaryView,
+  type ReviewFilter,
+  type ReviewHighlight,
+  type ReviewQueueQuestion,
 } from "@src/services/reviewService";
+import { useLanguage } from "@src/contexts/LanguageContext";
+import type { TranslationKey } from "@src/i18n";
 
-const emptyReviewQuestion: ReviewQueueQuestion = {
-  id: 0,
-  queueId: 0,
-  questionId: 0,
-  question: "No review items are available yet.",
-  options: [],
-  userAnswer: "",
-  correctAnswer: "",
-  isCorrect: true,
-  explanation:
-    "Complete a practice attempt with wrong answers to populate the review queue.",
-  skill: "TOEIC review",
-  subskill: "practice",
-  part: 0,
-  difficulty: "medium",
-  status: "empty",
+type ReviewChatMessage = {
+  role: "user" | "assistant";
+  content: string;
 };
 
-function buildReviewPracticeUrl(question: ReviewQueueQuestion) {
-  const part = question.part >= 1 && question.part <= 7 ? question.part : 5;
+const filters: Array<{
+  key: ReviewFilter;
+  labelKey: TranslationKey;
+  descriptionKey: TranslationKey;
+}> = [
+  { key: "all", labelKey: "review.all", descriptionKey: "review.subtitle" },
+  { key: "wrong", labelKey: "review.wrong", descriptionKey: "review.reviewThisQuestion" },
+  { key: "correct", labelKey: "review.correct", descriptionKey: "review.correctAnswer" },
+  { key: "bookmarked", labelKey: "review.bookmarked", descriptionKey: "review.bookmarked" },
+  { key: "notes", labelKey: "review.hasNote", descriptionKey: "review.personalNotebook" },
+  { key: "highlights", labelKey: "review.hasHighlight", descriptionKey: "review.highlightText" },
+  { key: "notebook", labelKey: "review.notebook", descriptionKey: "review.quickNotebook" },
+];
+
+function buildReviewPracticeUrl(question: ReviewQueueQuestion | null) {
+  if (!question?.questionId) return "/practice?review=true";
   const params = new URLSearchParams({
-    parts: String(part),
-    count: "15",
-    difficulty: "mixed",
-    mode: "review-focus",
-    reviewItemId: String(question.queueId || question.id || 0),
+    mode: "review",
+    source: "review",
+    question_ids: String(question.questionId),
+    count: "1",
   });
-
-  if (question.skill) {
-    params.set("skill", question.skill);
-  }
-
-  if (question.subskill) {
-    params.set("subskill", question.subskill);
-  }
-
+  if (question.part) params.set("parts", String(question.part));
   return `/practice/runner?${params.toString()}`;
 }
 
-export function ReviewPage() {
-  const [reviewSummary, setReviewSummary] = useState<ReviewSummaryView | null>(null);
-  const [selectedQuestionState, setSelectedQuestion] =
-    useState<ReviewQueueQuestion | null>(null);
-  const [isLoadingReview, setIsLoadingReview] = useState(true);
-  const [isLoadingDetail, setIsLoadingDetail] = useState(false);
-  const [isMarkingReviewed, setIsMarkingReviewed] = useState(false);
-  const [reviewError, setReviewError] = useState<string | null>(null);
-  const [detailError, setDetailError] = useState<string | null>(null);
-  const [showToolbar, setShowToolbar] = useState(false);
-  const [toolbarPosition, setToolbarPosition] = useState({ x: 0, y: 0 });
-  const [searchQuery, setSearchQuery] = useState("");
-  const [newNote, setNewNote] = useState("");
-  const [chatInput, setChatInput] = useState("");
-  const [messages, setMessages] = useState<ReviewChatMessage[]>(initialAiMessages.slice());
+function optionLabel(index: number) {
+  return String.fromCharCode(65 + index);
+}
 
-  const reviewQuestions = reviewSummary?.questions || [];
-  const reviewSkillBreakdown = reviewSummary?.skillBreakdown || [];
-  const reviewPartBreakdown = reviewSummary?.partBreakdown || [];
-  const selectedQuestion =
-    selectedQuestionState || reviewQuestions[0] || emptyReviewQuestion;
-  const correctCount = reviewSummary?.reviewedCount || 0;
-  const incorrectCount = reviewSummary?.pendingCount || 0;
-  const totalReviewCount = correctCount + incorrectCount;
-  const accuracy =
-    totalReviewCount > 0 ? Math.round((correctCount / totalReviewCount) * 100) : 0;
+function renderOptionAnswer(label?: string | null, text?: string | null) {
+  if (!label && !text) return "Chưa có dữ liệu";
+  if (!label) return text || "";
+  if (!text) return label;
+  return `${label} — ${text}`;
+}
+
+function highlightText(text: string, highlights: ReviewHighlight[]) {
+  if (!text || highlights.length === 0) return text;
+  const terms = Array.from(
+    new Set(
+      highlights
+        .map((highlight) => highlight.selectedText.trim())
+        .filter((value) => value.length > 0),
+    ),
+  );
+  if (terms.length === 0) return text;
+  const escaped = terms.map((term) => term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  const regex = new RegExp(`(${escaped.join("|")})`, "gi");
+  return text.split(regex).map((part, index) => {
+    const isMatch = terms.some((term) => term.toLowerCase() === part.toLowerCase());
+    return isMatch ? (
+      <mark key={`${part}-${index}`} className="rounded bg-yellow-200 px-0.5 text-foreground">
+        {part}
+      </mark>
+    ) : (
+      part
+    );
+  });
+}
+
+export function ReviewPage() {
+  const { t } = useLanguage();
+  const [activeFilter, setActiveFilter] = useState<ReviewFilter>("all");
+  const [items, setItems] = useState<ReviewQueueQuestion[]>([]);
+  const [selectedQuestion, setSelectedQuestion] = useState<ReviewQueueQuestion | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [reviewError, setReviewError] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [noteDraft, setNoteDraft] = useState("");
+  const [isSavingNote, setIsSavingNote] = useState(false);
+  const [selectedTextForHighlight, setSelectedTextForHighlight] = useState("");
+  const [isSavingHighlight, setIsSavingHighlight] = useState(false);
+  const [chatInput, setChatInput] = useState("");
+  const [messages, setMessages] = useState<ReviewChatMessage[]>([]);
+  const [isChatLoading, setIsChatLoading] = useState(false);
+  const [chatConversationId, setChatConversationId] = useState<number | null>(null);
 
   useEffect(() => {
     let cancelled = false;
 
-    async function loadReview() {
-      setIsLoadingReview(true);
+    async function loadItems() {
+      setIsLoading(true);
       setReviewError(null);
-
       try {
-        const summary = await reviewService.getSummary();
-
+        const data = await reviewService.getReviewItems(activeFilter, 80);
         if (cancelled) return;
-
-        setReviewSummary(summary);
-        setSelectedQuestion(summary.questions[0] || null);
+        setItems(data);
+        setSelectedQuestion((current) => {
+          const stillExists = current && data.find((item) => item.questionId === current.questionId);
+          return stillExists || data[0] || null;
+        });
       } catch (error) {
         if (!cancelled) {
-          setReviewError(
-            error instanceof Error
-              ? error.message
-              : "Could not load review data from FastAPI.",
-          );
-          setReviewSummary(null);
+          setItems([]);
           setSelectedQuestion(null);
+          setReviewError(error instanceof Error ? error.message : "Không tải được dữ liệu ôn tập.");
         }
       } finally {
-        if (!cancelled) {
-          setIsLoadingReview(false);
-        }
+        if (!cancelled) setIsLoading(false);
       }
     }
 
-    loadReview();
+    void loadItems();
 
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [activeFilter]);
 
-  const filteredQuestions = useMemo(() => {
-    if (!searchQuery.trim()) return reviewQuestions;
-    const q = searchQuery.toLowerCase();
-    return reviewQuestions.filter(
-      (item) =>
-        item.question.toLowerCase().includes(q) ||
-        item.skill.toLowerCase().includes(q) ||
-        item.subskill.toLowerCase().includes(q) ||
-        String(item.part).includes(q) ||
-        String(item.id).includes(q),
+  useEffect(() => {
+    setMessages([]);
+    setChatInput("");
+    setChatConversationId(null);
+    setSelectedTextForHighlight("");
+    setNoteDraft(selectedQuestion?.notes[0]?.noteText || "");
+  }, [selectedQuestion?.questionId]);
+
+  const filteredItems = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+    if (!query) return items;
+    return items.filter((item) =>
+      [
+        item.question,
+        item.correctAnswer,
+        item.explanation,
+        item.optionAnalysis || "",
+        item.vocabularyNotes || "",
+        item.skill,
+        item.subskill,
+        String(item.questionId),
+        String(item.part),
+      ]
+        .join(" ")
+        .toLowerCase()
+        .includes(query),
     );
-  }, [searchQuery]);
+  }, [items, searchQuery]);
+
+  const stats = useMemo(() => {
+    const wrong = items.filter((item) => item.isCorrect === false).length;
+    const correct = items.filter((item) => item.isCorrect === true).length;
+    const bookmarked = items.filter((item) => item.bookmarked).length;
+    const notes = items.filter((item) => item.notes.length > 0).length;
+    const highlights = items.filter((item) => item.highlights.length > 0).length;
+    const total = Math.max(correct + wrong, items.length);
+    const accuracy = total > 0 ? Math.round((correct * 100) / total) : 0;
+    return { wrong, correct, bookmarked, notes, highlights, total, accuracy };
+  }, [items]);
+
+  const refreshSelectedQuestion = async (questionId: number) => {
+    const data = await reviewService.getReviewItems(activeFilter, 80);
+    setItems(data);
+    const updated = data.find((item) => item.questionId === questionId) || selectedQuestion;
+    setSelectedQuestion(updated || null);
+    return updated || null;
+  };
 
   const handleTextSelect = () => {
-    const selection = window.getSelection();
-    if (selection && selection.toString().trim()) {
-      const range = selection.getRangeAt(0);
-      const rect = range.getBoundingClientRect();
-      setToolbarPosition({
-        x: rect.left + rect.width / 2,
-        y: rect.top - 10,
-      });
-      setShowToolbar(true);
-    } else {
-      setShowToolbar(false);
+    const selectedText = window.getSelection()?.toString().trim() || "";
+    if (selectedText) setSelectedTextForHighlight(selectedText.slice(0, 2000));
+  };
+
+  const handleSaveNote = async () => {
+    if (!selectedQuestion?.questionId || !noteDraft.trim()) return;
+    setIsSavingNote(true);
+    try {
+      await reviewService.saveNote(
+        selectedQuestion.questionId,
+        noteDraft.trim(),
+        selectedQuestion.sourceAttemptId,
+      );
+      await refreshSelectedQuestion(selectedQuestion.questionId);
+    } finally {
+      setIsSavingNote(false);
     }
   };
 
-  const sendMessage = () => {
-    if (!chatInput.trim()) return;
+  const handleCreateHighlight = async () => {
+    if (!selectedQuestion?.questionId || !selectedTextForHighlight.trim()) return;
+    setIsSavingHighlight(true);
+    try {
+      await reviewService.createHighlight({
+        question_id: selectedQuestion.questionId,
+        attempt_id: selectedQuestion.sourceAttemptId,
+        target_type: "question_text",
+        selected_text: selectedTextForHighlight.trim(),
+        color: "yellow",
+      });
+      window.getSelection()?.removeAllRanges();
+      setSelectedTextForHighlight("");
+      await refreshSelectedQuestion(selectedQuestion.questionId);
+    } finally {
+      setIsSavingHighlight(false);
+    }
+  };
 
-    const userMessage = chatInput.trim();
+  const handleDeleteHighlight = async (highlightId: number) => {
+    if (!selectedQuestion) return;
+    await reviewService.deleteHighlight(highlightId);
+    await refreshSelectedQuestion(selectedQuestion.questionId);
+  };
+
+  const handleToggleBookmark = async () => {
+    if (!selectedQuestion?.questionId) return;
+    await reviewService.toggleBookmark(selectedQuestion.questionId, selectedQuestion.sourceAttemptId);
+    await refreshSelectedQuestion(selectedQuestion.questionId);
+  };
+
+  const sendMessage = async (messageOverride?: string) => {
+    if (!selectedQuestion || isChatLoading) return;
+    const userMessage = (messageOverride || chatInput).trim();
+    if (!userMessage) return;
+
     setMessages((prev) => [...prev, { role: "user", content: userMessage }]);
     setChatInput("");
+    setIsChatLoading(true);
 
-    setTimeout(() => {
+    try {
+      const response = await chatService.sendDetailed({
+        message: userMessage,
+        question_id: selectedQuestion.questionId,
+        attempt_id: selectedQuestion.sourceAttemptId || null,
+        context_type: "review",
+        conversation_id: chatConversationId,
+        questionText: selectedQuestion.question,
+        question_text: selectedQuestion.question,
+        passageText: selectedQuestion.passageText || null,
+        passage_text: selectedQuestion.passageText || null,
+        options: selectedQuestion.optionRows.map((option) => ({
+          label: option.optionLabel,
+          text: option.optionTextEn,
+          isCorrect: option.isCorrect,
+        })),
+        selected_option_label: selectedQuestion.userAnswerLabel || null,
+        selectedAnswer: selectedQuestion.userAnswer,
+        correctAnswer: selectedQuestion.correctAnswer,
+        explanation: selectedQuestion.explanation,
+        currentQuestion: {
+          id: selectedQuestion.questionId,
+          questionId: selectedQuestion.questionId,
+          questionNumber: selectedQuestion.questionNumber,
+          part: selectedQuestion.part,
+          questionText: selectedQuestion.question,
+          passageText: selectedQuestion.passageText,
+          options: selectedQuestion.optionRows,
+          selectedAnswer: selectedQuestion.userAnswer,
+          correctAnswer: selectedQuestion.correctAnswer,
+          explanation: selectedQuestion.explanation,
+        },
+      });
+
+      if (typeof response.conversation_id === "number") {
+        setChatConversationId(response.conversation_id);
+      }
+
       setMessages((prev) => [
         ...prev,
         {
           role: "assistant",
           content:
-            selectedQuestion.id === 1
-              ? "Ở câu này, chỗ trống đứng trước tính từ 'successful', nên cần một trạng từ để bổ nghĩa. 'Remarkably' là trạng từ, còn 'remarkable' là tính từ nên không phù hợp."
-              : "Mình đã phân tích thêm cho câu này. Bạn có thể hỏi tiếp về từ vựng, ngữ pháp hoặc mẹo tránh bẫy dạng câu tương tự.",
+            response.reply ||
+            response.answer ||
+            response.content ||
+            response.message ||
+            "AI Tutor chưa tạo được phản hồi.",
         },
       ]);
-    }, 800);
-  };
-
-  const askQuickPrompt = (prompt: string) => {
-    setMessages((prev) => [...prev, { role: "user", content: prompt }]);
-
-    let response =
-      "Mình đã phân tích thêm cho câu này. Bạn có thể tiếp tục hỏi sâu hơn về ngữ pháp, từ vựng hoặc cách tránh bẫy.";
-
-    if (prompt.includes("Giải thích")) {
-      response = selectedQuestion.explanation;
-    } else if (prompt.includes("Vì sao đáp án đúng")) {
-      response =
-        "Đáp án đúng vì nó phù hợp với chức năng ngữ pháp của vị trí chỗ trống trong câu và đúng ngữ nghĩa của toàn câu.";
-    } else if (prompt.includes("Phân tích đáp án sai")) {
-      response =
-        "Các đáp án sai thường rơi vào bẫy sai loại từ, sai hòa hợp chủ ngữ - động từ, hoặc sai nghĩa trong ngữ cảnh.";
-    } else if (prompt.includes("Dịch câu hỏi")) {
-      response = "Chiến lược marketing mới của công ty đã _______ thành công trong việc thu hút khách hàng trẻ hơn.";
-    } else if (prompt.includes("Mẹo làm dạng này")) {
-      response =
-        "Với dạng câu này, hãy nhìn vào từ đứng trước và sau chỗ trống để xác định loại từ cần điền: danh từ, động từ, tính từ hay trạng từ.";
-    }
-
-    setTimeout(() => {
-      setMessages((prev) => [...prev, { role: "assistant", content: response }]);
-    }, 500);
-  };
-
-  const refreshReviewSummary = async () => {
-    const summary = await reviewService.getSummary();
-    setReviewSummary(summary);
-    return summary;
-  };
-
-  const handleSelectQuestion = async (q: ReviewQueueQuestion) => {
-    setSelectedQuestion(q);
-    setDetailError(null);
-    setIsLoadingDetail(true);
-
-    try {
-      const detail = await reviewService.getItem(q.queueId);
-      setSelectedQuestion(detail);
     } catch (error) {
-      setDetailError(
-        error instanceof Error
-          ? error.message
-          : "Could not load this review item detail.",
-      );
+      const message =
+        error instanceof ApiError && [401, 403].includes(error.status)
+          ? "AI Tutor là tính năng Pro. Vui lòng đăng nhập tài khoản Pro để hỏi theo câu ôn tập."
+          : error instanceof Error
+            ? `Không gọi được AI Tutor: ${error.message}`
+            : "Không gọi được AI Tutor.";
+      setMessages((prev) => [...prev, { role: "assistant", content: message }]);
     } finally {
-      setIsLoadingDetail(false);
+      setIsChatLoading(false);
     }
   };
 
-  const handleMarkReviewed = async () => {
-    if (!selectedQuestion.queueId || selectedQuestion.status === "empty") return;
-    setIsMarkingReviewed(true);
-    setDetailError(null);
-
-    try {
-      const updated = await reviewService.markReviewed(selectedQuestion.queueId);
-      setSelectedQuestion(updated);
-      await refreshReviewSummary();
-    } catch (error) {
-      setDetailError(
-        error instanceof Error
-          ? error.message
-          : "Could not mark this item as reviewed.",
-      );
-    } finally {
-      setIsMarkingReviewed(false);
-    }
-  };
-
-  const renderQuestionButton = (q: ReviewQueueQuestion) => (
-    <button
-      key={q.id}
-      onClick={() => void handleSelectQuestion(q)}
-      className={`w-full rounded-xl border p-3 text-left transition-all ${
-        selectedQuestion.id === q.id ? "border-primary bg-primary/5" : "border-border hover:border-primary/50"
-      }`}
-    >
-      <div className="flex items-center gap-3">
-        <div className={`rounded-full p-1.5 ${q.isCorrect ? "bg-green-100" : "bg-red-100"}`}>
-          {q.isCorrect ? (
-            <CheckCircle className="h-4 w-4 text-green-600" />
-          ) : (
-            <XCircle className="h-4 w-4 text-red-600" />
-          )}
-        </div>
-
-        <div className="min-w-0 flex-1">
-          <p className="truncate text-sm font-medium">Câu {q.id}</p>
-          <p className="text-xs text-muted-foreground">
-            Part {q.part} - {q.skill}
-          </p>
-        </div>
-
-        <ChevronRight className="h-4 w-4 text-muted-foreground" />
-      </div>
-    </button>
-  );
+  const selectedCorrectText =
+    selectedQuestion?.optionRows.find(
+      (option) => option.optionLabel.toUpperCase() === (selectedQuestion.correctAnswerLabel || "").toUpperCase(),
+    )?.optionTextEn || selectedQuestion?.correctAnswer;
 
   return (
     <div className="space-y-6">
       <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Ôn tập</h1>
-          <p className="mt-1 text-muted-foreground">Xem lại và học từ những lỗi sai</p>
+          <h1 className="text-2xl font-bold text-foreground">{t("review.title")}</h1>
+          <p className="mt-1 text-muted-foreground">
+            {t("review.subtitle")}
+          </p>
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
-              placeholder="Tìm câu hỏi..."
+              placeholder={t("review.searchPlaceholder")}
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-64 pl-9"
+              onChange={(event) => setSearchQuery(event.target.value)}
+              className="w-72 pl-9"
             />
           </div>
-
-          <Button variant="outline" className="gap-2">
-            <Filter className="h-4 w-4" />
-            Lọc
+          <Button asChild className="gap-2">
+            <Link to={buildReviewPracticeUrl(selectedQuestion)}>
+              <Play className="h-4 w-4" />
+              {t("review.practiceNow")}
+            </Link>
           </Button>
-
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button className="gap-2">
-                <BookMarked className="h-4 w-4" />
-                Sổ tay từ mới
-              </Button>
-            </SheetTrigger>
-
-            <SheetContent className="w-[450px] sm:max-w-[450px]">
-              <SheetHeader>
-                <SheetTitle>Sổ tay từ mới</SheetTitle>
-                <SheetDescription>Từ vựng và cụm từ bạn đã lưu</SheetDescription>
-              </SheetHeader>
-
-              <div className="mt-6 space-y-4">
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                  <Input placeholder="Tìm từ..." className="pl-9" />
-                </div>
-
-                <div className="space-y-3">
-                  {notebookItems.map((item) => (
-                    <Card key={item.id} className="cursor-pointer transition-shadow hover:shadow-md">
-                      <CardContent className="space-y-2 p-4">
-                        <div className="flex items-start justify-between">
-                          <div>
-                            <h4 className="font-semibold text-primary">{item.word}</h4>
-                            <p className="text-sm text-muted-foreground">{item.meaning}</p>
-                          </div>
-
-                          <Button variant="ghost" size="icon" className="h-8 w-8">
-                            <Volume2 className="h-4 w-4" />
-                          </Button>
-                        </div>
-
-                        <p className="text-sm italic text-muted-foreground">{`"${item.example}"`}</p>
-
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-1">
-                            {item.tags.map((tag) => (
-                              <Badge key={tag} variant="secondary" className="text-xs">
-                                {tag}
-                              </Badge>
-                            ))}
-                          </div>
-                          <span className="text-xs text-muted-foreground">{item.source}</span>
-                        </div>
-
-                        {item.note ? <p className="rounded bg-muted p-2 text-xs text-muted-foreground">{item.note}</p> : null}
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-
-                <Button variant="outline" className="w-full gap-2">
-                  <Plus className="h-4 w-4" />
-                  Thêm từ mới
-                </Button>
-              </div>
-            </SheetContent>
-          </Sheet>
         </div>
       </div>
 
-      {(isLoadingReview || reviewError || reviewQuestions.length === 0) && (
+      {isLoading || reviewError ? (
         <Card className="border-[#E7EEF9] bg-[#F8FBFF]">
           <CardContent className="py-4 text-sm text-muted-foreground">
-            {isLoadingReview
-              ? "Loading review queue from FastAPI..."
-              : reviewError
-                ? `Could not load review data: ${reviewError}`
-                : "No review items yet. Submit a practice attempt with incorrect answers to populate this queue."}
+            {isLoading ? "Đang tải dữ liệu ôn tập..." : `Không tải được dữ liệu: ${reviewError}`}
           </CardContent>
         </Card>
-      )}
+      ) : null}
 
-      <div className="grid gap-4 md:grid-cols-4">
+      <div className="grid gap-4 md:grid-cols-5">
         <Card className="bg-gradient-to-br from-primary/10 to-transparent">
-          <CardContent className="pt-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm text-muted-foreground">Review done</p>
-                <p className="text-3xl font-bold text-primary">{accuracy}%</p>
-              </div>
-
-              <div className="relative h-16 w-16">
-                <svg className="-rotate-90 transform" viewBox="0 0 36 36">
-                  <path
-                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                    className="text-muted"
-                  />
-                  <path
-                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                    strokeDasharray={`${accuracy}, 100`}
-                    className="text-primary"
-                  />
-                </svg>
-              </div>
-            </div>
+          <CardContent className="p-5">
+            <p className="text-sm text-muted-foreground">Câu sai</p>
+            <p className="mt-1 text-2xl font-bold text-red-600">{stats.wrong}</p>
           </CardContent>
         </Card>
-
         <Card>
-          <CardContent className="pt-6">
-            <div className="flex items-center gap-4">
-              <div className="rounded-xl bg-green-100 p-3">
-                <CheckCircle className="h-6 w-6 text-green-600" />
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Reviewed</p>
-                <p className="text-2xl font-bold text-green-600">{correctCount}</p>
-              </div>
-            </div>
+          <CardContent className="p-5">
+            <p className="text-sm text-muted-foreground">Đã đánh dấu</p>
+            <p className="mt-1 text-2xl font-bold text-yellow-600">{stats.bookmarked}</p>
           </CardContent>
         </Card>
-
         <Card>
-          <CardContent className="pt-6">
-            <div className="flex items-center gap-4">
-              <div className="rounded-xl bg-red-100 p-3">
-                <XCircle className="h-6 w-6 text-red-600" />
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Pending</p>
-                <p className="text-2xl font-bold text-red-600">{incorrectCount}</p>
-              </div>
-            </div>
+          <CardContent className="p-5">
+            <p className="text-sm text-muted-foreground">Có ghi chú</p>
+            <p className="mt-1 text-2xl font-bold text-primary">{stats.notes}</p>
           </CardContent>
         </Card>
-
         <Card>
-          <CardContent className="pt-6">
-            <div className="flex items-center gap-4">
-              <div className="rounded-xl bg-yellow-100 p-3">
-                <AlertCircle className="h-6 w-6 text-yellow-600" />
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Queued</p>
-                <p className="text-2xl font-bold text-yellow-600">{reviewQuestions.length}</p>
-              </div>
+          <CardContent className="p-5">
+            <p className="text-sm text-muted-foreground">Có highlight</p>
+            <p className="mt-1 text-2xl font-bold text-amber-600">{stats.highlights}</p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent className="p-5">
+            <p className="text-sm text-muted-foreground">Độ ổn định</p>
+            <div className="mt-2 flex items-center gap-3">
+              <Progress value={stats.accuracy} className="h-2" />
+              <span className="text-sm font-semibold">{stats.accuracy}%</span>
             </div>
           </CardContent>
         </Card>
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-base">Theo kỹ năng</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            {reviewSkillBreakdown.map((skill) => (
-              <div key={skill.name} className="space-y-2">
-                <div className="flex items-center justify-between text-sm">
-                  <span>{skill.name}</span>
-                  <span className="text-muted-foreground">
-                    {skill.correct}/{skill.total}
-                  </span>
-                </div>
-                <Progress value={(skill.correct / skill.total) * 100} className="h-2" />
-              </div>
-            ))}
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-base">Theo Part</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            {reviewPartBreakdown.map((part) => (
-              <div key={part.name} className="space-y-2">
-                <div className="flex items-center justify-between text-sm">
-                  <span>{part.name}</span>
-                  <span className="text-muted-foreground">
-                    {part.correct}/{part.total}
-                  </span>
-                </div>
-                <Progress value={(part.correct / part.total) * 100} className="h-2" />
-              </div>
-            ))}
-          </CardContent>
-        </Card>
-      </div>
-
-      <Card className="border-primary/20 bg-primary/5">
-        <CardContent className="flex flex-col gap-4 py-4 sm:flex-row sm:items-center">
-          <div className="rounded-xl bg-primary/10 p-3">
-            <Sparkles className="h-6 w-6 text-primary" />
-          </div>
-
-          <div className="flex-1">
-            <h3 className="font-semibold">Gợi ý tiếp theo</h3>
-            <p className="text-sm text-muted-foreground">
-              Bạn đang yếu ở phần Grammar - Adverbs. Hãy luyện thêm 15 câu để cải thiện.
-            </p>
-          </div>
-
-          <Button className="gap-2">
-            <Play className="h-4 w-4" />
-            Luyện ngay
-          </Button>
-        </CardContent>
-      </Card>
-
-      <div className="grid gap-6 xl:grid-cols-12">
-        <Card className="xl:col-span-3">
-          <CardHeader>
-            <CardTitle className="text-base">Danh sách câu hỏi</CardTitle>
-          </CardHeader>
-
-          <CardContent className="space-y-2">
-            <Tabs defaultValue="all">
-              <TabsList className="grid w-full grid-cols-3">
-                <TabsTrigger value="all">Tất cả</TabsTrigger>
-                <TabsTrigger value="wrong">Sai</TabsTrigger>
-                <TabsTrigger value="correct">Đúng</TabsTrigger>
-              </TabsList>
-
-              <TabsContent value="all" className="mt-4 space-y-2">
-                {filteredQuestions.map(renderQuestionButton)}
-              </TabsContent>
-
-              <TabsContent value="wrong" className="mt-4 space-y-2">
-                {filteredQuestions.filter((q) => !q.isCorrect).map(renderQuestionButton)}
-              </TabsContent>
-
-              <TabsContent value="correct" className="mt-4 space-y-2">
-                {filteredQuestions.filter((q) => q.isCorrect).map(renderQuestionButton)}
-              </TabsContent>
-            </Tabs>
-          </CardContent>
-        </Card>
-
-        <Card className="xl:col-span-6">
-          <CardHeader>
-            <div className="flex flex-col gap-4 xl:flex-row xl:items-start xl:justify-between">
-              <div className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <CardTitle>Câu {selectedQuestion.id}</CardTitle>
-
-                  <div className={`rounded-full p-1 ${selectedQuestion.isCorrect ? "bg-green-100" : "bg-red-100"}`}>
-                    {selectedQuestion.isCorrect ? (
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                    ) : (
-                      <XCircle className="h-4 w-4 text-red-600" />
-                    )}
-                  </div>
-                </div>
-
-                <div className="flex flex-wrap items-center gap-2">
-                  <Badge variant="outline">Part {selectedQuestion.part}</Badge>
-                  <Badge variant="secondary">{selectedQuestion.skill}</Badge>
-                  <Badge variant="secondary">{selectedQuestion.subskill}</Badge>
-                  <Badge
-                    className={
-                      selectedQuestion.difficulty === "easy"
-                        ? "bg-green-100 text-green-700"
-                        : selectedQuestion.difficulty === "medium"
-                          ? "bg-yellow-100 text-yellow-700"
-                          : "bg-red-100 text-red-700"
-                    }
-                  >
-                    {selectedQuestion.difficulty === "easy"
-                      ? "Dễ"
-                      : selectedQuestion.difficulty === "medium"
-                        ? "TB"
-                        : "Khó"}
-                  </Badge>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-2">
-                <Button variant="outline" size="icon" className="rounded-2xl shadow-sm" title="Highlight">
-                  <Highlighter className="h-4 w-4" />
-                </Button>
-                <Button variant="outline" size="icon" className="rounded-2xl shadow-sm" title="Ghi chú">
-                  <MessageSquare className="h-4 w-4" />
-                </Button>
-                <Button variant="outline" size="icon" className="rounded-2xl shadow-sm" title="Dịch">
-                  <Languages className="h-4 w-4" />
-                </Button>
-                <Button variant="outline" size="icon" className="rounded-2xl shadow-sm" title="Lưu vào sổ tay">
-                  <BookMarked className="h-4 w-4" />
-                </Button>
-                <Button variant="outline" size="icon" className="rounded-2xl shadow-sm" title="Hỏi AI">
-                  <Sparkles className="h-4 w-4" />
-                </Button>
-              </div>
-            </div>
-          </CardHeader>
-
-          <CardContent className="space-y-6">
-            {(isLoadingDetail || detailError) && (
-              <div className="rounded-xl border border-[#E7EEF9] bg-[#F8FBFF] p-4 text-sm text-muted-foreground">
-                {isLoadingDetail
-                  ? "Loading full review detail from FastAPI..."
-                  : `Could not load review detail: ${detailError}`}
-              </div>
-            )}
-
-            {(selectedQuestion.passageTitle || selectedQuestion.passageText) && (
-              <div className="rounded-xl border border-[#E7EEF9] bg-[#F8FBFF] p-4">
-                {selectedQuestion.passageTitle && (
-                  <p className="mb-2 font-semibold text-foreground">
-                    {selectedQuestion.passageTitle}
-                  </p>
-                )}
-                {selectedQuestion.passageText && (
-                  <p className="whitespace-pre-line text-sm leading-relaxed text-foreground">
-                    {selectedQuestion.passageText}
-                  </p>
-                )}
-              </div>
-            )}
-
-            {(selectedQuestion.audioUrl ||
-              selectedQuestion.imageUrl ||
-              selectedQuestion.graphicUrl) && (
-              <div className="space-y-3 rounded-xl border border-[#E7EEF9] bg-[#F8FBFF] p-4">
-                {selectedQuestion.audioUrl && (
-                  <audio controls src={selectedQuestion.audioUrl} className="w-full" />
-                )}
-                {(selectedQuestion.imageUrl || selectedQuestion.graphicUrl) && (
-                  <img
-                    src={selectedQuestion.imageUrl ?? selectedQuestion.graphicUrl ?? undefined}
-                    alt={`Review item ${selectedQuestion.id}`}
-                    className="max-h-[360px] w-full rounded-lg object-contain"
-                  />
-                )}
-              </div>
-            )}
-
-            <div className="flex justify-end">
-              <Button
-                className="gap-2"
-                onClick={() => void handleMarkReviewed()}
-                disabled={
-                  isMarkingReviewed ||
-                  selectedQuestion.status === "reviewed" ||
-                  selectedQuestion.status === "empty"
-                }
-              >
-                <CheckCircle className="h-4 w-4" />
-                {selectedQuestion.status === "reviewed"
-                  ? "Reviewed"
-                  : isMarkingReviewed
-                    ? "Marking..."
-                    : "Mark reviewed"}
-              </Button>
-            </div>
-            <div className="rounded-xl bg-muted/50 p-4 text-lg leading-relaxed" onMouseUp={handleTextSelect}>
-              {selectedQuestion.question}
-            </div>
-
-            {showToolbar ? (
-              <div
-                className="fixed z-50 flex items-center gap-1 rounded-2xl border bg-card p-2 shadow-lg"
-                style={{ left: toolbarPosition.x - 145, top: toolbarPosition.y - 54 }}
-              >
-                <Button variant="ghost" size="icon" className="h-9 w-9 rounded-xl" title="Highlight">
-                  <Highlighter className="h-4 w-4" />
-                </Button>
-                <Button variant="ghost" size="icon" className="h-9 w-9 rounded-xl" title="Lưu vào sổ tay">
-                  <BookMarked className="h-4 w-4" />
-                </Button>
-                <Button variant="ghost" size="icon" className="h-9 w-9 rounded-xl" title="Ghi chú">
-                  <MessageSquare className="h-4 w-4" />
-                </Button>
-                <Button variant="ghost" size="icon" className="h-9 w-9 rounded-xl" title="Dịch">
-                  <Languages className="h-4 w-4" />
-                </Button>
-                <Button variant="ghost" size="icon" className="h-9 w-9 rounded-xl" title="Hỏi AI">
-                  <Sparkles className="h-4 w-4" />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="h-9 w-9 rounded-xl"
-                  onClick={() => setShowToolbar(false)}
-                  title="Đóng"
+      <div className="grid items-stretch gap-4 lg:grid-cols-[260px_minmax(0,1fr)_320px] lg:grid-rows-[600px_auto]">
+        <div className="order-3 min-w-0 space-y-4 lg:contents">
+          {false ? (
+          <Card className="lg:h-full lg:overflow-hidden">
+            <CardHeader className="pb-3">
+              <CardTitle className="text-base">Bộ lọc</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              {filters.map((filter) => (
+                <button
+                  key={filter.key}
+                  type="button"
+                  onClick={() => setActiveFilter(filter.key)}
+                  className={`w-full rounded-xl border px-3 py-2.5 text-left transition ${
+                    activeFilter === filter.key
+                      ? "border-primary bg-primary/5 text-primary"
+                      : "border-border hover:border-primary/50"
+                  }`}
                 >
-                  <X className="h-4 w-4" />
-                </Button>
-              </div>
-            ) : null}
+                  <p className="text-sm font-semibold">{t(filter.labelKey)}</p>
+                  <p className="mt-0.5 text-xs text-muted-foreground">{t(filter.descriptionKey)}</p>
+                </button>
+              ))}
+            </CardContent>
+          </Card>
+          ) : null}
 
-            <div className="space-y-3">
-              {selectedQuestion.options.length === 0 && (
-                <div className="rounded-xl border border-[#E7EEF9] bg-[#F8FBFF] p-4 text-sm text-muted-foreground">
-                  Full question choices are not exposed by the current review API yet.
-                  Showing review queue metadata from FastAPI instead.
-                </div>
-              )}
-
-              {selectedQuestion.options.map((option, idx) => {
-                const optionLetter = String.fromCharCode(65 + idx);
-                const isUserAnswer =
-                  selectedQuestion.userAnswerIndex === idx ||
-                  selectedQuestion.userAnswer === option ||
-                  selectedQuestion.userAnswer === optionLetter;
-                const isCorrectAnswer =
-                  selectedQuestion.correctAnswerIndex === idx ||
-                  selectedQuestion.correctAnswer === option ||
-                  selectedQuestion.correctAnswer === optionLetter;
-
-                return (
-                  <div
-                    key={idx}
-                    className={`flex items-center gap-4 rounded-xl border-2 p-4 ${
-                      isCorrectAnswer
-                        ? "border-green-500 bg-green-50"
-                        : isUserAnswer && !selectedQuestion.isCorrect
-                          ? "border-red-500 bg-red-50"
-                          : "border-border"
+          <Card className="lg:col-start-1 lg:row-start-1 lg:h-full lg:min-h-0 lg:overflow-hidden">
+            <CardHeader className="pb-3">
+              <CardTitle className="text-base">{t("review.questionList")}</CardTitle>
+              <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
+                {filters.map((filter) => (
+                  <button
+                    key={filter.key}
+                    type="button"
+                    onClick={() => setActiveFilter(filter.key)}
+                    className={`shrink-0 rounded-full border px-3 py-1.5 text-xs font-medium transition ${
+                      activeFilter === filter.key
+                        ? "border-primary bg-primary text-primary-foreground"
+                        : "border-border bg-white text-muted-foreground hover:border-primary/50"
                     }`}
                   >
-                    <div
-                      className={`flex h-10 w-10 items-center justify-center rounded-full text-sm font-bold ${
-                        isCorrectAnswer
-                          ? "bg-green-500 text-white"
-                          : isUserAnswer && !selectedQuestion.isCorrect
-                            ? "bg-red-500 text-white"
-                            : "bg-muted"
-                      }`}
-                    >
-                      {optionLetter}
-                    </div>
-
-                    <span className="flex-1">{option}</span>
-
-                    {isCorrectAnswer ? <Badge className="bg-green-500">Đáp án đúng</Badge> : null}
-                    {isUserAnswer && !selectedQuestion.isCorrect ? <Badge variant="destructive">Bạn chọn</Badge> : null}
-                    {isUserAnswer && selectedQuestion.isCorrect ? <Badge className="bg-green-500">Bạn chọn</Badge> : null}
-                  </div>
-                );
-              })}
-            </div>
-
-            <div className="rounded-xl border bg-primary/5 p-4">
-              <div className="mb-3 flex items-center gap-2">
-                <Sparkles className="h-5 w-5 text-primary" />
-                <h4 className="font-semibold">Giải thích</h4>
+                    {t(filter.labelKey)}
+                  </button>
+                ))}
               </div>
-              <p className="leading-relaxed text-muted-foreground">{selectedQuestion.explanation}</p>
-            </div>
+            </CardHeader>
+            <CardContent>
+              <ScrollArea className="h-[360px] pr-3 lg:h-[440px]">
+                <div className="space-y-2">
+                  {filteredItems.length > 0 ? (
+                    filteredItems.map((item) => (
+                      <button
+                        key={`${item.questionId}-${item.sourceAttemptId || "review"}`}
+                        type="button"
+                        onClick={() => setSelectedQuestion(item)}
+                        className={`w-full rounded-xl border p-3 text-left transition ${
+                          selectedQuestion?.questionId === item.questionId
+                            ? "border-primary bg-primary/5"
+                            : "border-border hover:border-primary/50"
+                        }`}
+                      >
+                        <div className="flex items-start gap-3">
+                          <div className={`rounded-full p-1.5 ${item.isCorrect ? "bg-green-100" : "bg-red-100"}`}>
+                            {item.isCorrect ? (
+                              <CheckCircle className="h-4 w-4 text-green-600" />
+                            ) : (
+                              <XCircle className="h-4 w-4 text-red-600" />
+                            )}
+                          </div>
+                          <div className="min-w-0 flex-1">
+                            <p className="truncate text-sm font-medium">
+                              Câu {item.questionNumber || item.questionId}
+                            </p>
+                            <p className="text-xs text-muted-foreground">
+                              Part {item.part || "?"} · {item.skill}
+                            </p>
+                            <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">
+                              {item.question}
+                            </p>
+                          </div>
+                        </div>
+                      </button>
+                    ))
+                  ) : (
+                    <div className="rounded-xl border border-dashed p-4 text-sm text-muted-foreground">
+                      {t("review.noReviewData")}
+                    </div>
+                  )}
+                </div>
+              </ScrollArea>
+            </CardContent>
+          </Card>
 
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              {selectedQuestion.status === "empty" ? (
-                <Button variant="outline" className="gap-2" disabled>
-                  <BookOpen className="h-4 w-4" />
-                  Practice this type again
+          <Card className="lg:col-start-1 lg:row-start-2">
+            <CardHeader className="pb-3">
+              <CardTitle className="flex items-center gap-2 text-base">
+                <BookMarked className="h-4 w-4 text-primary" />
+                {t("review.quickNotebook")}
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <div className="grid grid-cols-3 gap-2 text-center">
+                <button
+                  type="button"
+                  onClick={() => setActiveFilter("notes")}
+                  className="rounded-xl border bg-[#F8FBFF] p-2 transition hover:border-primary/50"
+                >
+                  <p className="text-lg font-bold text-primary">{stats.notes}</p>
+                  <p className="text-[11px] text-muted-foreground">{t("review.hasNote")}</p>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveFilter("highlights")}
+                  className="rounded-xl border bg-yellow-50 p-2 transition hover:border-primary/50"
+                >
+                  <p className="text-lg font-bold text-amber-600">{stats.highlights}</p>
+                  <p className="text-[11px] text-muted-foreground">{t("review.hasHighlight")}</p>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveFilter("bookmarked")}
+                  className="rounded-xl border bg-white p-2 transition hover:border-primary/50"
+                >
+                  <p className="text-lg font-bold text-yellow-600">{stats.bookmarked}</p>
+                  <p className="text-[11px] text-muted-foreground">{t("review.bookmarked")}</p>
+                </button>
+              </div>
+              <Button
+                type="button"
+                variant="outline"
+                className="w-full"
+                onClick={() => setActiveFilter("notebook")}
+              >
+                {t("review.notebook")}
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="order-1 min-w-0 space-y-4 lg:contents">
+          {selectedQuestion ? (
+            <>
+              <Card className="border-[#DCE7F7] lg:col-start-2 lg:row-start-1 lg:h-full lg:min-h-0 lg:overflow-hidden">
+                <CardHeader className="pb-3">
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <Badge variant="outline">Part {selectedQuestion.part || "?"}</Badge>
+                      <Badge variant="secondary">Câu {selectedQuestion.questionNumber || selectedQuestion.questionId}</Badge>
+                      {selectedQuestion.bookmarked ? (
+                        <Badge className="bg-yellow-500 text-white">Đã đánh dấu</Badge>
+                      ) : null}
+                    </div>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <Button size="sm" variant="outline" onClick={() => void handleToggleBookmark()}>
+                        <BookMarked className="mr-1 h-4 w-4" />
+                        {selectedQuestion.bookmarked ? "Bỏ đánh dấu" : "Đánh dấu"}
+                      </Button>
+                      <Button size="sm" asChild>
+                        <Link to={buildReviewPracticeUrl(selectedQuestion)}>
+                          <Play className="mr-1 h-4 w-4" />
+                          Luyện lại câu này
+                        </Link>
+                      </Button>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-5 lg:max-h-[500px] lg:overflow-y-auto" onMouseUp={handleTextSelect}>
+                  {selectedQuestion.passageText ? (
+                    <div className="rounded-xl border border-[#DFE8F5] bg-[#F8FBFF] p-4">
+                      <p className="whitespace-pre-line text-sm leading-relaxed text-foreground">
+                        {highlightText(selectedQuestion.passageText, selectedQuestion.highlights)}
+                      </p>
+                    </div>
+                  ) : null}
+
+                  <div>
+                    <p className="text-lg font-semibold leading-relaxed text-foreground">
+                      {highlightText(selectedQuestion.question, selectedQuestion.highlights)}
+                    </p>
+                  </div>
+
+                  <div className="space-y-3">
+                    {selectedQuestion.optionRows.length > 0 ? (
+                      selectedQuestion.optionRows.map((option, index) => {
+                        const label = option.optionLabel || optionLabel(index);
+                        const isUser = selectedQuestion.userAnswerLabel?.toUpperCase() === label.toUpperCase();
+                        const isCorrect = option.isCorrect || selectedQuestion.correctAnswerLabel?.toUpperCase() === label.toUpperCase();
+                        return (
+                          <div
+                            key={`${label}-${index}`}
+                            className={`rounded-xl border p-4 ${
+                              isCorrect
+                                ? "border-green-300 bg-green-50"
+                                : isUser
+                                  ? "border-red-300 bg-red-50"
+                                  : "border-border"
+                            }`}
+                          >
+                            <div className="flex items-start gap-3">
+                              <div
+                                className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold ${
+                                  isCorrect
+                                    ? "bg-green-600 text-white"
+                                    : isUser
+                                      ? "bg-red-600 text-white"
+                                      : "bg-muted text-foreground"
+                                }`}
+                              >
+                                {label}
+                              </div>
+                              <p className="flex-1 text-sm leading-relaxed">
+                                {highlightText(option.optionTextEn, selectedQuestion.highlights)}
+                              </p>
+                            </div>
+                          </div>
+                        );
+                      })
+                    ) : (
+                      <div className="rounded-xl border border-dashed p-4 text-sm text-muted-foreground">
+                        SQL chưa có lựa chọn A/B/C/D cho câu này.
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="grid gap-3 md:grid-cols-2">
+                    <div className="rounded-xl border border-red-100 bg-red-50 p-4">
+                      <p className="text-xs font-semibold uppercase tracking-wide text-red-700">Bạn đã chọn</p>
+                      <p className="mt-1 text-sm text-foreground">
+                        {renderOptionAnswer(selectedQuestion.userAnswerLabel, selectedQuestion.userAnswer)}
+                      </p>
+                    </div>
+                    <div className="rounded-xl border border-green-100 bg-green-50 p-4">
+                      <p className="text-xs font-semibold uppercase tracking-wide text-green-700">Đáp án đúng</p>
+                      <p className="mt-1 text-sm text-foreground">
+                        {renderOptionAnswer(selectedQuestion.correctAnswerLabel, selectedCorrectText)}
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="lg:col-start-2 lg:row-start-2">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-base">
+                    <BookOpen className="h-4 w-4 text-primary" />
+                    Notebook cá nhân
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="space-y-2">
+                    <Textarea
+                      value={noteDraft}
+                      onChange={(event) => setNoteDraft(event.target.value)}
+                      placeholder="Viết ghi chú của bạn cho câu này..."
+                      className="min-h-[110px]"
+                    />
+                    <Button onClick={() => void handleSaveNote()} disabled={!noteDraft.trim() || isSavingNote}>
+                      {isSavingNote ? "Đang lưu..." : selectedQuestion.notes.length > 0 ? "Cập nhật ghi chú" : "Lưu ghi chú"}
+                    </Button>
+                  </div>
+
+                  {selectedQuestion.notes.length > 0 ? (
+                    <div className="space-y-2">
+                      {selectedQuestion.notes.map((note) => (
+                        <div key={note.id} className="rounded-xl border bg-[#F8FBFF] p-3">
+                          <p className="whitespace-pre-line text-sm">{note.noteText}</p>
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
+
+                  <div className="hidden rounded-xl border border-dashed bg-yellow-50/60 p-3">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <div className="flex items-center gap-2 text-sm font-semibold">
+                        <Highlighter className="h-4 w-4 text-yellow-700" />
+                        Highlight text
+                      </div>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => void handleCreateHighlight()}
+                        disabled={!selectedTextForHighlight || isSavingHighlight}
+                      >
+                        {isSavingHighlight ? "Đang lưu..." : "Lưu highlight"}
+                      </Button>
+                    </div>
+                    <p className="mt-2 break-words text-xs text-muted-foreground">
+                      {selectedTextForHighlight
+                        ? `Đã chọn: "${selectedTextForHighlight}"`
+                        : "Bôi chọn text trong câu hỏi, passage hoặc option để lưu highlight."}
+                    </p>
+                  </div>
+
+                  {false && selectedQuestion.highlights.length > 0 ? (
+                    <div className="space-y-2">
+                      {selectedQuestion.highlights.map((highlight) => (
+                        <div
+                          key={highlight.id}
+                          className="flex items-start justify-between gap-3 rounded-xl border bg-yellow-50 p-3"
+                        >
+                          <div>
+                            <p className="text-sm font-medium text-yellow-950">{highlight.selectedText}</p>
+                            {highlight.noteText ? (
+                              <p className="mt-1 text-xs text-muted-foreground">{highlight.noteText}</p>
+                            ) : null}
+                          </div>
+                          <Button
+                            size="icon"
+                            variant="ghost"
+                            className="h-8 w-8 shrink-0"
+                            onClick={() => void handleDeleteHighlight(highlight.id)}
+                          >
+                            <Trash2 className="h-4 w-4" />
+                          </Button>
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
+                </CardContent>
+              </Card>
+            </>
+          ) : (
+            <Card className="border-dashed lg:col-start-2 lg:row-start-1">
+              <CardContent className="flex min-h-[420px] flex-col items-center justify-center text-center">
+                <FileText className="mb-3 h-10 w-10 text-muted-foreground" />
+                <p className="font-semibold">Chưa có dữ liệu ôn tập.</p>
+                <p className="mt-1 max-w-sm text-sm text-muted-foreground">
+                  Hãy làm bài luyện, ghi chú, highlight hoặc đánh dấu câu để xem lại ở đây.
+                </p>
+                <Button asChild className="mt-4">
+                  <Link to="/practice">{t("review.practiceNow")}</Link>
                 </Button>
-              ) : (
-                <Button variant="outline" className="gap-2" asChild>
-                  <Link to={buildReviewPracticeUrl(selectedQuestion)}>
-                    <BookOpen className="h-4 w-4" />
-                    Practice this type again
-                  </Link>
-                </Button>
-              )}
-              <Button variant="outline" className="gap-2">
-                <Sparkles className="h-4 w-4" />
-                Hỏi AI thêm
-              </Button>
-              <Button variant="outline" className="gap-2">
-                <BookMarked className="h-4 w-4" />
-                Lưu vào sổ tay
-              </Button>
-              <Button variant="outline" className="hidden gap-2">
-                <BookOpen className="h-4 w-4" />
-                Luyện dạng này
-              </Button>
-            </div>
+              </CardContent>
+            </Card>
+          )}
+        </div>
 
-            <div className="space-y-3 border-t pt-4">
-              <h4 className="flex items-center gap-2 font-medium">
-                <FileText className="h-4 w-4" />
-                Ghi chú cá nhân
-              </h4>
+        <div className="order-5 min-w-0 space-y-4 lg:contents">
+          {false ? (
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-base">
+                <BookMarked className="h-4 w-4 text-primary" />
+                Sổ tay nhanh
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ScrollArea className="h-[260px] pr-3">
+                <div className="space-y-3">
+                  {items
+                    .filter((item) => item.notes.length > 0 || item.highlights.length > 0 || item.bookmarked)
+                    .slice(0, 8)
+                    .map((item) => (
+                      <button
+                        key={`notebook-${item.questionId}`}
+                        type="button"
+                        onClick={() => setSelectedQuestion(item)}
+                        className="w-full rounded-xl border p-3 text-left transition hover:border-primary/50"
+                      >
+                        <div className="flex items-start gap-2">
+                          <MessageSquare className="mt-0.5 h-4 w-4 text-primary" />
+                          <div className="min-w-0">
+                            <p className="truncate text-sm font-semibold">
+                              Câu {item.questionNumber || item.questionId}
+                            </p>
+                            <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">
+                              {item.notes[0]?.noteText || item.highlights[0]?.selectedText || item.question}
+                            </p>
+                          </div>
+                        </div>
+                      </button>
+                    ))}
+                  {items.filter((item) => item.notes.length > 0 || item.highlights.length > 0 || item.bookmarked).length === 0 ? (
+                    <p className="rounded-xl border border-dashed p-3 text-sm text-muted-foreground">
+                      Chưa có ghi chú, highlight hoặc bookmark.
+                    </p>
+                  ) : null}
+                </div>
+              </ScrollArea>
+            </CardContent>
+          </Card>
+          ) : null}
 
-              <Textarea
-                value={newNote}
-                onChange={(e) => setNewNote(e.target.value)}
-                placeholder="Thêm ghi chú cho câu hỏi này..."
-                className="min-h-[100px]"
-              />
-
-              <Button size="sm">Lưu ghi chú</Button>
-            </div>
-          </CardContent>
-        </Card>
-
-        <div className="xl:col-span-3">
+          <div className="lg:col-start-3 lg:row-start-1 lg:h-full lg:min-h-0 lg:[&>*]:h-full">
           <ProFeatureGuard
             feature="aiChatUnlimited"
             compact
-            title="AI Tutor trong Review la tinh nang Pro"
-            description="Free van xem review va dap an. Nang cap Pro de hoi AI Tutor theo tung loi sai."
+            title="AI Tutor trong Review là tính năng Pro"
+            description="Free vẫn xem review và đáp án. Nâng cấp Pro để hỏi AI Tutor theo từng lỗi sai."
           >
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-base">
-              <Sparkles className="h-4 w-4 text-primary" />
-              AI Tutor
-            </CardTitle>
-          </CardHeader>
-
-          <CardContent className="flex h-[700px] flex-col">
-            <div className="flex-1 space-y-3 overflow-auto rounded-xl border bg-muted/20 p-3">
-              {messages.map((msg, i) => (
-                <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
-                  <div
-                    className={`max-w-[90%] rounded-2xl p-3 text-sm ${
-                      msg.role === "user"
-                        ? "rounded-br-md bg-primary text-primary-foreground"
-                        : "rounded-bl-md bg-muted"
-                    }`}
-                  >
-                    {msg.content}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-4 space-y-3">
-              <div className="flex flex-wrap gap-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="text-xs"
-                  onClick={() => askQuickPrompt("Giải thích bằng tiếng Việt")}
-                >
-                  Giải thích tiếng Việt
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="text-xs"
-                  onClick={() => askQuickPrompt("Vì sao đáp án đúng?")}
-                >
-                  Vì sao đúng?
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="text-xs"
-                  onClick={() => askQuickPrompt("Phân tích đáp án sai")}
-                >
-                  Đáp án sai
-                </Button>
-                <Button variant="outline" size="sm" className="text-xs" onClick={() => askQuickPrompt("Dịch câu hỏi")}>
-                  Dịch câu hỏi
-                </Button>
-                <Button variant="outline" size="sm" className="text-xs" onClick={() => askQuickPrompt("Mẹo làm dạng này")}>
-                  Mẹo làm bài
-                </Button>
-              </div>
-
-              <div className="flex items-end gap-2">
-                <Textarea
+            <Card className="h-full rounded-xl border-[#CFE0FF] bg-[#F7FAFF] shadow-sm">
+              <CardContent className="h-full p-4">
+                <ChatPanel
+                  title="AI Tutor Review"
+                  description="Hỏi theo đúng câu đang chọn trong Review."
+                  messages={messages}
                   value={chatInput}
-                  onChange={(e) => setChatInput(e.target.value)}
-                  placeholder="Hỏi AI về câu này..."
-                  className="min-h-[70px] resize-none"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" && !e.shiftKey) {
-                      e.preventDefault();
-                      sendMessage();
-                    }
-                  }}
+                  onValueChange={setChatInput}
+                  onSend={() => void sendMessage()}
+                  loading={isChatLoading}
+                  placeholder="Hỏi AI Tutor về câu này..."
+                  className="h-full"
+                  composerMode="textarea"
                 />
-                <Button size="icon" onClick={sendMessage}>
-                  <Send className="h-4 w-4" />
-                </Button>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+              </CardContent>
+            </Card>
           </ProFeatureGuard>
+          </div>
+
+          <Card className="lg:col-start-3 lg:row-start-2">
+            <CardHeader className="pb-3">
+              <CardTitle className="flex items-center gap-2 text-base">
+                <Highlighter className="h-4 w-4 text-yellow-700" />
+                Highlight text
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <div className="rounded-xl border border-dashed bg-yellow-50/60 p-3">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <p className="text-sm font-semibold text-foreground">Highlight text</p>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => void handleCreateHighlight()}
+                    disabled={!selectedQuestion || !selectedTextForHighlight || isSavingHighlight}
+                  >
+                    {isSavingHighlight ? t("common.loading") : t("runner.saveHighlight")}
+                  </Button>
+                </div>
+                <p className="mt-2 break-words text-xs text-muted-foreground">
+                  {selectedTextForHighlight
+                    ? t("runner.highlightSelected", { text: selectedTextForHighlight })
+                    : t("runner.selectToHighlight")}
+                </p>
+              </div>
+
+              {selectedQuestion?.highlights.length ? (
+                <ScrollArea className="max-h-[260px] pr-3">
+                  <div className="space-y-2">
+                    {selectedQuestion.highlights.map((highlight) => (
+                      <div
+                        key={highlight.id}
+                        className="flex items-start justify-between gap-3 rounded-xl border bg-yellow-50 p-3"
+                      >
+                        <div className="min-w-0">
+                          <p className="break-words text-sm font-medium text-yellow-950">{highlight.selectedText}</p>
+                          {highlight.noteText ? (
+                            <p className="mt-1 text-xs text-muted-foreground">{highlight.noteText}</p>
+                          ) : null}
+                        </div>
+                        <Button
+                          size="icon"
+                          variant="ghost"
+                          className="h-8 w-8 shrink-0"
+                          onClick={() => void handleDeleteHighlight(highlight.id)}
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    ))}
+                  </div>
+                </ScrollArea>
+              ) : (
+                <p className="rounded-xl border border-dashed p-3 text-sm text-muted-foreground">
+                  {t("review.noNotebook")}
+                </p>
+              )}
+            </CardContent>
+          </Card>
+
+          <Card className="hidden">
+            <CardHeader className="pb-3">
+              <CardTitle className="flex items-center gap-2 text-base">
+                <Highlighter className="h-4 w-4 text-yellow-700" />
+                Highlight text
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <div className="rounded-xl border border-dashed bg-yellow-50/60 p-3">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <p className="text-sm font-semibold text-foreground">Highlight text</p>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => void handleCreateHighlight()}
+                    disabled={!selectedQuestion || !selectedTextForHighlight || isSavingHighlight}
+                  >
+                    {isSavingHighlight ? "Äang lÆ°u..." : "LÆ°u highlight"}
+                  </Button>
+                </div>
+                <p className="mt-2 break-words text-xs text-muted-foreground">
+                  {selectedTextForHighlight
+                    ? `ÄÃ£ chá»n: "${selectedTextForHighlight}"`
+                    : "BÃ´i chá»n text trong cÃ¢u há»i, passage hoáº·c option Ä‘á»ƒ lÆ°u highlight."}
+                </p>
+              </div>
+
+              {selectedQuestion?.highlights.length ? (
+                <ScrollArea className="max-h-[260px] pr-3">
+                  <div className="space-y-2">
+                    {selectedQuestion.highlights.map((highlight) => (
+                      <div
+                        key={highlight.id}
+                        className="flex items-start justify-between gap-3 rounded-xl border bg-yellow-50 p-3"
+                      >
+                        <div className="min-w-0">
+                          <p className="break-words text-sm font-medium text-yellow-950">{highlight.selectedText}</p>
+                          {highlight.noteText ? (
+                            <p className="mt-1 text-xs text-muted-foreground">{highlight.noteText}</p>
+                          ) : null}
+                        </div>
+                        <Button
+                          size="icon"
+                          variant="ghost"
+                          className="h-8 w-8 shrink-0"
+                          onClick={() => void handleDeleteHighlight(highlight.id)}
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
+                      </div>
+                    ))}
+                  </div>
+                </ScrollArea>
+              ) : (
+                <p className="rounded-xl border border-dashed p-3 text-sm text-muted-foreground">
+                  ChÆ°a cÃ³ highlight cho cÃ¢u nÃ y.
+                </p>
+              )}
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>

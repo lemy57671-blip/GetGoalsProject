@@ -75,8 +75,8 @@ export function MockTestPage() {
     grammar: [5],
     vocabulary: [5, 6],
   };
-  const miniSkillUrl = `/mock-test/runner?type=mini&parts=${skillParts[selectedSkill].join(",")}&count=${questionCount}&difficulty=${selectedDifficulty}&mode=${testMode}`;
-  const miniPartUrl = `/mock-test/runner?type=mini&parts=${selectedParts.join(",")}&count=${questionCount}&difficulty=${selectedDifficulty}&mode=${testMode}`;
+  const miniSkillUrl = `/mock-test/runner?type=mini&mode=mini&parts=${skillParts[selectedSkill].join(",")}&count=${questionCount}&difficulty=${selectedDifficulty}&test_mode=${testMode}`;
+  const miniPartUrl = `/mock-test/runner?type=mini&mode=mini&parts=${selectedParts.join(",")}&count=${questionCount}&difficulty=${selectedDifficulty}&test_mode=${testMode}`;
 
   return (
     <ProFeatureGuard
@@ -95,13 +95,17 @@ export function MockTestPage() {
           </p>
         </div>
         <div className="flex items-center gap-3">
-          <Button variant="outline" className="gap-2">
-            <History className="h-4 w-4" />
-            Lịch sử bài test
+          <Button variant="outline" className="gap-2" asChild>
+            <Link to="/progress">
+              <History className="h-4 w-4" />
+              Lịch sử bài test
+            </Link>
           </Button>
-          <Button variant="secondary" className="gap-2">
-            <Play className="h-4 w-4" />
-            Tiếp tục bài đang làm
+          <Button variant="secondary" className="gap-2" asChild>
+            <Link to="/mock-test/runner?type=full">
+              <Play className="h-4 w-4" />
+              Tiếp tục bài đang làm
+            </Link>
           </Button>
         </div>
       </div>
@@ -404,7 +408,7 @@ export function MockTestPage() {
                   <span className="hidden">
                   <span>
                     <Play className="h-5 w-5" />
-                    Báº¯t Ä‘áº§u Mini Test ({selectedParts.length} part)
+                    Bắt đầu Mini Test ({selectedParts.length} part)
                   </span>
                   </span>
                   <Play className="h-5 w-5" />
@@ -568,8 +572,10 @@ export function MockTestPage() {
                   Bạn đang có độ chính xác 65% ở phần này. Luyện thêm 20 câu để
                   cải thiện.
                 </p>
-                <Button size="sm" variant="link" className="mt-2 px-0">
-                  Luyện ngay <ChevronRight className="ml-1 h-4 w-4" />
+                <Button size="sm" variant="link" className="mt-2 px-0" asChild>
+                  <Link to="/practice/runner?mode=recommended&parts=5&difficulty=medium&count=20&source=mock-test">
+                    Luyện ngay <ChevronRight className="ml-1 h-4 w-4" />
+                  </Link>
                 </Button>
               </div>
             </div>
@@ -587,8 +593,11 @@ export function MockTestPage() {
                   size="sm"
                   variant="link"
                   className="mt-2 px-0 text-yellow-700"
+                  asChild
                 >
-                  Xem lịch <ChevronRight className="ml-1 h-4 w-4" />
+                  <Link to="/roadmap">
+                    Xem lịch <ChevronRight className="ml-1 h-4 w-4" />
+                  </Link>
                 </Button>
               </div>
             </div>
@@ -658,9 +667,11 @@ export function MockTestPage() {
           </div>
           <div className="flex items-center gap-3">
             <Progress value={60} className="h-2 w-24" />
-            <Button className="gap-2">
-              <Play className="h-4 w-4" />
-              Tiếp tục
+            <Button className="gap-2" asChild>
+              <Link to="/mock-test/runner?type=full">
+                <Play className="h-4 w-4" />
+                Tiếp tục
+              </Link>
             </Button>
           </div>
         </CardContent>

@@ -45,8 +45,10 @@ async def handle_http_exception(request: Request, exc: StarletteHTTPException):
 
     if isinstance(exc.detail, dict):
         return JSONResponse(status_code=exc.status_code, content=exc.detail)
+
     if isinstance(exc.detail, str):
         return JSONResponse(status_code=exc.status_code, content={"message": exc.detail})
+
     return JSONResponse(status_code=exc.status_code, content={"message": "Request failed"})
 
 
@@ -80,7 +82,7 @@ async def handle_programming_error(request: Request, exc: ProgrammingError):
     return JSONResponse(
         status_code=500,
         content={
-            "message": "Database schema/query mismatch. Verify the Users table and mapped columns exist.",
+            "message": "Database schema/query mismatch. Verify table and mapped columns exist.",
             "detail": str(exc.orig) if getattr(exc, "orig", None) else str(exc),
         },
     )
@@ -123,11 +125,18 @@ def _mount_static_directory(url_path: str, directory: Path) -> None:
         app.mount(url_path, CORSStaticFiles(directory=directory), name=url_path.strip("/"))
         logger.info("Mounted static path %s -> %s", url_path, directory)
     else:
-        logger.warning("Skipped static mount %s because directory does not exist: %s", url_path, directory)
+        logger.warning(
+            "Skipped static mount %s because directory does not exist: %s",
+            url_path,
+            directory,
+        )
 
 
 _mount_static_directory("/toeic", settings.TOEIC_STATIC_ROOT)
 _mount_static_directory("/audio", settings.AUDIO_STATIC_ROOT)
 _mount_static_directory("/images", settings.IMAGE_STATIC_ROOT)
 
+# Quan trọng:
+# router.py đã định nghĩa các route con như /chat, /auth, /toeic...
+# main.py phải gắn prefix="/api" để frontend gọi được /api/chat, /api/auth, /api/toeic...
 app.include_router(api_router)

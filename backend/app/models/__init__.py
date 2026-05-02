@@ -1,5 +1,7 @@
 from app.models.entities import (
     Base,
+    ChatConversation,
+    ChatMessage,
     Course,
     Enrollment,
     MockTestAttempt,
@@ -15,6 +17,9 @@ from app.models.entities import (
     ToeicQuestionOption,
     ToeicSet,
     User,
+    UserQuestionBookmark,
+    UserQuestionHighlight,
+    UserQuestionNote,
     UserPartStat,
     UserRoadmap,
     UserRoadmapWeek,
@@ -27,6 +32,8 @@ from app.models.entities import (
 
 __all__ = [
     "Base",
+    "ChatConversation",
+    "ChatMessage",
     "Course",
     "Enrollment",
     "MockTestAttempt",
@@ -42,6 +49,9 @@ __all__ = [
     "ToeicQuestionOption",
     "ToeicSet",
     "User",
+    "UserQuestionBookmark",
+    "UserQuestionHighlight",
+    "UserQuestionNote",
     "UserPartStat",
     "UserRoadmap",
     "UserRoadmapWeek",

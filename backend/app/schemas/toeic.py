@@ -74,6 +74,10 @@ class ToeicRunnerPassageDto(BaseModel):
 
 class ToeicRunnerQuestionDto(BaseModel):
     id: int
+    questionId: int | None = None
+    dbId: int | None = None
+    docxQuestionId: int | None = None
+    sourceQuestionId: int | None = None
     section: str = "Listening"
     part: int = 1
     partLabel: str = "Part 1"

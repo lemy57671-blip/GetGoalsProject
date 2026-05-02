@@ -1,10 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import {
-  ArrowLeft,
-  ArrowRight,
   BookOpen,
   Brain,
   Check,
@@ -12,6 +10,7 @@ import {
   ChevronLeft,
   Clock,
   Flag,
+  Highlighter,
   Headphones,
   Pause,
   Play,
@@ -22,6 +21,10 @@ import {
 
 import { AudioPlayerBar } from "@/components/audio-player-bar";
 import { ProFeatureGuard } from "@/components/pro-feature-guard";
+import { ChatPanel } from "@src/components/chat/ChatPanel";
+import { IntegratedQuestionBar } from "@src/components/runner/IntegratedQuestionBar";
+import { RunnerActionButtons } from "@src/components/runner/RunnerActionButtons";
+import { RunnerRightPanel, type RunnerRightPanelTab } from "@src/components/runner/RunnerRightPanel";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -35,10 +38,13 @@ import {
 } from "@/components/ui/dialog";
 import { Progress } from "@/components/ui/progress";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Textarea } from "@/components/ui/textarea";
 import { attemptsService } from "@src/services/attemptsService";
 import { ApiError } from "@src/services/apiClient";
 import { chatService } from "@src/services/chatService";
+import { useLanguage } from "@src/contexts/LanguageContext";
 import { roadmapService } from "@src/services/roadmapService";
+import { reviewService, type ReviewHighlight, type ReviewNote } from "@src/services/reviewService";
 import { toeicService, ToeicRunnerQuestion } from "@src/services/toeicService";
 
 type TutorMessage = {
@@ -96,65 +102,63 @@ function formatReviewFocusLabel({
   return "Backend-selected similar questions";
 }
 
-function buildTutorPrompt(
-  question: ToeicRunnerQuestion,
-  userMessage: string,
-  selectedAnswerIndex: number | undefined,
-) {
-  const selectedAnswerText =
-    typeof selectedAnswerIndex === "number"
-      ? question.options[selectedAnswerIndex] || null
-      : null;
-  const optionsText = question.options
-    .map((option, index) => `${String.fromCharCode(65 + index)}. ${option}`)
-    .join("\n");
+function normalizePart(part: unknown) {
+  if (typeof part === "number") return part;
 
-  return `
-Bạn là AI Tutor hỗ trợ giải TOEIC ngắn gọn, dễ hiểu, bằng tiếng Việt.
-Không tiết lộ đáp án đúng ngay nếu người học chưa hỏi trực tiếp.
-Ưu tiên gợi ý cách loại đáp án sai, dấu hiệu nhận biết, ngữ pháp/từ vựng liên quan.
+  if (typeof part === "string") {
+    const matched = part.match(/\d+/);
+    if (matched) return Number(matched[0]);
+  }
 
-Thông tin câu hỏi hiện tại:
-- Part: ${question.part}
-- Skill: ${question.skill}
-- Question number: ${question.questionNumber}
-- Question: ${question.question}
+  return null;
+}
 
-Options:
-${optionsText}
-
-Người học hiện đang chọn:
-${selectedAnswerText || "Chưa chọn đáp án"}
-
-Câu hỏi của người học:
-${userMessage}
-  `.trim();
+function getSqlQuestionId(question?: ToeicRunnerQuestion | null) {
+  if (!question) return null;
+  return (
+    question.docxQuestionId ||
+    question.sourceQuestionId ||
+    question.sqlId ||
+    question.dbId ||
+    question.questionId ||
+    question.id ||
+    null
+  );
 }
 
 export function PracticeRunnerPage() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const tutorScrollRef = useRef<HTMLDivElement | null>(null);
+  const { t } = useLanguage();
+
   const roadmapWeekId = parsePositiveInteger(
     searchParams.get("weekId") || searchParams.get("roadmapWeekId"),
   );
   const roadmapSetId = parsePositiveInteger(searchParams.get("setId"));
   const isRoadmapSetRunner = Boolean(roadmapWeekId && roadmapSetId);
   const runnerMode = (searchParams.get("mode") || "exam").trim().toLowerCase();
+  const currentAttemptId = parsePositiveInteger(
+    searchParams.get("attempt_id") || searchParams.get("attemptId"),
+  );
   const isReviewFocusRunner = runnerMode === "review-focus";
+  const isQuestionIdRunner = Boolean((searchParams.get("question_ids") || "").trim());
+
   const reviewFocusParts = (searchParams.get("parts") || "5")
     .split(",")
     .map((item) => Number(item.trim()))
     .filter((part) => Number.isFinite(part) && part >= 1 && part <= 7);
+
   const reviewFocusItemId = parsePositiveInteger(searchParams.get("reviewItemId"));
   const reviewFocusSkill = searchParams.get("skill") || "";
   const reviewFocusSubskill = searchParams.get("subskill") || "";
+
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [selectedAnswer, setSelectedAnswer] = useState<string>("");
   const [flaggedQuestions, setFlaggedQuestions] = useState<number[]>([]);
   const [showExplanation, setShowExplanation] = useState(false);
   const isSmartMode = runnerMode === "smart" || runnerMode === "review-focus";
+
   const [showSubmitDialog, setShowSubmitDialog] = useState(false);
   const [timeElapsed, setTimeElapsed] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -164,15 +168,25 @@ export function PracticeRunnerPage() {
   const [startedAtUtc, setStartedAtUtc] = useState(() => new Date().toISOString());
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+
   const [tutorInput, setTutorInput] = useState("");
   const [tutorLoading, setTutorLoading] = useState(false);
-  const [tutorMessages, setTutorMessages] = useState<TutorMessage[]>([
-    {
-      role: "assistant",
-      content:
-        "Xin chào! Tôi là AI Tutor. Bạn có thể hỏi về câu hiện tại, từ vựng, ngữ pháp hoặc cách loại đáp án.",
-    },
-  ]);
+  const [tutorConversationId, setTutorConversationId] = useState<number | null>(null);
+  const [tutorMessages, setTutorMessages] = useState<TutorMessage[]>([]);
+  const [savedNotes, setSavedNotes] = useState<ReviewNote[]>([]);
+  const [savedHighlights, setSavedHighlights] = useState<ReviewHighlight[]>([]);
+  const [questionNote, setQuestionNote] = useState("");
+  const [isBookmarked, setIsBookmarked] = useState(false);
+  const [selectedTextForHighlight, setSelectedTextForHighlight] = useState("");
+  const [isSavingNote, setIsSavingNote] = useState(false);
+  const [isSavingHighlight, setIsSavingHighlight] = useState(false);
+  const [reviewToolError, setReviewToolError] = useState<string | null>(null);
+  const [rightPanelTab, setRightPanelTab] = useState<RunnerRightPanelTab>("ai");
+  const [noteSaved, setNoteSaved] = useState(false);
+  const [notebookStatusByIndex, setNotebookStatusByIndex] = useState<
+    Record<number, { bookmarked?: boolean; hasNote?: boolean; hasHighlight?: boolean }>
+  >({});
+
   const [runnerContext, setRunnerContext] = useState<{
     title?: string;
     subtitle?: string;
@@ -180,8 +194,41 @@ export function PracticeRunnerPage() {
   } | null>(null);
 
   const question = questions[currentQuestion];
+  const questionSqlId = getSqlQuestionId(question);
   const progress = questions.length > 0 ? ((currentQuestion + 1) / questions.length) * 100 : 0;
   const answeredCount = Object.keys(answers).length;
+  const currentNotebookStatus = notebookStatusByIndex[currentQuestion] || {};
+  const highlightTerms = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          savedHighlights
+            .map((highlight) => highlight.selectedText.trim())
+            .filter((text) => text.length > 0),
+        ),
+      ),
+    [savedHighlights],
+  );
+
+  const renderHighlightedText = (text?: string | null) => {
+    const value = text || "";
+    if (!value || highlightTerms.length === 0) return value;
+    const escapedTerms = highlightTerms
+      .map((term) => term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+      .filter(Boolean);
+    if (escapedTerms.length === 0) return value;
+    const regex = new RegExp(`(${escapedTerms.join("|")})`, "gi");
+    return value.split(regex).map((part, index) => {
+      const matched = highlightTerms.some((term) => term.toLowerCase() === part.toLowerCase());
+      return matched ? (
+        <mark key={`${part}-${index}`} className="rounded bg-yellow-200 px-0.5 text-foreground">
+          {part}
+        </mark>
+      ) : (
+        part
+      );
+    });
+  };
 
   useEffect(() => {
     let cancelled = false;
@@ -194,29 +241,38 @@ export function PracticeRunnerPage() {
         let usedReviewFocusEndpoint = false;
         let usedReviewFocusFallback = false;
         let reviewFocusLabel = "";
+
         const result =
           roadmapWeekId && roadmapSetId
             ? await roadmapService.getSetRunner(roadmapWeekId, roadmapSetId)
             : null;
-        const questions =
+
+        const loadedQuestions =
           result?.questions ||
           (await (async () => {
             const parts = (searchParams.get("parts") || "1")
               .split(",")
               .map((item) => Number(item.trim()))
               .filter((part) => Number.isFinite(part) && part >= 1 && part <= 7);
+
             const selectedParts = parts.length > 0 ? parts : [1];
             const difficulty = searchParams.get("difficulty") || "mixed";
             const requestedCount = Number(searchParams.get("count") || "30");
             const count =
-              Number.isFinite(requestedCount) && requestedCount > 0
-                ? requestedCount
-                : 30;
+              Number.isFinite(requestedCount) && requestedCount > 0 ? requestedCount : 30;
+            const questionIds = (searchParams.get("question_ids") || "")
+              .split(",")
+              .map((item) => Number(item.trim()))
+              .filter((item) => Number.isInteger(item) && item > 0);
 
             const loadPartBasedQuestions = () =>
               selectedParts.length === 1
-              ? toeicService.getPartRunner(selectedParts[0], count, difficulty)
-              : toeicService.getMixedRunner(selectedParts, count, difficulty);
+                ? toeicService.getPartRunner(selectedParts[0], count, difficulty)
+                : toeicService.getMixedRunner(selectedParts, count, difficulty);
+
+            if (questionIds.length > 0) {
+              return toeicService.getQuestionsByIds(questionIds);
+            }
 
             if (isReviewFocusRunner && reviewFocusItemId) {
               try {
@@ -225,6 +281,7 @@ export function PracticeRunnerPage() {
                   count,
                   difficulty,
                 );
+
                 if (focusedResult.questions.length > 0) {
                   usedReviewFocusEndpoint = true;
                   reviewFocusLabel = formatReviewFocusLabel({
@@ -236,6 +293,7 @@ export function PracticeRunnerPage() {
                   });
                   return focusedResult.questions;
                 }
+
                 usedReviewFocusFallback = true;
               } catch {
                 usedReviewFocusFallback = true;
@@ -247,13 +305,15 @@ export function PracticeRunnerPage() {
 
         if (cancelled) return;
 
-        if (questions.length > 0) {
-          setQuestions(questions);
+        if (loadedQuestions.length > 0) {
+          setQuestions(loadedQuestions);
           setCurrentQuestion(0);
           setAnswers({});
           setFlaggedQuestions([]);
           setShowExplanation(false);
+          setTutorConversationId(null);
           setStartedAtUtc(new Date().toISOString());
+
           setRunnerContext(
             result
               ? {
@@ -265,31 +325,36 @@ export function PracticeRunnerPage() {
                     title: `Review focus - Part ${
                       (reviewFocusParts.length > 0 ? reviewFocusParts : [5]).join(", ")
                     }`,
-                    subtitle:
-                      [
-                        usedReviewFocusEndpoint
-                          ? "Backend-selected similar questions"
-                          : usedReviewFocusFallback
-                            ? "Part-based fallback practice"
-                            : "Part-based review practice",
-                        reviewFocusSkill,
-                        reviewFocusSubskill,
-                      ]
-                        .filter(Boolean)
-                        .join(" / "),
+                    subtitle: [
+                      usedReviewFocusEndpoint
+                        ? "Backend-selected similar questions"
+                        : usedReviewFocusFallback
+                          ? "Part-based fallback practice"
+                          : "Part-based review practice",
+                      reviewFocusSkill,
+                      reviewFocusSubskill,
+                    ]
+                      .filter(Boolean)
+                      .join(" / "),
                     note: reviewFocusLabel || undefined,
                   }
-              : null,
+                : isQuestionIdRunner
+                  ? {
+                      title: "Review questions",
+                      subtitle: "Practice from selected review question ids",
+                    }
+                : null,
           );
         } else {
           if (isRoadmapSetRunner) {
             setQuestions([]);
             setRunnerContext(null);
           }
+
           setQuestionError(
             isRoadmapSetRunner
               ? "The roadmap set API returned an empty question set."
-              : "The TOEIC API returned an empty question set.",
+              : "Chưa có bài tập phù hợp với lựa chọn này.",
           );
         }
       } catch (error) {
@@ -298,6 +363,7 @@ export function PracticeRunnerPage() {
             setQuestions([]);
             setRunnerContext(null);
           }
+
           setQuestionError(
             error instanceof Error
               ? error.message
@@ -335,17 +401,76 @@ export function PracticeRunnerPage() {
   }, [currentQuestion, answers]);
 
   useEffect(() => {
-    if (tutorScrollRef.current) {
-      tutorScrollRef.current.scrollTop = tutorScrollRef.current.scrollHeight;
+    let cancelled = false;
+
+    async function loadReviewTools() {
+      if (!questionSqlId) {
+        setSavedNotes([]);
+        setSavedHighlights([]);
+        setQuestionNote("");
+        setNoteSaved(false);
+        setIsBookmarked(false);
+        return;
+      }
+
+      setReviewToolError(null);
+      setNoteSaved(false);
+      try {
+        const [notes, highlights, bookmarked] = await Promise.all([
+          reviewService.getNotes(questionSqlId),
+          reviewService.getHighlights(questionSqlId),
+          reviewService.getBookmark(questionSqlId),
+        ]);
+
+        if (cancelled) return;
+        setSavedNotes(notes);
+        setSavedHighlights(highlights);
+        setQuestionNote(notes[0]?.noteText || "");
+        setNoteSaved(false);
+        setIsBookmarked(bookmarked);
+        setNotebookStatusByIndex((prev) => ({
+          ...prev,
+          [currentQuestion]: {
+            bookmarked,
+            hasNote: notes.length > 0,
+            hasHighlight: highlights.length > 0,
+          },
+        }));
+        setFlaggedQuestions((prev) =>
+          bookmarked
+            ? Array.from(new Set([...prev, currentQuestion]))
+            : prev.filter((index) => index !== currentQuestion),
+        );
+      } catch (error) {
+        if (!cancelled) {
+          setSavedNotes([]);
+          setSavedHighlights([]);
+          setQuestionNote("");
+          setNoteSaved(false);
+          setIsBookmarked(false);
+          setNotebookStatusByIndex((prev) => ({
+            ...prev,
+            [currentQuestion]: { bookmarked: false, hasNote: false, hasHighlight: false },
+          }));
+          setReviewToolError(
+            error instanceof Error ? error.message : "Khong tai duoc so tay cho cau nay.",
+          );
+        }
+      }
     }
-  }, [tutorMessages, tutorLoading]);
+
+    void loadReviewTools();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [questionSqlId]);
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
-    return `${mins.toString().padStart(2, "0")}:${secs
-      .toString()
-      .padStart(2, "0")}`;
+
+    return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
   };
 
   const handleAnswer = (answer: string) => {
@@ -367,12 +492,111 @@ export function PracticeRunnerPage() {
     }
   };
 
-  const handleFlag = () => {
+  const handleFlag = async () => {
+    if (!questionSqlId) return;
+    const nextBookmarked = !isBookmarked;
+    setIsBookmarked(nextBookmarked);
     setFlaggedQuestions((prev) =>
-      prev.includes(currentQuestion)
-        ? prev.filter((q) => q !== currentQuestion)
-        : [...prev, currentQuestion],
+      nextBookmarked
+        ? Array.from(new Set([...prev, currentQuestion]))
+        : prev.filter((q) => q !== currentQuestion),
     );
+
+    try {
+      const saved = await reviewService.toggleBookmark(questionSqlId, currentAttemptId);
+      setIsBookmarked(saved);
+      setNotebookStatusByIndex((prev) => ({
+        ...prev,
+        [currentQuestion]: {
+          ...(prev[currentQuestion] || {}),
+          bookmarked: saved,
+        },
+      }));
+      setFlaggedQuestions((prev) =>
+        saved
+          ? Array.from(new Set([...prev, currentQuestion]))
+          : prev.filter((q) => q !== currentQuestion),
+      );
+    } catch (error) {
+      setIsBookmarked(!nextBookmarked);
+      setNotebookStatusByIndex((prev) => ({
+        ...prev,
+        [currentQuestion]: {
+          ...(prev[currentQuestion] || {}),
+          bookmarked: !nextBookmarked,
+        },
+      }));
+      setFlaggedQuestions((prev) =>
+        !nextBookmarked
+          ? Array.from(new Set([...prev, currentQuestion]))
+          : prev.filter((q) => q !== currentQuestion),
+      );
+      setReviewToolError(error instanceof Error ? error.message : "Khong luu duoc danh dau.");
+    }
+  };
+
+  const handleTextSelect = () => {
+    const selection = window.getSelection();
+    const selectedText = selection?.toString().trim() || "";
+    if (selectedText) {
+      setSelectedTextForHighlight(selectedText.slice(0, 2000));
+    }
+  };
+
+  const handleSaveNote = async () => {
+    if (!questionSqlId || !questionNote.trim()) return;
+    setIsSavingNote(true);
+    setReviewToolError(null);
+    try {
+      const note = await reviewService.saveNote(questionSqlId, questionNote.trim(), currentAttemptId);
+      setSavedNotes([note]);
+      setQuestionNote(note.noteText);
+      setNoteSaved(true);
+      setNotebookStatusByIndex((prev) => ({
+        ...prev,
+        [currentQuestion]: {
+          ...(prev[currentQuestion] || {}),
+          hasNote: true,
+        },
+      }));
+    } catch (error) {
+      setReviewToolError(error instanceof Error ? error.message : "Khong luu duoc ghi chu.");
+    } finally {
+      setIsSavingNote(false);
+    }
+  };
+
+  const handleCreateHighlight = async (selectedText = selectedTextForHighlight) => {
+    if (!selectedText.trim()) {
+      setReviewToolError(t("runner.highlightHint"));
+      return;
+    }
+    if (!questionSqlId) return;
+    setIsSavingHighlight(true);
+    setReviewToolError(null);
+    try {
+      const highlight = await reviewService.createHighlight({
+        question_id: questionSqlId,
+        attempt_id: currentAttemptId,
+        target_type: "question_text",
+        selected_text: selectedText.trim(),
+        color: "yellow",
+      });
+      setSavedHighlights((prev) => [highlight, ...prev]);
+      setNotebookStatusByIndex((prev) => ({
+        ...prev,
+        [currentQuestion]: {
+          ...(prev[currentQuestion] || {}),
+          hasHighlight: true,
+        },
+      }));
+      setSelectedTextForHighlight("");
+      window.getSelection()?.removeAllRanges();
+    } catch (error) {
+      setReviewToolError(error instanceof Error ? error.message : "Khong luu duoc highlight.");
+    } finally {
+      setIsSavingHighlight(false);
+    }
   };
 
   const goToQuestion = (index: number) => {
@@ -385,21 +609,178 @@ export function PracticeRunnerPage() {
 
     const userMessage = (messageOverride || tutorInput).trim();
     if (!userMessage) return;
+    setRightPanelTab("ai");
+
+    const selectedAnswerIndex = answers[currentQuestion] ?? null;
+    const correctAnswerIndex =
+      typeof question.correct === "number" ? question.correct : null;
+
+    const selectedAnswerText =
+      typeof selectedAnswerIndex === "number"
+        ? question.options[selectedAnswerIndex] ?? null
+        : null;
+    const selectedOptionLabel =
+      typeof selectedAnswerIndex === "number"
+        ? String.fromCharCode(65 + selectedAnswerIndex)
+        : null;
+
+    const correctAnswerText =
+      typeof correctAnswerIndex === "number"
+        ? question.options[correctAnswerIndex] ?? null
+        : null;
+
+    const questionNumber = currentQuestion + 1;
+    const part = normalizePart(question.part);
+    const questionSqlId =
+      question.docxQuestionId ||
+      question.sourceQuestionId ||
+      question.sqlId ||
+      question.dbId ||
+      question.questionId ||
+      question.id;
+
+    const currentQuestionPayload = {
+      id: questionSqlId,
+      questionId: questionSqlId,
+      question_id: questionSqlId,
+      sqlId: questionSqlId,
+      runnerQuestionId: question.id,
+
+      questionNumber,
+      question_number: questionNumber,
+
+      part,
+      Part: part,
+
+      section: question.section,
+      skill: question.skill,
+
+      questionText: question.question,
+      question_text: question.question,
+      text: question.question,
+      content: question.question,
+      prompt: question.question,
+
+      passageTitle: question.passageTitle || null,
+      passageText: question.passageText || null,
+      passage_text: question.passageText || null,
+      passage: question.passageText || null,
+
+      options: question.options.map((option, index) => ({
+        id: index,
+        label: String.fromCharCode(65 + index),
+        text: option,
+        content: option,
+        value: option,
+        isCorrect: index === correctAnswerIndex,
+      })),
+      choices: question.options,
+
+      selectedAnswerIndex,
+      selected_answer_index: selectedAnswerIndex,
+      selectedAnswer: selectedAnswerText,
+      selected_answer: selectedAnswerText,
+
+      correctAnswerIndex,
+      correct_answer_index: correctAnswerIndex,
+      correctAnswer: correctAnswerText,
+      correct_answer: correctAnswerText,
+
+      explanation: question.explanation || null,
+    };
 
     setTutorInput("");
-    setTutorMessages((current) => [
-      ...current,
-      { role: "user", content: userMessage },
-    ]);
+    setTutorMessages((current) => [...current, { role: "user", content: userMessage }]);
     setTutorLoading(true);
 
     try {
-      const reply = await chatService.send(
-        buildTutorPrompt(question, userMessage, answers[currentQuestion]),
-      );
+      const chatPayload = {
+        message: userMessage,
+
+        conversation_id: tutorConversationId,
+        conversationId: tutorConversationId,
+
+        question_id: questionSqlId,
+        questionId: questionSqlId,
+        currentQuestionId: questionSqlId,
+        sqlId: questionSqlId,
+        runner_question_id: question.id,
+        runnerQuestionId: question.id,
+
+        context_type: "practice_runner",
+        contextType: "practice_runner",
+
+        selected_answer_index: selectedAnswerIndex,
+        selectedAnswerIndex,
+        selected_option_label: selectedOptionLabel,
+        selectedOptionLabel,
+
+        questionNumber,
+        question_number: questionNumber,
+        part,
+
+        questionText: question.question,
+        question_text: question.question,
+        passageText: question.passageText || null,
+        passage_text: question.passageText || null,
+
+        options: currentQuestionPayload.options,
+        choices: question.options,
+
+        selectedAnswer: selectedAnswerText,
+        selected_answer: selectedAnswerText,
+
+        correctAnswer: correctAnswerText,
+        correct_answer: correctAnswerText,
+
+        explanation: question.explanation || null,
+
+        currentQuestion: currentQuestionPayload,
+        current_question: currentQuestionPayload,
+        question: currentQuestionPayload,
+
+        context: {
+          type: "practice_question",
+          runnerMode,
+          currentQuestionIndex: currentQuestion,
+          totalQuestions: questions.length,
+          isSmartMode,
+        },
+      };
+
+      console.log("[AI Tutor payload]", {
+        message: chatPayload.message,
+        question_id: chatPayload.question_id,
+        context_type: chatPayload.context_type,
+        selected_answer_index: chatPayload.selected_answer_index,
+        selected_option_label: chatPayload.selected_option_label,
+        conversation_id: chatPayload.conversation_id,
+      });
+
+      const response = await chatService.sendDetailed(chatPayload);
+
+      const nextConversationId =
+        typeof response.conversation_id === "number"
+          ? response.conversation_id
+          : typeof response.conversationId === "number"
+            ? response.conversationId
+            : null;
+
+      if (nextConversationId) {
+        setTutorConversationId(nextConversationId);
+      }
+
       setTutorMessages((current) => [
         ...current,
-        { role: "assistant", content: reply },
+        {
+          role: "assistant",
+          content:
+            response.reply ||
+            response.answer ||
+            response.content ||
+            response.message ||
+            "AI Tutor chưa tạo được phản hồi.",
+        },
       ]);
     } catch (error) {
       const message =
@@ -409,10 +790,7 @@ export function PracticeRunnerPage() {
             ? `Không gọi được AI Tutor: ${error.message}`
             : "Không gọi được AI Tutor.";
 
-      setTutorMessages((current) => [
-        ...current,
-        { role: "assistant", content: message },
-      ]);
+      setTutorMessages((current) => [...current, { role: "assistant", content: message }]);
     } finally {
       setTutorLoading(false);
     }
@@ -447,9 +825,7 @@ export function PracticeRunnerPage() {
       });
     } catch (error) {
       setSubmitError(
-        error instanceof Error
-          ? error.message
-          : "Could not submit this practice attempt.",
+        error instanceof Error ? error.message : "Could not submit this practice attempt.",
       );
     } finally {
       setIsSubmitting(false);
@@ -466,8 +842,7 @@ export function PracticeRunnerPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-sm text-muted-foreground">
-                {questionError ||
-                  "This runner does not have any questions to display yet."}
+                {questionError || "This runner does not have any questions to display yet."}
               </p>
               <div className="flex flex-wrap gap-3">
                 <Button asChild>
@@ -492,16 +867,12 @@ export function PracticeRunnerPage() {
               <Button variant="ghost" size="sm" asChild>
                 <Link to={isRoadmapSetRunner ? "/roadmap" : "/practice"}>
                   <ChevronLeft className="mr-1 h-4 w-4" />
-                  Thoát
+                  {t("runner.exit")}
                 </Link>
               </Button>
 
               <div className="flex items-center gap-2">
-                <Badge
-                  variant={
-                    question.section === "Listening" ? "default" : "secondary"
-                  }
-                >
+                <Badge variant={question.section === "Listening" ? "default" : "secondary"}>
                   {question.section === "Listening" ? (
                     <Headphones className="mr-1 h-3 w-3" />
                   ) : (
@@ -524,20 +895,14 @@ export function PracticeRunnerPage() {
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2 text-sm">
                 <Clock className="h-4 w-4 text-muted-foreground" />
-                <span className="font-mono text-foreground">
-                  {formatTime(timeElapsed)}
-                </span>
+                <span className="font-mono text-foreground">{formatTime(timeElapsed)}</span>
                 <Button
                   variant="ghost"
                   size="icon"
                   className="h-8 w-8"
                   onClick={() => setIsPaused(!isPaused)}
                 >
-                  {isPaused ? (
-                    <Play className="h-4 w-4" />
-                  ) : (
-                    <Pause className="h-4 w-4" />
-                  )}
+                  {isPaused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
                 </Button>
               </div>
 
@@ -547,7 +912,7 @@ export function PracticeRunnerPage() {
 
               <Button onClick={() => setShowSubmitDialog(true)}>
                 <Send className="mr-2 h-4 w-4" />
-                Nộp bài
+                {t("runner.submit")}
               </Button>
             </div>
           </div>
@@ -560,9 +925,7 @@ export function PracticeRunnerPage() {
         {isReviewFocusRunner && (
           <div className="mb-4 rounded-2xl border border-[#E7EEF9] bg-[#F8FBFF] px-4 py-3 text-sm text-muted-foreground">
             <div className="flex flex-wrap items-center gap-2">
-              <Badge className="border-0 bg-primary/10 text-primary">
-                Review focus
-              </Badge>
+              <Badge className="border-0 bg-primary/10 text-primary">Review focus</Badge>
               <span>
                 Practicing Part {(reviewFocusParts.length > 0 ? reviewFocusParts : [5]).join(", ")}
                 {reviewFocusSkill ? ` / ${reviewFocusSkill}` : ""}
@@ -590,30 +953,34 @@ export function PracticeRunnerPage() {
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <Badge variant="outline">Câu {currentQuestion + 1}</Badge>
+                    <Badge variant="outline">
+                      {t("runner.question")} {currentQuestion + 1}
+                    </Badge>
                     <Badge variant="secondary" className="text-xs">
                       {question.skill}
                     </Badge>
                   </div>
 
-                  <Button
-                    variant={
-                      flaggedQuestions.includes(currentQuestion)
-                        ? "default"
-                        : "ghost"
-                    }
-                    size="sm"
-                    onClick={handleFlag}
-                  >
-                    <Flag className="mr-1 h-4 w-4" />
-                    {flaggedQuestions.includes(currentQuestion)
-                      ? "Đã đánh dấu"
-                      : "Đánh dấu"}
-                  </Button>
+                  <RunnerActionButtons
+                    bookmarked={isBookmarked || flaggedQuestions.includes(currentQuestion)}
+                    hasNote={Boolean(currentNotebookStatus.hasNote || savedNotes.length)}
+                    hasHighlight={Boolean(currentNotebookStatus.hasHighlight || savedHighlights.length)}
+                    canHighlight={Boolean(selectedTextForHighlight)}
+                    labels={{
+                      mark: t("runner.mark"),
+                      marked: t("runner.marked"),
+                      note: t("runner.note"),
+                      highlight: t("runner.highlight"),
+                      highlightHint: t("runner.highlightHint"),
+                    }}
+                    onToggleBookmark={() => void handleFlag()}
+                    onOpenNote={() => setRightPanelTab("notes")}
+                    onHighlight={() => void handleCreateHighlight()}
+                  />
                 </div>
               </CardHeader>
 
-              <CardContent className="space-y-6">
+              <CardContent className="space-y-6" onMouseUp={handleTextSelect}>
                 {(question.hasAudio || question.hasImage) && (
                   <div className="space-y-4">
                     {question.hasAudio && (
@@ -640,13 +1007,11 @@ export function PracticeRunnerPage() {
                   <Card className="rounded-xl border-[#dfe7f5] bg-[#f8fbff]">
                     <CardContent className="space-y-2 pt-6">
                       {question.passageTitle && (
-                        <p className="font-semibold text-foreground">
-                          {question.passageTitle}
-                        </p>
+                        <p className="font-semibold text-foreground">{question.passageTitle}</p>
                       )}
                       {question.passageText && (
                         <p className="whitespace-pre-line text-sm leading-relaxed text-foreground">
-                          {question.passageText}
+                          {renderHighlightedText(question.passageText)}
                         </p>
                       )}
                     </CardContent>
@@ -655,19 +1020,15 @@ export function PracticeRunnerPage() {
 
                 <div>
                   <p className="text-lg font-medium leading-relaxed text-foreground">
-                    {question.question}
+                    {renderHighlightedText(question.question)}
                   </p>
                 </div>
 
                 <div className="space-y-3">
                   {question.options.map((option, index) => {
                     const isSelected = selectedAnswer === index.toString();
-                    const isCorrect =
-                      showExplanation && index === question.correct;
-                    const isWrong =
-                      showExplanation &&
-                      isSelected &&
-                      index !== question.correct;
+                    const isCorrect = showExplanation && index === question.correct;
+                    const isWrong = showExplanation && isSelected && index !== question.correct;
 
                     return (
                       <label
@@ -687,9 +1048,7 @@ export function PracticeRunnerPage() {
                           name={`practice-question-${currentQuestion}`}
                           value={index.toString()}
                           checked={isSelected}
-                          onChange={() =>
-                            !showExplanation && handleAnswer(index.toString())
-                          }
+                          onChange={() => !showExplanation && handleAnswer(index.toString())}
                           disabled={showExplanation}
                           className="sr-only"
                         />
@@ -708,14 +1067,10 @@ export function PracticeRunnerPage() {
                           {String.fromCharCode(65 + index)}
                         </div>
 
-                        <span className="flex-1 text-foreground">{option}</span>
+                        <span className="flex-1 text-foreground">{renderHighlightedText(option)}</span>
 
-                        {isCorrect && (
-                          <CheckCircle2 className="h-5 w-5 shrink-0 text-green-500" />
-                        )}
-                        {isWrong && (
-                          <X className="h-5 w-5 shrink-0 text-destructive" />
-                        )}
+                        {isCorrect && <CheckCircle2 className="h-5 w-5 shrink-0 text-green-500" />}
+                        {isWrong && <X className="h-5 w-5 shrink-0 text-destructive" />}
                         {!showExplanation && isSelected && (
                           <Check className="h-5 w-5 shrink-0 text-primary" />
                         )}
@@ -740,146 +1095,195 @@ export function PracticeRunnerPage() {
                   </Card>
                 )}
 
-                <div className="flex items-center justify-between border-t border-border pt-4">
-                  <Button
-                    variant="ghost"
-                    onClick={handlePrev}
-                    disabled={currentQuestion === 0}
-                  >
-                    <ArrowLeft className="mr-2 h-4 w-4" />
-                    Câu trước
-                  </Button>
-
-                  <div className="flex items-center gap-2">
-                    {isSmartMode && selectedAnswer && !showExplanation && (
+                {false ? (
+                  <div className="rounded-xl border border-[#DDE7F7] bg-[#F8FBFF] p-4">
+                    <div className="mb-3 flex items-center justify-between gap-3">
+                      <p className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                        <BookOpen className="h-4 w-4 text-primary" />
+                        {t("runner.note")}
+                      </p>
+                      {reviewToolError ? (
+                        <p className="text-xs text-destructive">{reviewToolError}</p>
+                      ) : null}
+                    </div>
+                    <Textarea
+                      value={questionNote}
+                      onChange={(event) => setQuestionNote(event.target.value)}
+                      placeholder={t("runner.notePlaceholder")}
+                      className="min-h-[88px] resize-none bg-white text-sm"
+                    />
+                    <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
                       <Button
-                        variant="outline"
-                        onClick={() => setShowExplanation(true)}
+                        size="sm"
+                        onClick={() => void handleSaveNote()}
+                        disabled={!questionSqlId || !questionNote.trim() || isSavingNote}
                       >
-                        <Brain className="mr-2 h-4 w-4" />
-                        Xem giải thích
+                        {isSavingNote
+                          ? t("common.loading")
+                          : savedNotes.length > 0
+                            ? t("runner.updateNote")
+                            : t("runner.saveNote")}
                       </Button>
-                    )}
+                      {savedHighlights.length > 0 ? (
+                        <p className="text-xs text-muted-foreground">
+                          {t("runner.highlights")}: {savedHighlights.length}
+                        </p>
+                      ) : null}
+                    </div>
                   </div>
+                ) : null}
 
-                  <Button
-                    onClick={handleNext}
-                    disabled={
-                      currentQuestion === questions.length - 1
-                    }
-                  >
-                    Câu tiếp
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </div>
+                {isSmartMode && selectedAnswer && !showExplanation ? (
+                  <div className="flex justify-center border-t border-border pt-4">
+                    <Button variant="outline" onClick={() => setShowExplanation(true)}>
+                      <Brain className="mr-2 h-4 w-4" />
+                      {t("runner.showExplanation")}
+                    </Button>
+                  </div>
+                ) : null}
+
+                <IntegratedQuestionBar
+                  currentLabel={`${currentQuestion + 1} / ${questions.length}`}
+                  answeredCount={answeredCount}
+                  markedCount={flaggedQuestions.length}
+                  previousDisabled={currentQuestion === 0}
+                  nextDisabled={currentQuestion === questions.length - 1}
+                  onPrevious={handlePrev}
+                  onNext={handleNext}
+                  items={questions.map((item, index) => ({
+                    id: index,
+                    label: String(index + 1),
+                    part: item.partNumber,
+                    current: index === currentQuestion,
+                    answered: answers[index] !== undefined,
+                    bookmarked: Boolean(notebookStatusByIndex[index]?.bookmarked || flaggedQuestions.includes(index)),
+                    hasNote: Boolean(notebookStatusByIndex[index]?.hasNote),
+                    hasHighlight: Boolean(notebookStatusByIndex[index]?.hasHighlight),
+                  }))}
+                  labels={{
+                    previous: t("runner.previous"),
+                    next: t("runner.next"),
+                    questionList: t("runner.questionList"),
+                    answered: t("runner.answered"),
+                    marked: t("runner.marked"),
+                    notes: t("runner.notes"),
+                    highlights: t("runner.highlights"),
+                    all: t("runner.all"),
+                    part: t("runner.part"),
+                    progress: t("runner.progress"),
+                  }}
+                  onSelect={(item) => goToQuestion(Number(item.id))}
+                />
               </CardContent>
             </Card>
           </div>
 
           <div className="space-y-4 lg:col-span-1">
-            <ProFeatureGuard
-              feature="aiChatUnlimited"
-              compact
-              title="AI Tutor trong Practice Runner la tinh nang Pro"
-              description="Free van lam practice binh thuong. Nang cap Pro de chat voi AI Tutor theo tung cau hoi."
-            >
-              <Card className="rounded-xl border-[#CFE0FF] bg-[#F7FAFF] shadow-sm">
-                <CardHeader className="pb-3">
-                  <CardTitle className="flex items-center gap-2 text-base text-foreground">
-                    <Brain className="h-4 w-4 text-primary" />
-                    Hỏi AI Tutor
-                  </CardTitle>
-                  <p className="text-xs text-muted-foreground">
-                    Chat theo đúng câu đang làm qua FastAPI `/api/chat`.
-                  </p>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div
-                    ref={tutorScrollRef}
-                    className="h-56 overflow-y-auto rounded-2xl bg-white p-3 ring-1 ring-[#DDE7F7]"
-                  >
-                    <div className="space-y-3">
-                      {tutorMessages.map((message, index) => (
-                        <div
-                          key={`${message.role}-${index}`}
-                          className={`flex ${
-                            message.role === "user"
-                              ? "justify-end"
-                              : "justify-start"
-                          }`}
-                        >
-                          <div
-                            className={`max-w-[92%] rounded-2xl px-3 py-2 text-sm leading-6 ${
-                              message.role === "user"
-                                ? "bg-primary text-primary-foreground"
-                                : "bg-[#EEF4FF] text-foreground"
-                            }`}
-                          >
-                            {message.content}
-                          </div>
-                        </div>
-                      ))}
+            {false ? (
+            <Card className="rounded-xl border-[#E6EDF8] bg-white shadow-sm">
+              <CardHeader className="pb-2">
+                <CardTitle className="flex items-center gap-2 text-sm text-foreground">
+                  <BookOpen className="h-4 w-4 text-primary" />
+                  Ghi chú của bạn
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <Textarea
+                  value={questionNote}
+                  onChange={(event) => setQuestionNote(event.target.value)}
+                  placeholder="Ghi lại mẹo, cấu trúc hoặc lỗi cần nhớ..."
+                  className="min-h-[96px] resize-none text-sm"
+                />
+                <Button
+                  size="sm"
+                  className="w-full"
+                  onClick={() => void handleSaveNote()}
+                  disabled={!questionSqlId || !questionNote.trim() || isSavingNote}
+                >
+                  {isSavingNote ? "Đang lưu..." : savedNotes.length > 0 ? "Cập nhật ghi chú" : "Lưu ghi chú"}
+                </Button>
 
-                      {tutorLoading && (
-                        <div className="rounded-2xl bg-[#EEF4FF] px-3 py-2 text-sm text-muted-foreground">
-                          AI Tutor đang suy nghĩ...
-                        </div>
-                      )}
+                {false ? (
+                <div className="rounded-lg border border-dashed border-[#D9E4F4] bg-[#F8FBFF] p-3">
+                  <div className="mb-2 flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-2 text-xs font-semibold text-foreground">
+                      <Highlighter className="h-3.5 w-3.5 text-yellow-600" />
+                      Highlight
                     </div>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2">
                     <Button
-                      type="button"
-                      variant="outline"
                       size="sm"
-                      onClick={() => void handleAskTutor("Gợi ý cách làm câu này")}
-                      disabled={tutorLoading}
-                    >
-                      Gợi ý
-                    </Button>
-                    <Button
-                      type="button"
                       variant="outline"
-                      size="sm"
-                      onClick={() => void handleAskTutor("Giải thích vì sao đáp án này đúng hoặc sai")}
-                      disabled={tutorLoading}
+                      className="h-7 px-2 text-xs"
+                      onClick={() => void handleCreateHighlight()}
+                      disabled={!questionSqlId || !selectedTextForHighlight || isSavingHighlight}
                     >
-                      Giải thích
+                      {isSavingHighlight ? "Đang lưu" : "Lưu"}
                     </Button>
                   </div>
+                  <p className="min-h-5 break-words text-xs text-muted-foreground">
+                    {selectedTextForHighlight
+                      ? `Đã chọn: "${selectedTextForHighlight}"`
+                      : "Bôi chọn text trong câu hỏi rồi bấm Lưu."}
+                  </p>
+                </div>
+                ) : null}
 
-                  <div className="flex items-center gap-2 rounded-2xl border border-[#D7E3F8] bg-white px-3 py-2">
-                    <input
-                      value={tutorInput}
-                      onChange={(event) => setTutorInput(event.target.value)}
-                      onKeyDown={(event) => {
-                        if (event.key === "Enter") {
-                          event.preventDefault();
-                          void handleAskTutor();
-                        }
-                      }}
-                      placeholder="Nhập câu hỏi..."
-                      className="min-w-0 flex-1 border-0 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => void handleAskTutor()}
-                      disabled={tutorLoading || !tutorInput.trim()}
-                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-60"
-                    >
-                      <Send className="h-4 w-4" />
-                    </button>
+                {savedHighlights.length > 0 ? (
+                  <div className="space-y-2">
+                    {savedHighlights.slice(0, 4).map((highlight) => (
+                      <div
+                        key={highlight.id}
+                        className="rounded-lg bg-yellow-50 px-3 py-2 text-xs text-yellow-900"
+                      >
+                        {highlight.selectedText}
+                      </div>
+                    ))}
                   </div>
-                </CardContent>
-              </Card>
-            </ProFeatureGuard>
+                ) : null}
 
+                {reviewToolError ? (
+                  <p className="text-xs text-destructive">{reviewToolError}</p>
+                ) : null}
+              </CardContent>
+            </Card>
+            ) : null}
+
+            <RunnerRightPanel
+              activeTab={rightPanelTab}
+              onTabChange={setRightPanelTab}
+              labels={{
+                notes: t("runner.notes"),
+                aiTutor: t("runner.aiTutor"),
+                notesForQuestion: t("runner.notesForQuestion"),
+                saveNote: t("runner.saveNote"),
+                saved: t("runner.saved"),
+                notePlaceholder: t("runner.notePlaceholder"),
+                noQuestionSelected: t("runner.noQuestionSelected"),
+                askAiTutor: t("runner.askAiTutor"),
+                typeYourQuestion: t("runner.typeYourQuestion"),
+                loading: t("common.loading"),
+              }}
+              noteValue={questionNote}
+              onNoteChange={(value) => {
+                setQuestionNote(value);
+                setNoteSaved(false);
+              }}
+              onSaveNote={() => void handleSaveNote()}
+              noteSaving={isSavingNote}
+              noteSaved={noteSaved}
+              noteError={reviewToolError}
+              noteDisabled={!questionSqlId}
+              messages={tutorMessages}
+              tutorValue={tutorInput}
+              onTutorValueChange={setTutorInput}
+              onTutorSend={() => void handleAskTutor()}
+              tutorLoading={tutorLoading}
+            />
+
+            {false ? (
             <Card className="sticky top-20 rounded-xl border-border">
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm text-foreground">
-                  Danh sách câu hỏi
-                </CardTitle>
+                <CardTitle className="text-sm text-foreground">{t("runner.questionList")}</CardTitle>
               </CardHeader>
 
               <CardContent>
@@ -914,14 +1318,14 @@ export function PracticeRunnerPage() {
 
                 <div className="mt-4 space-y-2 border-t border-border pt-4 text-sm">
                   <div className="flex items-center justify-between">
-                    <span className="text-muted-foreground">Đã trả lời</span>
+                    <span className="text-muted-foreground">{t("runner.answered")}</span>
                     <span className="font-medium text-foreground">
                       {answeredCount} / {questions.length}
                     </span>
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <span className="text-muted-foreground">Đánh dấu</span>
+                    <span className="text-muted-foreground">{t("runner.flagged")}</span>
                     <span className="font-medium text-orange-500">
                       {flaggedQuestions.length}
                     </span>
@@ -929,6 +1333,7 @@ export function PracticeRunnerPage() {
                 </div>
               </CardContent>
             </Card>
+            ) : null}
           </div>
         </div>
       </div>
@@ -936,17 +1341,13 @@ export function PracticeRunnerPage() {
       <Dialog open={showSubmitDialog} onOpenChange={setShowSubmitDialog}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle className="text-foreground">
-              Nộp bài luyện tập?
-            </DialogTitle>
+            <DialogTitle className="text-foreground">Nộp bài luyện tập?</DialogTitle>
             <DialogDescription className="text-muted-foreground">
-              Bạn đã hoàn thành {answeredCount} /{" "}
-              {questions.length} câu hỏi.
+              Bạn đã hoàn thành {answeredCount} / {questions.length} câu hỏi.
               {questions.length - answeredCount > 0 && (
                 <span className="text-destructive">
                   {" "}
-                  Còn {questions.length - answeredCount} câu
-                  chưa trả lời.
+                  Còn {questions.length - answeredCount} câu chưa trả lời.
                 </span>
               )}
             </DialogDescription>
@@ -955,17 +1356,12 @@ export function PracticeRunnerPage() {
           <div className="py-4">
             <div className="flex items-center justify-between text-sm">
               <span className="text-muted-foreground">Thời gian làm bài</span>
-              <span className="font-medium text-foreground">
-                {formatTime(timeElapsed)}
-              </span>
+              <span className="font-medium text-foreground">{formatTime(timeElapsed)}</span>
             </div>
           </div>
 
           <DialogFooter>
-            <Button
-              variant="outline"
-              onClick={() => setShowSubmitDialog(false)}
-            >
+            <Button variant="outline" onClick={() => setShowSubmitDialog(false)}>
               Tiếp tục làm
             </Button>
 
@@ -979,14 +1375,12 @@ export function PracticeRunnerPage() {
                 }}
               >
                 <Send className="mr-2 h-4 w-4" />
-                Nộp bài
+                {t("runner.submit")}
               </Link>
             </Button>
           </DialogFooter>
 
-          {submitError && (
-            <p className="text-sm text-destructive">{submitError}</p>
-          )}
+          {submitError && <p className="text-sm text-destructive">{submitError}</p>}
         </DialogContent>
       </Dialog>
     </div>

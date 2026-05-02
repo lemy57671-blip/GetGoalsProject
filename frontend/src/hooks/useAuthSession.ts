@@ -5,6 +5,7 @@ import {
   getAuthToken,
 } from "@src/services/apiClient";
 import { authService, type AuthUser } from "@src/services/authService";
+import { buildUserInitials, getUserAvatarUrl } from "@src/utils/userDisplay";
 
 function normalizePlan(plan?: string) {
   const normalized = plan?.trim().toLowerCase();
@@ -22,22 +23,6 @@ function normalizePlan(plan?: string) {
   }
 
   return `${normalized.charAt(0).toUpperCase()}${normalized.slice(1)} Plan`;
-}
-
-function buildInitials(user: AuthUser | null) {
-  const source = user?.name?.trim() || user?.email?.trim() || "";
-
-  if (!source) {
-    return "GG";
-  }
-
-  const parts = source.split(/\s+/).filter(Boolean);
-
-  if (parts.length === 1) {
-    return parts[0].slice(0, 2).toUpperCase();
-  }
-
-  return `${parts[0][0]}${parts[parts.length - 1]?.[0] ?? ""}`.toUpperCase();
 }
 
 export function useAuthSession() {
@@ -67,7 +52,7 @@ export function useAuthSession() {
         error instanceof ApiError &&
         (error.status === 401 || error.status === 403)
       ) {
-        authService.logout();
+        authService.clearSession();
         setHasToken(false);
         setUser(null);
       }
@@ -77,10 +62,10 @@ export function useAuthSession() {
   }, []);
 
   const logout = useCallback(() => {
-    authService.logout();
     setUser(null);
     setHasToken(false);
     setIsLoading(false);
+    authService.logout("/");
   }, []);
 
   useEffect(() => {
@@ -105,7 +90,8 @@ export function useAuthSession() {
     isAuthenticated: hasToken || Boolean(user),
     displayName: user?.name?.trim() || user?.email?.trim() || "Tài khoản của bạn",
     planLabel: normalizePlan(user?.plan),
-    initials: buildInitials(user),
+    initials: buildUserInitials(user?.name, user?.email),
+    avatarUrl: getUserAvatarUrl(user),
     logout,
     refreshSession,
   };

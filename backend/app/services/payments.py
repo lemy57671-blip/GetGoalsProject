@@ -199,6 +199,15 @@ async def create_pro_order(db: Session, request: CreateProOrderRequest, resolved
         db.rollback()
         logger.exception("Failed to persist PayOS order %s: %s", internal_order_code, exc)
         raise RuntimeError("PAYOS_ORDER_SAVE_FAILED") from exc
+    logger.info(
+        "Created payment order. orderCode=%s payosOrderCode=%s user_id=%s plan_code=%s status=%s expiredAt=%s",
+        order.order_code,
+        order.payos_order_code,
+        user.id,
+        plan_code,
+        order.status,
+        order.expired_at.isoformat(),
+    )
     return CreateProOrderResponse(
         orderCode=order.order_code,
         amount=float(order.amount),
@@ -257,16 +266,35 @@ async def sync_pending_order_from_payos(db: Session, order: PaymentOrder) -> Non
         payos_status = str(data.get("status", "")).upper()
         if payos_status == "PAID":
             if order.status != "paid":
+                previous_status = order.status
                 order.status = "paid"
                 order.paid_at = order.paid_at or datetime.utcnow()
                 db.commit()
+                logger.info(
+                    "Payment order status transition. orderCode=%s from=%s to=paid reason=payos_status",
+                    order.order_code,
+                    previous_status,
+                )
                 activate_paid_subscription(db, order)
         elif payos_status == "CANCELLED":
             if order.status == "pending":
+                previous_status = order.status
                 order.status = "cancelled"
                 db.commit()
+                logger.info(
+                    "Payment order status transition. orderCode=%s from=%s to=cancelled reason=payos_status",
+                    order.order_code,
+                    previous_status,
+                )
         elif order.expired_at <= datetime.utcnow() and order.status == "pending":
+            previous_status = order.status
             order.status = "expired"
             db.commit()
+            logger.info(
+                "Payment order status transition. orderCode=%s from=%s to=expired reason=local_expiration expiredAt=%s",
+                order.order_code,
+                previous_status,
+                order.expired_at.isoformat(),
+            )
     except Exception as exc:  # pragma: no cover
         logger.exception("Error syncing payOS order %s: %s", order.order_code, exc)

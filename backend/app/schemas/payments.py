@@ -47,7 +47,3 @@ class PayOSWebhookRequest(BaseModel):
     success: bool = False
     data: PayOSWebhookData = PayOSWebhookData(orderCode=0, amount=0)
     signature: str = ""
-
-
-class ChatBody(BaseModel):
-    message: str | None = None

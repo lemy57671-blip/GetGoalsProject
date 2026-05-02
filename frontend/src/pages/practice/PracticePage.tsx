@@ -34,6 +34,7 @@ import {
   ToeicPartItem,
   ToeicRecommendations,
 } from "@src/services/toeicService";
+import { useLanguage } from "@src/contexts/LanguageContext";
 
 type QuestionCountMode = "adaptive" | "30" | "60" | "100" | "200";
 
@@ -59,6 +60,7 @@ function formatRoadmapLabel(value?: string | null) {
 }
 
 export function PracticePage() {
+  const { t } = useLanguage();
   const [searchParams] = useSearchParams();
   const roadmapWeekId = parsePositiveInteger(searchParams.get("roadmapWeekId"));
   const [viewMode, setViewMode] = useState<ViewMode>("part");
@@ -118,10 +120,23 @@ export function PracticePage() {
         ? Math.min(Math.max(totalSelectedQuestions || 30, 30), 200)
         : Number(questionCountMode);
 
+    const skills = Array.from(
+      new Set(
+        parts.map((part) =>
+          part <= 4
+            ? "Listening"
+            : viewMode === "skill" && selectedSkillPacks.length > 0
+              ? "Grammar + Vocabulary"
+              : "Reading",
+        ),
+      ),
+    );
+
     return new URLSearchParams({
       parts: parts.join(","),
+      skills: skills.join(","),
       difficulty,
-      mode: practiceMode,
+      mode: practiceMode === "exam" ? "practice" : practiceMode,
       count: String(selectedCount),
     }).toString();
   }, [
@@ -129,8 +144,10 @@ export function PracticePage() {
     practiceMode,
     questionCountMode,
     selectedParts,
+    selectedSkillPacks,
     toeicParts,
     totalSelectedQuestions,
+    viewMode,
   ]);
 
   useEffect(() => {
@@ -494,10 +511,10 @@ export function PracticePage() {
 
             <div>
               <CardTitle className="text-3xl font-bold tracking-tight text-foreground">
-                Tạo bài luyện tập
+                {t("practice.createTitle")}
               </CardTitle>
               <p className="mt-2 text-base text-muted-foreground">
-                Tùy chỉnh bài luyện theo nhu cầu của bạn
+                {t("practice.createSubtitle")}
               </p>
             </div>
           </div>
@@ -539,7 +556,7 @@ export function PracticePage() {
                   viewMode === "skill",
                 )}`}
               >
-                Theo kỹ năng
+                {t("practice.bySkill")}
               </button>
 
               <button
@@ -549,7 +566,7 @@ export function PracticePage() {
                   viewMode === "part",
                 )}`}
               >
-                Theo Part TOEIC
+                {t("practice.byPart")}
               </button>
             </div>
           </div>
@@ -587,7 +604,7 @@ export function PracticePage() {
               onClick={clearSelection}
               className="px-2 text-sm font-semibold text-slate-700 transition hover:text-slate-900"
             >
-              Bỏ chọn tất cả
+              {t("practice.clearAll")}
             </button>
           </div>
 
@@ -722,7 +739,7 @@ export function PracticePage() {
           <div className="grid gap-8 border-t border-border pt-6 lg:grid-cols-2">
             <div className="space-y-3">
               <h3 className="text-base font-semibold text-foreground">
-                Độ khó
+                {t("practice.difficulty")}
               </h3>
 
               <div className="flex flex-wrap gap-2">
@@ -731,7 +748,7 @@ export function PracticePage() {
                   onClick={() => setDifficulty("easy")}
                   className={`rounded-xl px-4 py-2 text-sm font-medium transition ${difficultyButtonClass("easy")}`}
                 >
-                  Dễ
+                  {t("practice.easy")}
                 </button>
 
                 <button
@@ -739,7 +756,7 @@ export function PracticePage() {
                   onClick={() => setDifficulty("medium")}
                   className={`rounded-xl px-4 py-2 text-sm font-medium transition ${difficultyButtonClass("medium")}`}
                 >
-                  Trung bình
+                  {t("practice.medium")}
                 </button>
 
                 <button
@@ -747,7 +764,7 @@ export function PracticePage() {
                   onClick={() => setDifficulty("hard")}
                   className={`rounded-xl px-4 py-2 text-sm font-medium transition ${difficultyButtonClass("hard")}`}
                 >
-                  Khó
+                  {t("practice.hard")}
                 </button>
 
                 <button
@@ -755,14 +772,14 @@ export function PracticePage() {
                   onClick={() => setDifficulty("mixed")}
                   className={`rounded-xl px-4 py-2 text-sm font-medium transition ${difficultyButtonClass("mixed")}`}
                 >
-                  Hỗn hợp
+                  {t("practice.mixed")}
                 </button>
               </div>
             </div>
 
             <div className="space-y-3">
               <h3 className="text-base font-semibold text-foreground">
-                Chế độ luyện tập
+                {t("practice.mode")}
               </h3>
 
               <div className="flex flex-wrap gap-2">
@@ -789,7 +806,7 @@ export function PracticePage() {
 
           <div className="space-y-3 border-t border-border pt-6">
             <h3 className="text-base font-semibold text-foreground">
-              Số lượng câu hỏi
+              {t("practice.count")}
             </h3>
 
             <div className="flex flex-wrap gap-2">
@@ -872,7 +889,7 @@ export function PracticePage() {
                 }}
               >
                 <Play className="mr-2 h-4 w-4" />
-                Bắt đầu luyện tập
+                {t("practice.start")}
               </Link>
             </Button>
           </div>
@@ -888,7 +905,7 @@ export function PracticePage() {
             <div className="flex items-center justify-between">
               <span>Chế độ xem</span>
               <Badge variant="secondary">
-                {viewMode === "skill" ? "Theo kỹ năng" : "Theo Part TOEIC"}
+                {viewMode === "skill" ? t("practice.bySkill") : t("practice.byPart")}
               </Badge>
             </div>
 
@@ -907,12 +924,12 @@ export function PracticePage() {
               <span>Độ khó</span>
               <Badge variant="secondary">
                 {difficulty === "easy"
-                  ? "Dễ"
+                  ? t("practice.easy")
                   : difficulty === "medium"
-                    ? "Trung bình"
+                    ? t("practice.medium")
                     : difficulty === "hard"
-                      ? "Khó"
-                      : "Hỗn hợp"}
+                      ? t("practice.hard")
+                      : t("practice.mixed")}
               </Badge>
             </div>
 

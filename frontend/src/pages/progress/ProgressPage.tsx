@@ -32,6 +32,7 @@ import {
   heatmap,
   roadmapSteps,
 } from "@src/data/progress";
+import { useLanguage } from "@src/contexts/LanguageContext";
 import { progressService, ProgressView } from "@src/services/progressService";
 
 function ScoreLineChart({
@@ -172,7 +173,57 @@ function WeeklyBarChart({
   );
 }
 
+function extractPartNumber(partLabel: string) {
+  const matched = partLabel.match(/\d+/);
+  return matched ? Number(matched[0]) : null;
+}
+
+function buildRecommendedPracticeUrl(progress: ProgressView) {
+  const weakPart = progress.partProgress
+    .map((item) => ({
+      part: extractPartNumber(item.part),
+      accuracy: item.accuracy,
+    }))
+    .filter((item): item is { part: number; accuracy: number } =>
+      Boolean(item.part && item.part >= 1 && item.part <= 7),
+    )
+    .sort((left, right) => left.accuracy - right.accuracy)[0];
+
+  const weakSkill = progress.skillProgress
+    .slice()
+    .sort((left, right) => left.accuracy - right.accuracy)[0];
+
+  if (!weakPart && !weakSkill) {
+    return "/practice?recommended=true";
+  }
+
+  const params = new URLSearchParams({
+    mode: "recommended",
+    difficulty: "medium",
+    count: "20",
+    source: "progress",
+  });
+
+  if (weakPart?.part) {
+    params.set("parts", String(weakPart.part));
+  } else if (weakSkill?.name.toLowerCase().includes("listening")) {
+    params.set("parts", "1,2,3,4");
+  } else if (weakSkill?.name.toLowerCase().includes("reading")) {
+    params.set("parts", "5,6,7");
+  } else {
+    params.set("parts", "5");
+    params.set("skill", "grammar_vocabulary");
+  }
+
+  if (weakSkill?.name) {
+    params.set("skill", weakSkill.name);
+  }
+
+  return `/practice/runner?${params.toString()}`;
+}
+
 export function ProgressPage() {
+  const { t } = useLanguage();
   const [progressData, setProgressData] = useState<ProgressView | null>(null);
   const [isLoadingProgress, setIsLoadingProgress] = useState(true);
   const [progressError, setProgressError] = useState<string | null>(null);
@@ -253,6 +304,8 @@ export function ProgressPage() {
     [liveProgress.skillProgress],
   );
   const partProgress = liveProgress.partProgress;
+  const recommendedPracticeUrl = buildRecommendedPracticeUrl(liveProgress);
+  const weeklyCheckUrl = "/weekly-check/runner?count=25&source=progress";
 
   return (
     <div className="min-h-screen bg-background p-6">
@@ -276,10 +329,22 @@ export function ProgressPage() {
                 </Link>
               </Button>
               <Button
+                asChild
                 variant="outline"
                 className="rounded-2xl border-border bg-white/80 text-foreground hover:bg-[#EEF4FF]"
               >
-                Làm Weekly Check
+                <Link to={recommendedPracticeUrl}>
+                  {t("progress.recommended")}
+                </Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                className="rounded-2xl border-border bg-white/80 text-foreground hover:bg-[#EEF4FF]"
+              >
+                <Link to={weeklyCheckUrl}>
+                  {t("progress.weekly")}
+                </Link>
               </Button>
             </div>
           </div>
@@ -510,9 +575,11 @@ export function ProgressPage() {
                 </p>
               </div>
 
-              <Button className="w-full rounded-2xl bg-primary text-primary-foreground hover:bg-primary/90">
-                Xem bài luyện đề xuất
-                <ArrowRight className="ml-2 h-4 w-4" />
+              <Button asChild className="w-full rounded-2xl bg-primary text-primary-foreground hover:bg-primary/90">
+                <Link to={recommendedPracticeUrl}>
+                  {t("progress.recommended")}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
               </Button>
             </CardContent>
           </Card>

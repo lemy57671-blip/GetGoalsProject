@@ -25,6 +25,7 @@ import {
   type SavePracticeAttemptResponse,
 } from "@src/services/attemptsService";
 import { weeklyCheckService } from "@src/services/weeklyCheckService";
+import { useLanguage } from "@src/contexts/LanguageContext";
 
 type MockTestResultState = {
   scorePercentage?: number;
@@ -149,6 +150,7 @@ function formatDuration(seconds?: number | null, minutes?: number | null) {
 }
 
 export function MockTestResultPage() {
+  const { t } = useLanguage();
   const location = useLocation();
   const [searchParams] = useSearchParams();
   const [fetchedResult, setFetchedResult] = useState<PracticeAttemptResult | null>(null);
@@ -216,18 +218,25 @@ export function MockTestResultPage() {
   const readingSummary = summarizeSection(backendResult, "Reading");
   const summaryItems = backendResult
     ? [
-        { label: "Correct", value: `${backendResult.correctCount}/${backendResult.totalQuestions}` },
-        { label: "Wrong", value: String(backendResult.wrongCount) },
-        { label: "Unanswered", value: String(backendResult.unansweredCount) },
+        { label: t("result.correct"), value: `${backendResult.correctCount}/${backendResult.totalQuestions}` },
+        { label: t("result.wrong"), value: String(backendResult.wrongCount) },
+        { label: t("result.skipped"), value: String(backendResult.unansweredCount) },
         {
-          label: "Time",
+          label: t("result.timeSpent"),
           value: formatDuration(backendResult.durationSeconds, backendResult.durationMinutes),
         },
       ]
     : [];
   const weakAreas = backendResult?.weakAreas.slice(0, 3) || [];
   const reviewQuestions =
-    backendResult?.questions.filter((question) => !question.isCorrect).slice(0, 5) || [];
+    backendResult?.questions.filter((question) => !question.isCorrect) || [];
+  const reviewQuestionIds = reviewQuestions
+    .map((question) => question.questionId)
+    .filter((value, index, values) => value > 0 && values.indexOf(value) === index);
+  const practiceWrongHref =
+    reviewQuestionIds.length > 0
+      ? `/practice/runner?mode=review&source=result&question_ids=${reviewQuestionIds.join(",")}&count=${reviewQuestionIds.length}`
+      : "/review";
 
   return (
     <div className="min-h-screen bg-background">
@@ -341,6 +350,38 @@ export function MockTestResultPage() {
                   </div>
                 )}
 
+                {backendResult?.partBreakdown.length ? (
+                  <div className="mt-6 rounded-xl border border-border p-4 text-left">
+                    <h4 className="mb-3 text-sm font-semibold text-foreground">
+                      {t("result.partBreakdown")}
+                    </h4>
+                    <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+                      {backendResult.partBreakdown.map((part) => (
+                        <div key={part.part} className="rounded-lg bg-muted/60 p-3">
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm font-semibold">
+                              {t("test.part")} {part.part}
+                            </span>
+                            <Badge variant="outline">{Math.round(part.accuracyPct)}%</Badge>
+                          </div>
+                          <p className="mt-1 text-xs text-muted-foreground">
+                            {part.correct}/{part.total} {t("result.correct").toLowerCase()}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+
+                <div className="mt-6 flex flex-wrap justify-center gap-3">
+                  <Button variant="outline" asChild>
+                    <Link to="/review">{t("result.reviewWrongAnswers")}</Link>
+                  </Button>
+                  <Button asChild>
+                    <Link to={practiceWrongHref}>{t("result.practiceWrongAnswers")}</Link>
+                  </Button>
+                </div>
+
                 {weakAreas.length > 0 && (
                   <div className="mt-6 rounded-xl border border-border p-4 text-left">
                     <h4 className="mb-3 text-sm font-semibold text-foreground">
@@ -371,7 +412,7 @@ export function MockTestResultPage() {
                 {reviewQuestions.length > 0 && (
                   <div className="mt-6 rounded-xl border border-border p-4 text-left">
                     <h4 className="mb-3 text-sm font-semibold text-foreground">
-                      Questions to review
+                      {t("result.questionsToReview")}
                     </h4>
                     <div className="space-y-2">
                       {reviewQuestions.map((question) => (
@@ -381,7 +422,7 @@ export function MockTestResultPage() {
                         >
                           <div className="flex items-center justify-between gap-3">
                             <span className="font-medium text-foreground">
-                              Question {question.questionNumber} - Part {question.part}
+                              {t("runner.question")} {question.questionNumber} - {t("test.part")} {question.part}
                             </span>
                             <Badge variant="secondary">{question.skill}</Badge>
                           </div>
@@ -389,9 +430,14 @@ export function MockTestResultPage() {
                             {question.question}
                           </p>
                           <p className="mt-2 text-xs text-muted-foreground">
-                            Your answer: {question.userAnswer || "Skipped"} | Correct:{" "}
-                            {question.correctAnswer || "Unavailable"}
+                            {t("result.yourAnswer")}: {question.userAnswer || t("result.skipped")} | {t("result.correctAnswer")}:{" "}
+                            {question.correctAnswer || t("result.unavailable")}
                           </p>
+                          <Button size="sm" variant="link" className="mt-2 h-auto p-0" asChild>
+                            <Link to={`/practice/runner?mode=review&question_ids=${question.questionId}&count=1`}>
+                              {t("result.reviewThisQuestion")}
+                            </Link>
+                          </Button>
                         </div>
                       ))}
                     </div>

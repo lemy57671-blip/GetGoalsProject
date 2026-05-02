@@ -65,6 +65,15 @@ def get_runner_mixed(parts: str | None = None, count: int = 30, difficulty: str 
     return toeic_service.get_mixed_runner_questions(db, selected_parts, count, difficulty, currentScore)
 
 
+@router.get("/api/toeic/runner/questions")
+@router.get("/api/Toeic/runner/questions")
+def get_runner_by_question_ids(question_ids: str = Query(...), db: Session = Depends(get_db)):
+    selected_ids = _parse_ids(question_ids)
+    if not selected_ids:
+        return JSONResponse(status_code=400, content={"message": "question_ids must contain at least one valid SQL question id."})
+    return toeic_service.get_runner_questions_by_ids(db, selected_ids)
+
+
 @router.get("/api/toeic/runner/review-focus")
 @router.get("/api/Toeic/runner/review-focus")
 def get_runner_review_focus(
@@ -115,7 +124,10 @@ def get_fulltest_runner(
 ):
     if test <= 0:
         return JSONResponse(status_code=400, content={"message": "test must be greater than 0."})
-    return toeic_service.get_fulltest_runner_questions(db, test)
+    try:
+        return toeic_service.get_fulltest_runner_questions(db, test)
+    except toeic_service.FullToeicTestAvailabilityError as exc:
+        return JSONResponse(status_code=409, content=exc.to_payload())
 
 
 def _parse_parts(parts: str | None) -> list[int]:
@@ -128,4 +140,17 @@ def _parse_parts(parts: str | None) -> list[int]:
             part = int(item)
             if 1 <= part <= 7 and part not in values:
                 values.append(part)
+    return values
+
+
+def _parse_ids(raw_ids: str | None) -> list[int]:
+    if not raw_ids or not raw_ids.strip():
+        return []
+    values = []
+    for item in raw_ids.split(","):
+        item = item.strip()
+        if item.isdigit():
+            value = int(item)
+            if value > 0 and value not in values:
+                values.append(value)
     return values

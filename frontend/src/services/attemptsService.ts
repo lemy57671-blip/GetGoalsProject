@@ -139,9 +139,16 @@ function toAnswerPayload(
   const selectedAnswerText = hasAnswer ? question.options[selectedAnswerIndex] : null;
   const correctAnswerText =
     correctAnswerIndex !== null ? question.options[correctAnswerIndex] : null;
+  const sqlQuestionId =
+    question.docxQuestionId ||
+    question.sourceQuestionId ||
+    question.sqlId ||
+    question.dbId ||
+    question.questionId ||
+    question.id;
 
   return {
-    questionId: question.id,
+    questionId: sqlQuestionId,
     questionNumber: question.questionNumber || index + 1,
     part: question.partNumber,
     test: question.test,

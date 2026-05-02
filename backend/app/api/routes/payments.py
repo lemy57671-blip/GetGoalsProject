@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import logging
 from datetime import datetime
 
 from fastapi import APIRouter, Depends
@@ -23,6 +24,7 @@ from app.services.subscription import activate_paid_subscription
 
 
 router = APIRouter()
+logger = logging.getLogger(__name__)
 
 
 def _find_payment_order(db: Session, order_code: str) -> PaymentOrder | None:
@@ -121,11 +123,23 @@ def payos_webhook(payload: PayOSWebhookRequest, db: Session = Depends(get_db)):
     if order.status == "paid":
         return {"success": True}
     if float(order.amount) != payload.data.amount:
+        logger.warning(
+            "Ignoring PayOS webhook amount mismatch. orderCode=%s expected=%s actual=%s",
+            order.order_code,
+            float(order.amount),
+            payload.data.amount,
+        )
         return {"success": True}
+    previous_status = order.status
     order.status = "paid"
     order.paid_at = datetime.utcnow()
     order.paid_by_webhook_signature = payload.signature
     db.commit()
+    logger.info(
+        "Payment order status transition. orderCode=%s from=%s to=paid reason=payos_webhook",
+        order.order_code,
+        previous_status,
+    )
     activate_paid_subscription(db, order)
     return {"success": True}
 
@@ -138,8 +152,15 @@ async def payment_status(order_code: str, db: Session = Depends(get_db)):
         return JSONResponse(status_code=404, content={"message": "Order not found"})
     if order.status == "pending":
         if order.expired_at <= datetime.utcnow():
+            previous_status = order.status
             order.status = "expired"
             db.commit()
+            logger.info(
+                "Payment order status transition. orderCode=%s from=%s to=expired reason=local_expiration expiredAt=%s",
+                order.order_code,
+                previous_status,
+                order.expired_at.isoformat(),
+            )
         else:
             await sync_pending_order_from_payos(db, order)
     return {

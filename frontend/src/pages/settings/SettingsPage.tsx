@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { useTheme } from "next-themes";
@@ -34,9 +34,9 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { UserAvatar } from "@src/components/UserAvatar";
 import {
   Card,
   CardContent,
@@ -56,6 +56,7 @@ import {
 import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { learningSkillTags, subscriptionFeatures } from "@src/data/settings";
+import { useLanguage } from "@src/contexts/LanguageContext";
 import { useAuthSession } from "@src/hooks/useAuthSession";
 import { authService } from "@src/services/authService";
 import { roadmapService } from "@src/services/roadmapService";
@@ -97,13 +98,6 @@ function parseOptionalNumber(value: string) {
   if (!trimmed) return null;
   const parsed = Number(trimmed);
   return Number.isFinite(parsed) ? parsed : null;
-}
-
-function buildInitials(name?: string, email?: string) {
-  const source = (name || email || "GG").trim();
-  const parts = source.split(/\s+/).filter(Boolean);
-  if (parts.length <= 1) return source.slice(0, 2).toUpperCase();
-  return `${parts[0][0]}${parts[parts.length - 1][0]}`.toUpperCase();
 }
 
 function statusText(error: string | null, loading: boolean, label: string) {
@@ -185,6 +179,7 @@ function ActionSummary({ result }: { result: DangerousActionResult | null }) {
 export function SettingsPage() {
   const navigate = useNavigate();
   const { setTheme } = useTheme();
+  const { language, setLanguage, t } = useLanguage();
   const {
     user,
     isLoading: isSessionLoading,
@@ -203,7 +198,10 @@ export function SettingsPage() {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordFormOpen, setPasswordFormOpen] = useState(false);
-  const [experience, setExperience] = useState<ExperiencePreferences>(defaultExperience);
+  const [experience, setExperience] = useState<ExperiencePreferences>({
+    ...defaultExperience,
+    language,
+  });
   const [notifications, setNotifications] =
     useState<NotificationPreferences>(defaultNotifications);
   const [subscription, setSubscription] = useState<CurrentSubscription | null>(null);
@@ -270,6 +268,7 @@ export function SettingsPage() {
 
         if (cancelled) return;
         setExperience(nextExperience);
+        setLanguage(nextExperience.language);
         setTheme(nextExperience.themeMode);
         setNotifications(nextNotifications);
         setSubscription(currentSubscription);
@@ -293,7 +292,7 @@ export function SettingsPage() {
     return () => {
       cancelled = true;
     };
-  }, [isSessionLoading, setTheme, user]);
+  }, [isSessionLoading, setLanguage, setTheme, user]);
 
   const displayEmail = user?.email || "";
   const currentPlan = subscription?.plan || user?.plan || "free";
@@ -303,10 +302,6 @@ export function SettingsPage() {
     ? new Date(subscription.planExpiredAt).toLocaleDateString("vi-VN")
     : null;
   const isLocalAccount = (user?.provider || "local").toLowerCase() === "local";
-  const avatarFallback = useMemo(
-    () => buildInitials(user?.name, user?.email),
-    [user?.email, user?.name],
-  );
   const reminderTimeDisabled =
     !notifications.dailyReminderEnabled &&
     !notifications.weeklyCheckReminderEnabled;
@@ -324,6 +319,11 @@ export function SettingsPage() {
     value: ExperiencePreferences[K],
   ) => {
     setExperience((prev) => ({ ...prev, [key]: value }));
+  };
+
+  const handleLanguageChange = (value: LanguageCode) => {
+    setLanguage(value);
+    updateExperienceDraft("language", value);
   };
 
   const updateNotificationsDraft = <K extends keyof NotificationPreferences>(
@@ -419,6 +419,7 @@ export function SettingsPage() {
     try {
       const saved = await settingsService.updatePreferences(experience);
       setExperience(saved);
+      setLanguage(saved.language);
       setTheme(saved.themeMode);
       toast.success("Da luu tuy chon trai nghiem.");
     } catch (error) {
@@ -483,7 +484,6 @@ export function SettingsPage() {
 
       if (action === "delete-account") {
         logout();
-        navigate("/login");
         return;
       }
 
@@ -530,7 +530,7 @@ export function SettingsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-foreground">Cai dat</h1>
+        <h1 className="text-2xl font-bold text-foreground">{t("settings.title")}</h1>
         <p className="mt-1 text-muted-foreground">
           Quan ly tai khoan va tuy chinh trai nghiem hoc tap tu backend state.
         </p>
@@ -577,12 +577,17 @@ export function SettingsPage() {
               <StatusMessage type="error">{accountError}</StatusMessage>
 
               <div className="flex items-center gap-6">
-                <Avatar className="h-20 w-20">
-                  <AvatarImage src={user.avatarUrl || undefined} />
-                  <AvatarFallback className="bg-primary/10 text-2xl text-primary">
-                    {avatarFallback}
-                  </AvatarFallback>
-                </Avatar>
+                <UserAvatar
+                  name={user.name}
+                  email={user.email}
+                  avatarUrl={user.avatarUrl}
+                  avatar_url={user.avatar_url}
+                  picture={user.picture}
+                  photoURL={user.photoURL}
+                  image={user.image}
+                  googlePicture={user.googlePicture}
+                  size="lg"
+                />
                 <div className="space-y-2">
                   <Button variant="outline" className="gap-2" disabled>
                     <Camera className="h-4 w-4" />
@@ -692,11 +697,10 @@ export function SettingsPage() {
                   className="gap-2 text-destructive hover:text-destructive"
                   onClick={() => {
                     logout();
-                    navigate("/login");
                   }}
                 >
                   <LogOut className="h-4 w-4" />
-                  Dang xuat
+                  {t("auth.logout")}
                 </Button>
               </div>
             </CardContent>
@@ -876,24 +880,22 @@ export function SettingsPage() {
 
               <div className="flex items-center justify-between gap-4">
                 <div className="space-y-1">
-                  <Label>Ngon ngu</Label>
+                  <Label>{t("settings.language")}</Label>
                   <p className="text-sm text-muted-foreground">
-                    Luu lua chon ngon ngu cho tai khoan.
+                    {t("settings.languageDescription")}
                   </p>
                 </div>
                 <Select
                   value={experience.language}
-                  onValueChange={(value: LanguageCode) =>
-                    updateExperienceDraft("language", value)
-                  }
+                  onValueChange={(value: LanguageCode) => handleLanguageChange(value)}
                   disabled={isLoadingExperience}
                 >
                   <SelectTrigger className="w-40">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="vi">Tieng Viet</SelectItem>
-                    <SelectItem value="en">English</SelectItem>
+                    <SelectItem value="vi">{t("settings.vietnamese")}</SelectItem>
+                    <SelectItem value="en">{t("settings.english")}</SelectItem>
                   </SelectContent>
                 </Select>
               </div>

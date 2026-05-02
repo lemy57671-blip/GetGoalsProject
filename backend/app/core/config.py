@@ -26,6 +26,7 @@ class Settings:
     APP_HOST: str = os.getenv("APP_HOST", "0.0.0.0")
     APP_PORT: int = int(os.getenv("APP_PORT", "8000"))
     APP_LOG_LEVEL: str = os.getenv("APP_LOG_LEVEL", "INFO")
+    DEBUG: bool = os.getenv("DEBUG", "false").lower() in {"1", "true", "yes", "on"}
     APP_ENABLE_BACKGROUND_JOBS: bool = os.getenv("APP_ENABLE_BACKGROUND_JOBS", "true").lower() == "true"
 
     FRONTEND_ALLOWED_ORIGINS: str = os.getenv(
@@ -61,9 +62,6 @@ class Settings:
     AUTH_GOOGLE_CLIENT_ID: str = os.getenv("AUTH_GOOGLE_CLIENT_ID", "")
     AUTH_GOOGLE_EXCHANGE_SECRET: str = os.getenv("AUTH_GOOGLE_EXCHANGE_SECRET", "")
 
-    GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "")
-    GEMINI_MODEL: str = os.getenv("GEMINI_MODEL", "gemini-2.0-flash")
-
     PAYMENT_BANK_CODE: str = os.getenv("PAYMENT_BANK_CODE", "")
     PAYMENT_BANK_ACCOUNT_NO: str = os.getenv("PAYMENT_BANK_ACCOUNT_NO", "")
     PAYMENT_BANK_ACCOUNT_NAME: str = os.getenv("PAYMENT_BANK_ACCOUNT_NAME", "")
@@ -72,14 +70,6 @@ class Settings:
     PAYOS_CHECKSUM_KEY: str = os.getenv("PAYOS_CHECKSUM_KEY", "")
     PAYOS_RETURN_URL: str = os.getenv("PAYOS_RETURN_URL", "http://localhost:5173/payment-success")
     PAYOS_CANCEL_URL: str = os.getenv("PAYOS_CANCEL_URL", "http://localhost:5173/payment-cancel")
-
-    @property
-    def gemini_api_key(self) -> str:
-        return self.GEMINI_API_KEY
-
-    @property
-    def gemini_model(self) -> str:
-        return self.GEMINI_MODEL
 
     @property
     def payos_client_id(self) -> str:

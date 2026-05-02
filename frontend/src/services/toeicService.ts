@@ -30,6 +30,11 @@ export type ToeicRecommendations = {
 
 export type ToeicRunnerQuestion = {
   id: number;
+  questionId?: number | null;
+  dbId?: number | null;
+  sqlId?: number | null;
+  docxQuestionId?: number | null;
+  sourceQuestionId?: number | null;
   section: "Listening" | "Reading";
   partNumber: number;
   part: string;
@@ -86,6 +91,11 @@ type ToeicRunnerAssetResponse = {
 
 export type ToeicRunnerQuestionResponse = {
   id: number;
+  questionId?: number | null;
+  dbId?: number | null;
+  sqlId?: number | null;
+  docxQuestionId?: number | null;
+  sourceQuestionId?: number | null;
   section?: string;
   part?: number;
   partLabel?: string;
@@ -193,6 +203,11 @@ export function mapToeicRunnerQuestion(question: ToeicRunnerQuestionResponse): T
 
   return {
     id: question.id,
+    questionId: question.questionId,
+    dbId: question.dbId,
+    sqlId: question.sqlId,
+    docxQuestionId: question.docxQuestionId,
+    sourceQuestionId: question.sourceQuestionId,
     section,
     partNumber,
     part: question.partLabel || `Part ${partNumber}`,
@@ -272,6 +287,19 @@ export const toeicService = {
 
     const questions = await apiRequest<ToeicRunnerQuestionResponse[]>(
       `/api/toeic/runner/mixed?${params.toString()}`,
+      { auth: true },
+    );
+
+    return questions.map(mapToeicRunnerQuestion);
+  },
+
+  async getQuestionsByIds(questionIds: number[]) {
+    const params = new URLSearchParams({
+      question_ids: questionIds.join(","),
+    });
+
+    const questions = await apiRequest<ToeicRunnerQuestionResponse[]>(
+      `/api/toeic/runner/questions?${params.toString()}`,
       { auth: true },
     );
 

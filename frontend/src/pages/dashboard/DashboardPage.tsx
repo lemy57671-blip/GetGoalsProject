@@ -27,6 +27,7 @@ import {
   type DashboardOverviewView,
   type ProgressHistoryItem,
 } from "@src/services/dashboardService";
+import { useLanguage } from "@src/contexts/LanguageContext";
 import { useAuthSession } from "@src/hooks/useAuthSession";
 
 const previewUserId = 1;
@@ -65,6 +66,7 @@ function clampProgress(value: number) {
 }
 
 export function DashboardPage() {
+  const { t } = useLanguage();
   const { user: currentUser, displayName } = useAuthSession();
   const userId = currentUser?.id ?? previewUserId;
   const [overview, setOverview] = useState<DashboardOverviewView | null>(null);
@@ -143,21 +145,21 @@ export function DashboardPage() {
       <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
         <div>
           <h1 className="text-2xl font-bold text-foreground">
-            Tổng quan học tập
+            {t("dashboard.title")}
           </h1>
           <p className="mt-1 text-muted-foreground">
             {currentUser
-              ? `Tổng hợp mới nhất dành cho ${displayName}.`
-              : "Theo dõi tiến độ học tập và các nội dung cần ưu tiên."}
+              ? t("dashboard.subtitleUser", { name: displayName })
+              : t("dashboard.subtitleGuest")}
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap justify-start gap-3 lg:justify-end">
           <Button asChild variant="outline">
-            <Link to="/placement-test">Làm placement test</Link>
+            <Link to="/placement-test">{t("dashboard.placement")}</Link>
           </Button>
           <Button asChild>
-            <Link to="/progress">Xem tiến độ chi tiết</Link>
+            <Link to="/progress">{t("dashboard.progressDetail")}</Link>
           </Button>
         </div>
       </div>
@@ -176,7 +178,7 @@ export function DashboardPage() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">
-                Buổi luyện đã lưu
+                {t("dashboard.savedPractice")}
               </p>
               <p className="text-2xl font-bold">
                 {overview?.totalPracticeAttempts ?? 0}
@@ -191,7 +193,7 @@ export function DashboardPage() {
               <TrendingUp className="h-5 w-5" />
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Accuracy gần đây</p>
+              <p className="text-sm text-muted-foreground">{t("dashboard.recentAccuracy")}</p>
               <p className="text-2xl font-bold">
                 {Math.round(overview?.recentAccuracy ?? 0)}%
               </p>
@@ -206,7 +208,7 @@ export function DashboardPage() {
             </div>
             <div>
               <p className="text-sm text-muted-foreground">
-                Tổng thời gian học
+                {t("dashboard.studyTime")}
               </p>
               <p className="text-2xl font-bold">
                 {formatMinutes(overview?.totalStudyMinutes ?? 0)}
@@ -221,7 +223,7 @@ export function DashboardPage() {
               <NotebookPen className="h-5 w-5" />
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Review đang chờ</p>
+              <p className="text-sm text-muted-foreground">{t("dashboard.pendingReview")}</p>
               <p className="text-2xl font-bold">
                 {overview?.pendingReviewCount ?? 0}
               </p>

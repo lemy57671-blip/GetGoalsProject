@@ -115,6 +115,39 @@ class PaymentOrder(Base):
     user = relationship("User")
 
 
+class ChatConversation(Base):
+    __tablename__ = "ChatConversations"
+
+    id = Column("Id", Integer, primary_key=True)
+    user_id = Column("UserId", Integer, ForeignKey("Users.Id"), nullable=False, index=True)
+    title = Column("Title", NVARCHAR(255), nullable=False, default="")
+    created_at = Column("CreatedAt", DateTime, nullable=False, server_default=func.sysutcdatetime())
+    updated_at = Column("UpdatedAt", DateTime, nullable=False, server_default=func.sysutcdatetime())
+
+    user = relationship("User")
+    messages = relationship(
+        "ChatMessage",
+        back_populates="conversation",
+        cascade="all, delete-orphan",
+        order_by="ChatMessage.created_at",
+    )
+
+
+class ChatMessage(Base):
+    __tablename__ = "ChatMessages"
+
+    id = Column("Id", Integer, primary_key=True)
+    conversation_id = Column("ConversationId", Integer, ForeignKey("ChatConversations.Id"), nullable=False, index=True)
+    user_id = Column("UserId", Integer, ForeignKey("Users.Id"), nullable=False, index=True)
+    role = Column("Role", NVARCHAR(20), nullable=False)
+    content = Column("Content", UnicodeText, nullable=False, default="")
+    intent = Column("Intent", NVARCHAR(100), nullable=True)
+    created_at = Column("CreatedAt", DateTime, nullable=False, server_default=func.sysutcdatetime())
+
+    conversation = relationship("ChatConversation", back_populates="messages")
+    user = relationship("User")
+
+
 class PracticeAttempt(Base):
     __tablename__ = "PracticeAttempts"
 
@@ -221,6 +254,52 @@ class ReviewQueueItem(Base):
     note = Column("Note", UnicodeText, nullable=True)
     added_at_utc = Column("AddedAtUtc", DateTime, nullable=False, server_default=func.sysutcdatetime())
     reviewed_at_utc = Column("ReviewedAtUtc", DateTime, nullable=True)
+
+    user = relationship("User")
+
+
+class UserQuestionNote(Base):
+    __tablename__ = "UserQuestionNotes"
+
+    id = Column("Id", Integer, primary_key=True)
+    user_id = Column("UserId", Integer, ForeignKey("Users.Id"), nullable=False, index=True)
+    question_id = Column("QuestionId", Integer, nullable=False, index=True)
+    attempt_id = Column("AttemptId", Integer, nullable=True)
+    note_text = Column("NoteText", UnicodeText, nullable=False)
+    created_at = Column("CreatedAt", DateTime, nullable=False, server_default=func.sysutcdatetime())
+    updated_at = Column("UpdatedAt", DateTime, nullable=False, server_default=func.sysutcdatetime())
+
+    user = relationship("User")
+
+
+class UserQuestionHighlight(Base):
+    __tablename__ = "UserQuestionHighlights"
+
+    id = Column("Id", Integer, primary_key=True)
+    user_id = Column("UserId", Integer, ForeignKey("Users.Id"), nullable=False, index=True)
+    question_id = Column("QuestionId", Integer, nullable=False, index=True)
+    attempt_id = Column("AttemptId", Integer, nullable=True)
+    target_type = Column("TargetType", NVARCHAR(50), nullable=False)
+    target_key = Column("TargetKey", NVARCHAR(20), nullable=True)
+    selected_text = Column("SelectedText", UnicodeText, nullable=False)
+    start_offset = Column("StartOffset", Integer, nullable=True)
+    end_offset = Column("EndOffset", Integer, nullable=True)
+    color = Column("Color", NVARCHAR(30), nullable=False, default="yellow")
+    note_text = Column("NoteText", UnicodeText, nullable=True)
+    created_at = Column("CreatedAt", DateTime, nullable=False, server_default=func.sysutcdatetime())
+    updated_at = Column("UpdatedAt", DateTime, nullable=False, server_default=func.sysutcdatetime())
+
+    user = relationship("User")
+
+
+class UserQuestionBookmark(Base):
+    __tablename__ = "UserQuestionBookmarks"
+
+    id = Column("Id", Integer, primary_key=True)
+    user_id = Column("UserId", Integer, ForeignKey("Users.Id"), nullable=False, index=True)
+    question_id = Column("QuestionId", Integer, nullable=False, index=True)
+    attempt_id = Column("AttemptId", Integer, nullable=True)
+    created_at = Column("CreatedAt", DateTime, nullable=False, server_default=func.sysutcdatetime())
 
     user = relationship("User")
 

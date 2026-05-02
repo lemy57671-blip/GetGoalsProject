@@ -13,7 +13,6 @@ import {
   Headphones,
   MinusCircle,
   RotateCcw,
-  Send,
   Sparkles,
   Target,
   TrendingUp,
@@ -23,6 +22,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ProFeatureGuard } from "@/components/pro-feature-guard";
+import { ChatPanel } from "@src/components/chat/ChatPanel";
 import {
   Card,
   CardContent,
@@ -30,9 +30,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   practiceResults as mockPracticeResults,
@@ -45,6 +43,13 @@ import {
   PracticeAttemptResult,
   SavePracticeAttemptResponse,
 } from "@src/services/attemptsService";
+import { ApiError } from "@src/services/apiClient";
+import { chatService } from "@src/services/chatService";
+
+type SummaryAiMessage = {
+  role: "assistant" | "user";
+  content: string;
+};
 
 function isUsableReviewFocusRetryUrl(value: unknown) {
   if (typeof value !== "string" || !value.startsWith("/practice/runner?")) {
@@ -60,6 +65,9 @@ export function PracticeSummaryPage() {
   const location = useLocation();
   const [searchParams] = useSearchParams();
   const [aiMessage, setAiMessage] = useState("");
+  const [aiMessages, setAiMessages] = useState<SummaryAiMessage[]>([]);
+  const [aiLoading, setAiLoading] = useState(false);
+  const [aiConversationId, setAiConversationId] = useState<number | null>(null);
   const [selectedQuestion, setSelectedQuestion] = useState<number | null>(null);
   const [fetchedResult, setFetchedResult] = useState<PracticeAttemptResult | null>(null);
   const [isLoadingResult, setIsLoadingResult] = useState(false);
@@ -135,6 +143,52 @@ export function PracticeSummaryPage() {
     return `${mins.toString().padStart(2, "0")}:${secs
       .toString()
       .padStart(2, "0")}`;
+  };
+  const sendAiMessage = async (messageOverride?: string) => {
+    if (aiLoading) return;
+
+    const userMessage = (messageOverride || aiMessage).trim();
+    if (!userMessage) return;
+
+    const activeAttemptId =
+      result?.attemptId ||
+      attempt?.attemptId ||
+      (Number.isFinite(attemptId) && attemptId > 0 ? attemptId : null);
+
+    setAiMessages((current) => [...current, { role: "user", content: userMessage }]);
+    setAiMessage("");
+    setAiLoading(true);
+
+    try {
+      const response = await chatService.sendDetailed({
+        message: userMessage,
+        conversation_id: aiConversationId,
+        attempt_id: activeAttemptId,
+        context_type: "practice_review",
+      });
+
+      if (typeof response.conversation_id === "number") {
+        setAiConversationId(response.conversation_id);
+      }
+      setAiMessages((current) => [
+        ...current,
+        {
+          role: "assistant",
+          content: response.reply || "AI Tutor chưa tạo được phản hồi.",
+        },
+      ]);
+    } catch (error) {
+      const message =
+        error instanceof ApiError && [401, 403].includes(error.status)
+          ? "AI Tutor là tính năng Pro. Vui lòng đăng nhập tài khoản Pro để hỏi sau bài luyện."
+          : error instanceof Error
+            ? `Không gọi được AI Tutor: ${error.message}`
+            : "Không gọi được AI Tutor.";
+
+      setAiMessages((current) => [...current, { role: "assistant", content: message }]);
+    } finally {
+      setAiLoading(false);
+    }
   };
   const practiceResults = result
     ? {
@@ -593,40 +647,18 @@ export function PracticeSummaryPage() {
             description="Free van xem ket qua va loi sai. Nang cap Pro de hoi AI Tutor sau bai lam."
           >
           <Card className="rounded-xl border-primary bg-primary/5">
-            <CardHeader className="pb-3">
-              <CardTitle className="flex items-center gap-2 text-lg text-foreground">
-                <Brain className="h-5 w-5 text-primary" />
-                Hỏi AI Tutor
-              </CardTitle>
-              <CardDescription className="text-muted-foreground">
-                Hỏi về bất kỳ câu hỏi nào bạn chưa hiểu
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ScrollArea className="mb-3 h-32 rounded-lg bg-background p-3">
-                <div className="space-y-3">
-                  <div className="flex items-start gap-2">
-                    <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary">
-                      <Sparkles className="h-3 w-3 text-primary-foreground" />
-                    </div>
-                    <div className="rounded-lg bg-muted p-2 text-sm text-foreground">
-                      Xin chào! Tôi là AI Tutor. Bạn có thắc mắc gì về bài luyện
-                      tập không?
-                    </div>
-                  </div>
-                </div>
-              </ScrollArea>
-              <div className="flex gap-2">
-                <Input
-                  placeholder="Nhập câu hỏi..."
-                  value={aiMessage}
-                  onChange={(e) => setAiMessage(e.target.value)}
-                  className="flex-1"
-                />
-                <Button size="icon">
-                  <Send className="h-4 w-4" />
-                </Button>
-              </div>
+            <CardContent className="h-[320px] p-4">
+              <ChatPanel
+                title="Hỏi AI Tutor"
+                description="Hỏi theo dữ liệu bài luyện."
+                messages={aiMessages}
+                value={aiMessage}
+                onValueChange={setAiMessage}
+                onSend={() => void sendAiMessage()}
+                loading={aiLoading}
+                placeholder="Nhập câu hỏi..."
+                className="h-full"
+              />
             </CardContent>
           </Card>
           </ProFeatureGuard>

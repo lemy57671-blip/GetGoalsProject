@@ -3,9 +3,9 @@ from __future__ import annotations
 from collections import deque
 from dataclasses import dataclass
 from hashlib import sha256
-from typing import Iterable
+from typing import Any, Iterable
 
-from sqlalchemy import func, select
+from sqlalchemy import func, select, text
 from sqlalchemy.orm import Session, joinedload, selectinload
 
 from app.models import ReviewQueueItem, ToeicPassage, ToeicQuestion, ToeicQuestionAsset, ToeicSet, User
@@ -30,6 +30,52 @@ from app.utils.json_helpers import parse_string_list
 SQL_SUMMARY_PATH = "sql://ToeicSets"
 LISTENING_SIGNALS = ("listening", "part1", "part2", "part3", "part4", "photograph", "question-response", "conversation", "talk")
 READING_SIGNALS = ("reading", "grammar", "vocab", "part5", "part6", "part7", "text completion", "reading comprehension")
+FULL_TEST_BLUEPRINT: dict[int, int] = {
+    1: 6,
+    2: 25,
+    3: 39,
+    4: 30,
+    5: 30,
+    6: 16,
+    7: 54,
+}
+FULL_TEST_GROUP_SIZES: dict[int, int] = {
+    3: 3,
+    4: 3,
+    6: 4,
+}
+FULL_TEST_TOTAL_QUESTIONS = sum(FULL_TEST_BLUEPRINT.values())
+# SQL Server data check:
+# SELECT PartNumber AS Part, COUNT(*) AS Total
+# FROM dbo.ToeicDocxQuestions
+# GROUP BY PartNumber
+# ORDER BY PartNumber;
+
+
+class FullToeicTestAvailabilityError(Exception):
+    def __init__(self, required: dict[int, int], available: dict[int, int], selected: dict[int, int] | None = None):
+        self.required = {str(part): count for part, count in required.items()}
+        normalized_available = {part: int(available.get(part, 0)) for part in required}
+        if selected:
+            normalized_available = {
+                part: min(normalized_available.get(part, 0), int(selected.get(part, normalized_available.get(part, 0))))
+                for part in required
+            }
+        self.available = {str(part): normalized_available.get(part, 0) for part in required}
+        self.missing = {
+            str(part): max(0, required_count - normalized_available.get(part, 0))
+            for part, required_count in required.items()
+            if required_count > normalized_available.get(part, 0)
+        }
+        super().__init__("Full TOEIC test requires 200 questions but database is missing questions.")
+
+    def to_payload(self) -> dict[str, Any]:
+        return {
+            "detail": "Full TOEIC test requires 200 questions but database is missing questions.",
+            "required": self.required,
+            "available": self.available,
+            "missing": self.missing,
+        }
 
 
 def get_import_status(db: Session) -> ToeicImportStatusDto:
@@ -266,7 +312,7 @@ def get_minitest_runner_questions(db: Session, test: int = 1, parts: Iterable[in
 
 
 def get_fulltest_runner_questions(db: Session, test: int = 1) -> list[ToeicRunnerQuestionDto]:
-    return [clone_question(item) for item in _load_runner_questions(db, "fulltest", test, None)]
+    return _build_full_test_questions(db, test)
 
 
 def get_question_lookup(db: Session) -> dict[str, ToeicRunnerQuestionDto]:
@@ -298,6 +344,325 @@ def get_question_lookup_by_ids(db: Session, question_ids: Iterable[int]) -> dict
         build_question_lookup_key(row.part, row.id): _map_to_runner_question(row)
         for row in rows
     }
+
+
+def get_runner_questions_by_ids(db: Session, question_ids: Iterable[int]) -> list[ToeicRunnerQuestionDto]:
+    ids = []
+    for value in question_ids:
+        try:
+            question_id = int(value)
+        except (TypeError, ValueError):
+            continue
+        if question_id > 0 and question_id not in ids:
+            ids.append(question_id)
+
+    if not ids:
+        return []
+
+    docx_questions = _load_docx_runner_questions_by_ids(db, ids)
+    mapped_docx = {question.id: question for question in docx_questions}
+    missing_ids = [question_id for question_id in ids if question_id not in mapped_docx]
+
+    if not missing_ids:
+        return [mapped_docx[question_id] for question_id in ids if question_id in mapped_docx]
+
+    rows = db.scalars(
+        select(ToeicQuestion)
+        .join(ToeicSet, ToeicSet.id == ToeicQuestion.set_id)
+        .options(
+            joinedload(ToeicQuestion.set),
+            joinedload(ToeicQuestion.passage).selectinload(ToeicPassage.assets),
+            selectinload(ToeicQuestion.options),
+            selectinload(ToeicQuestion.assets),
+        )
+        .where(ToeicQuestion.is_active, ToeicSet.is_active, ToeicQuestion.id.in_(missing_ids))
+    ).all()
+
+    mapped = {row.id: _map_to_runner_question(row) for row in rows}
+    return [mapped_docx.get(question_id) or mapped[question_id] for question_id in ids if question_id in mapped_docx or question_id in mapped]
+
+
+def _build_full_test_questions(db: Session, test: int = 1) -> list[ToeicRunnerQuestionDto]:
+    rows = _load_docx_rows_for_full_test(db, test)
+    rows_by_part: dict[int, list[dict[str, Any]]] = {part: [] for part in FULL_TEST_BLUEPRINT}
+    for row in rows:
+        part = _to_int(row.get("PartNumber"))
+        if part in rows_by_part:
+            rows_by_part[part].append(row)
+
+    available = {part: len(rows_by_part.get(part, [])) for part in FULL_TEST_BLUEPRINT}
+    missing_by_count = {
+        part: required
+        for part, required in FULL_TEST_BLUEPRINT.items()
+        if available.get(part, 0) < required
+    }
+    if missing_by_count:
+        raise FullToeicTestAvailabilityError(FULL_TEST_BLUEPRINT, available)
+
+    selected: list[dict[str, Any]] = []
+    selected_counts: dict[int, int] = {}
+    for part, required in FULL_TEST_BLUEPRINT.items():
+        part_rows = sorted(rows_by_part.get(part, []), key=_docx_sort_key)
+        group_size = FULL_TEST_GROUP_SIZES.get(part)
+        if group_size:
+            part_selection = _select_docx_grouped_rows(part_rows, required, group_size)
+        else:
+            part_selection = part_rows[:required]
+        selected_counts[part] = len(part_selection)
+        selected.extend(part_selection)
+
+    if len(selected) != FULL_TEST_TOTAL_QUESTIONS or any(selected_counts.get(part, 0) < required for part, required in FULL_TEST_BLUEPRINT.items()):
+        raise FullToeicTestAvailabilityError(FULL_TEST_BLUEPRINT, available, selected_counts)
+
+    return _map_docx_rows_to_runner_questions(db, selected)
+
+
+def _load_docx_rows_for_full_test(db: Session, test: int = 1) -> list[dict[str, Any]]:
+    rows = db.execute(
+        text(
+            """
+            SELECT Id, SourceFile, TestNumber, PartNumber, QuestionNumber, PassageText, QuestionTextEn,
+                   CorrectOptionLabel, CorrectAnswerText, ExplanationDetail, OptionAnalysis,
+                   VocabularyNotes, FinalTranslationVi, TranslationVi, RawBlock
+            FROM dbo.ToeicDocxQuestions
+            WHERE TestNumber = :test_number
+            ORDER BY PartNumber, QuestionNumber, Id
+            """
+        ),
+        {"test_number": test},
+    ).mappings().all()
+    return [dict(row) for row in rows]
+
+
+def _select_docx_grouped_rows(rows: list[dict[str, Any]], required: int, group_size: int) -> list[dict[str, Any]]:
+    required_groups = required // group_size
+    grouped: dict[str, list[dict[str, Any]]] = {}
+    for row in rows:
+        key = _docx_group_key(row)
+        if key:
+            grouped.setdefault(key, []).append(row)
+
+    complete_groups = [
+        sorted(group_rows, key=_docx_sort_key)[:group_size]
+        for group_rows in sorted(grouped.values(), key=lambda group: _docx_sort_key(sorted(group, key=_docx_sort_key)[0]))
+        if len(group_rows) >= group_size
+    ]
+    if len(complete_groups) >= required_groups:
+        return [row for group in complete_groups[:required_groups] for row in group]
+
+    sorted_rows = sorted(rows, key=_docx_sort_key)
+    fallback_groups = [
+        sorted_rows[index : index + group_size]
+        for index in range(0, len(sorted_rows), group_size)
+        if len(sorted_rows[index : index + group_size]) == group_size
+    ]
+    return [row for group in fallback_groups[:required_groups] for row in group]
+
+
+def _docx_group_key(row: dict[str, Any]) -> str | None:
+    for field in ("PassageText",):
+        value = str(row.get(field) or "").strip()
+        if value:
+            return f"{field}:{sha256(value.encode('utf-8')).hexdigest()}"
+    return None
+
+
+def _docx_sort_key(row: dict[str, Any]) -> tuple[int, int, int]:
+    return (
+        _to_int(row.get("PartNumber")) or 0,
+        _to_int(row.get("QuestionNumber")) or 0,
+        _to_int(row.get("Id")) or 0,
+    )
+
+
+def _map_docx_rows_to_runner_questions(db: Session, rows: list[dict[str, Any]]) -> list[ToeicRunnerQuestionDto]:
+    if not rows:
+        return []
+    ids = [_to_int(row.get("Id")) for row in rows]
+    ids = [value for value in ids if value > 0]
+    options_by_question = _load_docx_options_by_question(db, ids)
+
+    result: list[ToeicRunnerQuestionDto] = []
+    for row in rows:
+        question_id = _to_int(row.get("Id"))
+        if question_id <= 0:
+            continue
+        part = _to_int(row.get("PartNumber")) or 1
+        option_rows = options_by_question.get(question_id, [])
+        option_texts = [str(item.get("OptionTextEn") or "") for item in option_rows]
+        correct_label = str(row.get("CorrectOptionLabel") or "").strip().upper()
+        correct_index = next(
+            (
+                index
+                for index, item in enumerate(option_rows)
+                if str(item.get("OptionLabel") or "").strip().upper() == correct_label
+                or bool(item.get("IsCorrect"))
+            ),
+            None,
+        )
+        correct_answer = str(row.get("CorrectAnswerText") or "").strip() or (
+            option_texts[correct_index] if correct_index is not None and correct_index < len(option_texts) else None
+        )
+        explanation = (
+            str(row.get("ExplanationDetail") or "").strip()
+            or str(row.get("OptionAnalysis") or "").strip()
+            or str(row.get("VocabularyNotes") or "").strip()
+            or None
+        )
+        result.append(
+            ToeicRunnerQuestionDto(
+                id=question_id,
+                questionId=question_id,
+                dbId=question_id,
+                docxQuestionId=question_id,
+                sourceQuestionId=question_id,
+                section="Listening" if part <= 4 else "Reading",
+                part=part,
+                partLabel=f"Part {part}",
+                type="fulltest_docx",
+                question=str(row.get("QuestionTextEn") or ""),
+                skill="TOEIC full test",
+                subskill=None,
+                groupId=_docx_group_key(row),
+                test=_to_int(row.get("TestNumber")) or 0,
+                questionNumber=_to_int(row.get("QuestionNumber")) or 0,
+                options=option_texts,
+                correctAnswer=correct_answer,
+                correctAnswerIndex=correct_index,
+                explanation=explanation,
+                difficulty="mixed",
+                passage=ToeicRunnerPassageDto(title="", text=str(row.get("PassageText") or "")),
+            )
+        )
+    return result
+
+
+def _load_docx_options_by_question(db: Session, question_ids: list[int]) -> dict[int, list[dict[str, Any]]]:
+    if not question_ids:
+        return {}
+    ids_csv = ",".join(str(value) for value in question_ids)
+    option_rows = db.execute(
+        text(
+            """
+            SELECT QuestionId, OptionLabel, OptionTextEn, IsCorrect, SortOrder
+            FROM dbo.ToeicDocxOptions
+            WHERE QuestionId IN (
+                SELECT TRY_CAST(value AS INT)
+                FROM STRING_SPLIT(:ids_csv, ',')
+                WHERE TRY_CAST(value AS INT) IS NOT NULL
+            )
+            ORDER BY QuestionId, SortOrder
+            """
+        ),
+        {"ids_csv": ids_csv},
+    ).mappings().all()
+    result: dict[int, list[dict[str, Any]]] = {}
+    for row in option_rows:
+        data = dict(row)
+        result.setdefault(_to_int(data.get("QuestionId")), []).append(data)
+    return result
+
+
+def _to_int(value: Any) -> int:
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return 0
+
+
+def _load_docx_runner_questions_by_ids(db: Session, question_ids: list[int]) -> list[ToeicRunnerQuestionDto]:
+    if not question_ids:
+        return []
+
+    ids_csv = ",".join(str(value) for value in question_ids)
+    question_rows = db.execute(
+        text(
+            """
+            SELECT Id, TestNumber, PartNumber, QuestionNumber, PassageText, QuestionTextEn,
+                   CorrectOptionLabel, CorrectAnswerText, ExplanationDetail, OptionAnalysis,
+                   VocabularyNotes, FinalTranslationVi, TranslationVi
+            FROM dbo.ToeicDocxQuestions
+            WHERE Id IN (
+                SELECT TRY_CAST(value AS INT)
+                FROM STRING_SPLIT(:ids_csv, ',')
+                WHERE TRY_CAST(value AS INT) IS NOT NULL
+            )
+            """
+        ),
+        {"ids_csv": ids_csv},
+    ).all()
+
+    option_rows = db.execute(
+        text(
+            """
+            SELECT QuestionId, OptionLabel, OptionTextEn, IsCorrect, SortOrder
+            FROM dbo.ToeicDocxOptions
+            WHERE QuestionId IN (
+                SELECT TRY_CAST(value AS INT)
+                FROM STRING_SPLIT(:ids_csv, ',')
+                WHERE TRY_CAST(value AS INT) IS NOT NULL
+            )
+            ORDER BY QuestionId, SortOrder
+            """
+        ),
+        {"ids_csv": ids_csv},
+    ).all()
+
+    options_by_question: dict[int, list[dict]] = {}
+    for row in option_rows:
+        data = dict(row._mapping)
+        options_by_question.setdefault(int(data["QuestionId"]), []).append(data)
+
+    mapped: dict[int, ToeicRunnerQuestionDto] = {}
+    for row in question_rows:
+        data = dict(row._mapping)
+        question_id = int(data["Id"])
+        options = options_by_question.get(question_id, [])
+        option_texts = [str(item.get("OptionTextEn") or "") for item in options]
+        correct_label = str(data.get("CorrectOptionLabel") or "").strip().upper()
+        correct_index = next(
+            (
+                index
+                for index, item in enumerate(options)
+                if str(item.get("OptionLabel") or "").strip().upper() == correct_label
+                or bool(item.get("IsCorrect"))
+            ),
+            None,
+        )
+        correct_answer = str(data.get("CorrectAnswerText") or "").strip() or (
+            option_texts[correct_index] if correct_index is not None and correct_index < len(option_texts) else None
+        )
+        part = int(data.get("PartNumber") or 1)
+        explanation = (
+            str(data.get("ExplanationDetail") or "").strip()
+            or str(data.get("OptionAnalysis") or "").strip()
+            or str(data.get("VocabularyNotes") or "").strip()
+            or None
+        )
+        mapped[question_id] = ToeicRunnerQuestionDto(
+            id=question_id,
+            questionId=question_id,
+            dbId=question_id,
+            docxQuestionId=question_id,
+            sourceQuestionId=question_id,
+            section="Listening" if part <= 4 else "Reading",
+            part=part,
+            partLabel=f"Part {part}",
+            type="docx_review",
+            question=str(data.get("QuestionTextEn") or ""),
+            skill="TOEIC review",
+            subskill=None,
+            test=int(data.get("TestNumber") or 0),
+            questionNumber=int(data.get("QuestionNumber") or 0),
+            options=option_texts,
+            correctAnswer=correct_answer,
+            correctAnswerIndex=correct_index,
+            explanation=explanation,
+            difficulty="mixed",
+            passage=ToeicRunnerPassageDto(title="", text=str(data.get("PassageText") or "")),
+        )
+
+    return [mapped[question_id] for question_id in question_ids if question_id in mapped]
 
 
 def build_question_lookup_key(part: int, question_id: int) -> str:
@@ -373,16 +738,53 @@ def _load_runner_questions(db: Session, set_type: str, set_test_number: int | No
     if parts:
         query = query.where(ToeicQuestion.part.in_(parts))
     rows = db.scalars(query).all()
-    return [_map_to_runner_question(row) for row in rows]
+    docx_lookup = _load_docx_question_id_lookup(db, rows)
+    return [_map_to_runner_question(row, docx_lookup.get(row.id)) for row in rows]
 
 
-def _map_to_runner_question(question: ToeicQuestion) -> ToeicRunnerQuestionDto:
+def _load_docx_question_id_lookup(db: Session, questions: list[ToeicQuestion]) -> dict[int, int]:
+    lookup: dict[int, int] = {}
+    if not questions:
+        return lookup
+    for question in questions:
+        try:
+            row = db.execute(
+                text(
+                    """
+                    SELECT TOP 1 Id
+                    FROM dbo.ToeicDocxQuestions
+                    WHERE QuestionNumber = :question_number
+                      AND PartNumber = :part
+                      AND (:test_number IS NULL OR TestNumber = :test_number)
+                      AND QuestionTextEn = :question_text
+                    ORDER BY Id
+                    """
+                ),
+                {
+                    "question_number": question.question_number,
+                    "part": question.part,
+                    "test_number": question.test_number,
+                    "question_text": question.question_text,
+                },
+            ).mappings().first()
+            if row and row.get("Id"):
+                lookup[question.id] = int(row.get("Id"))
+        except Exception:
+            return lookup
+    return lookup
+
+
+def _map_to_runner_question(question: ToeicQuestion, docx_question_id: int | None = None) -> ToeicRunnerQuestionDto:
     audio_path = _resolve_asset_path(question, "audio") or question.audio_url
     graphic_path = _resolve_asset_path(question, "graphic")
     image_path = _resolve_asset_path(question, "image")
     options = sorted(question.options, key=lambda item: (item.sort_order, item.option_key))
     return ToeicRunnerQuestionDto(
         id=question.id,
+        questionId=docx_question_id or question.id,
+        dbId=docx_question_id,
+        docxQuestionId=docx_question_id,
+        sourceQuestionId=docx_question_id,
         section=question.section or _infer_section(question.part),
         part=question.part,
         partLabel=question.part_label or f"Part {question.part}",
