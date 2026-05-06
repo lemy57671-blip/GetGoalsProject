@@ -2,7 +2,7 @@ import json
 from datetime import date, timedelta
 from typing import Optional
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, status
 from pydantic import BaseModel, EmailStr
 from sqlalchemy.orm import Session
 from sqlalchemy import func, select, text
@@ -20,6 +20,7 @@ from app.schemas.auth import GoogleConfigResponse, GoogleExchangeRequest, Google
 from app.services.entitlements import build_entitlement_fields
 from app.services.auth import upsert_google_user, verify_google_token
 from app.services.settings import is_user_soft_deleted
+from app.services.mail import send_welcome_email
 
 router = APIRouter(prefix="/api/auth", tags=["default"])
 
@@ -181,7 +182,7 @@ def build_auth_response(user: User, remember: bool = True, db: Session | None = 
 # Routes
 # =========================
 @router.post("/register")
-def register(payload: RegisterRequest, db: Session = Depends(get_db)):
+def register(payload: RegisterRequest, background_tasks: BackgroundTasks, db: Session = Depends(get_db)):
     existing_user = (
         db.query(User)
         .filter(User.Email == payload.email.strip().lower())
@@ -214,7 +215,13 @@ def register(payload: RegisterRequest, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(new_user)
 
-    return build_auth_response(new_user, remember=True, db=db)
+    # Gửi email chào mừng bằng BackgroundTasks để không block request
+    try:
+        background_tasks.add_task(send_welcome_email, new_user.Email, new_user.Name)
+    except Exception as e:
+        print(f"Error queuing welcome email: {e}")
+
+    return build_auth_response(new_user, remember=True)
 
 
 @router.post("/login")
@@ -413,12 +420,13 @@ def google_config():
 @router.post("/google/verify")
 async def google_verify(
     payload: GoogleVerifyRequest,
+    background_tasks: BackgroundTasks,
     db: Session = Depends(get_db),
 ):
     # Chưa verify Google thật, chỉ trả placeholder
     try:
         google_profile = await verify_google_token(payload.credential)
-        user = upsert_google_user(
+        user, created = upsert_google_user(
             db,
             GoogleExchangeRequest(
                 email=google_profile["email"],
@@ -428,6 +436,13 @@ async def google_verify(
                 providerId=google_profile["sub"],
             ),
         )
+        print(f"DEBUG: Google Verify - User: {user.Email}, Created: {created}")
+        if created:
+            try:
+                print(f"DEBUG: Attempting to send welcome email to {user.Email}")
+                background_tasks.add_task(send_welcome_email, user.Email, user.Name)
+            except Exception as e:
+                print(f"Error sending emails: {e}")
     except RuntimeError as exc:
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
@@ -450,10 +465,18 @@ async def google_verify(
 @router.post("/google/exchange")
 def google_exchange(
     payload: GoogleExchangeRequest,
+    background_tasks: BackgroundTasks,
     db: Session = Depends(get_db),
 ):
     try:
-        user = upsert_google_user(db, payload)
+        user, created = upsert_google_user(db, payload)
+        print(f"DEBUG: Google Exchange - User: {user.Email}, Created: {created}")
+        if created:
+            try:
+                print(f"DEBUG: Attempting to send welcome email to {user.Email}")
+                background_tasks.add_task(send_welcome_email, user.Email, user.Name)
+            except Exception as e:
+                print(f"Error sending emails: {e}")
     except ValueError as exc:
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,

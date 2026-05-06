@@ -101,10 +101,11 @@ def change_password(db: Session, user: User, current_password: str, new_password
     return True
 
 
-def upsert_google_user(db: Session, request: GoogleExchangeRequest) -> User:
+def upsert_google_user(db: Session, request: GoogleExchangeRequest) -> tuple[User, bool]:
     provider_id = (request.providerId or "").strip()
     email = (request.email or "").strip().lower()
     user = db.scalar(select(User).where(User.provider_id == provider_id)) if provider_id else None
+    created = False
 
     if user is None and email:
         user = db.scalar(select(User).where(User.email == email))
@@ -112,6 +113,7 @@ def upsert_google_user(db: Session, request: GoogleExchangeRequest) -> User:
             raise ValueError("Email is already linked to a different Google account")
 
     if user is None:
+        created = True
         user = User(
             email=email,
             name=request.name.strip() if request.name.strip() else email.split("@")[0],
@@ -137,7 +139,7 @@ def upsert_google_user(db: Session, request: GoogleExchangeRequest) -> User:
     user.last_login_at_utc = datetime.utcnow()
     db.commit()
     db.refresh(user)
-    return user
+    return user, created
 
 
 def _google_bool(value: object) -> bool:
