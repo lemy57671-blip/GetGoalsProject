@@ -245,9 +245,25 @@ class ReviewQueueItem(Base):
 
     id = Column("Id", Integer, primary_key=True)
     user_id = Column("UserId", Integer, ForeignKey("Users.Id"), nullable=False, index=True)
-    question_id = Column("QuestionId", Integer, nullable=False, index=True)
+    question_id = Column("QuestionId", Integer, nullable=True, index=True)
+    source = Column("Source", NVARCHAR(60), nullable=False, default="practice", index=True)
+    attempt_id = Column("AttemptId", Integer, nullable=True, index=True)
+    runtime_question_id = Column("RuntimeQuestionId", Integer, nullable=True, index=True)
+    diagnostic_question_id = Column("DiagnosticQuestionId", Integer, nullable=True, index=True)
+    question_number = Column("QuestionNumber", Integer, nullable=True)
     part = Column("Part", Integer, nullable=True)
+    section = Column("Section", NVARCHAR(50), nullable=True)
     skill = Column("Skill", NVARCHAR(100), nullable=True)
+    skill_code = Column("SkillCode", NVARCHAR(100), nullable=True)
+    is_correct = Column("IsCorrect", Boolean, nullable=False, default=False)
+    is_skipped = Column("IsSkipped", Boolean, nullable=False, default=False)
+    selected_option_key = Column("SelectedOptionKey", NVARCHAR(10), nullable=True)
+    correct_option_key = Column("CorrectOptionKey", NVARCHAR(10), nullable=True)
+    review_reason = Column("ReviewReason", NVARCHAR(50), nullable=False, default="wrong", index=True)
+    last_answered_at_utc = Column("LastAnsweredAtUtc", DateTime, nullable=True)
+    created_at_utc = Column("CreatedAtUtc", DateTime, nullable=False, server_default=func.sysutcdatetime())
+    updated_at_utc = Column("UpdatedAtUtc", DateTime, nullable=True, server_default=func.sysutcdatetime())
+    is_active = Column("IsActive", Boolean, nullable=False, default=True)
     status = Column("Status", NVARCHAR(50), nullable=False, default="pending")
     source_attempt_type = Column("SourceAttemptType", NVARCHAR(50), nullable=True)
     source_attempt_id = Column("SourceAttemptId", Integer, nullable=True)
@@ -263,11 +279,17 @@ class UserQuestionNote(Base):
 
     id = Column("Id", Integer, primary_key=True)
     user_id = Column("UserId", Integer, ForeignKey("Users.Id"), nullable=False, index=True)
-    question_id = Column("QuestionId", Integer, nullable=False, index=True)
+    question_id = Column("QuestionId", Integer, nullable=True, index=True)
+    source = Column("Source", NVARCHAR(60), nullable=True, default="practice", index=True)
     attempt_id = Column("AttemptId", Integer, nullable=True)
+    runtime_question_id = Column("RuntimeQuestionId", Integer, nullable=True, index=True)
+    diagnostic_question_id = Column("DiagnosticQuestionId", Integer, nullable=True, index=True)
     note_text = Column("NoteText", UnicodeText, nullable=False)
     created_at = Column("CreatedAt", DateTime, nullable=False, server_default=func.sysutcdatetime())
     updated_at = Column("UpdatedAt", DateTime, nullable=False, server_default=func.sysutcdatetime())
+    created_at_utc = Column("CreatedAtUtc", DateTime, nullable=False, server_default=func.sysutcdatetime())
+    updated_at_utc = Column("UpdatedAtUtc", DateTime, nullable=False, server_default=func.sysutcdatetime())
+    is_active = Column("IsActive", Boolean, nullable=False, default=True)
 
     user = relationship("User")
 
@@ -277,17 +299,24 @@ class UserQuestionHighlight(Base):
 
     id = Column("Id", Integer, primary_key=True)
     user_id = Column("UserId", Integer, ForeignKey("Users.Id"), nullable=False, index=True)
-    question_id = Column("QuestionId", Integer, nullable=False, index=True)
+    question_id = Column("QuestionId", Integer, nullable=True, index=True)
+    source = Column("Source", NVARCHAR(60), nullable=True, default="practice", index=True)
     attempt_id = Column("AttemptId", Integer, nullable=True)
+    runtime_question_id = Column("RuntimeQuestionId", Integer, nullable=True, index=True)
+    diagnostic_question_id = Column("DiagnosticQuestionId", Integer, nullable=True, index=True)
     target_type = Column("TargetType", NVARCHAR(50), nullable=False)
     target_key = Column("TargetKey", NVARCHAR(20), nullable=True)
     selected_text = Column("SelectedText", UnicodeText, nullable=False)
+    highlight_text = Column("HighlightText", UnicodeText, nullable=True)
     start_offset = Column("StartOffset", Integer, nullable=True)
     end_offset = Column("EndOffset", Integer, nullable=True)
     color = Column("Color", NVARCHAR(30), nullable=False, default="yellow")
     note_text = Column("NoteText", UnicodeText, nullable=True)
     created_at = Column("CreatedAt", DateTime, nullable=False, server_default=func.sysutcdatetime())
     updated_at = Column("UpdatedAt", DateTime, nullable=False, server_default=func.sysutcdatetime())
+    created_at_utc = Column("CreatedAtUtc", DateTime, nullable=False, server_default=func.sysutcdatetime())
+    updated_at_utc = Column("UpdatedAtUtc", DateTime, nullable=False, server_default=func.sysutcdatetime())
+    is_active = Column("IsActive", Boolean, nullable=False, default=True)
 
     user = relationship("User")
 
@@ -297,9 +326,15 @@ class UserQuestionBookmark(Base):
 
     id = Column("Id", Integer, primary_key=True)
     user_id = Column("UserId", Integer, ForeignKey("Users.Id"), nullable=False, index=True)
-    question_id = Column("QuestionId", Integer, nullable=False, index=True)
+    question_id = Column("QuestionId", Integer, nullable=True, index=True)
+    source = Column("Source", NVARCHAR(60), nullable=True, default="practice", index=True)
     attempt_id = Column("AttemptId", Integer, nullable=True)
+    runtime_question_id = Column("RuntimeQuestionId", Integer, nullable=True, index=True)
+    diagnostic_question_id = Column("DiagnosticQuestionId", Integer, nullable=True, index=True)
     created_at = Column("CreatedAt", DateTime, nullable=False, server_default=func.sysutcdatetime())
+    updated_at_utc = Column("UpdatedAtUtc", DateTime, nullable=False, server_default=func.sysutcdatetime())
+    created_at_utc = Column("CreatedAtUtc", DateTime, nullable=False, server_default=func.sysutcdatetime())
+    is_active = Column("IsActive", Boolean, nullable=False, default=True)
 
     user = relationship("User")
 
@@ -538,6 +573,107 @@ class ToeicQuestionAsset(Base):
 
     question = relationship("ToeicQuestion", back_populates="assets", foreign_keys=[question_id])
     passage = relationship("ToeicPassage", back_populates="assets", foreign_keys=[passage_id])
+
+
+class ToeicPracticeSet(Base):
+    __tablename__ = "ToeicPracticeSets"
+
+    id = Column("Id", Integer, primary_key=True)
+    code = Column("Code", NVARCHAR(100), nullable=False, unique=True, index=True)
+    title = Column("Title", NVARCHAR(255), nullable=False)
+    type = Column("Type", NVARCHAR(50), nullable=False, index=True)
+    test_number = Column("TestNumber", Integer, nullable=True, index=True)
+    part = Column("Part", Integer, nullable=True)
+    description = Column("Description", UnicodeText, nullable=True)
+    is_active = Column("IsActive", Boolean, nullable=False, default=True)
+    created_at_utc = Column("CreatedAtUtc", DateTime, nullable=False, server_default=func.sysutcdatetime())
+    updated_at_utc = Column("UpdatedAtUtc", DateTime, nullable=False, server_default=func.sysutcdatetime())
+
+    passages = relationship("ToeicPracticePassage", back_populates="set")
+    questions = relationship("ToeicPracticeQuestion", back_populates="set")
+
+
+class ToeicPracticePassage(Base):
+    __tablename__ = "ToeicPracticePassages"
+
+    id = Column("Id", Integer, primary_key=True)
+    set_id = Column("SetId", Integer, ForeignKey("ToeicPracticeSets.Id"), nullable=False, index=True)
+    part = Column("Part", Integer, nullable=False, index=True)
+    group_code = Column("GroupCode", NVARCHAR(100), nullable=True, index=True)
+    passage_text = Column("PassageText", UnicodeText, nullable=True)
+    audio_path = Column("AudioPath", NVARCHAR(500), nullable=True)
+    image_path = Column("ImagePath", NVARCHAR(500), nullable=True)
+    created_at_utc = Column("CreatedAtUtc", DateTime, nullable=False, server_default=func.sysutcdatetime())
+
+    set = relationship("ToeicPracticeSet", back_populates="passages")
+    questions = relationship("ToeicPracticeQuestion", back_populates="passage")
+    assets = relationship(
+        "ToeicPracticeQuestionAsset",
+        back_populates="passage",
+        foreign_keys="ToeicPracticeQuestionAsset.passage_id",
+    )
+
+
+class ToeicPracticeQuestion(Base):
+    __tablename__ = "ToeicPracticeQuestions"
+
+    id = Column("Id", Integer, primary_key=True)
+    set_id = Column("SetId", Integer, ForeignKey("ToeicPracticeSets.Id"), nullable=False, index=True)
+    passage_id = Column("PassageId", Integer, ForeignKey("ToeicPracticePassages.Id"), nullable=True, index=True)
+    test_number = Column("TestNumber", Integer, nullable=True, index=True)
+    part = Column("Part", Integer, nullable=False, index=True)
+    section = Column("Section", NVARCHAR(50), nullable=True)
+    question_number = Column("QuestionNumber", Integer, nullable=True, index=True)
+    question_text = Column("QuestionText", UnicodeText, nullable=True)
+    correct_option_key = Column("CorrectOptionKey", NVARCHAR(10), nullable=True)
+    explanation = Column("Explanation", UnicodeText, nullable=True)
+    difficulty = Column("Difficulty", NVARCHAR(50), nullable=True)
+    skill_code = Column("SkillCode", NVARCHAR(100), nullable=True)
+    sort_order = Column("SortOrder", Integer, nullable=True)
+    is_active = Column("IsActive", Boolean, nullable=False, default=True)
+    created_at_utc = Column("CreatedAtUtc", DateTime, nullable=False, server_default=func.sysutcdatetime())
+
+    set = relationship("ToeicPracticeSet", back_populates="questions")
+    passage = relationship("ToeicPracticePassage", back_populates="questions")
+    options = relationship(
+        "ToeicPracticeQuestionOption",
+        back_populates="question",
+        cascade="all, delete-orphan",
+        order_by="ToeicPracticeQuestionOption.sort_order",
+    )
+    assets = relationship(
+        "ToeicPracticeQuestionAsset",
+        back_populates="question",
+        foreign_keys="ToeicPracticeQuestionAsset.question_id",
+        order_by="ToeicPracticeQuestionAsset.id",
+    )
+
+
+class ToeicPracticeQuestionOption(Base):
+    __tablename__ = "ToeicPracticeQuestionOptions"
+
+    id = Column("Id", Integer, primary_key=True)
+    question_id = Column("QuestionId", Integer, ForeignKey("ToeicPracticeQuestions.Id"), nullable=False, index=True)
+    option_key = Column("OptionKey", NVARCHAR(10), nullable=False)
+    option_text = Column("OptionText", UnicodeText, nullable=False)
+    sort_order = Column("SortOrder", Integer, nullable=False)
+    is_correct = Column("IsCorrect", Boolean, nullable=False, default=False)
+
+    question = relationship("ToeicPracticeQuestion", back_populates="options")
+
+
+class ToeicPracticeQuestionAsset(Base):
+    __tablename__ = "ToeicPracticeQuestionAssets"
+
+    id = Column("Id", Integer, primary_key=True)
+    question_id = Column("QuestionId", Integer, ForeignKey("ToeicPracticeQuestions.Id"), nullable=True, index=True)
+    passage_id = Column("PassageId", Integer, ForeignKey("ToeicPracticePassages.Id"), nullable=True, index=True)
+    asset_type = Column("AssetType", NVARCHAR(50), nullable=False)
+    relative_path = Column("RelativePath", NVARCHAR(500), nullable=False)
+    created_at_utc = Column("CreatedAtUtc", DateTime, nullable=False, server_default=func.sysutcdatetime())
+
+    question = relationship("ToeicPracticeQuestion", back_populates="assets", foreign_keys=[question_id])
+    passage = relationship("ToeicPracticePassage", back_populates="assets", foreign_keys=[passage_id])
 
 
 class FlashcardTopic(Base):

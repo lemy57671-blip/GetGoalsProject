@@ -78,41 +78,214 @@ export function FlashcardPage() {
   const [learnedCount, setLearnedCount] = useState(0);        // Số từ đã thuộc
   const [isFinished, setIsFinished] = useState(false);        // Đã xong bộ thẻ chưa
   const [isStarted, setIsStarted] = useState(false);          // Đã bắt đầu học chưa
+  const [ttsMessage, setTtsMessage] = useState<string | null>(null);
+  const [speakingWord, setSpeakingWord] = useState<string | null>(null);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const activeObjectUrlRef = useRef<string | null>(null);
+  const audioRequestIdRef = useRef(0);
+  const audioUrlCacheRef = useRef<Map<string, { url: string; source: string }>>(new Map());
+  const speechUtteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
+
+  const resolveAudioUrl = (value: string) => {
+    if (/^(https?:|blob:|data:)/i.test(value)) return value;
+    return `${API_BASE_URL}${value.startsWith("/") ? value : `/${value}`}`;
+  };
+
+  const stopCurrentAudio = () => {
+    if (typeof window !== "undefined" && "speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+      speechUtteranceRef.current = null;
+    }
+    const currentAudio = audioRef.current;
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.onended = null;
+      currentAudio.onerror = null;
+      currentAudio.oncanplaythrough = null;
+      currentAudio.removeAttribute("src");
+      currentAudio.load();
+      audioRef.current = null;
+    }
+    if (activeObjectUrlRef.current) {
+      URL.revokeObjectURL(activeObjectUrlRef.current);
+      activeObjectUrlRef.current = null;
+    }
+  };
+
+  const parseTtsError = async (response: Response) => {
+    const contentType = response.headers.get("content-type") || "";
+    if (contentType.includes("application/json")) {
+      try {
+        const payload = await response.json();
+        const detail = payload?.detail;
+        if (detail && typeof detail === "object") {
+          return String(detail.provider_error || detail.message || payload?.message || `TTS failed with status ${response.status}`);
+        }
+        return String(detail || payload?.message || `TTS failed with status ${response.status}`);
+      } catch {
+        return `TTS failed with status ${response.status}`;
+      }
+    }
+    const text = await response.text().catch(() => "");
+    return text || `TTS failed with status ${response.status}`;
+  };
+
+  const loadFlashcardAudioUrl = async (word: string) => {
+    const cacheKey = word.trim().toLowerCase();
+    const cached = audioUrlCacheRef.current.get(cacheKey);
+    if (cached) return cached;
+
+    const response = await fetch(`${API_BASE_URL}/api/tts/flashcard`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ word, text: word, voice: "en-US-AriaNeural" }),
+    });
+
+    if (!response.ok) {
+      throw new Error(await parseTtsError(response));
+    }
+
+    const contentType = response.headers.get("content-type") || "";
+    if (contentType.includes("application/json")) {
+      const payload = await response.json();
+      const audioUrl = payload?.audio_url || payload?.audioUrl || payload?.url;
+      if (!audioUrl) {
+        throw new Error("TTS response did not include audio_url.");
+      }
+      const resolvedUrl = resolveAudioUrl(String(audioUrl));
+      const result = {
+        url: resolvedUrl,
+        source: String(payload?.source || (payload?.cached ? "cache" : "generated")),
+      };
+      audioUrlCacheRef.current.set(cacheKey, result);
+      return result;
+    }
+
+    const blob = await response.blob();
+    if (!blob.size || !/^audio\//i.test(blob.type || "")) {
+      throw new Error(`TTS response is not a usable audio file (${blob.type || "unknown"}).`);
+    }
+    return { url: URL.createObjectURL(blob), source: "generated" };
+  };
+
+  const speakWithBrowserFallback = (word: string, requestId: number, reason?: unknown) => {
+    if (requestId !== audioRequestIdRef.current) return false;
+    if (typeof window === "undefined" || !("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) {
+      console.error("Flashcard TTS source=failed", { word, reason });
+      return false;
+    }
+
+    stopCurrentAudio();
+    const utterance = new SpeechSynthesisUtterance(word);
+    utterance.lang = "en-US";
+    utterance.rate = 0.9;
+    utterance.pitch = 1;
+    speechUtteranceRef.current = utterance;
+
+    utterance.onend = () => {
+      if (requestId === audioRequestIdRef.current && speechUtteranceRef.current === utterance) {
+        speechUtteranceRef.current = null;
+        setSpeakingWord(null);
+      }
+    };
+    utterance.onerror = (event) => {
+      if (requestId === audioRequestIdRef.current && speechUtteranceRef.current === utterance) {
+        console.error("Flashcard TTS source=failed", { word, reason, speechError: event.error });
+        speechUtteranceRef.current = null;
+        setSpeakingWord(null);
+        setTtsMessage("Không phát được âm thanh cho từ này.");
+      }
+    };
+
+    console.info("Flashcard TTS source=browser_fallback", { word, reason });
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utterance);
+    return true;
+  };
 
   /**
    * HÀM ĐỌC TỪ VỰNG
    */
   const speakWord = async (word: string) => {
-    if (!word) return;
+    const normalizedWord = word.trim();
+    if (!normalizedWord) return;
+
+    const requestId = ++audioRequestIdRef.current;
+    stopCurrentAudio();
+    setSpeakingWord(normalizedWord);
+    setTtsMessage(null);
+
     try {
-      const response = await fetch(`${API_BASE_URL}/api/tts/flashcard`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: word, voice: "en-US-AriaNeural" })
-      });
-      
-      if (!response.ok) throw new Error("Failed to generate audio");
-
-      const blob = await response.blob();
-      const url = URL.createObjectURL(blob);
-
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current.src = url;
-        audioRef.current.play().catch(e => console.error("Playback error:", e));
-      } else {
-        const audio = new Audio(url);
-        audioRef.current = audio;
-        audio.play().catch(e => console.error("Playback error:", e));
+      const audioResult = await loadFlashcardAudioUrl(normalizedWord);
+      if (requestId !== audioRequestIdRef.current) {
+        if (audioResult.url.startsWith("blob:")) URL.revokeObjectURL(audioResult.url);
+        return;
       }
 
-      audioRef.current!.onended = () => URL.revokeObjectURL(url);
+      const audio = new Audio();
+      audio.preload = "auto";
+      audio.src = audioResult.url;
+      audioRef.current = audio;
+      if (audioResult.url.startsWith("blob:")) {
+        activeObjectUrlRef.current = audioResult.url;
+      }
+
+      await new Promise<void>((resolve, reject) => {
+        const timeout = window.setTimeout(() => resolve(), 2500);
+        audio.oncanplaythrough = () => {
+          window.clearTimeout(timeout);
+          resolve();
+        };
+        audio.onerror = () => {
+          window.clearTimeout(timeout);
+          reject(new Error("Không tải được file âm thanh."));
+        };
+        audio.load();
+      });
+
+      if (requestId !== audioRequestIdRef.current) {
+        stopCurrentAudio();
+        return;
+      }
+
+      audio.onended = () => {
+        if (audioRef.current === audio) {
+          stopCurrentAudio();
+          setSpeakingWord(null);
+        }
+      };
+      audio.onerror = () => {
+        if (audioRef.current === audio) {
+          console.error("Playback error: audio element failed to load", audioResult.url);
+          if (!speakWithBrowserFallback(normalizedWord, requestId, "audio_element_error")) {
+            setTtsMessage("Không phát được âm thanh cho từ này.");
+            stopCurrentAudio();
+            setSpeakingWord(null);
+          }
+        }
+      };
+
+      await audio.play();
+      console.info("Flashcard TTS source=" + audioResult.source, { word: normalizedWord, url: audioResult.url });
     } catch (error) {
       console.error("TTS Error:", error);
+      if (requestId === audioRequestIdRef.current) {
+        if (!speakWithBrowserFallback(normalizedWord, requestId, error)) {
+          setTtsMessage("Không phát được âm thanh cho từ này.");
+          stopCurrentAudio();
+          setSpeakingWord(null);
+        }
+      }
     }
   };
+
+  useEffect(() => {
+    return () => {
+      audioRequestIdRef.current += 1;
+      stopCurrentAudio();
+    };
+  }, []);
 
   /**
    * EFFECT: Tự động đọc khi chuyển thẻ
@@ -153,6 +326,10 @@ export function FlashcardPage() {
    * CHỌN CHỦ ĐỀ - TẢI DỮ LIỆU NHƯNG CHƯA HỌC NGAY
    */
   const handleSelectTopic = async (topicCode: string) => {
+    audioRequestIdRef.current += 1;
+    stopCurrentAudio();
+    setTtsMessage(null);
+    setSpeakingWord(null);
     setSelectedTopicId(topicCode);
     setLoadingCards(true);
     setIsConfiguring(true);
@@ -198,9 +375,12 @@ export function FlashcardPage() {
   /** CHUYỂN SANG THẺ TIẾP THEO */
   const handleNext = () => {
     if (currentIndex < cards.length - 1) {
+      setTtsMessage(null);
       setCurrentIndex(prev => prev + 1);
       setIsFlipped(false);
     } else {
+      audioRequestIdRef.current += 1;
+      stopCurrentAudio();
       setIsFinished(true);
     }
   };
@@ -208,6 +388,7 @@ export function FlashcardPage() {
   /** QUAY LẠI THẺ TRƯỚC */
   const handlePrev = () => {
     if (currentIndex > 0) {
+      setTtsMessage(null);
       setCurrentIndex(prev => prev - 1);
       setIsFlipped(false);
     }
@@ -226,6 +407,10 @@ export function FlashcardPage() {
 
   /** QUAY LẠI DANH SÁCH CHỦ ĐỀ */
   const reset = () => {
+    audioRequestIdRef.current += 1;
+    stopCurrentAudio();
+    setTtsMessage(null);
+    setSpeakingWord(null);
     setSelectedTopicId(null);
     setAllCards([]);
     setCards([]);
@@ -475,13 +660,21 @@ export function FlashcardPage() {
                   size="sm" 
                   onClick={(e) => { e.stopPropagation(); speakWord(currentCard.word); }}
                   className="rounded-full w-12 h-12 p-0 hover:bg-primary/10 group/vol"
+                  disabled={speakingWord === currentCard.word}
                 >
-                  <Volume2 className="w-6 h-6 text-primary group-hover/vol:scale-125 transition-transform" />
+                  {speakingWord === currentCard.word ? (
+                    <Loader2 className="w-6 h-6 animate-spin text-primary" />
+                  ) : (
+                    <Volume2 className="w-6 h-6 text-primary group-hover/vol:scale-125 transition-transform" />
+                  )}
                 </Button>
               </div>
               <p className="mt-4 text-xl text-muted-foreground font-mono italic">
                 {currentCard.phonetic}
               </p>
+              {ttsMessage ? (
+                <p className="mt-3 text-sm text-destructive">{ttsMessage}</p>
+              ) : null}
               <p className="mt-12 text-sm text-muted-foreground animate-pulse">
                 Chạm để xem nghĩa
               </p>

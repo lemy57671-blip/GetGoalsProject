@@ -20,6 +20,7 @@ import {
   type DiagnosticSubmitResponse,
 } from "@src/services/diagnosticService";
 import { API_BASE_URL } from "@src/services/apiClient";
+import { authService } from "@src/services/authService";
 import {
   ArrowLeft,
   ArrowRight,
@@ -44,6 +45,22 @@ function prettifyRoadmapText(value?: string | null) {
   return String(value).replace(/_/g, " ").replace(/\s+/g, " ").trim();
 }
 
+function weeksFromExamDate(examDate?: string | null) {
+  if (!examDate) return null;
+  const target = new Date(examDate);
+  if (Number.isNaN(target.getTime())) return null;
+  const diffMs = target.getTime() - Date.now();
+  if (diffMs <= 0) return null;
+  return Math.max(1, Math.round(diffMs / (7 * 24 * 60 * 60 * 1000)));
+}
+
+function examDateFromWeeks(weekCount: number) {
+  if (!Number.isFinite(weekCount) || weekCount < 1) return null;
+  const date = new Date();
+  date.setDate(date.getDate() + Math.round(weekCount) * 7);
+  return date.toISOString().slice(0, 10);
+}
+
 export function PlacementTestPage() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
@@ -53,6 +70,7 @@ export function PlacementTestPage() {
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState<DiagnosticSubmitResponse | null>(null);
+  const [currentScore, setCurrentScore] = useState<number | "">("");
   const [targetScore, setTargetScore] = useState(750);
   const [weeks, setWeeks] = useState(8);
   const [minutesPerDay, setMinutesPerDay] = useState(30);
@@ -60,13 +78,31 @@ export function PlacementTestPage() {
   useEffect(() => {
     let active = true;
 
-    const loadQuestions = async () => {
+    const loadPlacementData = async () => {
       try {
         setLoading(true);
         setError("");
-        const payload = await diagnosticService.getQuestions();
+        const [payload, user] = await Promise.all([
+          diagnosticService.getQuestions(),
+          authService.me().catch(() => null),
+        ]);
         if (!active) return;
         setQuestions(payload.questions || []);
+        if (user) {
+          setCurrentScore(
+            typeof user.currentScore === "number" ? user.currentScore : "",
+          );
+          if (typeof user.targetScore === "number") {
+            setTargetScore(user.targetScore);
+          }
+          const userWeeks = weeksFromExamDate(user.examDate);
+          if (userWeeks) {
+            setWeeks(userWeeks);
+          }
+          if (typeof user.studyMinutesPerDay === "number") {
+            setMinutesPerDay(user.studyMinutesPerDay);
+          }
+        }
       } catch (requestError) {
         if (!active) return;
         setError(
@@ -81,7 +117,7 @@ export function PlacementTestPage() {
       }
     };
 
-    void loadQuestions();
+    void loadPlacementData();
 
     return () => {
       active = false;
@@ -92,7 +128,7 @@ export function PlacementTestPage() {
   const progress =
     questions.length > 0 ? ((currentIndex + 1) / questions.length) * 100 : 0;
   const answeredCount = Object.keys(answers).length;
-  const allAnswered = questions.length > 0 && answeredCount === questions.length;
+  const canSubmitPlacement = questions.length > 0;
 
   const answerEntries = useMemo(() => {
     const mapped: Record<string, number> = {};
@@ -116,8 +152,35 @@ export function PlacementTestPage() {
   };
 
   const handleSubmit = async () => {
-    if (!allAnswered) {
+    if (!canSubmitPlacement) {
       setError(`Bạn cần làm hết ${questions.length} câu trước khi nộp bài.`);
+      return;
+    }
+
+    const normalizedCurrentScore = currentScore === "" ? null : Number(currentScore);
+
+    if (
+      normalizedCurrentScore !== null &&
+      (!Number.isFinite(normalizedCurrentScore) ||
+        normalizedCurrentScore < 0 ||
+        normalizedCurrentScore > 990)
+    ) {
+      setError("Điểm hiện tại phải nằm trong khoảng 0-990.");
+      return;
+    }
+
+    if (!Number.isFinite(targetScore) || targetScore < 10 || targetScore > 990) {
+      setError("Điểm mục tiêu phải nằm trong khoảng 10-990.");
+      return;
+    }
+
+    if (!Number.isFinite(weeks) || weeks < 1 || weeks > 104) {
+      setError("Số tuần phải nằm trong khoảng 1-104.");
+      return;
+    }
+
+    if (!Number.isFinite(minutesPerDay) || minutesPerDay < 5 || minutesPerDay > 480) {
+      setError("Phút/ngày phải nằm trong khoảng 5-480.");
       return;
     }
 
@@ -126,13 +189,40 @@ export function PlacementTestPage() {
       setError("");
       const response = await diagnosticService.submitDiagnostic({
         answers: answerEntries,
+        current_score: normalizedCurrentScore,
         target_score: targetScore,
         weeks,
         minutes_per_day: minutesPerDay,
       });
       setResult(response);
       try {
+        const answeredAttemptRows = questions.flatMap((question, index) => {
+          const selectedAnswerIndex = answers[index];
+
+          if (selectedAnswerIndex === undefined || selectedAnswerIndex === null) {
+            return [];
+          }
+
+          const correctAnswerIndex =
+            typeof question.correct === "number" ? question.correct : null;
+
+          return [
+            {
+              questionId: question.id,
+              questionNumber: index + 1,
+              skill: question.skill ?? null,
+              subskill: question.subskill ?? null,
+              selectedAnswerIndex,
+              correctAnswerIndex,
+              isCorrect:
+                correctAnswerIndex !== null &&
+                selectedAnswerIndex === correctAnswerIndex,
+            },
+          ];
+        });
+
         await diagnosticService.saveAttempt({
+          currentScore: normalizedCurrentScore,
           targetScore,
           weeks,
           minutesPerDay,
@@ -144,29 +234,19 @@ export function PlacementTestPage() {
           levelRange: response.analysis.level.range,
           weakSubskillsJson: JSON.stringify(response.analysis.weakSubskills || []),
           topErrorsJson: JSON.stringify(response.analysis.topErrors || []),
-          answers: questions.map((question, index) => {
-            const selectedAnswerIndex = answers[index] ?? null;
-            const correctAnswerIndex =
-              typeof question.correct === "number" ? question.correct : null;
-
-            return {
-              questionId: question.id,
-              questionNumber: index + 1,
-              skill: question.skill ?? null,
-              subskill: question.subskill ?? null,
-              selectedAnswerIndex,
-              correctAnswerIndex,
-              isCorrect:
-                correctAnswerIndex !== null &&
-                selectedAnswerIndex === correctAnswerIndex,
-            };
-          }),
+          answers: answeredAttemptRows,
+        });
+        await authService.updateLearningSettings({
+          currentScore: normalizedCurrentScore,
+          targetScore,
+          examDate: examDateFromWeeks(weeks),
+          studyMinutesPerDay: minutesPerDay,
         });
       } catch (saveError) {
         setError(
           saveError instanceof Error
-            ? `Da tinh ket qua nhung chua luu duoc diagnostic: ${saveError.message}`
-            : "Da tinh ket qua nhung chua luu duoc diagnostic.",
+            ? `Đã tính kết quả nhưng chưa lưu được diagnostic: ${saveError.message}`
+            : "Đã tính kết quả nhưng chưa lưu được diagnostic.",
         );
       }
     } catch (submitError) {
@@ -407,7 +487,20 @@ export function PlacementTestPage() {
           </p>
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-3">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div>
+            <p className="mb-2 text-sm text-muted-foreground">Điểm hiện tại (nếu có)</p>
+            <Input
+              type="number"
+              min={0}
+              max={990}
+              step={5}
+              value={currentScore}
+              onChange={(event) =>
+                setCurrentScore(event.target.value === "" ? "" : Number(event.target.value))
+              }
+            />
+          </div>
           <div>
             <p className="mb-2 text-sm text-muted-foreground">Điểm mục tiêu</p>
             <Input
@@ -547,7 +640,7 @@ export function PlacementTestPage() {
               </Button>
             </div>
 
-            <Button onClick={() => void handleSubmit()} disabled={submitting || !allAnswered}>
+            <Button onClick={() => void handleSubmit()} disabled={submitting}>
               {submitting ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

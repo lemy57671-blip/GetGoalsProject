@@ -12,6 +12,8 @@ from app.models import (
     PracticeAttemptAnswer,
     ProgressLog,
     ReviewQueueItem,
+    ToeicPracticePassage,
+    ToeicPracticeQuestion,
     ToeicPassage,
     ToeicQuestion,
     User,
@@ -38,6 +40,29 @@ from app.schemas.analytics import (
 )
 from app.services.skill_analytics import to_dto, to_title
 from app.utils.json_helpers import parse_string_list
+
+
+RUNTIME_REVIEW_SOURCES = {"practice", "fulltest", "minitest", "weeklycheck"}
+
+
+def _review_identity_key(item: ReviewQueueItem) -> tuple[str, int]:
+    source = (item.source or item.source_attempt_type or "practice").strip().lower().replace("-", "_")
+    if source in RUNTIME_REVIEW_SOURCES and item.runtime_question_id:
+        return source, int(item.runtime_question_id)
+    if source == "diagnostic" and (item.diagnostic_question_id or item.question_id):
+        return source, int(item.diagnostic_question_id or item.question_id)
+    return source, int(item.question_id or 0)
+
+
+def _get_pending_review_count(db: Session, user_id: int) -> int:
+    rows = db.scalars(
+        select(ReviewQueueItem).where(
+            ReviewQueueItem.user_id == user_id,
+            ReviewQueueItem.is_active == True,
+            ReviewQueueItem.status == "pending",
+        )
+    ).all()
+    return len({key for item in rows if (key := _review_identity_key(item))[1] > 0})
 
 
 def get_dashboard_overview(db: Session, user_id: int) -> DashboardOverviewDto:
@@ -67,7 +92,7 @@ def get_dashboard_overview(db: Session, user_id: int) -> DashboardOverviewDto:
         totalPracticeAttempts=len(practice_attempts),
         recentAccuracy=recent_accuracy,
         totalStudyMinutes=_get_total_study_minutes(db, user_id),
-        pendingReviewCount=db.scalar(select(func.count()).select_from(ReviewQueueItem).where(ReviewQueueItem.user_id == user_id, ReviewQueueItem.status == "pending")) or 0,
+        pendingReviewCount=_get_pending_review_count(db, user_id),
         weakestSkill=_get_weakest_skill(db, user_id),
         weakestPart=_get_weakest_part(db, user_id),
         latestMockTest=LatestMockTestDto(
@@ -170,7 +195,7 @@ def get_progress_summary(db: Session, user_id: int) -> ProgressSummaryDto:
                 .limit(5)
             ).all()
         ],
-        pendingReviewCount=db.scalar(select(func.count()).select_from(ReviewQueueItem).where(ReviewQueueItem.user_id == user_id, ReviewQueueItem.status == "pending")) or 0,
+        pendingReviewCount=_get_pending_review_count(db, user_id),
     )
 
 
@@ -260,15 +285,12 @@ def get_review_item_detail(db: Session, user_id: int, review_item_id: int) -> Re
     if item is None:
         return None
 
-    question = db.scalar(
-        select(ToeicQuestion)
-        .options(
-            joinedload(ToeicQuestion.passage).selectinload(ToeicPassage.assets),
-            selectinload(ToeicQuestion.options),
-            selectinload(ToeicQuestion.assets),
-        )
-        .where(ToeicQuestion.id == item.question_id)
-    )
+    question = _load_practice_review_question(db, item) if _should_read_review_item_from_practice(item) else None
+    if question is None:
+        question = _load_legacy_review_question(db, item)
+    if question is None:
+        question = _load_practice_review_question(db, item)
+
     source_answer = _get_review_source_answer(db, item)
     option_texts = _get_question_option_texts(question)
     correct_index = _resolve_question_correct_index(question)
@@ -284,21 +306,21 @@ def get_review_item_detail(db: Session, user_id: int, review_item_id: int) -> Re
         options=option_texts,
         userAnswer=user_answer,
         userAnswerIndex=user_answer_index,
-        correctAnswer=correct_answer or (question.correct_option_key if question else None),
+        correctAnswer=correct_answer or (getattr(question, "correct_option_key", None) if question else None),
         correctAnswerIndex=correct_index,
         isCorrect=bool(source_answer.is_correct) if source_answer else False,
         explanation=(source_answer.explanation if source_answer and source_answer.explanation else None) or (question.explanation if question else None) or item.note,
-        skill=(source_answer.skill if source_answer and source_answer.skill else None) or item.skill or (question.topic if question else None) or (question.skill_code if question else None) or "TOEIC review",
-        subskill=question.subskill_code if question else None,
+        skill=(source_answer.skill if source_answer and source_answer.skill else None) or item.skill or (getattr(question, "topic", None) if question else None) or (question.skill_code if question else None) or "TOEIC review",
+        subskill=getattr(question, "subskill_code", None) if question else None,
         part=item.part or (question.part if question else 0),
-        difficulty=question.difficulty or "mixed" if question else "mixed",
+        difficulty=(question.difficulty or "mixed") if question else "mixed",
         status=item.status,
         sourceAttemptType=item.source_attempt_type,
         sourceAttemptId=item.source_attempt_id,
         note=item.note,
         addedAtUtc=item.added_at_utc,
         reviewedAtUtc=item.reviewed_at_utc,
-        passageTitle=question.passage.title if question and question.passage else None,
+        passageTitle=getattr(question.passage, "title", None) if question and question.passage else None,
         passageText=question.passage.passage_text if question and question.passage else None,
         audioUrl=_resolve_question_asset_path(question, "audio") if question else None,
         imageUrl=_resolve_question_asset_path(question, "image") if question else None,
@@ -315,6 +337,35 @@ def mark_review_item_reviewed(db: Session, user_id: int, review_item_id: int) ->
         item.reviewed_at_utc = datetime.utcnow()
         db.commit()
     return get_review_item_detail(db, user_id, review_item_id)
+
+
+def _should_read_review_item_from_practice(item: ReviewQueueItem) -> bool:
+    source_type = (item.source_attempt_type or "").strip().lower().replace("_", "-")
+    return source_type in {"practice", "mock-test", "weekly", "weekly-check", "review-focus"}
+
+
+def _load_practice_review_question(db: Session, item: ReviewQueueItem) -> ToeicPracticeQuestion | None:
+    return db.scalar(
+        select(ToeicPracticeQuestion)
+        .options(
+            joinedload(ToeicPracticeQuestion.passage).selectinload(ToeicPracticePassage.assets),
+            selectinload(ToeicPracticeQuestion.options),
+            selectinload(ToeicPracticeQuestion.assets),
+        )
+        .where(ToeicPracticeQuestion.id == item.question_id)
+    )
+
+
+def _load_legacy_review_question(db: Session, item: ReviewQueueItem) -> ToeicQuestion | None:
+    return db.scalar(
+        select(ToeicQuestion)
+        .options(
+            joinedload(ToeicQuestion.passage).selectinload(ToeicPassage.assets),
+            selectinload(ToeicQuestion.options),
+            selectinload(ToeicQuestion.assets),
+        )
+        .where(ToeicQuestion.id == item.question_id)
+    )
 
 
 def _get_review_source_answer(db: Session, item: ReviewQueueItem) -> PracticeAttemptAnswer | MockTestAttemptAnswer | None:
@@ -344,7 +395,7 @@ def _get_review_source_answer(db: Session, item: ReviewQueueItem) -> PracticeAtt
     return None
 
 
-def _get_question_option_texts(question: ToeicQuestion | None) -> list[str]:
+def _get_question_option_texts(question: ToeicQuestion | ToeicPracticeQuestion | None) -> list[str]:
     if question is None:
         return []
     return [
@@ -353,8 +404,13 @@ def _get_question_option_texts(question: ToeicQuestion | None) -> list[str]:
     ]
 
 
-def _resolve_question_correct_index(question: ToeicQuestion | None) -> int | None:
-    if question is None or not question.correct_option_key:
+def _resolve_question_correct_index(question: ToeicQuestion | ToeicPracticeQuestion | None) -> int | None:
+    if question is None:
+        return None
+    for index, option in enumerate(sorted(question.options, key=lambda value: (value.sort_order, value.option_key))):
+        if getattr(option, "is_correct", False):
+            return index
+    if not question.correct_option_key:
         return None
     key = question.correct_option_key.strip().upper()
     if not key:
@@ -368,12 +424,15 @@ def _resolve_answer_text(answer_index: int | None, options: list[str]) -> str | 
     return options[answer_index]
 
 
-def _resolve_question_asset_path(question: ToeicQuestion, asset_type: str) -> str | None:
+def _resolve_question_asset_path(question: ToeicQuestion | ToeicPracticeQuestion, asset_type: str) -> str | None:
+    aliases = {asset_type.lower()}
+    if asset_type.lower() == "graphic":
+        aliases.add("image")
     question_asset = next(
         (
             item.relative_path
-            for item in sorted(question.assets, key=lambda value: value.sort_order)
-            if item.asset_type.lower() == asset_type.lower() and item.relative_path
+            for item in sorted(question.assets, key=lambda value: (getattr(value, "sort_order", 0), value.id))
+            if item.asset_type.lower() in aliases and item.relative_path
         ),
         None,
     )
@@ -383,18 +442,18 @@ def _resolve_question_asset_path(question: ToeicQuestion, asset_type: str) -> st
         passage_asset = next(
             (
                 item.relative_path
-                for item in sorted(question.passage.assets, key=lambda value: value.sort_order)
-                if item.asset_type.lower() == asset_type.lower() and item.relative_path
+                for item in sorted(question.passage.assets, key=lambda value: (getattr(value, "sort_order", 0), value.id))
+                if item.asset_type.lower() in aliases and item.relative_path
             ),
             None,
         )
         if passage_asset:
             return passage_asset
         if asset_type == "audio":
-            return question.passage.audio_path or question.audio_url
+            return question.passage.audio_path or getattr(question, "audio_url", None)
         if asset_type in {"graphic", "image"}:
             return question.passage.image_path
-    return question.audio_url if asset_type == "audio" else None
+    return getattr(question, "audio_url", None) if asset_type == "audio" else None
 
 
 def get_profile_summary(db: Session, user_id: int) -> ProfileSummaryDto | None:
@@ -411,7 +470,7 @@ def get_profile_summary(db: Session, user_id: int) -> ProfileSummaryDto | None:
         targetScore=user.target_score,
         weakSkills=weak_skills,
         latestDiagnostic=latest_assessment,
-        pendingReviewCount=db.scalar(select(func.count()).select_from(ReviewQueueItem).where(ReviewQueueItem.user_id == user_id, ReviewQueueItem.status == "pending")) or 0,
+        pendingReviewCount=_get_pending_review_count(db, user_id),
     )
 
 

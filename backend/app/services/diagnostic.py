@@ -137,7 +137,7 @@ def submit_diagnostic(db: Session, payload: DiagnosticSubmitRequest) -> Diagnost
                 )
             )
 
-    accuracy_pct = 0 if total == 0 else int(round((correct_count / total) * 100))
+    accuracy_pct = 0 if answered_count == 0 else int(round((correct_count / answered_count) * 100))
 
     # Điểm rule-based cũ chỉ giữ làm fallback.
     score_rule = _resolve_score(accuracy_pct)

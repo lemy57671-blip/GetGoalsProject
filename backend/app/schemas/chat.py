@@ -107,22 +107,53 @@ class ChatRequest(BaseModel):
     conversation_id: Optional[int] = Field(default=None, alias="conversationId")
     question_id: Optional[int] = Field(default=None, alias="questionId")
     current_question_id: Optional[int] = Field(default=None, alias="currentQuestionId")
+    runtime_question_id: Optional[int] = Field(default=None, alias="runtimeQuestionId")
+    runner_question_id: Optional[int] = Field(default=None, alias="runnerQuestionId")
+    diagnostic_question_id: Optional[int] = Field(default=None, alias="diagnosticQuestionId")
+    review_item_id: Optional[int] = Field(default=None, alias="reviewItemId")
+    docx_question_id: Optional[int] = Field(default=None, alias="docxQuestionId")
+    source_question_id: Optional[int] = Field(default=None, alias="sourceQuestionId")
     sql_id: Optional[int] = Field(default=None, alias="sqlId")
 
     question_number: Optional[int] = Field(default=None, alias="questionNumber")
     part: Optional[int] = None
+    source: Optional[str] = None
     prompt: Optional[str] = None
     question_text: Optional[str] = Field(default=None, alias="questionText")
+    passage: Optional[Any] = None
     passage_text: Optional[str] = Field(default=None, alias="passageText")
     options: list[Any] = Field(default_factory=list)
     selected_answer: Optional[Any] = Field(default=None, alias="selectedAnswer")
     selected_answer_index: Optional[int] = Field(default=None, alias="selectedAnswerIndex")
     selected_option_label: Optional[str] = Field(default=None, alias="selectedOptionLabel")
+    selected_option_key: Optional[str] = Field(default=None, alias="selectedOptionKey")
+    selected_option_text: Optional[str] = Field(default=None, alias="selectedOptionText")
     correct_answer: Optional[Any] = Field(default=None, alias="correctAnswer")
+    correct_answer_text: Optional[str] = Field(default=None, alias="correctAnswerText")
+    correct_option_key: Optional[str] = Field(default=None, alias="correctOptionKey")
+    correct_option_text: Optional[str] = Field(default=None, alias="correctOptionText")
     explanation: Optional[str] = None
+    explanation_text: Optional[str] = Field(default=None, alias="explanationText")
+    explanation_detail: Optional[str] = Field(default=None, alias="explanationDetail")
+    translation_vi: Optional[str] = Field(default=None, alias="translationVi")
+    final_translation_vi: Optional[str] = Field(default=None, alias="finalTranslationVi")
+    raw_explanation: Optional[str] = Field(default=None, alias="rawExplanation")
+    raw_block: Optional[str] = Field(default=None, alias="rawBlock")
+    option_analysis: Optional[str] = Field(default=None, alias="optionAnalysis")
+    vocabulary_notes: Optional[str] = Field(default=None, alias="vocabularyNotes")
+    selected_text: Optional[str] = Field(default=None, alias="selectedText")
+    current_highlighted_text: Optional[str] = Field(default=None, alias="currentHighlightedText")
+    audio: Optional[Any] = None
+    image: Optional[Any] = None
+    skill: Optional[str] = None
+    subskill: Optional[str] = None
 
     intent: Optional[str] = None
+    answer_mode: Optional[str] = Field(default=None, alias="answerMode")
+    use_sql_only: Optional[bool] = Field(default=None, alias="useSqlOnly")
+    include_correct_answer: Optional[bool] = Field(default=None, alias="includeCorrectAnswer")
     context_type: Optional[str] = Field(default=None, alias="contextType")
+    current_question_key: Optional[str] = Field(default=None, alias="currentQuestionKey")
     attempt_id: Optional[int] = Field(default=None, alias="attemptId")
     context: Optional[dict[str, Any]] = None
     question: Optional[dict[str, Any]] = None

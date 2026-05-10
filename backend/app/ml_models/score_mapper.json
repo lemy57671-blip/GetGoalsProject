@@ -1,16 +1,16 @@
 {
   "type": "linear",
-  "a": 145.159968,
-  "c": 515.501036,
+  "a": 144.919158,
+  "c": 514.900364,
   "clip_min": 0,
   "clip_max": 990,
-  "trained_on_users": 51,
+  "trained_on_users": 50,
   "metrics": {
-    "mae": 50.32,
-    "rmse": 61.38,
-    "within_50_pct": 58.82,
-    "within_75_pct": 72.55,
-    "within_100_pct": 88.24
+    "mae": 50.74,
+    "rmse": 61.84,
+    "within_50_pct": 56.0,
+    "within_75_pct": 72.0,
+    "within_100_pct": 88.0
   },
   "algorithm": "linear_regression",
   "formula": "score = a * theta + c",

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import logging
 import re
 from datetime import datetime
 from decimal import Decimal
@@ -26,6 +27,9 @@ from app.schemas.chat import ChatContextBundle, ChatContextSection, ChatIntent, 
 from app.utils.json_helpers import parse_string_list
 
 
+logger = logging.getLogger(__name__)
+
+
 class ChatContextService:
     def __init__(self, db: Session) -> None:
         self.db = db
@@ -36,7 +40,14 @@ class ChatContextService:
         self._add_recent_attempts(bundle, user.id)
         self._add_weak_skills(bundle, user)
 
-        if request.question_id:
+        if (
+            request.question_id
+            or request.current_question_id
+            or request.sql_id
+            or self._request_value(request, "runtime_question_id", "runtimeQuestionId", "runner_question_id", "runnerQuestionId")
+            or request.question_number
+            or request.question_text
+        ):
             self._add_question_context(bundle, user.id, request)
         elif intent == "explain_question":
             bundle.missing.append("question_id was not supplied, so the backend could not load the exact TOEIC question.")
@@ -151,7 +162,19 @@ class ChatContextService:
             bundle.missing.append("No weak-skill analytics were found.")
 
     def _add_question_context(self, bundle: ChatContextBundle, user_id: int, request: ChatRequest) -> None:
-        docx_context = self._load_docx_question_context(request.question_id, request.question_text)
+        raw_context = self._load_raw_explanation_context(request)
+        runtime_question_id = self._to_int(
+            request.question_id
+            or request.current_question_id
+            or request.sql_id
+            or self._request_value(request, "runtime_question_id", "runtimeQuestionId", "runner_question_id", "runnerQuestionId")
+        )
+        context_type = str(request.context_type or self._request_value(request, "context_type", "contextType") or "").strip().lower()
+        should_use_legacy = context_type in {"diagnostic", "placement", "placement-test"}
+        practice_context = {} if should_use_legacy else self._load_practice_question_context(runtime_question_id)
+        docx_context = self._merge_question_context(practice_context, raw_context) if practice_context else raw_context
+        if not docx_context and (should_use_legacy or not context_type):
+            docx_context = self._load_docx_question_context(request.question_id or request.current_question_id or request.sql_id, request.question_text)
         if docx_context:
             bundle.question_id = docx_context.get("question_id")
             bundle.question_text = docx_context.get("question_text_en")
@@ -401,6 +424,362 @@ class ChatContextService:
                 if value not in (None, ""):
                     return value
         return default
+
+    def _request_value(self, request: ChatRequest, *keys: str) -> Any:
+        for key in keys:
+            value = getattr(request, key, None)
+            if value not in (None, ""):
+                return value
+            extra = getattr(request, "model_extra", None) or {}
+            if key in extra and extra[key] not in (None, ""):
+                return extra[key]
+        for source in (request.current_question, request.question, request.context):
+            if not isinstance(source, dict):
+                continue
+            for key in keys:
+                if key in source and source[key] not in (None, ""):
+                    return source[key]
+                camel = key.split("_")[0] + "".join(part.capitalize() for part in key.split("_")[1:])
+                if camel in source and source[camel] not in (None, ""):
+                    return source[camel]
+        return None
+
+    def _to_int(self, value: Any) -> int | None:
+        try:
+            parsed = int(value)
+        except (TypeError, ValueError):
+            return None
+        return parsed if parsed > 0 else None
+
+    def _infer_raw_test_type(self, request: ChatRequest) -> str | None:
+        value = self._request_value(request, "test_type", "testType", "runner_mode", "runnerMode", "mock_type", "mockType")
+        if value:
+            normalized = str(value).strip().lower()
+            if "mini" in normalized:
+                return "minitest"
+            if "full" in normalized:
+                return "fulltest"
+            if "weekly" in normalized:
+                return "weekly"
+            if "practice" in normalized:
+                return "practice"
+        context_type = str(request.context_type or "").strip().lower()
+        if "mini" in context_type:
+            return "minitest"
+        if "full" in context_type or "mock" in context_type:
+            return "fulltest"
+        return None
+
+    def _map_raw_explanation_context(self, row: Any, fallback_question_id: int | None = None) -> dict[str, Any]:
+        correct_label = str(self._row_get(row, "CorrectOptionKey", default="") or "").strip().upper()
+        options = []
+        for index, key in enumerate(["OptionA", "OptionB", "OptionC", "OptionD"]):
+            option_text = str(self._row_get(row, key, default="") or "").strip()
+            if option_text:
+                label = self._option_label(index)
+                options.append(
+                    {
+                        "label": label,
+                        "text": option_text,
+                        "is_correct": label == correct_label if correct_label else None,
+                        "sort_order": index,
+                    }
+                )
+
+        runtime_question_id = self._row_get(row, "RuntimeQuestionId")
+        return {
+            "question_id": runtime_question_id or fallback_question_id or self._row_get(row, "Id"),
+            "runtime_question_id": runtime_question_id,
+            "raw_explanation_id": self._row_get(row, "Id"),
+            "source_file": self._row_get(row, "SourceFile"),
+            "test_type": self._row_get(row, "TestType"),
+            "test_number": self._row_get(row, "TestNumber"),
+            "part_number": self._row_get(row, "Part"),
+            "question_number": self._row_get(row, "QuestionNumber"),
+            "question_text_en": self._row_get(row, "QuestionText"),
+            "passage_text": self._row_get(row, "PassageText"),
+            "options": options,
+            "correct_option_label": correct_label or None,
+            "correct_answer_text": self._row_get(row, "CorrectAnswerText") or next(
+                (item.get("text") for item in options if str(item.get("label") or "").strip().upper() == correct_label),
+                None,
+            ),
+            "translation_vi": None,
+            "final_translation_vi": None,
+            "explanation_detail": self._row_get(row, "ExplanationText"),
+            "option_analysis": self._row_get(row, "ExplanationText"),
+            "vocabulary_notes": self._row_get(row, "VocabularyNotes"),
+            "grammar_notes": self._row_get(row, "GrammarNotes"),
+            "raw_block": self._row_get(row, "RawBlock"),
+            "sql_source": "dbo.ToeicQuestionExplanations",
+        }
+
+    def _merge_question_context(self, base: dict[str, Any], extra: dict[str, Any]) -> dict[str, Any]:
+        if not base:
+            return dict(extra or {})
+        merged = dict(base)
+        for key, value in (extra or {}).items():
+            if value in (None, "", []):
+                continue
+            if key == "options" and merged.get("options"):
+                continue
+            if key not in merged or merged.get(key) in (None, "", []):
+                merged[key] = value
+        if extra.get("explanation_detail"):
+            merged["explanation_detail"] = extra.get("explanation_detail")
+        if extra.get("raw_block"):
+            merged["raw_block"] = extra.get("raw_block")
+        return merged
+
+    def _normalize_toeic_asset_path(self, path: Any, asset_type: str) -> str | None:
+        value = str(path or "").strip().replace("\\", "/")
+        if not value:
+            return None
+        if value.lower().startswith(("http://", "https://", "data:")):
+            return value
+        if value.startswith("/toeic/"):
+            return value
+        if value.startswith("toeic/"):
+            return f"/{value}"
+        normalized = value.lstrip("/")
+        lower_value = normalized.lower()
+        if lower_value.startswith(("audio/", "images/", "image/")):
+            return f"/toeic/{normalized}"
+        if asset_type.lower() == "audio":
+            return f"/toeic/audio/{normalized}"
+        return f"/toeic/images/{normalized}"
+
+    def _load_practice_question_context(self, question_id: int | None) -> dict[str, Any]:
+        if not question_id:
+            return {}
+        try:
+            question_row = self.db.execute(
+                text(
+                    """
+                    SELECT TOP 1
+                        q.Id,
+                        q.TestNumber,
+                        q.QuestionNumber,
+                        q.Part,
+                        q.Section,
+                        q.QuestionText,
+                        q.Explanation,
+                        q.CorrectOptionKey,
+                        q.SkillCode,
+                        q.Difficulty,
+                        q.PassageId,
+                        p.GroupCode,
+                        p.PassageText,
+                        p.AudioPath AS PassageAudioPath,
+                        p.ImagePath AS PassageImagePath
+                    FROM dbo.ToeicPracticeQuestions q
+                    LEFT JOIN dbo.ToeicPracticePassages p ON p.Id = q.PassageId
+                    WHERE q.Id = :question_id
+                    """
+                ),
+                {"question_id": question_id},
+            ).mappings().first()
+        except Exception:
+            logger.info("Could not load practice TOEIC question context.", exc_info=True)
+            return {}
+
+        if not question_row:
+            return {}
+
+        try:
+            option_rows = self.db.execute(
+                text(
+                    """
+                    SELECT Id, QuestionId, OptionKey, OptionText, IsCorrect, SortOrder
+                    FROM dbo.ToeicPracticeQuestionOptions
+                    WHERE QuestionId = :question_id
+                    ORDER BY SortOrder, Id
+                    """
+                ),
+                {"question_id": question_id},
+            ).mappings().all()
+        except Exception:
+            option_rows = []
+
+        passage_id = self._row_get(question_row, "PassageId")
+        try:
+            asset_rows = self.db.execute(
+                text(
+                    """
+                    SELECT AssetType, RelativePath, QuestionId, PassageId
+                    FROM dbo.ToeicPracticeQuestionAssets
+                    WHERE QuestionId = :question_id
+                       OR (:passage_id IS NOT NULL AND PassageId = :passage_id)
+                    ORDER BY CASE WHEN QuestionId = :question_id THEN 0 ELSE 1 END, Id
+                    """
+                ),
+                {"question_id": question_id, "passage_id": passage_id},
+            ).mappings().all()
+        except Exception:
+            asset_rows = []
+
+        correct_label = str(self._row_get(question_row, "CorrectOptionKey", default="") or "").strip().upper()
+        options = []
+        for index, row in enumerate(option_rows):
+            label = str(self._row_get(row, "OptionKey", default=self._option_label(index)) or "").strip().upper()
+            option_text = str(self._row_get(row, "OptionText", default="") or "").strip()
+            if not option_text:
+                logger.warning(
+                    "AI Tutor practice context warning: option text missing questionId=%s option=%s",
+                    question_id,
+                    label or self._option_label(index),
+                )
+            options.append(
+                {
+                    "id": self._row_get(row, "Id"),
+                    "question_id": self._row_get(row, "QuestionId"),
+                    "label": label or self._option_label(index),
+                    "text": option_text,
+                    "is_correct": bool(self._row_get(row, "IsCorrect")) or (label == correct_label if correct_label else False),
+                    "sort_order": self._row_get(row, "SortOrder", default=index),
+                }
+            )
+
+        audio_path = self._normalize_toeic_asset_path(self._row_get(question_row, "PassageAudioPath"), "audio")
+        image_path = self._normalize_toeic_asset_path(self._row_get(question_row, "PassageImagePath"), "image")
+        passage_audio_path = audio_path
+        passage_image_path = image_path
+        for row in asset_rows:
+            asset_type = str(self._row_get(row, "AssetType", default="") or "").strip().lower()
+            relative_path = self._row_get(row, "RelativePath")
+            is_question_asset = self._row_get(row, "QuestionId") is not None
+            if asset_type == "audio":
+                normalized = self._normalize_toeic_asset_path(relative_path, "audio")
+                if is_question_asset:
+                    audio_path = audio_path or normalized
+                else:
+                    passage_audio_path = passage_audio_path or normalized
+                    audio_path = audio_path or normalized
+            elif asset_type in {"image", "graphic"}:
+                normalized = self._normalize_toeic_asset_path(relative_path, "image")
+                if is_question_asset:
+                    image_path = image_path or normalized
+                else:
+                    passage_image_path = passage_image_path or normalized
+                    image_path = image_path or normalized
+
+        correct_answer_text = next(
+            (item.get("text") for item in options if str(item.get("label") or "").strip().upper() == correct_label),
+            None,
+        )
+        explanation = self._row_get(question_row, "Explanation")
+        return {
+            "question_id": self._row_get(question_row, "Id"),
+            "runtime_question_id": self._row_get(question_row, "Id"),
+            "test_number": self._row_get(question_row, "TestNumber"),
+            "part_number": self._row_get(question_row, "Part"),
+            "part": self._row_get(question_row, "Part"),
+            "section": self._row_get(question_row, "Section"),
+            "question_number": self._row_get(question_row, "QuestionNumber"),
+            "question_text_en": self._row_get(question_row, "QuestionText"),
+            "passage_text": self._row_get(question_row, "PassageText"),
+            "passage": {
+                "id": passage_id,
+                "groupCode": self._row_get(question_row, "GroupCode"),
+                "text": self._row_get(question_row, "PassageText"),
+                "audioPath": passage_audio_path,
+                "imagePath": passage_image_path,
+            },
+            "audio_path": audio_path,
+            "image_path": image_path,
+            "options": options,
+            "correct_option_label": correct_label or None,
+            "correct_answer_text": correct_answer_text,
+            "translation_vi": None,
+            "final_translation_vi": None,
+            "explanation_detail": explanation,
+            "option_analysis": explanation,
+            "vocabulary_notes": None,
+            "raw_block": explanation,
+            "skill": self._row_get(question_row, "SkillCode"),
+            "difficulty": self._row_get(question_row, "Difficulty"),
+            "sql_source": "dbo.ToeicPracticeQuestions",
+        }
+
+    def _load_raw_explanation_context(self, request: ChatRequest) -> dict[str, Any]:
+        runtime_question_id = self._to_int(
+            request.question_id
+            or request.current_question_id
+            or request.sql_id
+            or self._request_value(request, "runner_question_id", "runnerQuestionId", "runtime_question_id", "runtimeQuestionId")
+        )
+        test_type = self._infer_raw_test_type(request)
+        test_number = self._to_int(self._request_value(request, "test_number", "testNumber", "test")) or 1
+        part = self._to_int(request.part or self._request_value(request, "part"))
+        question_number = self._to_int(request.question_number or self._request_value(request, "question_number", "questionNumber"))
+
+        try:
+            if runtime_question_id:
+                row = self.db.execute(
+                    text(
+                        """
+                        SELECT TOP 1 e.*, d.SourceFile
+                        FROM dbo.ToeicQuestionExplanations e
+                        LEFT JOIN dbo.ToeicRawDocuments d ON d.Id = e.RawDocumentId
+                        WHERE e.RuntimeQuestionId = :runtime_question_id
+                        ORDER BY e.Id
+                        """
+                    ),
+                    {"runtime_question_id": runtime_question_id},
+                ).mappings().first()
+                if row:
+                    return self._map_raw_explanation_context(row, runtime_question_id)
+
+            if part and question_number:
+                row = self.db.execute(
+                    text(
+                        """
+                        SELECT TOP 1 e.*, d.SourceFile
+                        FROM dbo.ToeicQuestionExplanations e
+                        LEFT JOIN dbo.ToeicRawDocuments d ON d.Id = e.RawDocumentId
+                        WHERE e.Part = :part
+                          AND e.QuestionNumber = :question_number
+                          AND (:test_number IS NULL OR e.TestNumber = :test_number)
+                          AND (:test_type IS NULL OR e.TestType = :test_type)
+                        ORDER BY
+                            CASE WHEN e.RuntimeQuestionId IS NOT NULL THEN 0 ELSE 1 END,
+                            e.Id
+                        """
+                    ),
+                    {
+                        "part": part,
+                        "question_number": question_number,
+                        "test_number": test_number,
+                        "test_type": test_type,
+                    },
+                ).mappings().first()
+                if row:
+                    return self._map_raw_explanation_context(row, runtime_question_id)
+
+            keyword_source = str(request.question_text or self._request_value(request, "question_text", "questionText") or "").strip()
+            keyword = " ".join(keyword_source.split())[:120]
+            if len(keyword) >= 12:
+                row = self.db.execute(
+                    text(
+                        """
+                        SELECT TOP 1 e.*, d.SourceFile
+                        FROM dbo.ToeicQuestionExplanations e
+                        LEFT JOIN dbo.ToeicRawDocuments d ON d.Id = e.RawDocumentId
+                        WHERE e.QuestionText LIKE :keyword
+                           OR e.PassageText LIKE :keyword
+                           OR e.ExplanationText LIKE :keyword
+                           OR e.RawBlock LIKE :keyword
+                        ORDER BY e.Id
+                        """
+                    ),
+                    {"keyword": f"%{keyword}%"},
+                ).mappings().first()
+                if row:
+                    return self._map_raw_explanation_context(row, runtime_question_id)
+        except Exception:
+            logger.info("Could not load TOEIC raw explanation context.", exc_info=True)
+
+        return {}
 
     def _load_docx_question_context(self, question_id: int | None, expected_question_text: str | None = None) -> dict[str, Any]:
         if not question_id:

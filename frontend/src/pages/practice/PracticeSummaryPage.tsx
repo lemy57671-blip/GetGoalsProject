@@ -11,14 +11,17 @@ import {
   ChevronRight,
   Clock,
   Headphones,
+  ImageIcon,
   MinusCircle,
   RotateCcw,
   Sparkles,
   Target,
   TrendingUp,
+  Volume2,
   XCircle,
 } from "lucide-react";
 
+import { AudioPlayerBar } from "@/components/audio-player-bar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ProFeatureGuard } from "@/components/pro-feature-guard";
@@ -43,7 +46,7 @@ import {
   PracticeAttemptResult,
   SavePracticeAttemptResponse,
 } from "@src/services/attemptsService";
-import { ApiError } from "@src/services/apiClient";
+import { API_BASE_URL, ApiError } from "@src/services/apiClient";
 import { chatService } from "@src/services/chatService";
 
 type SummaryAiMessage = {
@@ -59,6 +62,64 @@ function isUsableReviewFocusRetryUrl(value: unknown) {
   const query = value.split("?")[1] || "";
   const params = new URLSearchParams(query);
   return params.get("mode") === "review-focus" && Boolean(params.get("reviewItemId"));
+}
+
+function resolveAssetUrl(path?: string | null) {
+  if (!path) return null;
+  if (/^https?:\/\//i.test(path) || path.startsWith("data:")) return path;
+  return `${API_BASE_URL}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
+function optionKeyFromIndex(index?: number | null) {
+  return typeof index === "number" && index >= 0 ? String.fromCharCode(65 + index) : null;
+}
+
+function cleanAnswerText(value?: string | null) {
+  return String(value || "").replace(/^[A-Z]\.\s*/i, "").trim();
+}
+
+function normalizeOptionRows(question: PracticeAttemptResult["questions"][number]) {
+  const rows = question.optionRows?.length
+    ? question.optionRows
+    : question.options.map((text, index) => ({
+        key: optionKeyFromIndex(index) || String(index + 1),
+        text,
+        isCorrect: question.correctAnswerIndex === index,
+        sortOrder: index,
+      }));
+  return rows.map((option, index) => {
+    const key = option.key || optionKeyFromIndex(index) || String(index + 1);
+    const rawText = option.text || "";
+    const text =
+      rawText.trim() && rawText.trim().toUpperCase() !== key.toUpperCase()
+        ? rawText
+        : "[Missing option text]";
+    return {
+      key,
+      text,
+      isCorrect: Boolean(option.isCorrect) || question.correctAnswerIndex === index,
+      sortOrder: option.sortOrder ?? index,
+    };
+  });
+}
+
+function getPassageText(question: PracticeAttemptResult["questions"][number]) {
+  return question.passage?.text || "";
+}
+
+function getAudioPath(question: PracticeAttemptResult["questions"][number]) {
+  return question.audio?.path || question.audioPath || question.passage?.audio?.path || question.passage?.audioPath || null;
+}
+
+function getImagePath(question: PracticeAttemptResult["questions"][number]) {
+  return (
+    question.image?.path ||
+    question.imagePath ||
+    question.graphic?.path ||
+    question.passage?.image?.path ||
+    question.passage?.imagePath ||
+    null
+  );
 }
 
 export function PracticeSummaryPage() {
@@ -135,6 +196,13 @@ export function PracticeSummaryPage() {
     isReviewFocusResult && isUsableReviewFocusRetryUrl(summaryState?.retryUrl)
       ? summaryState?.retryUrl
       : "/practice/runner";
+  const summaryAttemptId =
+    result?.attemptId ||
+    attempt?.attemptId ||
+    (Number.isFinite(attemptId) && attemptId > 0 ? attemptId : null);
+  const reviewWrongHref = summaryAttemptId
+    ? `/review?source=practice&attemptId=${summaryAttemptId}&filter=wrong`
+    : "/review?source=practice&filter=wrong";
   const reviewFocusPart = result?.partBreakdown[0]?.part;
   const reviewFocusSkill = result?.skillBreakdown[0]?.skill;
   const formatDuration = (seconds: number) => {
@@ -159,12 +227,143 @@ export function PracticeSummaryPage() {
     setAiMessage("");
     setAiLoading(true);
 
+    const richReviewQuestion = selectedReviewQuestion as
+      | (NonNullable<typeof selectedReviewQuestion> & {
+          docxQuestionId?: number | null;
+          docx_question_id?: number | null;
+          sourceQuestionId?: number | null;
+          source_question_id?: number | null;
+          explanationDetail?: string | null;
+          explanation_detail?: string | null;
+          rawExplanation?: string | null;
+          raw_explanation?: string | null;
+          raw_block?: string | null;
+          optionAnalysis?: string | null;
+          option_analysis?: string | null;
+          vocabularyNotes?: string | null;
+          vocabulary_notes?: string | null;
+        })
+      | null;
+    const runtimeQuestionId =
+      richReviewQuestion?.runtimeQuestionId || richReviewQuestion?.questionId || null;
+    const docxQuestionId =
+      richReviewQuestion?.docxQuestionId || richReviewQuestion?.docx_question_id || null;
+    const sourceQuestionId =
+      richReviewQuestion?.sourceQuestionId ||
+      richReviewQuestion?.source_question_id ||
+      (docxQuestionId && docxQuestionId !== runtimeQuestionId ? docxQuestionId : null);
+    const explanationDetail =
+      richReviewQuestion?.explanationDetail ||
+      richReviewQuestion?.explanation_detail ||
+      richReviewQuestion?.explanationText ||
+      richReviewQuestion?.explanation ||
+      null;
+    const rawExplanation =
+      richReviewQuestion?.rawExplanation || richReviewQuestion?.raw_explanation || null;
+    const rawBlock = richReviewQuestion?.rawBlock || richReviewQuestion?.raw_block || null;
+    const optionAnalysis =
+      richReviewQuestion?.optionAnalysis || richReviewQuestion?.option_analysis || null;
+    const vocabularyNotes =
+      richReviewQuestion?.vocabularyNotes || richReviewQuestion?.vocabulary_notes || null;
+
     try {
       const response = await chatService.sendDetailed({
         message: userMessage,
         conversation_id: aiConversationId,
         attempt_id: activeAttemptId,
-        context_type: "practice_review",
+        context_type: "practice_summary",
+        contextType: "practice_summary",
+        source: "practice_runtime",
+        question_id: runtimeQuestionId,
+        questionId: runtimeQuestionId,
+        currentQuestionId: runtimeQuestionId,
+        runtime_question_id: runtimeQuestionId,
+        runtimeQuestionId,
+        runner_question_id: runtimeQuestionId,
+        runnerQuestionId: runtimeQuestionId,
+        docx_question_id: docxQuestionId,
+        docxQuestionId,
+        source_question_id: sourceQuestionId,
+        sourceQuestionId,
+        questionNumber: selectedReviewQuestion?.questionNumber || null,
+        part: selectedReviewQuestion?.partNumber || null,
+        questionText: selectedReviewQuestion?.questionText || selectedReviewQuestion?.question || null,
+        question_text: selectedReviewQuestion?.questionText || selectedReviewQuestion?.question || null,
+        passage: selectedReviewQuestion?.passage || null,
+        passageText: selectedReviewQuestion?.passage?.text || null,
+        passage_text: selectedReviewQuestion?.passage?.text || null,
+        audio: selectedReviewQuestion?.audio || null,
+        image: selectedReviewQuestion?.image || null,
+        options: selectedReviewQuestion?.optionRows || [],
+        selectedOptionKey: selectedReviewQuestion?.selectedOptionKey || null,
+        selected_option_key: selectedReviewQuestion?.selectedOptionKey || null,
+        selectedAnswer: selectedReviewQuestion?.userAnswer || null,
+        selected_answer: selectedReviewQuestion?.userAnswer || null,
+        correctOptionKey: selectedReviewQuestion?.correctOptionKey || null,
+        correct_option_key: selectedReviewQuestion?.correctOptionKey || null,
+        correctAnswer: selectedReviewQuestion?.correctAnswer || null,
+        correct_answer: selectedReviewQuestion?.correctAnswer || null,
+        explanation: explanationDetail,
+        explanationText: explanationDetail,
+        explanation_text: explanationDetail,
+        explanationDetail,
+        explanation_detail: explanationDetail,
+        rawExplanation,
+        raw_explanation: rawExplanation,
+        rawBlock,
+        raw_block: rawBlock,
+        optionAnalysis,
+        option_analysis: optionAnalysis,
+        vocabularyNotes,
+        vocabulary_notes: vocabularyNotes,
+        currentQuestion: selectedReviewQuestion
+          ? {
+              id: runtimeQuestionId,
+              questionId: runtimeQuestionId,
+              question_id: runtimeQuestionId,
+              runtimeQuestionId,
+              runtime_question_id: runtimeQuestionId,
+              runnerQuestionId: runtimeQuestionId,
+              runner_question_id: runtimeQuestionId,
+              docxQuestionId,
+              docx_question_id: docxQuestionId,
+              sourceQuestionId,
+              source_question_id: sourceQuestionId,
+              source: "practice_runtime",
+              questionNumber: selectedReviewQuestion.questionNumber,
+              part: selectedReviewQuestion.partNumber,
+              section: selectedReviewQuestion.section,
+              skill: selectedReviewQuestion.skill,
+              subskill: selectedReviewQuestion.subskill,
+              questionText: selectedReviewQuestion.questionText || selectedReviewQuestion.question,
+              question_text: selectedReviewQuestion.questionText || selectedReviewQuestion.question,
+              passage: selectedReviewQuestion.passage,
+              audio: selectedReviewQuestion.audio,
+              image: selectedReviewQuestion.image,
+              options: selectedReviewQuestion.optionRows,
+              selectedOptionKey: selectedReviewQuestion.selectedOptionKey,
+              selected_option_key: selectedReviewQuestion.selectedOptionKey,
+              selectedAnswer: selectedReviewQuestion.userAnswer,
+              selected_answer: selectedReviewQuestion.userAnswer,
+              correctOptionKey: selectedReviewQuestion.correctOptionKey,
+              correct_option_key: selectedReviewQuestion.correctOptionKey,
+              correctAnswer: selectedReviewQuestion.correctAnswer,
+              correct_answer: selectedReviewQuestion.correctAnswer,
+              explanation: explanationDetail,
+              explanationText: explanationDetail,
+              explanation_text: explanationDetail,
+              explanationDetail,
+              explanation_detail: explanationDetail,
+              rawExplanation,
+              raw_explanation: rawExplanation,
+              rawBlock,
+              raw_block: rawBlock,
+              optionAnalysis,
+              option_analysis: optionAnalysis,
+              vocabularyNotes,
+              vocabulary_notes: vocabularyNotes,
+            }
+          : null,
       });
 
       if (typeof response.conversation_id === "number") {
@@ -218,16 +417,199 @@ export function PracticeSummaryPage() {
   const reviewQuestions = result
     ? result.questions.map((item) => ({
         id: item.questionId,
-        question: item.question,
+        runtimeQuestionId: item.runtimeQuestionId || item.questionId,
+        questionId: item.questionId,
+        docxQuestionId: item.docxQuestionId || null,
+        sourceQuestionId: item.sourceQuestionId || null,
+        questionNumber: item.questionNumber,
+        question: item.questionText || item.question,
+        questionText: item.questionText || item.question,
         userAnswer: item.userAnswer || "Skipped",
+        userAnswerIndex: item.userAnswerIndex,
+        selectedOptionKey: item.selectedOptionKey || optionKeyFromIndex(item.userAnswerIndex),
+        selectedOptionText: item.selectedOptionText || cleanAnswerText(item.userAnswer),
         correctAnswer: item.correctAnswer || "",
+        correctAnswerIndex: item.correctAnswerIndex,
+        correctOptionKey: item.correctOptionKey || optionKeyFromIndex(item.correctAnswerIndex),
+        correctOptionText: item.correctOptionText || cleanAnswerText(item.correctAnswer),
         isCorrect: item.isCorrect,
-        explanation: item.explanation || "",
+        explanation: item.explanationDetail || item.explanationText || item.explanation || "",
+        explanationDetail: item.explanationDetail || item.explanationText || null,
+        explanationText: item.explanationText || item.explanationDetail || null,
+        rawExplanation: item.rawExplanation || null,
+        rawBlock: item.rawBlock || null,
+        rawText: item.rawText || null,
+        optionAnalysis: item.optionAnalysis || null,
+        vocabularyNotes: item.vocabularyNotes || null,
         skill: item.skill,
+        subskill: item.subskill,
         difficulty: "",
         part: item.partLabel || `Part ${item.part}`,
+        partNumber: item.part,
+        section: item.section,
+        passage: item.passage || null,
+        audio: item.audio || null,
+        audioPath: item.audioPath || null,
+        image: item.image || item.graphic || null,
+        imagePath: item.imagePath || null,
+        optionRows: normalizeOptionRows(item),
+        missingReason: item.missingReason || null,
       }))
     : mockReviewQuestions;
+  const selectedReviewQuestion =
+    result && selectedQuestion !== null
+      ? reviewQuestions.find((item) => item.id === selectedQuestion) || null
+      : null;
+
+  useEffect(() => {
+    if (!result) return;
+    result.questions.forEach((question) => {
+      const missing: string[] = [];
+      if (!question.questionText && !question.question) missing.push("questionText");
+      if (!question.options?.length && !question.optionRows?.length) missing.push("options");
+      if ([6, 7].includes(question.part) && !question.passage?.text) missing.push("passage");
+      if (question.part === 1 && !getImagePath(question)) missing.push("image");
+      if (question.part <= 4 && !getAudioPath(question)) missing.push("audio");
+      const optionRows = normalizeOptionRows(question);
+      if (optionRows.some((option) => option.text === "[Missing option text]")) {
+        missing.push("optionText");
+      }
+      if (missing.length > 0 || question.missingReason) {
+        console.warn("Practice summary hydrated question is missing data", {
+          questionId: question.questionId,
+          runtimeQuestionId: question.runtimeQuestionId,
+          part: question.part,
+          missing,
+          missingReason: question.missingReason,
+        });
+      }
+    });
+  }, [result]);
+
+  const renderReviewQuestionDetail = (q: (typeof reviewQuestions)[number]) => {
+    const optionRows =
+      "optionRows" in q && Array.isArray(q.optionRows)
+        ? q.optionRows
+        : (q as { options?: string[] }).options?.map((text, index) => ({
+            key: optionKeyFromIndex(index) || String(index + 1),
+            text,
+            isCorrect: q.correctAnswerIndex === index,
+            sortOrder: index,
+          })) || [];
+    const audioUrl = resolveAssetUrl(
+      q.audio?.path || q.audioPath || q.passage?.audio?.path || q.passage?.audioPath || null,
+    );
+    const imageUrl = resolveAssetUrl(
+      q.image?.path || q.imagePath || q.passage?.image?.path || q.passage?.imagePath || null,
+    );
+    const passageText = q.passage?.text || "";
+    const selectedKey = q.selectedOptionKey || optionKeyFromIndex(q.userAnswerIndex);
+    const correctKey = q.correctOptionKey || optionKeyFromIndex(q.correctAnswerIndex);
+
+    return (
+      <div className="mt-4 space-y-4 border-t border-border pt-4">
+        {q.missingReason ? (
+          <div className="rounded-lg border border-dashed border-amber-200 bg-amber-50 p-3 text-sm text-amber-900">
+            {q.missingReason}
+          </div>
+        ) : null}
+
+        {audioUrl ? (
+          <div className="rounded-lg border border-[#DFE8F5] bg-[#F8FBFF] p-3">
+            <div className="mb-2 flex items-center gap-2 text-sm font-medium text-foreground">
+              <Volume2 className="h-4 w-4 text-primary" />
+              Audio
+            </div>
+            <AudioPlayerBar src={audioUrl} className="border-[#e5eaf4] bg-[#f5f9ff]" />
+          </div>
+        ) : null}
+
+        {imageUrl ? (
+          <div className="rounded-lg border border-[#DFE8F5] bg-[#F8FBFF] p-3">
+            <div className="mb-2 flex items-center gap-2 text-sm font-medium text-foreground">
+              <ImageIcon className="h-4 w-4 text-primary" />
+              Hinh minh hoa
+            </div>
+            <img
+              src={imageUrl}
+              alt={q.part}
+              className="max-h-[360px] w-full rounded-md object-contain"
+            />
+          </div>
+        ) : null}
+
+        {passageText ? (
+          <div className="max-h-72 overflow-y-auto rounded-lg border border-[#DFE8F5] bg-[#F8FBFF] p-3">
+            {q.passage?.title ? (
+              <p className="mb-2 text-sm font-semibold text-foreground">{q.passage.title}</p>
+            ) : null}
+            <p className="whitespace-pre-line text-sm leading-relaxed text-foreground">
+              {passageText}
+            </p>
+          </div>
+        ) : null}
+
+        <div>
+          <p className="text-base font-semibold leading-relaxed text-foreground">
+            {q.questionText || q.question}
+          </p>
+        </div>
+
+        <div className="space-y-2">
+          {optionRows.length > 0 ? (
+            optionRows.map((option, index) => {
+              const key = option.key || optionKeyFromIndex(index) || String(index + 1);
+              const isUser = selectedKey?.toUpperCase() === key.toUpperCase();
+              const isCorrect = Boolean(option.isCorrect) || correctKey?.toUpperCase() === key.toUpperCase();
+              return (
+                <div
+                  key={`${q.id}-${key}-${index}`}
+                  className={`rounded-lg border p-3 text-sm ${
+                    isCorrect
+                      ? "border-green-300 bg-green-50"
+                      : isUser
+                        ? "border-red-300 bg-red-50"
+                        : "border-border bg-background"
+                  }`}
+                >
+                  <span className="font-semibold">{key}. </span>
+                  <span>{option.text || "[Missing option text]"}</span>
+                </div>
+              );
+            })
+          ) : (
+            <div className="rounded-lg border border-dashed p-3 text-sm text-muted-foreground">
+              [Missing option text]
+            </div>
+          )}
+        </div>
+
+        <div className="grid gap-3 md:grid-cols-2">
+          <div className="rounded-lg border border-red-100 bg-red-50 p-3">
+            <p className="text-xs font-semibold uppercase tracking-wide text-red-700">Ban da chon</p>
+            <p className="mt-1 text-sm text-foreground">
+              {q.userAnswer || "Ban chua chon dap an"}
+            </p>
+          </div>
+          <div className="rounded-lg border border-green-100 bg-green-50 p-3">
+            <p className="text-xs font-semibold uppercase tracking-wide text-green-700">Dap an dung</p>
+            <p className="mt-1 text-sm text-foreground">
+              {q.correctAnswer || (correctKey ? `${correctKey}. ${q.correctOptionText || ""}` : "")}
+            </p>
+          </div>
+        </div>
+
+        {(q.explanationText || q.explanation || q.rawBlock) ? (
+          <div className="flex items-start gap-2 rounded-lg bg-primary/5 p-3">
+            <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+            <p className="whitespace-pre-line text-sm text-foreground">
+              {q.explanationText || q.explanation || q.rawBlock}
+            </p>
+          </div>
+        ) : null}
+      </div>
+    );
+  };
 
   return (
     <div className="space-y-6">
@@ -246,6 +628,9 @@ export function PracticeSummaryPage() {
               <RotateCcw className="mr-2 h-4 w-4" />
               Làm lại
             </Link>
+          </Button>
+          <Button variant="outline" asChild>
+            <Link to={reviewWrongHref}>Xem câu sai</Link>
           </Button>
           <Button asChild>
             <Link to="/practice">
@@ -473,16 +858,7 @@ export function PracticeSummaryPage() {
                         />
                       </div>
 
-                      {selectedQuestion === q.id && (
-                        <div className="mt-4 border-t border-border pt-4">
-                          <div className="flex items-start gap-2 rounded-lg bg-primary/5 p-3">
-                            <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                            <p className="text-sm text-foreground">
-                              {q.explanation}
-                            </p>
-                          </div>
-                        </div>
-                      )}
+                      {selectedQuestion === q.id && renderReviewQuestionDetail(q)}
                     </div>
                   ))}
                 </TabsContent>
@@ -542,16 +918,7 @@ export function PracticeSummaryPage() {
                           />
                         </div>
 
-                        {selectedQuestion === q.id && (
-                          <div className="mt-4 border-t border-border pt-4">
-                            <div className="flex items-start gap-2 rounded-lg bg-primary/5 p-3">
-                              <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                              <p className="text-sm text-foreground">
-                                {q.explanation}
-                              </p>
-                            </div>
-                          </div>
-                        )}
+                        {selectedQuestion === q.id && renderReviewQuestionDetail(q)}
                       </div>
                     ))}
                 </TabsContent>
@@ -597,16 +964,7 @@ export function PracticeSummaryPage() {
                           />
                         </div>
 
-                        {selectedQuestion === q.id && (
-                          <div className="mt-4 border-t border-border pt-4">
-                            <div className="flex items-start gap-2 rounded-lg bg-primary/5 p-3">
-                              <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                              <p className="text-sm text-foreground">
-                                {q.explanation}
-                              </p>
-                            </div>
-                          </div>
-                        )}
+                        {selectedQuestion === q.id && renderReviewQuestionDetail(q)}
                       </div>
                     ))}
                 </TabsContent>

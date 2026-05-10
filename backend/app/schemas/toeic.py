@@ -68,8 +68,12 @@ class ToeicRunnerAssetDto(BaseModel):
 
 
 class ToeicRunnerPassageDto(BaseModel):
+    id: int | None = None
+    groupCode: str | None = None
     title: str = ""
     text: str = ""
+    audio: ToeicRunnerAssetDto | None = None
+    image: ToeicRunnerAssetDto | None = None
 
 
 class ToeicRunnerQuestionDto(BaseModel):

@@ -150,6 +150,18 @@ def detect_intent(message: str) -> LocalIntent:
     ):
         return "full_option_analysis"
 
+    if _has_any(text, "dap an la gi", "dap an dung", "chon gi", "chon dap an nao", "answer la gi") and not _has_any(
+        text,
+        "vi sao",
+        "tai sao",
+        "sao",
+        "why",
+        "khong chon",
+        "sai",
+        "wrong",
+    ):
+        return "correct_answer"
+
     if option_label and _has_any(text, "vi sao", "tai sao", "sao", "sai", "dung", "wrong", "correct", "khong chon"):
         if _has_any(text, "la gi", "nghia la gi", "co nghia la gi") and not _has_any(text, "vi sao", "tai sao", "sai", "dung"):
             return "word_meaning"
@@ -160,9 +172,6 @@ def detect_intent(message: str) -> LocalIntent:
 
     if _has_any(text, "vi sao", "tai sao", "sao", "sai", "dung", "wrong", "correct", "khong chon") and extract_word_or_phrase(message, [], ""):
         return "option_reason"
-
-    if _has_any(text, "dap an la gi", "dap an dung", "chon gi", "chon dap an nao", "answer la gi"):
-        return "correct_answer"
 
     if _has_any(text, "dich cau", "dich de", "dich sang tieng viet", "dich doan", "cau nay nghia la gi"):
         return "translation"
@@ -752,6 +761,23 @@ def build_local_answer_with_debug(message: str, question_context: dict[str, Any]
     question_text = str(context.get("question_text_en") or context.get("question_text") or "")
     target = extract_word_or_phrase(message, options, question_text)
     option_label = extract_option_label(message)
+    match = answer_priority_intent_question(message, context, target, option_label)
+    if match.text:
+        if not match.target and target:
+            match.target = target
+        if not match.option_label and option_label:
+            match.option_label = option_label
+        match.text = clean_response(match.text)
+        return match, intent
+
+    match = answer_option_or_source_specific_question(message, context, target, option_label)
+    if match.text:
+        if not match.target and target:
+            match.target = target
+        if not match.option_label and option_label:
+            match.option_label = option_label
+        match.text = clean_response(match.text)
+        return match, intent
 
     if intent == "word_meaning":
         if option_label and _has_any(normalize_text(message), "la gi", "nghia", "dich", "mean"):
@@ -869,6 +895,1208 @@ def _context_sources(context: dict[str, Any], include_translation: bool = False)
         )
     sources.append(("RawBlock", context.get("raw_block")))
     return [(field, value) for field, value in sources if _compact(value)]
+
+
+OPTION_ENTRY_MARKER_RE = re.compile(
+    r"(?:\(\s*(?P<label_paren>[A-D])\s*\)|\b(?P<label_plain>[A-D])\s*[.)-])\s*(?P<body>.*?)(?=(?:\(\s*[A-D]\s*\)|\b[A-D]\s*[.)-])\s*|$)",
+    flags=re.IGNORECASE | re.DOTALL,
+)
+
+OPTION_STATUS_RE = re.compile(
+    r"\b(?:Sai|Wrong|Correct|(?:\u0110|D)úng|(?:\u0110|D)áp\s+án\s+(?:\u0111úng|dung)|Là\s+(?:danh|tính|\u0111ộng|trạng|dong|tinh|trang)|Nghĩa\s+là|Nghia\s+la)\b",
+    flags=re.IGNORECASE,
+)
+
+OPTION_REQUEST_STOPWORDS = {
+    "anh",
+    "cau",
+    "chon",
+    "cho",
+    "context",
+    "cua",
+    "dung",
+    "for",
+    "from",
+    "giai",
+    "gi",
+    "giai thich",
+    "have",
+    "khong",
+    "la",
+    "loai",
+    "mot",
+    "nghia",
+    "nay",
+    "sao",
+    "tai",
+    "the",
+    "to",
+    "tu",
+    "with",
+    "vi",
+    "why",
+}
+
+
+def answer_priority_intent_question(
+    message: str,
+    context: dict[str, Any],
+    target: str | None = None,
+    option_label: str | None = None,
+) -> AnswerMatch:
+    normalized_message = normalize_text(message)
+    entries = _option_entries_from_context(context)
+
+    if _is_preposition_question(normalized_message):
+        match = _answer_preposition_question(normalized_message, context)
+        if match.text:
+            return match
+
+    if _is_evidence_request(normalized_message):
+        match = _answer_evidence_request(normalized_message, context, entries, option_label)
+        if match.text:
+            return match
+
+    if _is_compare_request(normalized_message):
+        match = _answer_compare_request(normalized_message, context, entries)
+        if match.text:
+            return match
+
+    if _is_structure_question(normalized_message):
+        match = _answer_structure_question(normalized_message, message, context, entries)
+        if match.text:
+            return match
+
+    if _is_part_of_speech_question(normalized_message):
+        label = option_label or _option_label_for_message_or_target(message, context, entries, target)
+        if label and label in entries:
+            return _format_option_part_of_speech_answer(label, entries[label], context, include_correct=False)
+
+    if _is_meaning_question(normalized_message) and not _is_option_reason_or_answer_request(normalized_message):
+        match = _answer_meaning_question(normalized_message, message, context, entries, target, option_label)
+        if match.text:
+            return match
+
+    if _is_example_request(normalized_message):
+        match = _answer_example_request(normalized_message, context)
+        if match.text:
+            return match
+
+    return AnswerMatch()
+
+
+def _is_compare_request(normalized_message: str) -> bool:
+    return bool(
+        " vs " in f" {normalized_message} "
+        or " khac " in f" {normalized_message} "
+        or " khac gi" in normalized_message
+        or "va" in normalized_message and "khac" in normalized_message
+    )
+
+
+def _is_preposition_question(normalized_message: str) -> bool:
+    return bool(
+        "gioi tu" in normalized_message
+        or "di voi gi" in normalized_message
+        or "di voi tu gi" in normalized_message
+        or "dung voi gi" in normalized_message
+        or re.search(r"\bsau\s+[a-z][a-z'-]*\s+(?:di voi|dung voi|dung gioi tu)", normalized_message)
+    )
+
+
+def _is_evidence_request(normalized_message: str) -> bool:
+    return _has_any(
+        normalized_message,
+        "chung minh",
+        "bang chung",
+        "cau nao",
+        "doan nao",
+        "chi tiet nao",
+        "evidence",
+        "where",
+    ) and (
+        _has_any(normalized_message, "dap an", "chon", "answer")
+        or extract_option_label(normalized_message) is not None
+    )
+
+
+def _answer_evidence_request(
+    normalized_message: str,
+    context: dict[str, Any],
+    entries: dict[str, dict[str, Any]],
+    option_label: str | None,
+) -> AnswerMatch:
+    label = option_label or extract_option_label(normalized_message) or str(context.get("correct_option_key") or context.get("correct_option_label") or "").strip().upper()
+    if label not in {"A", "B", "C", "D"}:
+        return AnswerMatch()
+
+    entry = entries.get(label, {})
+    option_text = str(entry.get("text") or _option_text(label, context) or "").strip()
+    sources = [
+        ("Passage", context.get("passage_text") or _passage_text_from_context(context)),
+        ("RawBlock", context.get("raw_block")),
+        ("ExplanationDetail", context.get("explanation_detail") or context.get("explanation")),
+        ("OptionAnalysis", entry.get("analysis")),
+    ]
+    keywords = _evidence_keywords(option_text)
+
+    for source_field, source_text in sources:
+        snippet = _find_evidence_snippet(source_text, keywords)
+        if snippet:
+            return AnswerMatch(
+                f"Chi tiết chứng minh là: “{snippet}”. Chi tiết này hỗ trợ lựa chọn {label}.",
+                source_field,
+                option_text,
+                label,
+                snippet,
+            )
+
+    if option_text:
+        return AnswerMatch(
+            f"Mình chưa thấy câu trích dẫn riêng cho {label}, nhưng lựa chọn này liên quan đến ý “{option_text}”.",
+            "Options",
+            option_text,
+            label,
+            option_text,
+        )
+    return AnswerMatch()
+
+
+def _passage_text_from_context(context: dict[str, Any]) -> str:
+    passage = context.get("passage")
+    if isinstance(passage, dict):
+        return str(passage.get("text") or passage.get("passageText") or passage.get("passage_text") or "")
+    return ""
+
+
+def _evidence_keywords(option_text: str) -> list[str]:
+    normalized = normalize_text(option_text)
+    tokens = [token for token in re.findall(r"[a-z0-9][a-z0-9'-]*", normalized) if len(token) > 3 and token not in OPTION_REQUEST_STOPWORDS]
+    expanded = set(tokens)
+    if "payment" in expanded or "pay" in expanded:
+        expanded.update({"pay", "payment", "balance", "paid"})
+    if "request" in expanded:
+        expanded.update({"request", "must", "need", "required"})
+    if "reservation" in expanded:
+        expanded.update({"reservation", "confirm", "booking"})
+    return list(expanded)
+
+
+def _find_evidence_snippet(source_text: Any, keywords: list[str]) -> str:
+    text = _compact(source_text)
+    if not text:
+        return ""
+
+    quoted = re.findall(r"[“\"']([^“”\"']{12,260})[”\"']", text)
+    candidates = quoted or _split_sentences(text)
+    best = ""
+    best_score = 0
+    for candidate in candidates:
+        normalized = normalize_text(candidate)
+        score = sum(1 for keyword in keywords if keyword in normalized)
+        if score > best_score:
+            best_score = score
+            best = candidate
+    if best and (best_score > 0 or not keywords):
+        return _compact(best)[:260]
+    return ""
+
+
+def _answer_preposition_question(normalized_message: str, context: dict[str, Any]) -> AnswerMatch:
+    target = _extract_preposition_target(normalized_message, context)
+    if not target:
+        return AnswerMatch()
+    preposition, structure, source_field = _find_preposition_structure(target, context)
+    if not preposition:
+        return AnswerMatch()
+
+    structure = structure or f"{target} {preposition} + noun"
+    display_structure = re.sub(
+        r"\+\s*(?:rules/regulations|rules|regulations|regulation)\b.*$",
+        "+ noun",
+        structure,
+        flags=re.IGNORECASE,
+    )
+    example = _preposition_example(target, preposition, context)
+    lines = [
+        f"{target} đi với {preposition}.",
+        f"Cấu trúc: {display_structure}.",
+    ]
+    if example:
+        lines.append(f"Ví dụ: {example}.")
+    return AnswerMatch("\n".join(lines), source_field or "VocabularyNotes/QuestionText", target, None, display_structure)
+
+
+def _extract_preposition_target(normalized_message: str, context: dict[str, Any]) -> str:
+    answer = _strip_answer_label(context.get("correct_answer_text") or context.get("correct_answer") or "")
+    if answer and _has_any(
+        normalized_message,
+        "sau tu nay",
+        "tu nay di voi",
+        "tu nay dung",
+        "di voi gioi tu gi",
+        "dung gioi tu gi",
+    ):
+        return answer
+
+    patterns = [
+        r"\bsau\s+(?P<target>[a-z][a-z'-]*)\s+(?:di voi|dung voi|dung gioi tu|can gioi tu)",
+        r"\b(?P<target>[a-z][a-z'-]*)\s+(?:di voi|dung voi)\s+(?:gioi tu\s+)?(?:gi|nao)",
+        r"\b(?P<target>[a-z][a-z'-]*)\s+\w*\s*(?:gioi tu)\s+(?:gi|nao)",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, normalized_message)
+        if match:
+            target = match.group("target")
+            if target not in OPTION_REQUEST_STOPWORDS:
+                return _restore_target_from_context(target, context)
+    return ""
+
+
+def _restore_target_from_context(normalized_target: str, context: dict[str, Any]) -> str:
+    for option in _get_options(context):
+        text = _strip_answer_label(option.get("text"))
+        if normalize_text(text) == normalized_target:
+            return text
+    answer = _strip_answer_label(context.get("correct_answer_text") or context.get("correct_answer") or "")
+    if normalize_text(answer) == normalized_target:
+        return answer
+    return normalized_target
+
+
+def _find_preposition_structure(target: str, context: dict[str, Any]) -> tuple[str, str, str]:
+    target_norm = normalize_text(target)
+    prep_union = "|".join(PREPOSITIONS)
+    for source_field, source_text in _context_sources(context):
+        text = _compact(source_text)
+        normalized = normalize_text(text)
+        if target_norm not in normalized:
+            continue
+        pattern = rf"\b{re.escape(target)}\s+(?P<prep>{prep_union})\b(?:\s*\+\s*(?P<object>[^.。;\n:：]+))?"
+        match = re.search(pattern, text, flags=re.IGNORECASE)
+        if match:
+            prep = match.group("prep").lower()
+            obj = _clean_structure(match.groupdict().get("object") or "noun")
+            structure = f"{target} {prep} + {obj}"
+            return prep, structure, source_field
+
+        pattern_norm = rf"\b{re.escape(target_norm)}\s+(?P<prep>{prep_union})\b(?:\s*\+\s*(?P<object>[^.;:]+))?"
+        match = re.search(pattern_norm, normalized, flags=re.IGNORECASE)
+        if match:
+            prep = match.group("prep").lower()
+            obj = _clean_structure(match.groupdict().get("object") or "noun")
+            return prep, f"{target} {prep} + {obj}", source_field
+
+    question = str(context.get("question_text") or context.get("question_text_en") or "")
+    after_blank = re.search(r"_{2,}\s+(?P<prep>" + prep_union + r")\b\s*(?P<object>(?:the\s+)?[A-Za-z][A-Za-z' -]*)?", question, flags=re.IGNORECASE)
+    if after_blank:
+        prep = after_blank.group("prep").lower()
+        obj_text = after_blank.group("object") or ""
+        obj = "noun"
+        if obj_text:
+            first_words = " ".join(re.findall(r"[A-Za-z][A-Za-z'-]*", obj_text)[:3])
+            if first_words:
+                obj = "noun"
+        return prep, f"{target} {prep} + {obj}", "QuestionText"
+    return "", "", ""
+
+
+def _preposition_example(target: str, preposition: str, context: dict[str, Any]) -> str:
+    question = str(context.get("question_text") or context.get("question_text_en") or "")
+    match = re.search(r"_{2,}\s+" + re.escape(preposition) + r"\s+(?P<object>(?:the\s+)?[A-Za-z][A-Za-z' -]*)", question, flags=re.IGNORECASE)
+    if match:
+        words = re.findall(r"[A-Za-z][A-Za-z'-]*", match.group("object"))
+        if words:
+            limit = 2 if normalize_text(words[0]) in {"the", "a", "an"} else 2
+            return f"{target} {preposition} {' '.join(words[:limit])}"
+    if normalize_text(target) == "comply" and preposition == "with":
+        return "comply with the regulations"
+    return f"{target} {preposition} the rules"
+
+
+def _answer_compare_request(
+    normalized_message: str,
+    context: dict[str, Any],
+    entries: dict[str, dict[str, Any]],
+) -> AnswerMatch:
+    if "during" in normalized_message and "while" in normalized_message:
+        return AnswerMatch(
+            "During + noun/noun phrase: trong suốt/trong khi diễn ra việc gì.\n"
+            "While + clause S + V: trong khi ai đó làm gì.\n"
+            "Ví dụ: During the meeting / While we were meeting.",
+            "fallback_grammar_rule",
+            "during/while",
+            None,
+            "during vs while",
+        )
+    if "rough" in normalized_message and "roughly" in normalized_message:
+        return AnswerMatch(
+            "Rough là tính từ, nghĩa là thô/không bằng phẳng hoặc xấp xỉ tùy ngữ cảnh.\n"
+            "Roughly là trạng từ, thường nghĩa là khoảng/xấp xỉ khi đứng trước số lượng.",
+            "fallback_grammar_rule",
+            "rough/roughly",
+            None,
+            "rough vs roughly",
+        )
+
+    labels = [
+        label
+        for label, entry in entries.items()
+        if normalize_text(entry.get("text")) and re.search(rf"\b{re.escape(normalize_text(entry.get('text')))}\b", normalized_message)
+    ]
+    if len(labels) >= 2:
+        lines = []
+        for label in labels[:2]:
+            entry = entries[label]
+            analysis = _clean_option_analysis_for_display(entry.get("analysis"))
+            if analysis:
+                lines.append(f"{entry.get('text')}: {analysis}")
+        if lines:
+            return AnswerMatch("\n".join(lines), "OptionAnalysis", "", None, "\n".join(lines))
+    return AnswerMatch()
+
+
+def _is_structure_question(normalized_message: str) -> bool:
+    return bool(
+        _has_any(normalized_message, "sau ", "truoc ", "di voi", "dung voi", "dung gi", "dung sao", "dung nhu the nao", "cau truc", "cong thuc")
+        or "+" in normalized_message
+        or _is_relative_that_question(normalized_message)
+    )
+
+
+def _answer_structure_question(
+    normalized_message: str,
+    message: str,
+    context: dict[str, Any],
+    entries: dict[str, dict[str, Any]],
+) -> AnswerMatch:
+    if _is_relative_that_question(normalized_message):
+        return _answer_that_relative_function(context)
+
+    if "during" in normalized_message:
+        return AnswerMatch(
+            "Sau during dùng danh từ hoặc cụm danh từ. Ví dụ: during the meeting, during the election.",
+            "fallback_grammar_rule",
+            "during",
+            None,
+            "during + noun/noun phrase",
+        )
+
+    if "roughly" in normalized_message and ("number" in normalized_message or "so" in normalized_message or "+" in normalized_message or "vi du" in normalized_message):
+        return AnswerMatch(
+            "Roughly + number nghĩa là khoảng/xấp xỉ.\nVí dụ: Roughly 200 people attended the event.",
+            "fallback_grammar_rule",
+            "roughly + number",
+            None,
+            "roughly + number",
+        )
+
+    if "plan on" in normalized_message:
+        completion = _completion_mentioned_in_message(normalized_message, context)
+        if completion:
+            return AnswerMatch(
+                f"Sau plan on dùng V-ing. Vì vậy cần “{completion}”. Cấu trúc: plan on + V-ing = dự định làm gì.",
+                "fallback_grammar_rule",
+                "plan on",
+                None,
+                "plan on + V-ing",
+            )
+        return AnswerMatch(
+            "Sau plan on dùng V-ing. Cấu trúc: plan on + V-ing = dự định làm gì.\nVí dụ: We plan on expanding next year.",
+            "fallback_grammar_rule",
+            "plan on",
+            None,
+            "plan on + V-ing",
+        )
+
+    if "preference" in normalized_message and ("for" in normalized_message or "preference for" in normalized_message):
+        if "clear" in normalized_message:
+            return AnswerMatch(
+                "have a clear preference for nghĩa là có sự ưu tiên/ưa thích rõ ràng đối với ai hoặc điều gì.",
+                "fallback_grammar_rule",
+                "have a clear preference for",
+                None,
+                "have a clear preference for",
+            )
+        return AnswerMatch(
+            "have a preference for + noun nghĩa là có sự ưu tiên/ưa thích đối với ai hoặc điều gì.",
+            "fallback_grammar_rule",
+            "have a preference for",
+            None,
+            "have a preference for + noun",
+        )
+
+    phrase = _answer_source_phrase_message(message, context, entries, include_correct=False)
+    if phrase.text:
+        return phrase
+
+    target_match = re.search(r"\bsau\s+([a-z][a-z'-]*)", normalized_message)
+    if target_match:
+        target = target_match.group(1)
+        sentence = _best_sentence_for_term_and_keywords(
+            target,
+            context,
+            ("can", "danh tu", "tinh tu", "dong tu", "trang tu", "phu hop"),
+        )
+        if sentence:
+            return AnswerMatch(_ensure_sentence(sentence), "ExplanationDetail/OptionAnalysis", target, None, sentence)
+    return AnswerMatch()
+
+
+def _is_relative_that_question(normalized_message: str) -> bool:
+    return "that" in normalized_message and _has_any(normalized_message, "chuc nang", "trong cau", "thay cho", "lam gi", "vai tro")
+
+
+def _answer_that_relative_function(context: dict[str, Any]) -> AnswerMatch:
+    question = str(context.get("question_text") or context.get("question_text_en") or "")
+    antecedent = _infer_relative_pronoun_antecedent(context) or "danh từ đứng trước nó"
+    clause = ""
+    match = re.search(r"_{2,}\s+([^,.]+)", question)
+    if match:
+        clause_body = match.group(1).strip()
+        clause_body = re.split(r"\s+(?:is|are|was|were)\s+", clause_body, maxsplit=1, flags=re.IGNORECASE)[0].strip()
+        clause = f"that {clause_body}"
+    role = "làm chủ ngữ"
+    if clause and re.match(r"that\s+[A-Za-z][A-Za-z'-]*s?\b", clause):
+        role = "làm chủ ngữ"
+    if antecedent:
+        if clause:
+            text = f"That là đại từ quan hệ, thay cho “{antecedent}” và {role} của mệnh đề quan hệ “{clause}...” ."
+        else:
+            text = f"That là đại từ quan hệ, thay cho “{antecedent}” và {role} trong mệnh đề quan hệ."
+    else:
+        text = "That là đại từ quan hệ, thay cho danh từ đứng trước nó và làm chủ ngữ/tân ngữ trong mệnh đề quan hệ."
+    return AnswerMatch(text.replace("...” .", "...”."), "fallback_grammar_rule", "that", None, question)
+
+
+def _answer_meaning_question(
+    normalized_message: str,
+    message: str,
+    context: dict[str, Any],
+    entries: dict[str, dict[str, Any]],
+    target: str | None,
+    option_label: str | None,
+) -> AnswerMatch:
+    meaning_target = _meaning_target_from_message(normalized_message, context, target, option_label)
+    if meaning_target:
+        lookup_target = _base_preposition_target(meaning_target)
+        preposition, structure, source_field = _find_preposition_structure(lookup_target, context)
+        meaning = _find_term_meaning_near_structure(meaning_target, context) or _find_term_meaning_near_structure(lookup_target, context)
+        if meaning and preposition and structure:
+            return AnswerMatch(
+                f"{meaning_target} nghĩa là {meaning}. Cụm thường dùng: {structure}.",
+                source_field or "VocabularyNotes",
+                meaning_target,
+                option_label,
+                structure,
+            )
+
+    if "roughly" in normalized_message:
+        return AnswerMatch(
+            "Roughly nghĩa là khoảng/xấp xỉ, thường đứng trước số lượng. Ví dụ: roughly fifteen customers.",
+            "fallback_grammar_rule",
+            "roughly",
+            None,
+            "roughly + number",
+        )
+    if "preference" in normalized_message and "for" in normalized_message:
+        if "clear" in normalized_message:
+            return AnswerMatch(
+                "have a clear preference for nghĩa là có sự ưu tiên/ưa thích rõ ràng đối với ai hoặc điều gì.",
+                "fallback_grammar_rule",
+                "have a clear preference for",
+                None,
+                "have a clear preference for",
+            )
+        return AnswerMatch(
+            "have a preference for + noun nghĩa là có sự ưu tiên/ưa thích đối với ai hoặc điều gì.",
+            "fallback_grammar_rule",
+            "have a preference for",
+            None,
+            "have a preference for + noun",
+        )
+
+    phrase = _answer_source_phrase_message(message, context, entries, include_correct=False)
+    if phrase.text:
+        return phrase
+
+    label = option_label or _option_label_for_message_or_target(message, context, entries, target)
+    if label and label in entries:
+        return _format_option_meaning_answer(label, entries[label], context, include_correct=False)
+    return AnswerMatch()
+
+
+def _meaning_target_from_message(
+    normalized_message: str,
+    context: dict[str, Any],
+    target: str | None,
+    option_label: str | None,
+) -> str:
+    if target and normalize_text(target) not in GENERIC_TARGETS:
+        return _restore_target_from_context(normalize_text(target), context)
+    if option_label:
+        return _option_text(option_label, context)
+    patterns = [
+        r"\b(?P<target>[a-z][a-z'-]*)\s+(?:nghia|la gi|mean)",
+        r"\b(?:nghia cua|tu)\s+(?P<target>[a-z][a-z'-]*)",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, normalized_message)
+        if match and match.group("target") not in OPTION_REQUEST_STOPWORDS:
+            return _restore_target_from_context(match.group("target"), context)
+    return ""
+
+
+def _base_preposition_target(target: str) -> str:
+    tokens = normalize_text(target).split()
+    if len(tokens) >= 2 and tokens[1] in PREPOSITIONS:
+        return tokens[0]
+    return target
+
+
+def _find_term_meaning_near_structure(target: str, context: dict[str, Any]) -> str:
+    target_norm = normalize_text(target)
+    for _source_field, source_text in _context_sources(context, include_translation=True):
+        for sentence in _split_sentences(source_text):
+            normalized = normalize_text(sentence)
+            if target_norm not in normalized:
+                continue
+            patterns = [
+                r"(?:nghĩa|nghia)\s+(?:là|la)\s+(?P<meaning>[^.。;]+)",
+                r"[:：]\s*(?P<meaning>[^.。;]+)",
+            ]
+            for pattern in patterns:
+                match = re.search(pattern, sentence, flags=re.IGNORECASE)
+                if match:
+                    meaning = _clean_meaning(match.group("meaning"))
+                    meaning = re.sub(r"\s+(?:quy định|rules/regulations|rules|regulations)\b.*$", "", meaning, flags=re.IGNORECASE).strip(" .")
+                    if meaning and normalize_text(meaning) != target_norm:
+                        return meaning
+    return ""
+
+
+def _is_example_request(normalized_message: str) -> bool:
+    return _has_any(normalized_message, "vi du", "cho toi vi du", "example")
+
+
+def _answer_example_request(normalized_message: str, context: dict[str, Any]) -> AnswerMatch:
+    if "roughly" in normalized_message:
+        return AnswerMatch(
+            "Roughly + number nghĩa là khoảng/xấp xỉ.\nVí dụ: Roughly 200 people attended the event.",
+            "fallback_grammar_rule",
+            "roughly + number",
+            None,
+            "Roughly 200 people attended the event.",
+        )
+    if "during" in normalized_message:
+        return AnswerMatch(
+            "During + noun/noun phrase: trong suốt/trong khi diễn ra việc gì.\nVí dụ: During the meeting, we discussed the budget.",
+            "fallback_grammar_rule",
+            "during",
+            None,
+            "During the meeting",
+        )
+    return AnswerMatch()
+
+
+def _is_option_reason_or_answer_request(normalized_message: str) -> bool:
+    return _has_any(
+        normalized_message,
+        "dap an",
+        "chon gi",
+        "chon dap an",
+        "cau nay chon",
+        "vi sao chon",
+        "tai sao chon",
+        "vi sao khong chon",
+        "tai sao khong chon",
+        "why not",
+        "not choose",
+        "not correct",
+        "khong chon",
+        "khong dung",
+        "khong phai",
+        "sai o dau",
+        "tai sao sai",
+        "vi sao sai",
+        "why is",
+        "wrong",
+    )
+
+
+def _is_explain_wrong_option_request(normalized_message: str) -> bool:
+    return bool(
+        _has_any(
+            normalized_message,
+            "vi sao khong chon",
+            "tai sao khong chon",
+            "khong chon",
+            "khong dung",
+            "khong phai",
+            "sai o dau",
+            "tai sao sai",
+            "vi sao sai",
+            "why not",
+            "not choose",
+            "not correct",
+            "wrong",
+        )
+    )
+
+
+def _should_include_correct_for_option_request(normalized_message: str) -> bool:
+    if _is_explain_wrong_option_request(normalized_message):
+        return False
+    return _has_any(
+        normalized_message,
+        "vi sao chon",
+        "tai sao chon",
+        "why",
+        "dap an",
+        "chung minh",
+        "bang chung",
+        "evidence",
+    )
+
+
+def _completion_mentioned_in_message(normalized_message: str, context: dict[str, Any]) -> str:
+    for entry in _option_entries_from_context(context).values():
+        term = str(entry.get("text") or "")
+        if term and normalize_text(term) in normalized_message:
+            return term
+    answer = _strip_answer_label(context.get("correct_answer_text") or context.get("correct_answer") or "")
+    if answer and normalize_text(answer) in normalized_message:
+        return answer
+    return ""
+
+
+def answer_option_or_source_specific_question(
+    message: str,
+    context: dict[str, Any],
+    target: str | None = None,
+    option_label: str | None = None,
+) -> AnswerMatch:
+    normalized_message = normalize_text(message)
+    entries = _option_entries_from_context(context)
+    label = option_label or _option_label_for_message_or_target(message, context, entries, target)
+    include_correct = _should_include_correct_for_option_request(normalized_message)
+
+    if not option_label and _should_prefer_source_phrase(normalized_message):
+        phrase = _answer_source_phrase_message(message, context, entries, include_correct=include_correct)
+        if phrase.text:
+            return phrase
+
+    if label and label in entries and _is_option_specific_message(normalized_message, message, entries[label]):
+        entry = entries[label]
+        if _is_part_of_speech_question(normalized_message):
+            return _format_option_part_of_speech_answer(label, entry, context, include_correct=include_correct)
+        if _is_meaning_question(normalized_message):
+            return _format_option_meaning_answer(label, entry, context, include_correct=include_correct)
+        return _format_option_specific_reason_answer(label, entry, context, include_correct=include_correct)
+
+    if _is_contextual_need_message(normalized_message):
+        contextual = _answer_contextual_need_message(message, context, entries)
+        if contextual.text:
+            return contextual
+
+    phrase = _answer_source_phrase_message(message, context, entries, include_correct=include_correct)
+    if phrase.text:
+        return phrase
+
+    return AnswerMatch()
+
+
+def _should_prefer_source_phrase(normalized_message: str) -> bool:
+    tokens = _meaningful_message_tokens(normalized_message)
+    structure_request = _has_any(normalized_message, "cau truc", "cong thuc", "dung sao", "dung nhu the nao", "di voi")
+    phrase_cue = bool(re.search(r"\b(?:have|be|engage|look|take|make|get)\b", normalized_message))
+    if structure_request and tokens:
+        return True
+    return bool(
+        (len(tokens) >= 2 or (phrase_cue and tokens))
+        and _has_any(normalized_message, "nghia", "mean")
+    )
+
+
+def _option_entries_from_context(context: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    entries: dict[str, dict[str, Any]] = {}
+    correct_label, correct_text = _correct_label_and_text(context)
+    for index, option in enumerate(_get_options(context)):
+        label = str(option.get("label") or option.get("key") or _option_label(index)).strip().upper()
+        if label not in {"A", "B", "C", "D"}:
+            continue
+        entries[label] = {
+            "label": label,
+            "text": _strip_answer_label(option.get("text")),
+            "analysis": "",
+            "is_correct": option.get("is_correct") is True or label == correct_label,
+            "source_field": "Options",
+        }
+
+    for source_field, source_text in [
+        ("OptionAnalysis", context.get("option_analysis")),
+        ("RawBlock", context.get("raw_block")),
+    ]:
+        for parsed in _parse_option_entries_from_text(source_text, entries):
+            label = parsed["label"]
+            current = entries.setdefault(
+                label,
+                {
+                    "label": label,
+                    "text": "",
+                    "analysis": "",
+                    "is_correct": label == correct_label,
+                    "source_field": source_field,
+                },
+            )
+            if parsed.get("text") and not current.get("text"):
+                current["text"] = parsed["text"]
+            if parsed.get("analysis") and _is_substantive_option_analysis(parsed["analysis"]):
+                current["analysis"] = parsed["analysis"]
+                current["source_field"] = source_field
+            if parsed.get("is_correct") is True:
+                current["is_correct"] = True
+
+    if correct_label:
+        entries.setdefault(
+            correct_label,
+            {
+                "label": correct_label,
+                "text": correct_text,
+                "analysis": "",
+                "is_correct": True,
+                "source_field": "CorrectAnswerText",
+            },
+        )
+        entries[correct_label]["is_correct"] = True
+        if correct_text and not entries[correct_label].get("text"):
+            entries[correct_label]["text"] = correct_text
+    return entries
+
+
+def _parse_option_entries_from_text(source: Any, known_entries: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
+    text = _compact(source)
+    if not text:
+        return []
+    parsed: list[dict[str, Any]] = []
+    for match in OPTION_ENTRY_MARKER_RE.finditer(text):
+        label = (match.group("label_paren") or match.group("label_plain") or "").upper()
+        if label not in {"A", "B", "C", "D"}:
+            continue
+        body = _compact(match.group("body"))
+        if not body:
+            continue
+        option_text = str(known_entries.get(label, {}).get("text") or "")
+        term, analysis = _split_option_term_and_analysis(body, option_text)
+        parsed.append(
+            {
+                "label": label,
+                "text": term or option_text,
+                "analysis": analysis,
+                "is_correct": _option_body_is_correct(analysis),
+            }
+        )
+    return parsed
+
+
+def _split_option_term_and_analysis(body: str, option_text: str = "") -> tuple[str, str]:
+    text = _compact(body)
+    if not text:
+        return "", ""
+
+    if option_text:
+        expected = _strip_answer_label(option_text)
+        match = re.match(rf"(?P<term>{re.escape(expected)})\b\s*(?:[:\uff1a]|[-\u2013\u2014])?\s*(?P<analysis>.*)$", text, flags=re.IGNORECASE | re.DOTALL)
+        if match:
+            return expected, _compact(match.group("analysis"))
+        if OPTION_STATUS_RE.match(text) or _has_any(normalize_text(text), "sai", "dap an dung", "wrong", "correct"):
+            return expected, text
+
+    delimiter = re.search(r"\s*(?:[:\uff1a]|\s[-\u2013\u2014]\s)\s*", text)
+    if delimiter and delimiter.start() <= 80:
+        return _clean_target_phrase(text[: delimiter.start()]), _compact(text[delimiter.end() :])
+
+    status = OPTION_STATUS_RE.search(text)
+    if status and status.start() > 0:
+        return _clean_target_phrase(text[: status.start()]), _compact(text[status.start() :])
+
+    return _clean_target_phrase(text), ""
+
+
+def _is_substantive_option_analysis(value: Any) -> bool:
+    text = normalize_text(value)
+    if not text:
+        return False
+    return any(
+        marker in text
+        for marker in (
+            "sai",
+            "dung",
+            "dap an",
+            "nghia",
+            "danh tu",
+            "tinh tu",
+            "dong tu",
+            "trang tu",
+            "phu hop",
+            "khong phu hop",
+            "correct",
+            "wrong",
+        )
+    )
+
+
+def _option_body_is_correct(value: Any) -> bool:
+    text = normalize_text(value)
+    return "dap an dung" in text or "correct" in text or bool(re.search(r"\bdung\b", text))
+
+
+def _option_label_for_message_or_target(
+    message: str,
+    context: dict[str, Any],
+    entries: dict[str, dict[str, Any]],
+    target: str | None,
+) -> str | None:
+    target_norm = normalize_text(target or "")
+    message_norm = normalize_text(message)
+    if target_norm:
+        for label, entry in entries.items():
+            if _normalized_terms_match(normalize_text(entry.get("text")), target_norm):
+                return label
+    for label, entry in entries.items():
+        term = normalize_text(entry.get("text"))
+        if len(term) < 2:
+            continue
+        if re.search(rf"\b{re.escape(term)}\b", message_norm):
+            return label
+    return _option_label_for_message_target(message, context)
+
+
+def _is_option_specific_message(normalized_message: str, raw_message: str, entry: dict[str, Any]) -> bool:
+    term = normalize_text(entry.get("text"))
+    has_term = bool(term and re.search(rf"\b{re.escape(term)}\b", normalized_message))
+    return bool(
+        has_term
+        or _has_any(
+            normalized_message,
+            "vi sao",
+            "tai sao",
+            "khong chon",
+            "chon",
+            "sai",
+            "dung",
+            "nghia",
+            "la gi",
+            "tu loai",
+            "loai tu",
+            "danh tu",
+            "tinh tu",
+            "dong tu",
+            "trang tu",
+            "why",
+        )
+    )
+
+
+def _is_part_of_speech_question(normalized_message: str) -> bool:
+    return _has_any(normalized_message, "tu loai", "loai tu", "danh tu", "tinh tu", "dong tu", "trang tu", "noun", "verb", "adjective", "adverb")
+
+
+def _is_meaning_question(normalized_message: str) -> bool:
+    return _has_any(normalized_message, "nghia", "la gi", "mean", "means", "meaning", "dich")
+
+
+def _is_contextual_need_message(normalized_message: str) -> bool:
+    if re.search(r"\bsau\s+\S+\s+(?:can|la gi|dung gi|dung tu gi|can gi)", normalized_message):
+        return True
+    return _has_any(
+        normalized_message,
+        "tu nao",
+        "dap an nao",
+        "can loai tu",
+        "can dang tu",
+        "mo ta trang thai",
+        "trang thai cua",
+        "sau clear",
+        "sau social",
+        "sau be",
+    )
+
+
+def _format_option_part_of_speech_answer(
+    label: str,
+    entry: dict[str, Any],
+    context: dict[str, Any],
+    include_correct: bool = False,
+) -> AnswerMatch:
+    term = str(entry.get("text") or "").strip()
+    analysis = str(entry.get("analysis") or "")
+    part_of_speech = _extract_detailed_part_of_speech(analysis) or _extract_part_of_speech(analysis)
+    if not part_of_speech:
+        part_of_speech = _infer_part_of_speech(term)
+    if not part_of_speech:
+        return _format_option_specific_reason_answer(label, entry, context)
+
+    pieces = [f"{term} l\u00e0 {part_of_speech}."]
+    requirement = _best_requirement_sentence_for_option(term, context)
+    if requirement and not entry.get("is_correct"):
+        pieces.append(_ensure_sentence(requirement))
+    elif analysis:
+        reason = _best_option_reason_sentence(analysis)
+        if reason and normalize_text(reason) != normalize_text(part_of_speech):
+            pieces.append(_ensure_sentence(reason))
+    correct = _correct_answer_sentence(context)
+    if include_correct and correct and not entry.get("is_correct"):
+        pieces.append(correct)
+    return AnswerMatch(" ".join(pieces), entry.get("source_field") or "OptionAnalysis", term, label, analysis)
+
+
+def _format_option_meaning_answer(
+    label: str,
+    entry: dict[str, Any],
+    context: dict[str, Any],
+    include_correct: bool = False,
+) -> AnswerMatch:
+    term = str(entry.get("text") or "").strip()
+    analysis = str(entry.get("analysis") or "")
+    meaning = _extract_meaning_from_option_analysis(analysis, term)
+    part_of_speech = _extract_detailed_part_of_speech(analysis) or _extract_part_of_speech(analysis)
+    if meaning:
+        if part_of_speech:
+            text = f"{term} l\u00e0 {part_of_speech}, ngh\u0129a l\u00e0 \u201c{meaning}\u201d."
+        else:
+            text = f"{term} ngh\u0129a l\u00e0 \u201c{meaning}\u201d."
+    elif part_of_speech:
+        text = f"{term} l\u00e0 {part_of_speech}."
+    else:
+        return _format_option_specific_reason_answer(label, entry, context)
+    if include_correct and not entry.get("is_correct"):
+        correct = _correct_answer_sentence(context)
+        if correct:
+            text = f"{text} {correct}"
+    return AnswerMatch(text, entry.get("source_field") or "OptionAnalysis", term, label, analysis)
+
+
+def _format_option_specific_reason_answer(label: str, entry: dict[str, Any], context: dict[str, Any], include_correct: bool = False) -> AnswerMatch:
+    term = str(entry.get("text") or "").strip()
+    analysis = _clean_option_analysis_for_display(entry.get("analysis"))
+    if not analysis:
+        analysis = _best_requirement_sentence_for_option(term, context)
+    status = "\u0111\u00fang" if entry.get("is_correct") else "sai"
+    if analysis:
+        subject = _capitalize_term(term) if term else label
+        text = f"{subject} {status} v\u00ec {analysis}"
+    else:
+        subject = _capitalize_term(term) if term else label
+        text = f"{subject} {status} theo d\u1eef li\u1ec7u \u0111\u00e1p \u00e1n hi\u1ec7n c\u00f3."
+    if include_correct and not entry.get("is_correct"):
+        correct = _correct_phrase_sentence(context) or _correct_answer_sentence(context)
+        if correct:
+            text = f"{text} {correct}"
+    return AnswerMatch(_ensure_sentence(text), entry.get("source_field") or "OptionAnalysis", term, label, analysis)
+
+
+def _answer_contextual_need_message(message: str, context: dict[str, Any], entries: dict[str, dict[str, Any]]) -> AnswerMatch:
+    normalized_message = normalize_text(message)
+    target = ""
+    target_match = re.search(r"\bsau\s+([a-z][a-z'-]*)", normalized_message)
+    if target_match:
+        target = target_match.group(1)
+
+    sentence = ""
+    if target:
+        sentence = _best_sentence_for_term_and_keywords(
+            target,
+            context,
+            ("can", "danh tu", "tinh tu", "dong tu", "trang tu", "phu hop", "social", "clear"),
+        )
+    if not sentence:
+        sentence = _best_sentence_for_keywords(
+            context.get("explanation_detail") or context.get("explanation") or context.get("option_analysis") or context.get("raw_block"),
+            ("can", "danh tu", "tinh tu", "dong tu", "trang tu", "mo ta", "trang thai", "phu hop"),
+        )
+    correct_label, correct_text = _correct_label_and_text(context)
+    correct_entry = entries.get(correct_label or "")
+    include_correct = "tu nao" in normalized_message or "dap an nao" in normalized_message or _is_option_reason_or_answer_request(normalized_message)
+    parts = []
+    if sentence:
+        parts.append(_ensure_sentence(sentence))
+    if include_correct and correct_label and correct_text:
+        parts.append(_correct_answer_sentence(context))
+    if include_correct and correct_entry and correct_entry.get("analysis"):
+        reason = _clean_option_analysis_for_display(correct_entry.get("analysis"))
+        if reason and not any(normalize_text(reason) in normalize_text(part) for part in parts):
+            parts.append(_ensure_sentence(reason))
+    if not parts:
+        return AnswerMatch()
+    return AnswerMatch(" ".join(part for part in parts if part), "ExplanationDetail/OptionAnalysis", correct_text, correct_label, sentence)
+
+
+def _answer_source_phrase_message(
+    message: str,
+    context: dict[str, Any],
+    entries: dict[str, dict[str, Any]],
+    include_correct: bool = False,
+) -> AnswerMatch:
+    normalized_message = normalize_text(message)
+    if not _has_any(normalized_message, "nghia", "cau truc", "cong thuc", "dung sao", "dung nhu the nao", "di voi", "collocation", "mean"):
+        return AnswerMatch()
+
+    tokens = _meaningful_message_tokens(normalized_message)
+    if not tokens:
+        return AnswerMatch()
+
+    scored: list[tuple[int, str, str]] = []
+    for source_field, source_text in _context_sources(context, include_translation=True):
+        for sentence in _split_sentences(source_text):
+            sentence_norm = normalize_text(sentence)
+            score = sum(1 for token in tokens if _message_token_in_text(token, sentence_norm))
+            if "+" in sentence:
+                score += 1
+            if any(marker in sentence_norm for marker in ("nghia", "cau truc", "dung voi", "di voi")):
+                score += 1
+            if score >= 2:
+                scored.append((score, source_field, sentence))
+
+    if not scored:
+        return AnswerMatch()
+
+    scored.sort(key=lambda item: item[0], reverse=True)
+    selected: list[tuple[str, str]] = []
+    seen: set[str] = set()
+    for _score, source_field, sentence in scored:
+        normalized = normalize_text(sentence)
+        if normalized in seen:
+            continue
+        seen.add(normalized)
+        selected.append((source_field, sentence))
+        if len(selected) >= 2:
+            break
+
+    answer_lines = [_ensure_sentence(sentence) for _field, sentence in selected]
+    correct_label, correct_text = _correct_label_and_text(context)
+    if include_correct and correct_text and normalize_text(correct_text) in normalized_message:
+        correct = _correct_answer_sentence(context)
+        if correct:
+            answer_lines.append(correct)
+    return AnswerMatch(" ".join(answer_lines), selected[0][0], "", None, " ".join(answer_lines))
+
+
+def _meaningful_message_tokens(normalized_message: str) -> list[str]:
+    raw_tokens = re.findall(r"[a-z0-9][a-z0-9'-]*", normalized_message)
+    return [token for token in raw_tokens if len(token) > 2 and token not in OPTION_REQUEST_STOPWORDS]
+
+
+def _message_token_in_text(token: str, normalized_text: str) -> bool:
+    return bool(re.search(rf"\b{re.escape(token)}\b", normalized_text))
+
+
+def _best_sentence_for_term_and_keywords(target: str, context: dict[str, Any], keywords: tuple[str, ...]) -> str:
+    target_norm = normalize_text(target)
+    best = ""
+    best_score = 0
+    for _source_field, source_text in _context_sources(context):
+        for sentence in _split_sentences(source_text):
+            normalized = normalize_text(sentence)
+            if target_norm and target_norm not in normalized:
+                continue
+            score = sum(1 for keyword in keywords if keyword in normalized)
+            if score > best_score:
+                best = sentence
+                best_score = score
+    return best
+
+
+def _best_requirement_sentence_for_option(term: str, context: dict[str, Any]) -> str:
+    term_norm = normalize_text(term)
+    keywords = ("can", "danh tu", "tinh tu", "dong tu", "trang tu", "phu hop", "khong phu hop", "social", "clear", "trang thai")
+    best = ""
+    best_score = 0
+    for _source_field, source_text in _context_sources(context):
+        for sentence in _split_sentences(source_text):
+            normalized = normalize_text(sentence)
+            score = sum(1 for keyword in keywords if keyword in normalized)
+            if term_norm and term_norm in normalized:
+                score += 1
+            if score > best_score:
+                best = sentence
+                best_score = score
+    return best
+
+
+def _best_option_reason_sentence(analysis: Any) -> str:
+    for sentence in _split_sentences(analysis):
+        normalized = normalize_text(sentence)
+        if any(token in normalized for token in ("khong phu hop", "phu hop", "can", "sau", "truoc")):
+            return _clean_option_analysis_for_display(sentence)
+    return ""
+
+
+def _extract_detailed_part_of_speech(analysis: Any) -> str:
+    for sentence in _split_sentences(analysis):
+        normalized = normalize_text(sentence)
+        if not any(token in normalized for token in ("danh tu", "tinh tu", "dong tu", "trang tu", "noun", "verb", "adjective", "adverb")):
+            continue
+        cleaned = _clean_option_analysis_for_display(sentence)
+        match = re.search(r"(?:L\u00e0|La)\s+(?P<value>[^.;]+)", cleaned, flags=re.IGNORECASE)
+        if match:
+            return match.group("value").strip(" .")
+        return cleaned.strip(" .")
+    return ""
+
+
+def _extract_meaning_from_option_analysis(analysis: Any, term: str) -> str:
+    text = _compact(analysis)
+    patterns = [
+        r"(?:ngh\u0129a|nghia)\s+(?:l\u00e0|la)\s+\u201c?(?P<meaning>[^.\u201d;]+)",
+        r"(?:c\u00f3\s+)?(?:ngh\u0129a|nghia)\s+(?:l\u00e0|la)\s+\"?(?P<meaning>[^.\";]+)",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, text, flags=re.IGNORECASE)
+        if match:
+            return _clean_meaning(match.group("meaning"))
+    return ""
+
+
+def _clean_option_analysis_for_display(value: Any) -> str:
+    text = _compact(value)
+    text = re.sub(
+        r"^(?:Sai|Wrong|Correct|(?:\u0110|D)úng|(?:\u0110|D)áp\s+án\s+(?:\u0111úng|dung)|Dap\s+an\s+dung|Dap\s+an)\s*[:.\u3002-]?\s*",
+        "",
+        text,
+        flags=re.IGNORECASE,
+    )
+    return _ensure_sentence(text) if text else ""
+
+
+def _correct_label_and_text(context: dict[str, Any]) -> tuple[str, str]:
+    label = str(context.get("correct_option_label") or context.get("correct_option_key") or "").strip().upper()
+    text = _strip_answer_label(context.get("correct_answer_text") or "")
+    if not text:
+        correct_answer = _compact(context.get("correct_answer"))
+        match = re.match(r"^([A-D])\s*[.)\u2014-]?\s*(.+)$", correct_answer, flags=re.IGNORECASE)
+        if match:
+            label = label or match.group(1).upper()
+            text = _strip_answer_label(match.group(2))
+        elif correct_answer:
+            text = _strip_answer_label(correct_answer)
+    for option in _get_options(context):
+        option_label = str(option.get("label") or option.get("key") or "").strip().upper()
+        if label and option_label == label and not text:
+            text = _strip_answer_label(option.get("text"))
+        if not label and option.get("is_correct") is True:
+            label = option_label
+            text = text or _strip_answer_label(option.get("text"))
+    return label, text
+
+
+def _correct_answer_sentence(context: dict[str, Any]) -> str:
+    label, text = _correct_label_and_text(context)
+    if label and text:
+        return f"\u0110\u00e1p \u00e1n \u0111\u00fang l\u00e0 {label} \u2014 {text}."
+    if text:
+        return f"\u0110\u00e1p \u00e1n \u0111\u00fang l\u00e0 {text}."
+    return ""
 
 
 FORMULA_KEYWORDS = (
@@ -2246,12 +3474,33 @@ def _field_for_context_value(context: dict[str, Any], value: Any) -> str:
     return ""
 
 
+def _correct_phrase_sentence(context: dict[str, Any]) -> str:
+    _label, answer = _correct_label_and_text(context)
+    if not answer:
+        return ""
+    question = str(context.get("question_text") or context.get("question_text_en") or "")
+    match = re.search(r"(?P<before>(?:[A-Za-z][A-Za-z'-]*\s+){0,4})_{2,}(?P<after>(?:\s+[A-Za-z][A-Za-z'-]*){0,4})", question)
+    if not match:
+        return ""
+    before_tokens = re.findall(r"[A-Za-z][A-Za-z'-]*", match.group("before"))
+    after_tokens = re.findall(r"[A-Za-z][A-Za-z'-]*", match.group("after"))
+    before = " ".join(before_tokens[-3:])
+    after_limit = 1 if after_tokens and normalize_text(after_tokens[0]) in {"for", "to", "of", "in", "on", "with"} else 2
+    after = " ".join(after_tokens[:after_limit])
+    phrase = " ".join(part for part in (before, answer, after) if part).strip()
+    if not phrase or len(phrase.split()) > 9:
+        return ""
+    return f"Cụm đúng là “{phrase}”."
+
+
 def _format_correct_answer(context: dict[str, Any]) -> AnswerMatch:
     label = str(context.get("correct_option_label") or context.get("correct_option_key") or "").strip().upper()
     text = _strip_answer_label(context.get("correct_answer_text") or "")
     if not text:
         correct_answer = _compact(context.get("correct_answer"))
         match = re.match(r"^([A-D])\s*[.)—-]?\s*(.+)$", correct_answer, flags=re.IGNORECASE)
+        if match and not re.match(r"^\s*[A-D]\s*(?:[.)]|[:\-]|—)", correct_answer, flags=re.IGNORECASE):
+            match = None
         if match:
             label = label or match.group(1).upper()
             text = _strip_answer_label(match.group(2))

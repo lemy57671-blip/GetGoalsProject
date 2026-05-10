@@ -34,14 +34,106 @@ type Lookup = {
   timestamp: number;
 };
 
+type TtsMessage = {
+  type: "warning" | "error";
+  text: string;
+};
+
+const BROWSER_FALLBACK_MESSAGE =
+  "Backend voice service is temporarily unavailable. Playing with browser voice instead.";
+
+async function readTtsError(response: Response) {
+  const fallback = `TTS request failed with status ${response.status}`;
+  const contentType = response.headers.get("content-type") || "";
+
+  try {
+    if (contentType.includes("application/json")) {
+      const data = await response.json();
+      return data?.detail || data?.message || fallback;
+    }
+
+    const text = await response.text();
+    return text || fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+async function getBrowserVoices() {
+  if (typeof window === "undefined" || !("speechSynthesis" in window)) {
+    return [];
+  }
+
+  const synth = window.speechSynthesis;
+  const voices = synth.getVoices();
+  if (voices.length > 0) return voices;
+
+  return new Promise<SpeechSynthesisVoice[]>((resolve) => {
+    const timeout = window.setTimeout(() => {
+      synth.removeEventListener("voiceschanged", handleVoicesChanged);
+      resolve(synth.getVoices());
+    }, 700);
+
+    function handleVoicesChanged() {
+      window.clearTimeout(timeout);
+      synth.removeEventListener("voiceschanged", handleVoicesChanged);
+      resolve(synth.getVoices());
+    }
+
+    synth.addEventListener("voiceschanged", handleVoicesChanged);
+  });
+}
+
+function chooseBrowserVoice(voices: SpeechSynthesisVoice[], selectedVoice: string) {
+  const lowerSelected = selectedVoice.toLowerCase();
+  const englishVoices = voices.filter((voice) => voice.lang.toLowerCase().startsWith("en"));
+  const englishUsVoices = englishVoices.filter((voice) => voice.lang.toLowerCase().startsWith("en-us"));
+
+  if (lowerSelected.includes("aria")) {
+    return (
+      englishUsVoices.find((voice) => voice.name.toLowerCase().includes("aria")) ||
+      englishUsVoices[0] ||
+      englishVoices[0] ||
+      null
+    );
+  }
+
+  if (lowerSelected.includes("us")) {
+    return englishUsVoices[0] || englishVoices[0] || null;
+  }
+
+  return englishVoices[0] || null;
+}
+
 export function VoiceReaderPage() {
   const [text, setText] = useState("");
   const [voices, setVoices] = useState<Voice[]>([]);
   const [selectedVoice, setSelectedVoice] = useState("en-US-AriaNeural");
   const [isLoadingVoices, setIsLoadingVoices] = useState(true);
   const [isReading, setIsReading] = useState(false);
+  const [ttsMessage, setTtsMessage] = useState<TtsMessage | null>(null);
   const [lookups, setLookups] = useState<Lookup[]>([]);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const objectUrlRef = useRef<string | null>(null);
+
+  const stopCurrentSpeech = () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.removeAttribute("src");
+      audioRef.current.load();
+    }
+
+    if (objectUrlRef.current) {
+      URL.revokeObjectURL(objectUrlRef.current);
+      objectUrlRef.current = null;
+    }
+
+    if (typeof window !== "undefined" && "speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+    }
+
+    setIsReading(false);
+  };
 
   useEffect(() => {
     async function init() {
@@ -66,6 +158,23 @@ export function VoiceReaderPage() {
     init();
   }, []);
 
+  useEffect(() => {
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+      }
+
+      if (objectUrlRef.current) {
+        URL.revokeObjectURL(objectUrlRef.current);
+        objectUrlRef.current = null;
+      }
+
+      if (typeof window !== "undefined" && "speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+      }
+    };
+  }, []);
+
   const saveToHistory = (newText: string, voiceId: string) => {
     const newLookup: Lookup = {
       text: newText,
@@ -79,46 +188,107 @@ export function VoiceReaderPage() {
   };
 
   const handleRead = async (customText?: string, customVoice?: string) => {
-    const textToRead = customText || text;
+    const textToRead = (customText || text).trim();
     const voiceToUse = customVoice || selectedVoice;
-    if (!textToRead.trim()) return;
-    
+    if (!textToRead) return;
+    if (textToRead.length > 500) {
+      setTtsMessage({ type: "error", text: "Text is too long. Please keep it under 500 characters." });
+      return;
+    }
+
+    stopCurrentSpeech();
     setIsReading(true);
+    setTtsMessage(null);
+
+    const playWithBrowserVoice = async () => {
+      if (typeof window === "undefined" || !("speechSynthesis" in window)) {
+        throw new Error("Browser voice playback is not supported here.");
+      }
+
+      const utterance = new SpeechSynthesisUtterance(textToRead);
+      const browserVoices = await getBrowserVoices();
+      const browserVoice = chooseBrowserVoice(browserVoices, voiceToUse);
+
+      if (browserVoice) {
+        utterance.voice = browserVoice;
+        utterance.lang = browserVoice.lang;
+      } else {
+        utterance.lang = "en-US";
+      }
+
+      utterance.rate = 1;
+      utterance.pitch = 1;
+
+      await new Promise<void>((resolve, reject) => {
+        utterance.onend = () => resolve();
+        utterance.onerror = () => reject(new Error("Browser voice playback failed."));
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(utterance);
+      });
+    };
+
     try {
       const response = await fetch(`${API_BASE_URL}/api/tts/tts`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: textToRead.trim(), voice: voiceToUse })
+        body: JSON.stringify({ text: textToRead, voice: voiceToUse })
       });
 
-      if (!response.ok) throw new Error("TTS generation failed");
+      if (!response.ok) {
+        throw new Error(await readTtsError(response));
+      }
 
       const blob = await response.blob();
-      const url = URL.createObjectURL(blob);
+      if (!blob.size) {
+        throw new Error("TTS service returned an empty audio file.");
+      }
+      const audioBlob = blob.type.includes("audio") ? blob : new Blob([blob], { type: "audio/mpeg" });
+      const url = URL.createObjectURL(audioBlob);
+      objectUrlRef.current = url;
       
       if (audioRef.current) {
         audioRef.current.pause();
         audioRef.current.src = url;
-        audioRef.current.play();
+        await audioRef.current.play();
       } else {
         const audio = new Audio(url);
         audioRef.current = audio;
-        audio.play();
+        await audio.play();
       }
       
       audioRef.current!.onended = () => {
         setIsReading(false);
-        URL.revokeObjectURL(url);
+        if (objectUrlRef.current === url) {
+          URL.revokeObjectURL(url);
+          objectUrlRef.current = null;
+        }
       };
       audioRef.current!.onerror = () => {
         setIsReading(false);
-        URL.revokeObjectURL(url);
+        if (objectUrlRef.current === url) {
+          URL.revokeObjectURL(url);
+          objectUrlRef.current = null;
+        }
+        setTtsMessage({ type: "error", text: "Could not play the generated audio." });
       };
 
-      if (!customText) saveToHistory(textToRead.trim(), voiceToUse);
+      if (!customText) saveToHistory(textToRead, voiceToUse);
     } catch (error) {
-      console.error("TTS Error:", error);
-      setIsReading(false);
+      console.warn("Backend TTS failed. Falling back to browser SpeechSynthesis:", error);
+
+      try {
+        setTtsMessage({ type: "warning", text: BROWSER_FALLBACK_MESSAGE });
+        await playWithBrowserVoice();
+        if (!customText) saveToHistory(textToRead, voiceToUse);
+      } catch (fallbackError) {
+        console.error("Browser SpeechSynthesis fallback failed:", fallbackError);
+        setTtsMessage({
+          type: "error",
+          text: "Voice playback is temporarily unavailable. Please try again later.",
+        });
+      } finally {
+        setIsReading(false);
+      }
     }
   };
 
@@ -171,20 +341,42 @@ export function VoiceReaderPage() {
                 <span className={text.length >= 500 ? "text-red-500 font-bold" : ""}>{text.length}</span> / 500
               </span>
               
-              <Button 
-                className="rounded-full px-12 h-14 text-lg font-bold shadow-2xl shadow-primary/30 bg-primary hover:bg-primary/90 transition-all hover:scale-105 active:scale-95"
-                disabled={!text.trim() || isReading}
-                onClick={() => handleRead()}
-              >
+              <div className="flex items-center gap-3">
                 {isReading ? (
-                  <Loader2 className="w-6 h-6 animate-spin" />
-                ) : (
-                  <>
-                    <Volume2 className="w-6 h-6 mr-3" /> Speak
-                  </>
-                )}
-              </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="h-14 rounded-full px-8 text-lg font-bold"
+                    onClick={stopCurrentSpeech}
+                  >
+                    Stop
+                  </Button>
+                ) : null}
+
+                <Button
+                  className="rounded-full px-12 h-14 text-lg font-bold shadow-2xl shadow-primary/30 bg-primary hover:bg-primary/90 transition-all hover:scale-105 active:scale-95"
+                  disabled={!text.trim() || isReading}
+                  onClick={() => handleRead()}
+                >
+                  {isReading ? (
+                    <Loader2 className="w-6 h-6 animate-spin" />
+                  ) : (
+                    <>
+                      <Volume2 className="w-6 h-6 mr-3" /> Speak
+                    </>
+                  )}
+                </Button>
+              </div>
             </div>
+            {ttsMessage ? (
+              <div
+                className={`border-t border-border/40 px-6 py-3 text-sm ${
+                  ttsMessage.type === "warning" ? "text-amber-700" : "text-red-600"
+                }`}
+              >
+                {ttsMessage.text}
+              </div>
+            ) : null}
           </CardContent>
         </Card>
 

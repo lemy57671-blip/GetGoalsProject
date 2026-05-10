@@ -230,13 +230,32 @@ export function MockTestResultPage() {
   const weakAreas = backendResult?.weakAreas.slice(0, 3) || [];
   const reviewQuestions =
     backendResult?.questions.filter((question) => !question.isCorrect) || [];
+  const reviewSource =
+    resultKind === "weekly" ? "weeklycheck" : resultKind === "mini" ? "minitest" : "fulltest";
+  const reviewWrongHref =
+    Number.isFinite(attemptId) && attemptId > 0
+      ? `/review?source=${reviewSource}&attemptId=${attemptId}&filter=wrong`
+      : `/review?source=${reviewSource}&filter=wrong`;
+  const visibleReviewQuestions = reviewQuestions.slice(0, 8);
   const reviewQuestionIds = reviewQuestions
     .map((question) => question.questionId)
     .filter((value, index, values) => value > 0 && values.indexOf(value) === index);
+  const practiceWrongParams = new URLSearchParams({
+    mode: "review",
+    source: reviewSource,
+    filter: "wrong",
+  });
+  if (Number.isFinite(attemptId) && attemptId > 0) {
+    practiceWrongParams.set("attemptId", String(attemptId));
+  }
+  if (reviewQuestionIds.length > 0) {
+    practiceWrongParams.set("question_ids", reviewQuestionIds.join(","));
+    practiceWrongParams.set("count", String(reviewQuestionIds.length));
+  }
   const practiceWrongHref =
     reviewQuestionIds.length > 0
-      ? `/practice/runner?mode=review&source=result&question_ids=${reviewQuestionIds.join(",")}&count=${reviewQuestionIds.length}`
-      : "/review";
+      ? `/practice/runner?${practiceWrongParams.toString()}`
+      : reviewWrongHref;
 
   return (
     <div className="min-h-screen bg-background">
@@ -254,7 +273,7 @@ export function MockTestResultPage() {
       </header>
 
       <div className="container mx-auto px-4 py-12 lg:py-20">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-6xl text-center">
           <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10">
             <CheckCircle2 className="h-10 w-10 text-primary" />
           </div>
@@ -276,7 +295,8 @@ export function MockTestResultPage() {
             </Card>
           )}
 
-          <Card className="mb-8 rounded-2xl border-border">
+          <div className="grid gap-6 text-left lg:grid-cols-[minmax(0,2fr)_360px] lg:items-start">
+          <Card className="rounded-2xl border-border">
             <CardContent className="p-8">
               <div className="mb-6 grid gap-6 md:grid-cols-3">
                 <div className="text-center">
@@ -375,7 +395,7 @@ export function MockTestResultPage() {
 
                 <div className="mt-6 flex flex-wrap justify-center gap-3">
                   <Button variant="outline" asChild>
-                    <Link to="/review">{t("result.reviewWrongAnswers")}</Link>
+                    <Link to={reviewWrongHref}>{t("result.reviewWrongAnswers")}</Link>
                   </Button>
                   <Button asChild>
                     <Link to={practiceWrongHref}>{t("result.practiceWrongAnswers")}</Link>
@@ -409,7 +429,7 @@ export function MockTestResultPage() {
                   </div>
                 )}
 
-                {reviewQuestions.length > 0 && (
+                {false && reviewQuestions.length > 0 && (
                   <div className="mt-6 rounded-xl border border-border p-4 text-left">
                     <h4 className="mb-3 text-sm font-semibold text-foreground">
                       {t("result.questionsToReview")}
@@ -447,7 +467,68 @@ export function MockTestResultPage() {
             </CardContent>
           </Card>
 
-          <Card className="mb-8 rounded-2xl border-primary bg-primary/5">
+          <Card className="rounded-2xl border-border lg:sticky lg:top-20">
+            <CardContent className="p-5">
+              <div className="mb-4 flex items-center justify-between gap-3">
+                <div>
+                  <h3 className="text-base font-semibold text-foreground">
+                    {t("result.questionsToReview")}
+                  </h3>
+                  <p className="text-xs text-muted-foreground">
+                    {reviewQuestions.length} câu sai hoặc bỏ qua
+                  </p>
+                </div>
+                <Badge variant="outline">{reviewQuestions.length}</Badge>
+              </div>
+
+              {reviewQuestions.length > 0 ? (
+                <div className="max-h-[520px] space-y-2 overflow-y-auto pr-1">
+                  {visibleReviewQuestions.map((question) => (
+                    <div
+                      key={`${question.questionId}-${question.questionNumber}`}
+                      className="rounded-xl border bg-muted/40 p-3 text-sm"
+                    >
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="font-semibold text-foreground">
+                          Câu {question.questionNumber} · Part {question.part}
+                        </span>
+                        <Badge variant={question.userAnswerIndex == null ? "outline" : "secondary"}>
+                          {question.userAnswerIndex == null ? "Bỏ qua" : "Sai"}
+                        </Badge>
+                      </div>
+                      <p className="mt-1 line-clamp-2 text-xs text-muted-foreground">
+                        {question.question}
+                      </p>
+                      <p className="mt-1 text-[11px] text-muted-foreground">
+                        {question.skill}{question.subskill ? ` · ${question.subskill}` : ""}
+                      </p>
+                      <Button size="sm" variant="link" className="mt-2 h-auto p-0 text-primary" asChild>
+                        <Link to={`/practice/runner?mode=review&question_ids=${question.questionId}&count=1`}>
+                          Ôn câu này
+                        </Link>
+                      </Button>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="rounded-xl border border-dashed p-4 text-sm text-muted-foreground">
+                  Không có câu sai trong kết quả này.
+                </div>
+              )}
+
+              <div className="mt-4 grid gap-2">
+                <Button asChild>
+                  <Link to={reviewWrongHref}>Xem tất cả câu sai</Link>
+                </Button>
+                <Button variant="outline" asChild>
+                  <Link to={practiceWrongHref}>Luyện lại câu sai</Link>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+          </div>
+
+          <Card className="mt-8 mb-8 rounded-2xl border-primary bg-primary/5">
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary">

@@ -12,11 +12,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import {
   onboardingDeadlines,
-  onboardingLevels,
   onboardingSteps,
   onboardingStudyTimes,
   onboardingTargetScores,
@@ -36,11 +36,45 @@ import {
   Target,
 } from "lucide-react";
 
+const deadlineWeeks: Record<string, number | null> = {
+  "1month": 4,
+  "2months": 8,
+  "3months": 12,
+  "6months": 24,
+  flexible: null,
+};
+
+const studyMinutesByValue: Record<string, number> = {
+  "30min": 30,
+  "1hour": 60,
+  "2hours": 120,
+  "3hours": 180,
+};
+
+function examDateFromDeadline(deadline: string) {
+  const weeks = deadlineWeeks[deadline];
+  if (!weeks) return null;
+  const date = new Date();
+  date.setDate(date.getDate() + weeks * 7);
+  return date.toISOString().slice(0, 10);
+}
+
+function parseOptionalToeicScore(value: string) {
+  const trimmed = value.trim();
+  if (!trimmed) return null;
+  const parsed = Number(trimmed);
+  if (!Number.isInteger(parsed) || parsed < 0 || parsed > 990) {
+    return Number.NaN;
+  }
+  return parsed;
+}
+
 export function OnboardingPage() {
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
-    level: "",
+    currentScore: "",
+    hasNoCurrentScore: false,
     targetScore: "",
     deadline: "",
     studyTime: "",
@@ -73,7 +107,10 @@ export function OnboardingPage() {
   const canProceed = () => {
     switch (currentStep) {
       case 1:
-        return formData.level !== "";
+        if (formData.hasNoCurrentScore || formData.currentScore.trim() === "") {
+          return true;
+        }
+        return !Number.isNaN(parseOptionalToeicScore(formData.currentScore));
       case 2:
         return formData.targetScore !== "";
       case 3:
@@ -88,22 +125,20 @@ export function OnboardingPage() {
   };
 
   const handleSubmit = async () => {
-    const selectedLevel = onboardingLevels.find(
-      (level) => level.value === formData.level,
-    );
-    const currentScore = selectedLevel?.score
-      ? Number.parseInt(selectedLevel.score.split("-")[0], 10)
-      : null;
+    const currentScore = formData.hasNoCurrentScore
+      ? null
+      : parseOptionalToeicScore(formData.currentScore);
     const studyMinutesPerDay = formData.studyTime
-      ? Number.parseInt(formData.studyTime, 10)
+      ? studyMinutesByValue[formData.studyTime] ?? null
       : null;
 
     const result = await authService.completeOnboarding({
-      currentScore: Number.isNaN(currentScore) ? null : currentScore,
+      currentScore: currentScore === null || Number.isNaN(currentScore) ? null : currentScore,
       targetScore: formData.targetScore
         ? Number.parseInt(formData.targetScore, 10)
         : null,
-      studyMinutesPerDay: Number.isNaN(studyMinutesPerDay)
+      examDate: examDateFromDeadline(formData.deadline),
+      studyMinutesPerDay: studyMinutesPerDay === null || Number.isNaN(studyMinutesPerDay)
         ? null
         : studyMinutesPerDay,
       weakSkills: formData.weakSkills,
@@ -151,7 +186,7 @@ export function OnboardingPage() {
                   </CardTitle>
                   <CardDescription className="text-muted-foreground">
                     {currentStep === 1 &&
-                      "Chọn mức độ phù hợp nhất với trình độ hiện tại của bạn"}
+                      "Nhập điểm TOEIC hiện tại nếu bạn đã từng thi hoặc có điểm ước lượng"}
                     {currentStep === 2 && "Bạn muốn đạt bao nhiêu điểm TOEIC?"}
                     {currentStep === 3 && "Khi nào bạn cần đạt mục tiêu?"}
                     {currentStep === 4 &&
@@ -162,37 +197,59 @@ export function OnboardingPage() {
                 </CardHeader>
                 <CardContent>
                   {currentStep === 1 && (
-                    <RadioGroup
-                      value={formData.level}
-                      onValueChange={(value) =>
-                        setFormData((prev) => ({ ...prev, level: value }))
-                      }
-                      className="space-y-3"
-                    >
-                      {onboardingLevels.map((level) => (
-                        <label
-                          key={level.value}
-                          className={`flex cursor-pointer items-center justify-between rounded-xl border p-4 transition-all ${
-                            formData.level === level.value
-                              ? "border-primary bg-accent"
-                              : "border-border hover:border-primary/50 hover:bg-accent/50"
-                          }`}
-                        >
-                          <div className="flex items-center gap-3">
-                            <RadioGroupItem value={level.value} />
-                            <div>
-                              <div className="font-medium text-foreground">
-                                {level.label}
-                              </div>
-                              <div className="text-sm text-muted-foreground">
-                                {level.desc}
-                              </div>
-                            </div>
-                          </div>
-                          <Badge variant="secondary">{level.score}</Badge>
+                    <div className="space-y-4">
+                      <div className="space-y-2">
+                        <label className="text-sm font-medium text-foreground">
+                          Điểm TOEIC hiện tại (nếu có)
                         </label>
-                      ))}
-                    </RadioGroup>
+                        <Input
+                          type="number"
+                          min={0}
+                          max={990}
+                          step={5}
+                          inputMode="numeric"
+                          placeholder="Ví dụ: 350"
+                          value={formData.currentScore}
+                          disabled={formData.hasNoCurrentScore}
+                          onChange={(event) =>
+                            setFormData((prev) => ({
+                              ...prev,
+                              currentScore: event.target.value,
+                            }))
+                          }
+                        />
+                        {!canProceed() ? (
+                          <p className="text-xs text-destructive">
+                            Điểm TOEIC hiện tại phải là số từ 0 đến 990.
+                          </p>
+                        ) : (
+                          <p className="text-xs text-muted-foreground">
+                            Bạn có thể bỏ trống nếu chưa từng thi TOEIC.
+                          </p>
+                        )}
+                      </div>
+
+                      <label className="flex cursor-pointer items-center gap-3 rounded-xl border border-border p-4 transition hover:bg-accent/50">
+                        <Checkbox
+                          checked={formData.hasNoCurrentScore}
+                          onCheckedChange={(checked) =>
+                            setFormData((prev) => ({
+                              ...prev,
+                              hasNoCurrentScore: Boolean(checked),
+                              currentScore: checked ? "" : prev.currentScore,
+                            }))
+                          }
+                        />
+                        <div>
+                          <div className="font-medium text-foreground">
+                            Chưa có điểm TOEIC
+                          </div>
+                          <div className="text-sm text-muted-foreground">
+                            GetGoals sẽ dùng placement test để ước lượng trình độ ban đầu.
+                          </div>
+                        </div>
+                      </label>
+                    </div>
                   )}
 
                   {currentStep === 2 && (
@@ -372,9 +429,11 @@ export function OnboardingPage() {
                         Trình độ hiện tại
                       </span>
                       <span className="text-sm font-medium text-foreground">
-                        {formData.level
-                          ? onboardingLevels.find((item) => item.value === formData.level)?.label
-                          : "—"}
+                        {formData.hasNoCurrentScore
+                          ? "Chưa có điểm"
+                          : formData.currentScore
+                            ? `${formData.currentScore} điểm`
+                            : "—"}
                       </span>
                     </div>
                     <div className="flex items-center justify-between">
@@ -423,7 +482,7 @@ export function OnboardingPage() {
                     </div>
                   )}
 
-                  {formData.level && formData.targetScore && formData.deadline && (
+                  {formData.targetScore && formData.deadline && (
                     <div className="border-t border-border pt-4">
                       <div className="rounded-xl bg-accent p-4">
                         <div className="mb-2 flex items-center gap-2 font-medium text-primary">

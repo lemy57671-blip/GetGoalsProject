@@ -1,8 +1,9 @@
 from __future__ import annotations
 
 import json
+import logging
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import datetime, timedelta
 from math import ceil
 
 from sqlalchemy import select, text
@@ -15,11 +16,13 @@ from app.models import (
     PracticeAttemptAnswer,
     ReviewQueueItem,
     User,
-    UserPartStat,
     UserSkillProfile,
 )
 from app.schemas.attempts import (
+    AttemptAssetDto,
     AttemptPartBreakdownDto,
+    AttemptResultOptionDto,
+    AttemptResultPassageDto,
     AttemptResultDto,
     AttemptResultQuestionDto,
     AttemptSkillBreakdownDto,
@@ -35,9 +38,67 @@ from app.schemas.toeic import ToeicRunnerQuestionDto
 from app.services.skill_analytics import infer_part, normalize_skill_code
 from app.services.toeic import build_question_lookup_key, get_question_lookup_by_ids
 from app.services.irt_scoring import score_diagnostic_with_rasch
+from app.services.review_schema import ensure_review_schema
+
+
+logger = logging.getLogger(__name__)
+
+
+RUNTIME_REVIEW_SOURCES = {"practice", "fulltest", "minitest", "weeklycheck"}
+
+
+def _normalize_mock_attempt_type(
+    attempt_type: str | None,
+    title: str | None,
+    total_questions: int | None = None,
+) -> str:
+    raw = (attempt_type or "").strip().lower().replace("_", "-")
+    title_lower = (title or "").strip().lower()
+    if raw in {"mini", "mini-test", "minitest"} or "mini" in title_lower:
+        return "minitest"
+    if raw in {"full", "full-test", "fulltest", "mock", "mock-test"}:
+        return "fulltest"
+    if "full" in title_lower or "mock" in title_lower:
+        return "fulltest"
+    if total_questions and total_questions < 120:
+        return "minitest"
+    return "fulltest"
+
+
+def _normalize_review_source(value: str | None) -> str:
+    normalized = (value or "").strip().lower().replace("-", "_")
+    if normalized in {"practice", "bai_tap"}:
+        return "practice"
+    if normalized in {"full", "full_test", "fulltest", "mock", "mock_test"}:
+        return "fulltest"
+    if normalized in {"mini", "mini_test", "minitest"}:
+        return "minitest"
+    if normalized in {"weekly", "weekly_check", "weeklycheck"}:
+        return "weeklycheck"
+    if normalized in {"diagnostic", "placement", "placement_test"}:
+        return "diagnostic"
+    return "practice"
+
+
+def _label_from_index(index: int | None) -> str | None:
+    if index is None or index < 0 or index > 25:
+        return None
+    return chr(ord("A") + index)
+
+
+def _review_reason_for_answer(selected_answer_index: int | None, is_correct: bool) -> str | None:
+    if is_correct:
+        return None
+    return "skipped" if selected_answer_index is None else "wrong"
 
 
 def save_practice_attempt(db: Session, user_id: int, request: SavePracticeAttemptRequest) -> SaveAttemptResponse:
+    ensure_review_schema(db)
+    source_attempt_type = (
+        _normalize_review_source(request.source)
+        if request.source
+        else "weeklycheck" if (request.mode or "").strip().lower().replace("_", "-") == "weekly-check" else "practice"
+    )
     attempt = PracticeAttempt(
         user_id=user_id,
         title=request.title,
@@ -81,10 +142,17 @@ def save_practice_attempt(db: Session, user_id: int, request: SavePracticeAttemp
         [
             _ReviewSeed(
                 questionId=item.question_id,
+                questionNumber=item.question_number,
                 part=item.part,
                 skill=item.skill,
-                sourceAttemptType="practice",
+                sourceAttemptType=source_attempt_type,
                 sourceAttemptId=attempt.id,
+                selectedOptionKey=_label_from_index(item.selected_answer_index),
+                correctOptionKey=_label_from_index(item.correct_answer_index),
+                isCorrect=bool(item.is_correct),
+                isSkipped=item.selected_answer_index is None,
+                reviewReason=_review_reason_for_answer(item.selected_answer_index, item.is_correct) or "wrong",
+                lastAnsweredAtUtc=attempt.submitted_at_utc or attempt.created_at_utc,
                 note=item.explanation,
             )
             for item in incorrect_answers
@@ -97,17 +165,41 @@ def save_practice_attempt(db: Session, user_id: int, request: SavePracticeAttemp
         [_StatSeed(part=item.part, skill=item.skill, isCorrect=item.is_correct) for item in attempt.answers],
     )
     _sync_user_profile(db, user_id)
+    logger.info(
+        "Practice submit persisted user_id=%s source=%s attempt_id=%s answers=%s review_queued=%s wrong=%s skipped=%s skill_profiles_upserted=%s part_stats_upserted=%s",
+        user_id,
+        source_attempt_type,
+        attempt.id,
+        len(attempt.answers),
+        review_queued_count,
+        sum(1 for item in incorrect_answers if item.selected_answer_index is not None),
+        sum(1 for item in incorrect_answers if item.selected_answer_index is None),
+        stat_result.skillStatsUpdated,
+        stat_result.partStatsUpdated,
+    )
+
+    try:
+        result = get_practice_attempt_result(db, user_id, attempt.id)
+    except Exception:
+        logger.exception("Could not hydrate practice attempt result after submit; returning fallback result.")
+        result = None
 
     return SaveAttemptResponse(
         attemptId=attempt.id,
         reviewQueuedCount=review_queued_count,
         skillStatsUpdated=stat_result.skillStatsUpdated,
         partStatsUpdated=stat_result.partStatsUpdated,
-        result=_build_practice_result(attempt.id, request),
+        result=result or _build_practice_result(attempt.id, request),
     )
 
 
 def save_mock_test_attempt(db: Session, user_id: int, request: SaveMockTestAttemptRequest) -> SaveAttemptResponse:
+    ensure_review_schema(db)
+    source_attempt_type = (
+        _normalize_review_source(request.source)
+        if request.source
+        else _normalize_mock_attempt_type(request.attemptType, request.title, request.totalQuestions)
+    )
     attempt = MockTestAttempt(
         user_id=user_id,
         title=request.title,
@@ -148,10 +240,17 @@ def save_mock_test_attempt(db: Session, user_id: int, request: SaveMockTestAttem
         [
             _ReviewSeed(
                 questionId=item.question_id,
+                questionNumber=item.question_number,
                 part=item.part,
                 skill=item.skill,
-                sourceAttemptType="mock-test",
+                sourceAttemptType=source_attempt_type,
                 sourceAttemptId=attempt.id,
+                selectedOptionKey=_label_from_index(item.selected_answer_index),
+                correctOptionKey=_label_from_index(item.correct_answer_index),
+                isCorrect=bool(item.is_correct),
+                isSkipped=item.selected_answer_index is None,
+                reviewReason=_review_reason_for_answer(item.selected_answer_index, item.is_correct) or "wrong",
+                lastAnsweredAtUtc=attempt.submitted_at_utc or attempt.created_at_utc,
                 note=item.explanation,
             )
             for item in attempt.answers
@@ -165,13 +264,32 @@ def save_mock_test_attempt(db: Session, user_id: int, request: SaveMockTestAttem
         [_StatSeed(part=item.part, skill=item.skill, isCorrect=item.is_correct) for item in attempt.answers],
     )
     _sync_user_profile(db, user_id)
+    incorrect_answers = [item for item in attempt.answers if not item.is_correct]
+    logger.info(
+        "Mock submit persisted user_id=%s source=%s attempt_id=%s answers=%s review_queued=%s wrong=%s skipped=%s skill_profiles_upserted=%s part_stats_upserted=%s",
+        user_id,
+        source_attempt_type,
+        attempt.id,
+        len(attempt.answers),
+        review_queued_count,
+        sum(1 for item in incorrect_answers if item.selected_answer_index is not None),
+        sum(1 for item in incorrect_answers if item.selected_answer_index is None),
+        stat_result.skillStatsUpdated,
+        stat_result.partStatsUpdated,
+    )
+
+    try:
+        result = get_mock_test_attempt_result(db, user_id, attempt.id)
+    except Exception:
+        logger.exception("Could not hydrate mock-test attempt result after submit; returning fallback result.")
+        result = None
 
     return SaveAttemptResponse(
         attemptId=attempt.id,
         reviewQueuedCount=review_queued_count,
         skillStatsUpdated=stat_result.skillStatsUpdated,
         partStatsUpdated=stat_result.partStatsUpdated,
-        result=_build_mock_test_result(attempt.id, request),
+        result=result or _build_mock_test_result(attempt.id, request),
     )
 
 
@@ -192,13 +310,18 @@ def save_diagnostic_attempt(db: Session, user_id: int, request: SaveDiagnosticAt
     now = datetime.utcnow()
     user = db.get(User, user_id)
     answers = list(request.answers or [])
+    answered_answers = [
+        item
+        for item in answers
+        if item.selectedAnswerIndex is not None and item.selectedAnswerIndex >= 0
+    ]
 
     question_meta_by_id: dict[int, dict] = {}
 
-    if answers:
+    if answered_answers:
         question_ids_csv = ",".join(
             str(item.questionId)
-            for item in answers
+            for item in answered_answers
             if item.questionId is not None
         )
 
@@ -232,28 +355,24 @@ def save_diagnostic_attempt(db: Session, user_id: int, request: SaveDiagnosticAt
                 for row in rows
             }
 
-    answered_count = sum(
-        1
-        for item in answers
-        if item.selectedAnswerIndex is not None and item.selectedAnswerIndex >= 0
-    )
+    answered_count = len(answered_answers)
 
     total_questions = request.totalQuestions or len(answers)
 
     correct_count = request.correctCount
     if correct_count is None:
-        correct_count = sum(1 for item in answers if item.isCorrect)
+        correct_count = sum(1 for item in answered_answers if item.isCorrect)
 
     accuracy_pct = request.accuracyPct
     if accuracy_pct is None:
-        accuracy_pct = round(correct_count * 100 / total_questions, 2) if total_questions else 0
+        accuracy_pct = round(correct_count * 100 / answered_count, 2) if answered_count else 0
 
     score_rule = int(round(5 + (float(accuracy_pct) / 100.0) * 985))
     score_rule = max(5, min(score_rule, 990))
 
     rasch_items: list[dict] = []
 
-    for item in answers:
+    for item in answered_answers:
         meta = question_meta_by_id.get(item.questionId, {})
         legacy_id = meta.get("legacy_id")
 
@@ -272,15 +391,19 @@ def save_diagnostic_attempt(db: Session, user_id: int, request: SaveDiagnosticAt
 
     level_name = rasch_result.get("level_name") or request.levelName
     level_range = rasch_result.get("level_range") or request.levelRange
+    true_toeic = request.currentScore if request.currentScore is not None and 0 <= request.currentScore <= 990 else None
 
     if user is not None:
-        user.current_score = estimated_score
+        user.current_score = true_toeic if true_toeic is not None else estimated_score
 
         if request.targetScore is not None:
             user.target_score = request.targetScore
 
         if request.minutesPerDay is not None:
             user.study_minutes_per_day = request.minutesPerDay
+
+        if request.weeks is not None and request.weeks > 0:
+            user.exam_date = (now + timedelta(weeks=min(request.weeks, 104))).date()
 
         db.commit()
 
@@ -298,7 +421,7 @@ def save_diagnostic_attempt(db: Session, user_id: int, request: SaveDiagnosticAt
         user_name = None
 
     answers_json = json.dumps(
-        [_diagnostic_answer_to_dict(item) for item in answers],
+        [_diagnostic_answer_to_dict(item) for item in answered_answers],
         ensure_ascii=False,
         default=str,
     )
@@ -350,7 +473,7 @@ def save_diagnostic_attempt(db: Session, user_id: int, request: SaveDiagnosticAt
                 :score_rule,
                 :theta,
                 :estimated_score,
-                NULL,
+                :true_toeic,
                 :level_name,
                 :level_range,
                 :answers_json,
@@ -378,6 +501,7 @@ def save_diagnostic_attempt(db: Session, user_id: int, request: SaveDiagnosticAt
             "score_rule": score_rule,
             "theta": theta,
             "estimated_score": estimated_score,
+            "true_toeic": true_toeic,
             "level_name": level_name,
             "level_range": level_range,
             "answers_json": answers_json,
@@ -386,7 +510,7 @@ def save_diagnostic_attempt(db: Session, user_id: int, request: SaveDiagnosticAt
         },
     ).scalar_one()
 
-    for item in answers:
+    for item in answered_answers:
         meta = question_meta_by_id.get(item.questionId, {})
 
         part = item.part or meta.get("part") or infer_part(item.skill, item.subskill)
@@ -446,6 +570,7 @@ def save_diagnostic_attempt(db: Session, user_id: int, request: SaveDiagnosticAt
         [
             _ReviewSeed(
                 questionId=item.questionId,
+                questionNumber=item.questionNumber,
                 part=(
                     item.part
                     or question_meta_by_id.get(item.questionId, {}).get("part")
@@ -458,12 +583,18 @@ def save_diagnostic_attempt(db: Session, user_id: int, request: SaveDiagnosticAt
                 ),
                 sourceAttemptType="diagnostic",
                 sourceAttemptId=attempt_id,
+                selectedOptionKey=_label_from_index(item.selectedAnswerIndex),
+                correctOptionKey=_label_from_index(item.correctAnswerIndex),
+                isCorrect=bool(item.isCorrect),
+                isSkipped=item.selectedAnswerIndex is None,
+                reviewReason=_review_reason_for_answer(item.selectedAnswerIndex, item.isCorrect) or "wrong",
+                lastAnsweredAtUtc=now,
                 note=(
                     item.subskill
                     or question_meta_by_id.get(item.questionId, {}).get("subskill")
                 ),
             )
-            for item in answers
+            for item in answered_answers
             if not item.isCorrect
         ],
     )
@@ -484,11 +615,15 @@ def save_diagnostic_attempt(db: Session, user_id: int, request: SaveDiagnosticAt
                 ),
                 isCorrect=item.isCorrect,
             )
-            for item in answers
+            for item in answered_answers
         ],
     )
 
     _sync_user_profile(db, user_id, request.weakSubskillsJson)
+
+    from app.services.roadmap import generate_for_user
+
+    generate_for_user(db, user_id)
 
     return SaveAttemptResponse(
         attemptId=attempt_id,
@@ -508,8 +643,10 @@ def get_practice_attempt_result(db: Session, user_id: int, attempt_id: int) -> A
         return None
 
     answers = sorted(attempt.answers, key=lambda item: (item.question_number or 0, item.question_id))
-    question_lookup = get_question_lookup_by_ids(db, [item.question_id for item in answers])
-    questions = [_build_saved_result_question(item, question_lookup) for item in answers]
+    question_ids = [item.question_id for item in answers]
+    question_lookup = get_question_lookup_by_ids(db, question_ids)
+    explanation_lookup = _load_runtime_explanations(db, question_ids)
+    questions = [_build_saved_result_question(item, question_lookup, explanation_lookup) for item in answers]
     total_questions = attempt.total_questions or len(questions)
     unanswered_count = max(total_questions - attempt.answered_count, 0)
     wrong_count = max(attempt.answered_count - attempt.correct_count, 0)
@@ -546,15 +683,17 @@ def get_mock_test_attempt_result(db: Session, user_id: int, attempt_id: int) -> 
         return None
 
     answers = sorted(attempt.answers, key=lambda item: (item.question_number or 0, item.question_id))
-    question_lookup = get_question_lookup_by_ids(db, [item.question_id for item in answers])
-    questions = [_build_saved_result_question(item, question_lookup) for item in answers]
+    question_ids = [item.question_id for item in answers]
+    question_lookup = get_question_lookup_by_ids(db, question_ids)
+    explanation_lookup = _load_runtime_explanations(db, question_ids)
+    questions = [_build_saved_result_question(item, question_lookup, explanation_lookup) for item in answers]
     total_questions = attempt.total_questions or len(questions)
     unanswered_count = max(total_questions - attempt.answered_count, 0)
     wrong_count = max(attempt.answered_count - attempt.correct_count, 0)
 
     return AttemptResultDto(
         attemptId=attempt.id,
-        attemptType="mock-test",
+        attemptType=_normalize_mock_attempt_type(None, attempt.title, total_questions),
         title=attempt.title or "Mock Test Result",
         totalQuestions=total_questions,
         correctCount=attempt.correct_count,
@@ -579,40 +718,140 @@ def _enqueue_review_items(db: Session, user_id: int, seeds: list["_ReviewSeed"])
     if not seeds:
         return 0
 
-    queued = 0
+    ensure_review_schema(db)
+    touched = 0
+    runtime_question_ids = [
+        seed.questionId
+        for seed in seeds
+        if _normalize_review_source(seed.sourceAttemptType) in RUNTIME_REVIEW_SOURCES and seed.questionId
+    ]
+    runtime_summary_by_id = _load_runtime_review_summaries(db, runtime_question_ids)
 
     for seed in seeds:
-        exists = db.scalar(
-            select(ReviewQueueItem.id).where(
-                ReviewQueueItem.user_id == user_id,
-                ReviewQueueItem.question_id == seed.questionId,
-                ReviewQueueItem.source_attempt_type == seed.sourceAttemptType,
-                ReviewQueueItem.source_attempt_id == seed.sourceAttemptId,
-            )
-        )
+        source = _normalize_review_source(seed.sourceAttemptType)
+        review_reason = seed.reviewReason or "wrong"
+        runtime_question_id = seed.questionId if source in RUNTIME_REVIEW_SOURCES else None
+        diagnostic_question_id = seed.questionId if source == "diagnostic" else None
+        runtime_summary = runtime_summary_by_id.get(int(runtime_question_id or 0), {})
+        question_number = runtime_summary.get("QuestionNumber") or seed.questionNumber
+        part = runtime_summary.get("Part") or seed.part
+        section = runtime_summary.get("Section")
+        skill = runtime_summary.get("SkillCode") or seed.skill
+        correct_option_key = runtime_summary.get("CorrectOptionKey") or seed.correctOptionKey
 
-        if exists:
+        if source in RUNTIME_REVIEW_SOURCES and not runtime_question_id:
+            logger.warning(
+                "Skipping ReviewQueue upsert: missing RuntimeQuestionId userId=%s source=%s attemptId=%s reason=%s",
+                user_id,
+                source,
+                seed.sourceAttemptId,
+                review_reason,
+            )
             continue
 
-        db.add(
-            ReviewQueueItem(
+        query = select(ReviewQueueItem).where(
+            ReviewQueueItem.user_id == user_id,
+            ReviewQueueItem.source == source,
+            ReviewQueueItem.review_reason == review_reason,
+            ReviewQueueItem.is_active == True,
+        )
+        if seed.sourceAttemptId is None:
+            query = query.where(ReviewQueueItem.attempt_id.is_(None))
+        else:
+            query = query.where(ReviewQueueItem.attempt_id == seed.sourceAttemptId)
+        if runtime_question_id is not None:
+            query = query.where(ReviewQueueItem.runtime_question_id == runtime_question_id)
+        elif diagnostic_question_id is not None:
+            query = query.where(ReviewQueueItem.diagnostic_question_id == diagnostic_question_id)
+        else:
+            query = query.where(ReviewQueueItem.question_id == seed.questionId)
+
+        item = db.scalar(query)
+        now = datetime.utcnow()
+        last_answered_at = seed.lastAnsweredAtUtc or now
+
+        if item is None:
+            item = ReviewQueueItem(
                 user_id=user_id,
                 question_id=seed.questionId,
-                part=seed.part,
-                skill=seed.skill,
+                source=source,
+                attempt_id=seed.sourceAttemptId,
+                runtime_question_id=runtime_question_id,
+                diagnostic_question_id=diagnostic_question_id,
+                question_number=question_number,
+                part=part,
+                section=section,
+                skill=skill,
+                skill_code=skill,
+                is_correct=seed.isCorrect,
+                is_skipped=seed.isSkipped,
+                selected_option_key=seed.selectedOptionKey,
+                correct_option_key=correct_option_key,
+                review_reason=review_reason,
+                last_answered_at_utc=last_answered_at,
+                created_at_utc=now,
+                updated_at_utc=now,
+                is_active=True,
                 status="pending",
-                source_attempt_type=seed.sourceAttemptType,
+                source_attempt_type=source,
                 source_attempt_id=seed.sourceAttemptId,
                 note=seed.note,
-                added_at_utc=datetime.utcnow(),
+                added_at_utc=now,
             )
-        )
-        queued += 1
+            db.add(item)
+        else:
+            item.question_id = seed.questionId
+            item.attempt_id = seed.sourceAttemptId
+            item.source_attempt_type = source
+            item.source_attempt_id = seed.sourceAttemptId
+            item.runtime_question_id = runtime_question_id
+            item.diagnostic_question_id = diagnostic_question_id
+            item.question_number = question_number or item.question_number
+            item.part = part or item.part
+            item.section = section or item.section
+            item.skill = skill or item.skill
+            item.skill_code = skill or item.skill_code
+            item.is_correct = seed.isCorrect
+            item.is_skipped = seed.isSkipped
+            item.selected_option_key = seed.selectedOptionKey
+            item.correct_option_key = correct_option_key or item.correct_option_key
+            item.last_answered_at_utc = last_answered_at
+            item.updated_at_utc = now
+            item.status = "pending"
+            item.note = seed.note or item.note
+        touched += 1
 
-    if queued:
+    if touched:
         db.commit()
 
-    return queued
+    return touched
+
+
+def _load_runtime_review_summaries(db: Session, question_ids: list[int | None]) -> dict[int, dict[str, object]]:
+    ids = sorted({int(value) for value in question_ids if value and int(value) > 0})
+    if not ids:
+        return {}
+    rows = db.execute(
+        text(
+            """
+            SELECT
+                q.Id,
+                q.QuestionNumber,
+                q.Part,
+                q.Section,
+                q.SkillCode,
+                q.CorrectOptionKey
+            FROM dbo.ToeicPracticeQuestions q
+            WHERE q.Id IN (
+                SELECT TRY_CAST(value AS INT)
+                FROM STRING_SPLIT(:ids_csv, ',')
+                WHERE TRY_CAST(value AS INT) IS NOT NULL
+            )
+            """
+        ),
+        {"ids_csv": ",".join(str(value) for value in ids)},
+    ).mappings().all()
+    return {int(row["Id"]): dict(row) for row in rows}
 
 
 def _update_stats(db: Session, user_id: int, seeds: list["_StatSeed"]) -> "_StatUpdateResult":
@@ -627,34 +866,76 @@ def _update_stats(db: Session, user_id: int, seeds: list["_StatSeed"]) -> "_Stat
 
     for skill_code_lower, group in skill_groups.items():
         actual_skill_code = group[0].skill.strip()
+        correct_delta = sum(1 for item in group if item.isCorrect)
+        attempt_delta = len(group)
+        db.execute(
+            text(
+                """
+                SET NOCOUNT ON;
 
-        profile = db.scalar(
-            select(UserSkillProfile).where(
-                UserSkillProfile.user_id == user_id,
-                UserSkillProfile.skill_code == actual_skill_code,
-            )
+                IF EXISTS (
+                    SELECT 1
+                    FROM dbo.UserSkillProfiles WITH (UPDLOCK, HOLDLOCK)
+                    WHERE UserId = :user_id AND SkillCode = :skill_code
+                )
+                BEGIN
+                    UPDATE dbo.UserSkillProfiles
+                    SET
+                        SkillName = COALESCE(NULLIF(SkillName, N''), :skill_name),
+                        CorrectCount = COALESCE(CorrectCount, 0) + :correct_delta,
+                        AttemptCount = COALESCE(AttemptCount, 0) + :attempt_delta,
+                        AccuracyPct = CAST(
+                            CASE
+                                WHEN COALESCE(AttemptCount, 0) + :attempt_delta > 0 THEN
+                                    ((COALESCE(CorrectCount, 0) + :correct_delta) * 100.0)
+                                    / (COALESCE(AttemptCount, 0) + :attempt_delta)
+                                ELSE 0
+                            END AS DECIMAL(7, 2)
+                        ),
+                        LastPracticedAtUtc = SYSUTCDATETIME(),
+                        UpdatedAtUtc = SYSUTCDATETIME()
+                    WHERE UserId = :user_id AND SkillCode = :skill_code;
+                END
+                ELSE
+                BEGIN
+                    INSERT INTO dbo.UserSkillProfiles
+                    (
+                        UserId,
+                        SkillCode,
+                        SkillName,
+                        AccuracyPct,
+                        CorrectCount,
+                        AttemptCount,
+                        LastPracticedAtUtc,
+                        UpdatedAtUtc
+                    )
+                    VALUES
+                    (
+                        :user_id,
+                        :skill_code,
+                        :skill_name,
+                        CAST(
+                            CASE
+                                WHEN :attempt_delta > 0 THEN (:correct_delta * 100.0) / :attempt_delta
+                                ELSE 0
+                            END AS DECIMAL(7, 2)
+                        ),
+                        :correct_delta,
+                        :attempt_delta,
+                        SYSUTCDATETIME(),
+                        SYSUTCDATETIME()
+                    );
+                END
+                """
+            ),
+            {
+                "user_id": user_id,
+                "skill_code": actual_skill_code,
+                "skill_name": actual_skill_code,
+                "correct_delta": correct_delta,
+                "attempt_delta": attempt_delta,
+            },
         )
-
-        if profile is None:
-            profile = UserSkillProfile(
-                user_id=user_id,
-                skill_code=actual_skill_code,
-                skill_name=actual_skill_code,
-                correct_count=0,
-                attempt_count=0,
-                updated_at_utc=datetime.utcnow(),
-            )
-            db.add(profile)
-
-        profile.correct_count += sum(1 for item in group if item.isCorrect)
-        profile.attempt_count += len(group)
-        profile.accuracy_pct = (
-            round(profile.correct_count * 100 / profile.attempt_count, 2)
-            if profile.attempt_count
-            else 0
-        )
-        profile.last_practiced_at_utc = datetime.utcnow()
-        profile.updated_at_utc = datetime.utcnow()
         skill_stats_updated += 1
 
     part_groups: dict[int, list[_StatSeed]] = {}
@@ -664,32 +945,71 @@ def _update_stats(db: Session, user_id: int, seeds: list["_StatSeed"]) -> "_Stat
             part_groups.setdefault(seed.part, []).append(seed)
 
     for part, group in part_groups.items():
-        stat = db.scalar(
-            select(UserPartStat).where(
-                UserPartStat.user_id == user_id,
-                UserPartStat.part == part,
-            )
-        )
+        correct_delta = sum(1 for item in group if item.isCorrect)
+        attempt_delta = len(group)
+        db.execute(
+            text(
+                """
+                SET NOCOUNT ON;
 
-        if stat is None:
-            stat = UserPartStat(
-                user_id=user_id,
-                part=part,
-                correct_count=0,
-                attempt_count=0,
-                updated_at_utc=datetime.utcnow(),
-                average_time_seconds=0,
-            )
-            db.add(stat)
-
-        stat.correct_count += sum(1 for item in group if item.isCorrect)
-        stat.attempt_count += len(group)
-        stat.accuracy_pct = (
-            round(stat.correct_count * 100 / stat.attempt_count, 2)
-            if stat.attempt_count
-            else 0
+                IF EXISTS (
+                    SELECT 1
+                    FROM dbo.UserPartStats WITH (UPDLOCK, HOLDLOCK)
+                    WHERE UserId = :user_id AND Part = :part
+                )
+                BEGIN
+                    UPDATE dbo.UserPartStats
+                    SET
+                        CorrectCount = COALESCE(CorrectCount, 0) + :correct_delta,
+                        AttemptCount = COALESCE(AttemptCount, 0) + :attempt_delta,
+                        AccuracyPct = CAST(
+                            CASE
+                                WHEN COALESCE(AttemptCount, 0) + :attempt_delta > 0 THEN
+                                    ((COALESCE(CorrectCount, 0) + :correct_delta) * 100.0)
+                                    / (COALESCE(AttemptCount, 0) + :attempt_delta)
+                                ELSE 0
+                            END AS DECIMAL(7, 2)
+                        ),
+                        UpdatedAtUtc = SYSUTCDATETIME()
+                    WHERE UserId = :user_id AND Part = :part;
+                END
+                ELSE
+                BEGIN
+                    INSERT INTO dbo.UserPartStats
+                    (
+                        UserId,
+                        Part,
+                        AccuracyPct,
+                        CorrectCount,
+                        AttemptCount,
+                        AverageTimeSeconds,
+                        UpdatedAtUtc
+                    )
+                    VALUES
+                    (
+                        :user_id,
+                        :part,
+                        CAST(
+                            CASE
+                                WHEN :attempt_delta > 0 THEN (:correct_delta * 100.0) / :attempt_delta
+                                ELSE 0
+                            END AS DECIMAL(7, 2)
+                        ),
+                        :correct_delta,
+                        :attempt_delta,
+                        0,
+                        SYSUTCDATETIME()
+                    );
+                END
+                """
+            ),
+            {
+                "user_id": user_id,
+                "part": part,
+                "correct_delta": correct_delta,
+                "attempt_delta": attempt_delta,
+            },
         )
-        stat.updated_at_utc = datetime.utcnow()
         part_stats_updated += 1
 
     if skill_stats_updated or part_stats_updated:
@@ -702,9 +1022,8 @@ def _update_stats(db: Session, user_id: int, seeds: list["_StatSeed"]) -> "_Stat
 
 
 def _sync_user_profile(db: Session, user_id: int, latest_weak_skills_json: str | None = None) -> None:
-    user = db.get(User, user_id)
-
-    if user is None:
+    user_exists = db.scalar(select(User.id).where(User.id == user_id))
+    if user_exists is None:
         return
 
     if latest_weak_skills_json and latest_weak_skills_json.strip():
@@ -718,7 +1037,7 @@ def _sync_user_profile(db: Session, user_id: int, latest_weak_skills_json: str |
         ).all()
         weak_skills = [row[0] or row[1] for row in weak_skills]
 
-    user.weak_skills_json = json.dumps(
+    weak_skills_json = json.dumps(
         list(
             dict.fromkeys(
                 item.strip()
@@ -726,6 +1045,10 @@ def _sync_user_profile(db: Session, user_id: int, latest_weak_skills_json: str |
                 if item and item.strip()
             )
         )
+    )
+    db.execute(
+        text("UPDATE dbo.Users SET WeakSkillsJson = :weak_skills_json WHERE Id = :user_id"),
+        {"weak_skills_json": weak_skills_json, "user_id": user_id},
     )
     db.commit()
 
@@ -860,16 +1183,105 @@ def _build_mock_result_question(answer: SaveMockTestAttemptAnswerRequest) -> Att
     )
 
 
-def _build_saved_result_question(answer, question_lookup: dict[str, ToeicRunnerQuestionDto]) -> AttemptResultQuestionDto:
+def _load_runtime_explanations(db: Session, question_ids: list[int]) -> dict[int, dict]:
+    ids = sorted({int(value) for value in question_ids if value and int(value) > 0})
+    if not ids:
+        return {}
+    try:
+        table_exists = db.execute(text("SELECT OBJECT_ID(N'dbo.ToeicQuestionExplanations', N'U')")).scalar()
+        if not table_exists:
+            return {}
+        rows = db.execute(
+            text(
+                """
+                SELECT
+                    e.RuntimeQuestionId,
+                    e.ExplanationText,
+                    e.RawBlock,
+                    CAST(NULL AS NVARCHAR(MAX)) AS RawText
+                FROM dbo.ToeicQuestionExplanations e
+                WHERE e.RuntimeQuestionId IN (
+                    SELECT TRY_CAST(value AS INT)
+                    FROM STRING_SPLIT(:ids_csv, ',')
+                    WHERE TRY_CAST(value AS INT) IS NOT NULL
+                )
+                ORDER BY e.Id
+                """
+            ),
+            {"ids_csv": ",".join(str(value) for value in ids)},
+        ).mappings().all()
+    except Exception:
+        logger.info("Could not load runtime TOEIC explanations for attempt result.", exc_info=True)
+        return {}
+
+    result: dict[int, dict] = {}
+    for row in rows:
+        runtime_question_id = row.get("RuntimeQuestionId")
+        if runtime_question_id is None:
+            continue
+        result.setdefault(int(runtime_question_id), dict(row))
+    return result
+
+
+def _find_source_question(
+    answer,
+    question_lookup: dict[str, ToeicRunnerQuestionDto],
+) -> ToeicRunnerQuestionDto | None:
     part = answer.part or 0
-    source_question = question_lookup.get(build_question_lookup_key(part, answer.question_id)) if part > 0 else None
+    if part > 0:
+        direct = question_lookup.get(build_question_lookup_key(part, answer.question_id))
+        if direct is not None:
+            return direct
+    for candidate in question_lookup.values():
+        if candidate.id == answer.question_id or candidate.questionId == answer.question_id or candidate.sourceQuestionId == answer.question_id:
+            return candidate
+    return None
+
+
+def _build_saved_result_question(
+    answer,
+    question_lookup: dict[str, ToeicRunnerQuestionDto],
+    explanation_lookup: dict[int, dict] | None = None,
+) -> AttemptResultQuestionDto:
+    source_question = _find_source_question(answer, question_lookup)
+    if source_question is None:
+        logger.warning(
+            "Practice summary hydrate failed: runtime question not found attemptAnswerId=%s questionId=%s",
+            getattr(answer, "id", None),
+            answer.question_id,
+        )
+    part = answer.part or (source_question.part if source_question else 0)
     options = list(source_question.options) if source_question else []
+    option_rows = _build_attempt_option_rows(source_question)
+    raw_explanation = (explanation_lookup or {}).get(answer.question_id, {})
+    explanation_text = _first_non_empty(
+        raw_explanation.get("ExplanationText"),
+        source_question.explanation if source_question else None,
+        None if _is_placeholder_explanation(getattr(answer, "explanation", None)) else getattr(answer, "explanation", None),
+    )
+    raw_block = raw_explanation.get("RawBlock")
+    raw_text = raw_explanation.get("RawText")
 
     selected_answer_text = _resolve_answer_text(answer.selected_answer_index, None, options)
     correct_answer_text = _resolve_correct_answer_text(None, answer.correct_answer_index, None, options)
+    selected_option_key = _option_label(answer.selected_answer_index) if answer.selected_answer_index is not None else None
+    correct_option_key = _option_label(answer.correct_answer_index) if answer.correct_answer_index is not None else (
+        source_question.correctAnswer if source_question else None
+    )
+    selected_option_text = _option_text(answer.selected_answer_index, options)
+    correct_option_text = _option_text(answer.correct_answer_index, options)
+    passage = _build_attempt_passage(source_question)
+    audio_path = _asset_path(source_question.audio if source_question else None) or (passage.audioPath if passage else None)
+    image_path = (
+        _asset_path(source_question.image if source_question else None)
+        or _asset_path(source_question.graphic if source_question else None)
+        or (passage.imagePath if passage else None)
+    )
 
     return AttemptResultQuestionDto(
         questionId=answer.question_id,
+        runtimeQuestionId=source_question.id if source_question else None,
+        missingReason=None if source_question else f"Runtime question not found for questionId={answer.question_id}",
         questionNumber=answer.question_number or 0,
         test=source_question.test if source_question else 0,
         part=part,
@@ -880,23 +1292,112 @@ def _build_saved_result_question(answer, question_lookup: dict[str, ToeicRunnerQ
         skill=source_question.skill if source_question and source_question.skill else (answer.skill or "general"),
         subskill=source_question.subskill if source_question else None,
         question=source_question.question if source_question else f"Question {answer.question_number or answer.question_id}",
+        questionText=source_question.question if source_question else "",
         options=options,
+        optionRows=option_rows,
         userAnswer=selected_answer_text,
         userAnswerIndex=answer.selected_answer_index,
+        selectedOptionKey=selected_option_key,
+        selectedOptionText=selected_option_text,
         correctAnswer=correct_answer_text,
         correctAnswerIndex=answer.correct_answer_index,
+        correctOptionKey=correct_option_key,
+        correctOptionText=correct_option_text,
         isCorrect=answer.is_correct,
-        explanation=_build_explanation(
-            answer.explanation,
+        explanation=explanation_text or _build_explanation(
+            None,
             answer.selected_answer_index,
             answer.correct_answer_index,
             None,
             None,
             options,
         ),
-        audio=source_question.audio if source_question else None,
-        graphic=source_question.graphic if source_question else None,
-        image=source_question.image if source_question else None,
+        explanationText=explanation_text,
+        rawBlock=raw_block,
+        rawText=raw_text,
+        passage=passage,
+        audio=_build_attempt_asset(source_question.audio if source_question else None),
+        audioPath=audio_path,
+        graphic=_build_attempt_asset(source_question.graphic if source_question else None),
+        image=_build_attempt_asset(source_question.image if source_question else None),
+        imagePath=image_path,
+    )
+
+
+def _first_non_empty(*values: str | None) -> str | None:
+    for value in values:
+        if value and str(value).strip():
+            return str(value).strip()
+    return None
+
+
+def _is_placeholder_explanation(value: str | None) -> bool:
+    normalized = " ".join(str(value or "").strip().lower().split())
+    return normalized in {
+        "",
+        "no explanation is available for this question yet.",
+        "no explanation available.",
+    }
+
+
+def _asset_path(asset: AttemptAssetDto | None) -> str | None:
+    path = getattr(asset, "path", None)
+    return path if path and str(path).strip() else None
+
+
+def _build_attempt_asset(asset) -> AttemptAssetDto | None:
+    path = _asset_path(asset)
+    return AttemptAssetDto(path=path) if path else None
+
+
+def _option_text(index: int | None, options: list[str]) -> str | None:
+    if index is None or index < 0 or index >= len(options):
+        return None
+    return options[index]
+
+
+def _build_attempt_option_rows(source_question: ToeicRunnerQuestionDto | None) -> list[AttemptResultOptionDto]:
+    if source_question is None:
+        return []
+    correct_index = source_question.correctAnswerIndex
+    rows: list[AttemptResultOptionDto] = []
+    for index, option_text in enumerate(source_question.options):
+        key = _option_label(index)
+        text_value = str(option_text or "")
+        if not text_value.strip() or text_value.strip().upper() == key:
+            logger.warning(
+                "Practice summary hydrate warning: option text missing questionId=%s option=%s",
+                source_question.id,
+                key,
+            )
+        rows.append(
+            AttemptResultOptionDto(
+                key=key,
+                text=text_value,
+                isCorrect=correct_index == index,
+                sortOrder=index,
+            )
+        )
+    return rows
+
+
+def _build_attempt_passage(source_question: ToeicRunnerQuestionDto | None) -> AttemptResultPassageDto | None:
+    passage = source_question.passage if source_question else None
+    if passage is None:
+        return None
+    audio_path = _asset_path(passage.audio)
+    image_path = _asset_path(passage.image)
+    if not (passage.id or passage.groupCode or passage.title or passage.text or audio_path or image_path):
+        return None
+    return AttemptResultPassageDto(
+        id=passage.id,
+        groupCode=passage.groupCode,
+        title=passage.title,
+        text=passage.text,
+        audioPath=audio_path,
+        imagePath=image_path,
+        audio=_build_attempt_asset(passage.audio),
+        image=_build_attempt_asset(passage.image),
     )
 
 
@@ -1169,10 +1670,17 @@ def _parse_weak_skills(raw: str | None) -> list[str]:
 @dataclass
 class _ReviewSeed:
     questionId: int
+    questionNumber: int | None
     part: int | None
     skill: str | None
     sourceAttemptType: str
     sourceAttemptId: int
+    selectedOptionKey: str | None
+    correctOptionKey: str | None
+    isCorrect: bool | None
+    isSkipped: bool
+    reviewReason: str
+    lastAnsweredAtUtc: datetime | None
     note: str | None
 
 

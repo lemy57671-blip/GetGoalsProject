@@ -48,6 +48,16 @@ export type ToeicRunnerQuestion = {
   audioUrl?: string;
   imageUrl?: string;
   graphicUrl?: string;
+  passage?: {
+    id?: number | null;
+    groupCode?: string | null;
+    title?: string;
+    text?: string;
+    audioPath?: string;
+    imagePath?: string;
+    audioUrl?: string;
+    imageUrl?: string;
+  } | null;
   passageTitle?: string;
   passageText?: string;
   test: number;
@@ -56,6 +66,12 @@ export type ToeicRunnerQuestion = {
   correctAnswer?: string | null;
   correct: number;
   explanation: string;
+  explanationDetail?: string | null;
+  explanationText?: string | null;
+  rawExplanation?: string | null;
+  rawBlock?: string | null;
+  optionAnalysis?: string | null;
+  vocabularyNotes?: string | null;
   skill: string;
   subskill?: string | null;
   groupId?: string | null;
@@ -107,13 +123,36 @@ export type ToeicRunnerQuestionResponse = {
   correctAnswerIndex?: number | null;
   correctAnswer?: string | null;
   explanation?: string | null;
+  explanationDetail?: string | null;
+  explanationText?: string | null;
+  explanation_detail?: string | null;
+  explanation_text?: string | null;
+  rawExplanation?: string | null;
+  rawBlock?: string | null;
+  raw_explanation?: string | null;
+  raw_block?: string | null;
+  optionAnalysis?: string | null;
+  vocabularyNotes?: string | null;
+  option_analysis?: string | null;
+  vocabulary_notes?: string | null;
   image?: ToeicRunnerAssetResponse | null;
   graphic?: ToeicRunnerAssetResponse | null;
   audio?: ToeicRunnerAssetResponse | null;
   audioUrl?: string | null;
+  passageTitle?: string | null;
+  passageText?: string | null;
+  passage_title?: string | null;
+  passage_text?: string | null;
   passage?: {
+    id?: number | null;
+    groupCode?: string | null;
+    group_code?: string | null;
     title?: string;
     text?: string;
+    passageText?: string;
+    PassageText?: string;
+    audio?: ToeicRunnerAssetResponse | null;
+    image?: ToeicRunnerAssetResponse | null;
   } | null;
   test?: number;
   questionNumber?: number;
@@ -164,6 +203,37 @@ function toAssetUrl(path?: string | null) {
   return `${API_BASE_URL}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
+function firstNonEmpty(...values: Array<string | null | undefined>) {
+  return values.find((value) => typeof value === "string" && value.trim().length > 0);
+}
+
+function normalizeRunnerPassage(
+  passage?: ToeicRunnerQuestionResponse["passage"],
+  fallbackTitle?: string | null,
+  fallbackText?: string | null,
+) {
+  const text = firstNonEmpty(passage?.text, passage?.passageText, passage?.PassageText, fallbackText) || "";
+  const title = firstNonEmpty(passage?.title, fallbackTitle) || "";
+  const audioPath = passage?.audio?.path;
+  const imagePath = passage?.image?.path;
+  const groupCode = passage?.groupCode || passage?.group_code || null;
+
+  if (!text && !title && !audioPath && !imagePath && !groupCode) {
+    return null;
+  }
+
+  return {
+    id: passage?.id,
+    groupCode,
+    title,
+    text,
+    audioPath,
+    imagePath,
+    audioUrl: toAssetUrl(audioPath),
+    imageUrl: toAssetUrl(imagePath),
+  };
+}
+
 function parseQuestionCount(sampleQuestionRange?: string) {
   if (!sampleQuestionRange) return 0;
 
@@ -197,9 +267,14 @@ function mapSummaryPart(part: NonNullable<ToeicSummaryResponse["parts"]>[number]
 export function mapToeicRunnerQuestion(question: ToeicRunnerQuestionResponse): ToeicRunnerQuestion {
   const partNumber = question.part || 1;
   const section = partNumber <= 4 ? "Listening" : "Reading";
-  const imageUrl = toAssetUrl(question.image?.path);
+  const passage = normalizeRunnerPassage(
+    question.passage,
+    question.passageTitle || question.passage_title,
+    question.passageText || question.passage_text,
+  );
+  const imageUrl = toAssetUrl(question.image?.path || passage?.imagePath);
   const graphicUrl = toAssetUrl(question.graphic?.path);
-  const audioUrl = toAssetUrl(question.audio?.path || question.audioUrl);
+  const audioUrl = toAssetUrl(question.audio?.path || question.audioUrl || passage?.audioPath);
 
   return {
     id: question.id,
@@ -221,17 +296,30 @@ export function mapToeicRunnerQuestion(question: ToeicRunnerQuestionResponse): T
     audioUrl,
     imageUrl,
     graphicUrl,
-    passageTitle: question.passage?.title,
-    passageText: question.passage?.text,
+    passage,
+    passageTitle: passage?.title,
+    passageText: passage?.text,
     test: question.test || 0,
     questionNumber: question.questionNumber || 0,
     options: question.options || [],
     correctAnswer: question.correctAnswer,
     correct: typeof question.correctAnswerIndex === "number" ? question.correctAnswerIndex : -1,
     explanation: question.explanation || "No explanation is available for this question yet.",
+    explanationDetail:
+      question.explanationDetail ||
+      question.explanation_detail ||
+      question.explanationText ||
+      question.explanation_text ||
+      question.explanation ||
+      null,
+    explanationText: question.explanationText || question.explanation_text || null,
+    rawExplanation: question.rawExplanation || question.raw_explanation || null,
+    rawBlock: question.rawBlock || question.raw_block || null,
+    optionAnalysis: question.optionAnalysis || question.option_analysis || null,
+    vocabularyNotes: question.vocabularyNotes || question.vocabulary_notes || null,
     skill: question.skill || question.subskill || "TOEIC practice",
     subskill: question.subskill,
-    groupId: question.groupId,
+    groupId: question.groupId || passage?.groupCode,
   };
 }
 

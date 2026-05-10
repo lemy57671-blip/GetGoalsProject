@@ -32,6 +32,7 @@ class DiagnosticQuestionsResponse(BaseModel):
 
 class DiagnosticSubmitRequest(BaseModel):
     answers: dict[str, int] = Field(default_factory=dict)
+    current_score: int | None = None
     target_score: int = 750
     weeks: int = 8
     minutes_per_day: int = 30

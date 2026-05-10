@@ -27,6 +27,18 @@ def get_summary(db: Session = Depends(get_db)):
     return summary
 
 
+@router.get("/api/toeic/debug/practice-runtime-counts")
+@router.get("/api/Toeic/debug/practice-runtime-counts")
+def get_practice_runtime_counts(db: Session = Depends(get_db)):
+    return toeic_service.get_practice_runtime_counts(db)
+
+
+@router.get("/api/toeic/debug/raw-explanation-counts")
+@router.get("/api/Toeic/debug/raw-explanation-counts")
+def get_raw_explanation_counts(db: Session = Depends(get_db)):
+    return toeic_service.get_raw_explanation_counts(db)
+
+
 @router.get("/api/toeic/recommendations")
 @router.get("/api/Toeic/recommendations")
 def get_recommendations(

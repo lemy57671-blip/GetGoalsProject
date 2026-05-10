@@ -5,10 +5,18 @@ from dataclasses import dataclass
 from hashlib import sha256
 from typing import Any, Iterable
 
-from sqlalchemy import func, select, text
+from sqlalchemy import case, func, select, text
 from sqlalchemy.orm import Session, joinedload, selectinload
 
-from app.models import ReviewQueueItem, ToeicPassage, ToeicQuestion, ToeicQuestionAsset, ToeicSet, User
+from app.models import (
+    ReviewQueueItem,
+    ToeicPracticePassage,
+    ToeicPracticeQuestion,
+    ToeicPracticeQuestionAsset,
+    ToeicPracticeQuestionOption,
+    ToeicPracticeSet,
+    User,
+)
 from app.schemas.roadmap import RoadmapSuggestedSetCriteriaDto
 from app.schemas.toeic import (
     ToeicBundleSummaryDto,
@@ -27,7 +35,7 @@ from app.services.skill_analytics import normalize_skill_code, normalize_subskil
 from app.utils.json_helpers import parse_string_list
 
 
-SQL_SUMMARY_PATH = "sql://ToeicSets"
+SQL_SUMMARY_PATH = "sql://ToeicPracticeSets"
 LISTENING_SIGNALS = ("listening", "part1", "part2", "part3", "part4", "photograph", "question-response", "conversation", "talk")
 READING_SIGNALS = ("reading", "grammar", "vocab", "part5", "part6", "part7", "text completion", "reading comprehension")
 FULL_TEST_BLUEPRINT: dict[int, int] = {
@@ -45,11 +53,12 @@ FULL_TEST_GROUP_SIZES: dict[int, int] = {
     6: 4,
 }
 FULL_TEST_TOTAL_QUESTIONS = sum(FULL_TEST_BLUEPRINT.values())
-# SQL Server data check:
-# SELECT PartNumber AS Part, COUNT(*) AS Total
-# FROM dbo.ToeicDocxQuestions
-# GROUP BY PartNumber
-# ORDER BY PartNumber;
+# Runtime practice data check:
+# SELECT s.Type, s.TestNumber, q.Part, COUNT(*) AS Total
+# FROM dbo.ToeicPracticeQuestions q
+# INNER JOIN dbo.ToeicPracticeSets s ON s.Id = q.SetId
+# GROUP BY s.Type, s.TestNumber, q.Part
+# ORDER BY s.Type, s.TestNumber, q.Part;
 
 
 class FullToeicTestAvailabilityError(Exception):
@@ -79,41 +88,41 @@ class FullToeicTestAvailabilityError(Exception):
 
 
 def get_import_status(db: Session) -> ToeicImportStatusDto:
-    ready = db.scalar(select(ToeicSet.id).where(ToeicSet.is_active).limit(1)) is not None
+    ready = db.scalar(select(ToeicPracticeSet.id).where(ToeicPracticeSet.is_active).limit(1)) is not None
     return ToeicImportStatusDto(
         ready=ready,
         mode="sql-server",
         summaryPath=SQL_SUMMARY_PATH,
-        message="TOEIC question bank is loaded from SQL Server." if ready else "TOEIC question bank has not been imported into SQL Server yet.",
-        nextStep="Use /api/toeic/summary and runner endpoints backed by SQL Server." if ready else "Run the TOEIC question bank importer before using runner endpoints.",
+        message="TOEIC practice runtime question bank is loaded from SQL Server." if ready else "TOEIC practice runtime question bank has not been imported into SQL Server yet.",
+        nextStep="Use /api/toeic/summary and runner endpoints backed by ToeicPractice tables." if ready else "Run the TOEIC practice runtime importer before using runner endpoints.",
     )
 
 
 def get_bundle_summary(db: Session) -> ToeicBundleSummaryDto | None:
     question_rows = db.execute(
-        select(ToeicQuestion.part, ToeicQuestion.test_number, ToeicQuestion.question_number)
-        .join(ToeicSet, ToeicSet.id == ToeicQuestion.set_id)
-        .where(ToeicQuestion.is_active, ToeicSet.is_active)
+        select(ToeicPracticeQuestion.part, ToeicPracticeQuestion.test_number, ToeicPracticeQuestion.question_number)
+        .join(ToeicPracticeSet, ToeicPracticeSet.id == ToeicPracticeQuestion.set_id)
+        .where(ToeicPracticeQuestion.is_active, ToeicPracticeSet.is_active, ToeicPracticeSet.type == "practice")
     ).all()
     if not question_rows:
         return None
 
     passage_count = db.scalar(
         select(func.count())
-        .select_from(ToeicPassage)
-        .join(ToeicSet, ToeicSet.id == ToeicPassage.set_id)
-        .where(ToeicSet.is_active)
+        .select_from(ToeicPracticePassage)
+        .join(ToeicPracticeSet, ToeicPracticeSet.id == ToeicPracticePassage.set_id)
+        .where(ToeicPracticeSet.is_active, ToeicPracticeSet.type == "practice")
     ) or 0
     question_audio = db.execute(
-        select(ToeicQuestion.part, ToeicQuestionAsset.relative_path)
-        .join(ToeicQuestion, ToeicQuestion.id == ToeicQuestionAsset.question_id)
-        .join(ToeicSet, ToeicSet.id == ToeicQuestion.set_id)
-        .where(ToeicQuestionAsset.asset_type == "audio", ToeicQuestion.is_active, ToeicSet.is_active)
+        select(ToeicPracticeQuestion.part, ToeicPracticeQuestionAsset.relative_path)
+        .join(ToeicPracticeQuestion, ToeicPracticeQuestion.id == ToeicPracticeQuestionAsset.question_id)
+        .join(ToeicPracticeSet, ToeicPracticeSet.id == ToeicPracticeQuestion.set_id)
+        .where(ToeicPracticeQuestionAsset.asset_type == "audio", ToeicPracticeQuestion.is_active, ToeicPracticeSet.is_active, ToeicPracticeSet.type == "practice")
     ).all()
     passage_audio = db.execute(
-        select(ToeicPassage.part, ToeicPassage.audio_path)
-        .join(ToeicSet, ToeicSet.id == ToeicPassage.set_id)
-        .where(ToeicSet.is_active, ToeicPassage.audio_path.is_not(None))
+        select(ToeicPracticePassage.part, ToeicPracticePassage.audio_path)
+        .join(ToeicPracticeSet, ToeicPracticeSet.id == ToeicPracticePassage.set_id)
+        .where(ToeicPracticeSet.is_active, ToeicPracticeSet.type == "practice", ToeicPracticePassage.audio_path.is_not(None))
     ).all()
 
     audio_rows: dict[str, int] = {}
@@ -124,7 +133,7 @@ def get_bundle_summary(db: Session) -> ToeicBundleSummaryDto | None:
     detected_parts = sorted({row.part for row in question_rows})
     summary = ToeicBundleSummaryDto(
         sourceFiles=ToeicSourceFilesDto(
-            docx="Imported from TOEIC manifests",
+            docx="Imported into ToeicPractice runtime tables",
             audioZip="Static assets preserved in FastAPI runtime static storage",
             mappingCsv="Not required at runtime after SQL import",
         ),
@@ -135,7 +144,8 @@ def get_bundle_summary(db: Session) -> ToeicBundleSummaryDto | None:
             detectedParts=detected_parts,
         ),
         notes=[
-            "Question content is served from SQL Server.",
+            "Practice and test runner question content is served from dbo.ToeicPractice* tables.",
+            "dbo.ToeicQuestions remains reserved for diagnostic/placement content.",
             "Static audio and image assets are served from the FastAPI runtime-owned static roots.",
             "Roadmap rules JSON remains configuration, not question content.",
         ],
@@ -143,6 +153,7 @@ def get_bundle_summary(db: Session) -> ToeicBundleSummaryDto | None:
 
     for part in detected_parts:
         rows = [row for row in question_rows if row.part == part]
+        question_numbers = [row.question_number for row in rows if row.question_number is not None]
         summary.parts.append(
             ToeicPartInventoryDto(
                 part=part,
@@ -151,12 +162,361 @@ def get_bundle_summary(db: Session) -> ToeicBundleSummaryDto | None:
                 count=len(rows),
                 audioCount=sum(1 for value in audio_rows.values() if value == part),
                 testsAvailable=sorted({row.test_number for row in rows if row.test_number and row.test_number > 0}),
-                sampleQuestionRange="" if not rows else f"{min(row.question_number for row in rows)}-{max(row.question_number for row in rows)}",
+                sampleQuestionRange="" if not question_numbers else f"{min(question_numbers)}-{max(question_numbers)}",
                 audioReady=any(value == part for value in audio_rows.values()),
             )
         )
 
     return summary
+
+
+def get_practice_runtime_counts(db: Session) -> dict[str, Any]:
+    set_count = db.scalar(select(func.count()).select_from(ToeicPracticeSet)) or 0
+    question_count = db.scalar(select(func.count()).select_from(ToeicPracticeQuestion)) or 0
+    option_count = db.scalar(select(func.count()).select_from(ToeicPracticeQuestionOption)) or 0
+    passage_count = db.scalar(select(func.count()).select_from(ToeicPracticePassage)) or 0
+    asset_count = db.scalar(select(func.count()).select_from(ToeicPracticeQuestionAsset)) or 0
+    set_rows = db.execute(
+        select(
+            ToeicPracticeSet.id,
+            ToeicPracticeSet.code,
+            ToeicPracticeSet.title,
+            ToeicPracticeSet.type,
+            ToeicPracticeSet.test_number,
+            ToeicPracticeSet.part,
+            ToeicPracticeSet.is_active,
+            func.count(ToeicPracticeQuestion.id),
+        )
+        .select_from(ToeicPracticeSet)
+        .outerjoin(ToeicPracticeQuestion, ToeicPracticeQuestion.set_id == ToeicPracticeSet.id)
+        .group_by(
+            ToeicPracticeSet.id,
+            ToeicPracticeSet.code,
+            ToeicPracticeSet.title,
+            ToeicPracticeSet.type,
+            ToeicPracticeSet.test_number,
+            ToeicPracticeSet.part,
+            ToeicPracticeSet.is_active,
+        )
+        .order_by(ToeicPracticeSet.type, ToeicPracticeSet.test_number, ToeicPracticeSet.part, ToeicPracticeSet.id)
+    ).all()
+    sets = [
+        {
+            "id": int(row[0] or 0),
+            "code": row[1],
+            "title": row[2],
+            "type": row[3],
+            "testNumber": row[4],
+            "part": row[5],
+            "isActive": bool(row[6]),
+            "questionCount": int(row[7] or 0),
+        }
+        for row in set_rows
+    ]
+    part67_with_passage_id = db.scalar(
+        select(func.count())
+        .select_from(ToeicPracticeQuestion)
+        .where(
+            ToeicPracticeQuestion.part.in_([6, 7]),
+            ToeicPracticeQuestion.passage_id.is_not(None),
+        )
+    ) or 0
+    part67_joined_with_valid_passage = db.scalar(
+        select(func.count())
+        .select_from(ToeicPracticeQuestion)
+        .join(ToeicPracticePassage, ToeicPracticePassage.id == ToeicPracticeQuestion.passage_id)
+        .where(ToeicPracticeQuestion.part.in_([6, 7]))
+    ) or 0
+
+    group_rows = db.execute(
+        select(
+            ToeicPracticeSet.type,
+            ToeicPracticeSet.test_number,
+            ToeicPracticeQuestion.part,
+            func.count(ToeicPracticeQuestion.id),
+            func.sum(case((ToeicPracticeQuestion.passage_id.is_not(None), 1), else_=0)),
+            func.sum(case((ToeicPracticePassage.id.is_not(None), 1), else_=0)),
+        )
+        .select_from(ToeicPracticeQuestion)
+        .join(ToeicPracticeSet, ToeicPracticeSet.id == ToeicPracticeQuestion.set_id)
+        .outerjoin(ToeicPracticePassage, ToeicPracticePassage.id == ToeicPracticeQuestion.passage_id)
+        .group_by(ToeicPracticeSet.type, ToeicPracticeSet.test_number, ToeicPracticeQuestion.part)
+        .order_by(ToeicPracticeSet.type, ToeicPracticeSet.test_number, ToeicPracticeQuestion.part)
+    ).all()
+
+    groups = [
+        {
+            "type": row[0],
+            "testNumber": row[1],
+            "part": row[2],
+            "questionCount": int(row[3] or 0),
+            "withPassageId": int(row[4] or 0),
+            "joinedWithValidPassage": int(row[5] or 0),
+        }
+        for row in group_rows
+    ]
+
+    passage_count_rows = db.execute(
+        select(
+            ToeicPracticeSet.type,
+            ToeicPracticeSet.test_number,
+            ToeicPracticePassage.part,
+            func.count(ToeicPracticePassage.id),
+            func.sum(case((ToeicPracticePassage.audio_path.is_not(None), 1), else_=0)),
+            func.sum(case((ToeicPracticePassage.image_path.is_not(None), 1), else_=0)),
+        )
+        .select_from(ToeicPracticePassage)
+        .join(ToeicPracticeSet, ToeicPracticeSet.id == ToeicPracticePassage.set_id)
+        .group_by(ToeicPracticeSet.type, ToeicPracticeSet.test_number, ToeicPracticePassage.part)
+        .order_by(ToeicPracticeSet.type, ToeicPracticeSet.test_number, ToeicPracticePassage.part)
+    ).all()
+    passage_counts_by_type_part = [
+        {
+            "type": row[0],
+            "testNumber": row[1],
+            "part": row[2],
+            "passageCount": int(row[3] or 0),
+            "withAudioPath": int(row[4] or 0),
+            "withImagePath": int(row[5] or 0),
+        }
+        for row in passage_count_rows
+    ]
+
+    asset_totals: dict[tuple[str | None, int | None, int | None, str], int] = {}
+    question_asset_rows = db.execute(
+        select(
+            ToeicPracticeSet.type,
+            ToeicPracticeSet.test_number,
+            ToeicPracticeQuestion.part,
+            ToeicPracticeQuestionAsset.asset_type,
+            func.count(ToeicPracticeQuestionAsset.id),
+        )
+        .select_from(ToeicPracticeQuestionAsset)
+        .join(ToeicPracticeQuestion, ToeicPracticeQuestion.id == ToeicPracticeQuestionAsset.question_id)
+        .join(ToeicPracticeSet, ToeicPracticeSet.id == ToeicPracticeQuestion.set_id)
+        .group_by(ToeicPracticeSet.type, ToeicPracticeSet.test_number, ToeicPracticeQuestion.part, ToeicPracticeQuestionAsset.asset_type)
+    ).all()
+    passage_asset_rows = db.execute(
+        select(
+            ToeicPracticeSet.type,
+            ToeicPracticeSet.test_number,
+            ToeicPracticePassage.part,
+            ToeicPracticeQuestionAsset.asset_type,
+            func.count(ToeicPracticeQuestionAsset.id),
+        )
+        .select_from(ToeicPracticeQuestionAsset)
+        .join(ToeicPracticePassage, ToeicPracticePassage.id == ToeicPracticeQuestionAsset.passage_id)
+        .join(ToeicPracticeSet, ToeicPracticeSet.id == ToeicPracticePassage.set_id)
+        .group_by(ToeicPracticeSet.type, ToeicPracticeSet.test_number, ToeicPracticePassage.part, ToeicPracticeQuestionAsset.asset_type)
+    ).all()
+    for row in list(question_asset_rows) + list(passage_asset_rows):
+        key = (row[0], row[1], row[2], str(row[3] or "").lower())
+        asset_totals[key] = asset_totals.get(key, 0) + int(row[4] or 0)
+    asset_counts_by_type_part = [
+        {
+            "type": key[0],
+            "testNumber": key[1],
+            "part": key[2],
+            "assetType": key[3],
+            "assetCount": value,
+        }
+        for key, value in sorted(asset_totals.items(), key=lambda item: (str(item[0][0]), item[0][1] or 0, item[0][2] or 0, item[0][3]))
+    ]
+
+    passage_coverage_rows = db.execute(
+        select(
+            ToeicPracticeQuestion.part,
+            func.count(ToeicPracticeQuestion.id),
+            func.sum(case((ToeicPracticeQuestion.passage_id.is_not(None), 1), else_=0)),
+            func.sum(case((ToeicPracticePassage.id.is_not(None), 1), else_=0)),
+        )
+        .select_from(ToeicPracticeQuestion)
+        .outerjoin(ToeicPracticePassage, ToeicPracticePassage.id == ToeicPracticeQuestion.passage_id)
+        .where(ToeicPracticeQuestion.part.in_([6, 7]))
+        .group_by(ToeicPracticeQuestion.part)
+        .order_by(ToeicPracticeQuestion.part)
+    ).all()
+    part67_passage_coverage = [
+        {
+            "part": int(row[0] or 0),
+            "questionCount": int(row[1] or 0),
+            "withPassageId": int(row[2] or 0),
+            "joinedWithValidPassage": int(row[3] or 0),
+        }
+        for row in passage_coverage_rows
+    ]
+    asset_summary = db.execute(
+        text(
+            """
+            SELECT
+                COUNT(DISTINCT q.Id) AS total_questions,
+                COUNT(DISTINCT CASE WHEN LOWER(COALESCE(qa.AssetType, N'')) = N'audio' THEN q.Id END) AS questions_with_audio_asset,
+                COUNT(DISTINCT CASE WHEN LOWER(COALESCE(qa.AssetType, N'')) IN (N'image', N'graphic') THEN q.Id END) AS questions_with_image_asset,
+                COUNT(DISTINCT CASE WHEN q.PassageId IS NOT NULL THEN q.Id END) AS questions_with_passage,
+                COUNT(DISTINCT CASE WHEN NULLIF(LTRIM(RTRIM(COALESCE(p.PassageText, N''))), N'') IS NOT NULL THEN p.Id END) AS passages_with_text,
+                COUNT(DISTINCT CASE WHEN NULLIF(LTRIM(RTRIM(COALESCE(p.AudioPath, N''))), N'') IS NOT NULL
+                                      OR LOWER(COALESCE(pa.AssetType, N'')) = N'audio'
+                                    THEN p.Id END) AS passages_with_audio,
+                COUNT(DISTINCT CASE WHEN NULLIF(LTRIM(RTRIM(COALESCE(p.ImagePath, N''))), N'') IS NOT NULL
+                                      OR LOWER(COALESCE(pa.AssetType, N'')) IN (N'image', N'graphic')
+                                    THEN p.Id END) AS passages_with_image,
+                COUNT(DISTINCT CASE WHEN s.Type = N'fulltest'
+                                      AND (LOWER(COALESCE(qa.AssetType, N'')) = N'audio'
+                                           OR NULLIF(LTRIM(RTRIM(COALESCE(p.AudioPath, N''))), N'') IS NOT NULL
+                                           OR LOWER(COALESCE(pa.AssetType, N'')) = N'audio')
+                                    THEN q.Id END) AS fulltest_questions_with_audio,
+                COUNT(DISTINCT CASE WHEN s.Type = N'fulltest'
+                                      AND (LOWER(COALESCE(qa.AssetType, N'')) IN (N'image', N'graphic')
+                                           OR NULLIF(LTRIM(RTRIM(COALESCE(p.ImagePath, N''))), N'') IS NOT NULL
+                                           OR LOWER(COALESCE(pa.AssetType, N'')) IN (N'image', N'graphic'))
+                                    THEN q.Id END) AS fulltest_questions_with_image,
+                COUNT(DISTINCT CASE WHEN s.Type = N'minitest'
+                                      AND (LOWER(COALESCE(qa.AssetType, N'')) = N'audio'
+                                           OR NULLIF(LTRIM(RTRIM(COALESCE(p.AudioPath, N''))), N'') IS NOT NULL
+                                           OR LOWER(COALESCE(pa.AssetType, N'')) = N'audio')
+                                    THEN q.Id END) AS minitest_questions_with_audio,
+                COUNT(DISTINCT CASE WHEN s.Type = N'minitest'
+                                      AND (LOWER(COALESCE(qa.AssetType, N'')) IN (N'image', N'graphic')
+                                           OR NULLIF(LTRIM(RTRIM(COALESCE(p.ImagePath, N''))), N'') IS NOT NULL
+                                           OR LOWER(COALESCE(pa.AssetType, N'')) IN (N'image', N'graphic'))
+                                    THEN q.Id END) AS minitest_questions_with_image
+            FROM dbo.ToeicPracticeQuestions q
+            INNER JOIN dbo.ToeicPracticeSets s ON s.Id = q.SetId
+            LEFT JOIN dbo.ToeicPracticePassages p ON p.Id = q.PassageId
+            LEFT JOIN dbo.ToeicPracticeQuestionAssets qa ON qa.QuestionId = q.Id
+            LEFT JOIN dbo.ToeicPracticeQuestionAssets pa ON pa.PassageId = p.Id
+            """
+        )
+    ).mappings().first()
+
+    return {
+        "toeicPracticeSets": int(set_count),
+        "toeicPracticeQuestions": int(question_count),
+        "toeicPracticeQuestionOptions": int(option_count),
+        "toeicPracticePassages": int(passage_count),
+        "toeicPracticeQuestionAssets": int(asset_count),
+        "part67QuestionsWithPassageId": int(part67_with_passage_id),
+        "part67QuestionsJoinedWithValidPassage": int(part67_joined_with_valid_passage),
+        "part67PassageCoverage": part67_passage_coverage,
+        "sets": sets,
+        "questionCountsBySet": [
+            {
+                "setId": row["id"],
+                "code": row["code"],
+                "type": row["type"],
+                "testNumber": row["testNumber"],
+                "part": row["part"],
+                "questionCount": row["questionCount"],
+            }
+            for row in sets
+        ],
+        "questionCountsByTypePart": groups,
+        "passageCountsByTypePart": passage_counts_by_type_part,
+        "assetCountsByTypePart": asset_counts_by_type_part,
+        "total_questions": int(asset_summary.get("total_questions") or 0) if asset_summary else 0,
+        "questions_with_audio_asset": int(asset_summary.get("questions_with_audio_asset") or 0) if asset_summary else 0,
+        "questions_with_image_asset": int(asset_summary.get("questions_with_image_asset") or 0) if asset_summary else 0,
+        "questions_with_passage": int(asset_summary.get("questions_with_passage") or 0) if asset_summary else 0,
+        "passages_with_text": int(asset_summary.get("passages_with_text") or 0) if asset_summary else 0,
+        "passages_with_audio": int(asset_summary.get("passages_with_audio") or 0) if asset_summary else 0,
+        "passages_with_image": int(asset_summary.get("passages_with_image") or 0) if asset_summary else 0,
+        "fulltest_questions_with_audio": int(asset_summary.get("fulltest_questions_with_audio") or 0) if asset_summary else 0,
+        "fulltest_questions_with_image": int(asset_summary.get("fulltest_questions_with_image") or 0) if asset_summary else 0,
+        "minitest_questions_with_audio": int(asset_summary.get("minitest_questions_with_audio") or 0) if asset_summary else 0,
+        "minitest_questions_with_image": int(asset_summary.get("minitest_questions_with_image") or 0) if asset_summary else 0,
+        "groups": groups,
+    }
+
+
+def get_raw_explanation_counts(db: Session) -> dict[str, Any]:
+    try:
+        document_rows = db.execute(
+            text(
+                """
+                SELECT d.Id,
+                       d.SourceFile,
+                       d.TestType,
+                       d.TestNumber,
+                       d.Title,
+                       COUNT(e.Id) AS ExplanationCount
+                FROM dbo.ToeicRawDocuments d
+                LEFT JOIN dbo.ToeicQuestionExplanations e ON e.RawDocumentId = d.Id
+                GROUP BY d.Id, d.SourceFile, d.TestType, d.TestNumber, d.Title
+                ORDER BY d.TestType, d.TestNumber, d.Id
+                """
+            )
+        ).mappings().all()
+    except Exception as exc:
+        return {
+            "ready": False,
+            "message": f"Toeic raw explanation tables are not available yet: {exc}",
+            "documents": [],
+            "countsByTestType": [],
+            "countsByPart": [],
+            "mappedRuntimeQuestionCount": 0,
+            "unmappedRuntimeQuestionCount": 0,
+        }
+
+    counts_by_test_type = db.execute(
+        text(
+            """
+            SELECT TestType, TestNumber, COUNT(*) AS ExplanationCount
+            FROM dbo.ToeicQuestionExplanations
+            GROUP BY TestType, TestNumber
+            ORDER BY TestType, TestNumber
+            """
+        )
+    ).mappings().all()
+    counts_by_part = db.execute(
+        text(
+            """
+            SELECT TestType, TestNumber, Part, COUNT(*) AS QuestionCount
+            FROM dbo.ToeicQuestionExplanations
+            GROUP BY TestType, TestNumber, Part
+            ORDER BY TestType, TestNumber, Part
+            """
+        )
+    ).mappings().all()
+    mapped_count = db.scalar(
+        text("SELECT COUNT(*) FROM dbo.ToeicQuestionExplanations WHERE RuntimeQuestionId IS NOT NULL")
+    ) or 0
+    unmapped_count = db.scalar(
+        text("SELECT COUNT(*) FROM dbo.ToeicQuestionExplanations WHERE RuntimeQuestionId IS NULL")
+    ) or 0
+
+    return {
+        "ready": True,
+        "documents": [
+            {
+                "id": row.get("Id"),
+                "sourceFile": row.get("SourceFile"),
+                "testType": row.get("TestType"),
+                "testNumber": row.get("TestNumber"),
+                "title": row.get("Title"),
+                "explanationCount": int(row.get("ExplanationCount") or 0),
+            }
+            for row in document_rows
+        ],
+        "countsByTestType": [
+            {
+                "testType": row.get("TestType"),
+                "testNumber": row.get("TestNumber"),
+                "explanationCount": int(row.get("ExplanationCount") or 0),
+            }
+            for row in counts_by_test_type
+        ],
+        "countsByPart": [
+            {
+                "testType": row.get("TestType"),
+                "testNumber": row.get("TestNumber"),
+                "part": row.get("Part"),
+                "questionCount": int(row.get("QuestionCount") or 0),
+            }
+            for row in counts_by_part
+        ],
+        "mappedRuntimeQuestionCount": int(mapped_count),
+        "unmappedRuntimeQuestionCount": int(unmapped_count),
+    }
 
 
 def build_recommendations(db: Session, user_id: int) -> ToeicRecommendationDto:
@@ -328,16 +688,16 @@ def get_question_lookup_by_ids(db: Session, question_ids: Iterable[int]) -> dict
         return {}
 
     rows = db.scalars(
-        select(ToeicQuestion)
-        .join(ToeicSet, ToeicSet.id == ToeicQuestion.set_id)
+        select(ToeicPracticeQuestion)
+        .join(ToeicPracticeSet, ToeicPracticeSet.id == ToeicPracticeQuestion.set_id)
         .options(
-            joinedload(ToeicQuestion.set),
-            joinedload(ToeicQuestion.passage).selectinload(ToeicPassage.assets),
-            selectinload(ToeicQuestion.options),
-            selectinload(ToeicQuestion.assets),
+            joinedload(ToeicPracticeQuestion.set),
+            joinedload(ToeicPracticeQuestion.passage).selectinload(ToeicPracticePassage.assets),
+            selectinload(ToeicPracticeQuestion.options),
+            selectinload(ToeicPracticeQuestion.assets),
         )
-        .where(ToeicQuestion.is_active, ToeicSet.is_active, ToeicQuestion.id.in_(ids))
-        .order_by(ToeicQuestion.part, ToeicQuestion.test_number, ToeicQuestion.question_number, ToeicQuestion.sort_order)
+        .where(ToeicPracticeQuestion.is_active, ToeicPracticeSet.is_active, ToeicPracticeQuestion.id.in_(ids))
+        .order_by(ToeicPracticeQuestion.part, ToeicPracticeQuestion.test_number, ToeicPracticeQuestion.question_number, ToeicPracticeQuestion.sort_order)
     ).all()
 
     return {
@@ -359,36 +719,28 @@ def get_runner_questions_by_ids(db: Session, question_ids: Iterable[int]) -> lis
     if not ids:
         return []
 
-    docx_questions = _load_docx_runner_questions_by_ids(db, ids)
-    mapped_docx = {question.id: question for question in docx_questions}
-    missing_ids = [question_id for question_id in ids if question_id not in mapped_docx]
-
-    if not missing_ids:
-        return [mapped_docx[question_id] for question_id in ids if question_id in mapped_docx]
-
     rows = db.scalars(
-        select(ToeicQuestion)
-        .join(ToeicSet, ToeicSet.id == ToeicQuestion.set_id)
+        select(ToeicPracticeQuestion)
+        .join(ToeicPracticeSet, ToeicPracticeSet.id == ToeicPracticeQuestion.set_id)
         .options(
-            joinedload(ToeicQuestion.set),
-            joinedload(ToeicQuestion.passage).selectinload(ToeicPassage.assets),
-            selectinload(ToeicQuestion.options),
-            selectinload(ToeicQuestion.assets),
+            joinedload(ToeicPracticeQuestion.set),
+            joinedload(ToeicPracticeQuestion.passage).selectinload(ToeicPracticePassage.assets),
+            selectinload(ToeicPracticeQuestion.options),
+            selectinload(ToeicPracticeQuestion.assets),
         )
-        .where(ToeicQuestion.is_active, ToeicSet.is_active, ToeicQuestion.id.in_(missing_ids))
+        .where(ToeicPracticeQuestion.is_active, ToeicPracticeSet.is_active, ToeicPracticeQuestion.id.in_(ids))
     ).all()
 
     mapped = {row.id: _map_to_runner_question(row) for row in rows}
-    return [mapped_docx.get(question_id) or mapped[question_id] for question_id in ids if question_id in mapped_docx or question_id in mapped]
+    return [mapped[question_id] for question_id in ids if question_id in mapped]
 
 
 def _build_full_test_questions(db: Session, test: int = 1) -> list[ToeicRunnerQuestionDto]:
-    rows = _load_docx_rows_for_full_test(db, test)
-    rows_by_part: dict[int, list[dict[str, Any]]] = {part: [] for part in FULL_TEST_BLUEPRINT}
+    rows = _load_runner_questions(db, "fulltest", test, None)
+    rows_by_part: dict[int, list[ToeicRunnerQuestionDto]] = {part: [] for part in FULL_TEST_BLUEPRINT}
     for row in rows:
-        part = _to_int(row.get("PartNumber"))
-        if part in rows_by_part:
-            rows_by_part[part].append(row)
+        if row.part in rows_by_part:
+            rows_by_part[row.part].append(row)
 
     available = {part: len(rows_by_part.get(part, [])) for part in FULL_TEST_BLUEPRINT}
     missing_by_count = {
@@ -399,13 +751,13 @@ def _build_full_test_questions(db: Session, test: int = 1) -> list[ToeicRunnerQu
     if missing_by_count:
         raise FullToeicTestAvailabilityError(FULL_TEST_BLUEPRINT, available)
 
-    selected: list[dict[str, Any]] = []
+    selected: list[ToeicRunnerQuestionDto] = []
     selected_counts: dict[int, int] = {}
     for part, required in FULL_TEST_BLUEPRINT.items():
-        part_rows = sorted(rows_by_part.get(part, []), key=_docx_sort_key)
+        part_rows = sorted(rows_by_part.get(part, []), key=lambda item: (item.questionNumber, item.id))
         group_size = FULL_TEST_GROUP_SIZES.get(part)
         if group_size:
-            part_selection = _select_docx_grouped_rows(part_rows, required, group_size)
+            part_selection = _select_grouped_runner_questions(part_rows, required, group_size)
         else:
             part_selection = part_rows[:required]
         selected_counts[part] = len(part_selection)
@@ -414,7 +766,30 @@ def _build_full_test_questions(db: Session, test: int = 1) -> list[ToeicRunnerQu
     if len(selected) != FULL_TEST_TOTAL_QUESTIONS or any(selected_counts.get(part, 0) < required for part, required in FULL_TEST_BLUEPRINT.items()):
         raise FullToeicTestAvailabilityError(FULL_TEST_BLUEPRINT, available, selected_counts)
 
-    return _map_docx_rows_to_runner_questions(db, selected)
+    return [clone_question(item) for item in selected]
+
+
+def _select_grouped_runner_questions(rows: list[ToeicRunnerQuestionDto], required: int, group_size: int) -> list[ToeicRunnerQuestionDto]:
+    required_groups = required // group_size
+    grouped: dict[str, list[ToeicRunnerQuestionDto]] = {}
+    for row in rows:
+        if row.groupId:
+            grouped.setdefault(row.groupId, []).append(row)
+
+    complete_groups = [
+        sorted(group_rows, key=lambda item: (item.questionNumber, item.id))[:group_size]
+        for group_rows in sorted(grouped.values(), key=lambda group: (min(item.questionNumber for item in group), min(item.id for item in group)))
+        if len(group_rows) >= group_size
+    ]
+    if len(complete_groups) >= required_groups:
+        return [row for group in complete_groups[:required_groups] for row in group]
+
+    fallback_groups = [
+        rows[index : index + group_size]
+        for index in range(0, len(rows), group_size)
+        if len(rows[index : index + group_size]) == group_size
+    ]
+    return [row for group in fallback_groups[:required_groups] for row in group]
 
 
 def _load_docx_rows_for_full_test(db: Session, test: int = 1) -> list[dict[str, Any]]:
@@ -722,24 +1097,23 @@ def get_questions_for_suggested_set(db: Session, criteria: RoadmapSuggestedSetCr
 
 def _load_runner_questions(db: Session, set_type: str, set_test_number: int | None, parts: list[int] | None) -> list[ToeicRunnerQuestionDto]:
     query = (
-        select(ToeicQuestion)
-        .join(ToeicSet, ToeicSet.id == ToeicQuestion.set_id)
+        select(ToeicPracticeQuestion)
+        .join(ToeicPracticeSet, ToeicPracticeSet.id == ToeicPracticeQuestion.set_id)
         .options(
-            joinedload(ToeicQuestion.set),
-            joinedload(ToeicQuestion.passage).selectinload(ToeicPassage.assets),
-            selectinload(ToeicQuestion.options),
-            selectinload(ToeicQuestion.assets),
+            joinedload(ToeicPracticeQuestion.set),
+            joinedload(ToeicPracticeQuestion.passage).selectinload(ToeicPracticePassage.assets),
+            selectinload(ToeicPracticeQuestion.options),
+            selectinload(ToeicPracticeQuestion.assets),
         )
-        .where(ToeicQuestion.is_active, ToeicSet.is_active, ToeicSet.type == set_type)
-        .order_by(ToeicQuestion.part, ToeicQuestion.test_number, ToeicQuestion.question_number, ToeicQuestion.sort_order)
+        .where(ToeicPracticeQuestion.is_active, ToeicPracticeSet.is_active, ToeicPracticeSet.type == set_type)
+        .order_by(ToeicPracticeQuestion.part, ToeicPracticeQuestion.test_number, ToeicPracticeQuestion.question_number, ToeicPracticeQuestion.sort_order, ToeicPracticeQuestion.id)
     )
     if set_test_number is not None:
-        query = query.where(ToeicSet.test_number == set_test_number)
+        query = query.where(ToeicPracticeSet.test_number == set_test_number)
     if parts:
-        query = query.where(ToeicQuestion.part.in_(parts))
+        query = query.where(ToeicPracticeQuestion.part.in_(parts))
     rows = db.scalars(query).all()
-    docx_lookup = _load_docx_question_id_lookup(db, rows)
-    return [_map_to_runner_question(row, docx_lookup.get(row.id)) for row in rows]
+    return [_map_to_runner_question(row) for row in rows]
 
 
 def _load_docx_question_id_lookup(db: Session, questions: list[ToeicQuestion]) -> dict[int, int]:
@@ -774,56 +1148,111 @@ def _load_docx_question_id_lookup(db: Session, questions: list[ToeicQuestion]) -
     return lookup
 
 
-def _map_to_runner_question(question: ToeicQuestion, docx_question_id: int | None = None) -> ToeicRunnerQuestionDto:
-    audio_path = _resolve_asset_path(question, "audio") or question.audio_url
+def _map_to_runner_question(question: ToeicPracticeQuestion) -> ToeicRunnerQuestionDto:
+    audio_path = _resolve_asset_path(question, "audio")
     graphic_path = _resolve_asset_path(question, "graphic")
     image_path = _resolve_asset_path(question, "image")
     options = sorted(question.options, key=lambda item: (item.sort_order, item.option_key))
+    correct_index = _resolve_practice_correct_index(question.correct_option_key, options)
+    passage = _map_to_runner_passage(question.passage)
     return ToeicRunnerQuestionDto(
         id=question.id,
-        questionId=docx_question_id or question.id,
-        dbId=docx_question_id,
-        docxQuestionId=docx_question_id,
-        sourceQuestionId=docx_question_id,
+        questionId=question.id,
+        dbId=question.id,
+        sourceQuestionId=question.id,
         section=question.section or _infer_section(question.part),
         part=question.part,
-        partLabel=question.part_label or f"Part {question.part}",
-        type=question.question_type or "question",
-        question=question.question_text,
-        skill=question.topic or question.skill_code or "",
-        subskill=question.subskill_code,
-        groupId=question.group_code or (question.passage.group_code if question.passage else None),
-        test=question.test_number,
-        questionNumber=question.question_number,
+        partLabel=f"Part {question.part}",
+        type="question",
+        question=question.question_text or "",
+        skill=question.skill_code or "",
+        subskill=None,
+        groupId=passage.groupCode if passage else None,
+        test=question.test_number or 0,
+        questionNumber=question.question_number or 0,
         options=[item.option_text for item in options],
         correctAnswer=question.correct_option_key or None,
-        correctAnswerIndex=_resolve_option_index(question.correct_option_key),
+        correctAnswerIndex=correct_index,
         explanation=question.explanation,
         difficulty=question.difficulty or "mixed",
-        abilityBand=question.ability_band or "intermediate",
-        minScore=question.min_score,
-        maxScore=question.max_score,
+        abilityBand="intermediate",
         image=ToeicRunnerAssetDto(path=image_path) if image_path else None,
         graphic=ToeicRunnerAssetDto(path=graphic_path) if graphic_path else None,
         audio=ToeicRunnerAssetDto(path=audio_path) if audio_path else None,
         audioUrl=audio_path,
-        passage=ToeicRunnerPassageDto(title=question.passage.title or "", text=question.passage.passage_text or "") if question.passage and ((question.passage.title or "").strip() or (question.passage.passage_text or "").strip()) else None,
+        passage=passage,
     )
 
 
-def _resolve_asset_path(question: ToeicQuestion, asset_type: str) -> str | None:
-    question_asset = next((item.relative_path for item in sorted(question.assets, key=lambda x: x.sort_order) if item.asset_type.lower() == asset_type.lower() and item.relative_path), None)
+def _map_to_runner_passage(passage: ToeicPracticePassage | None) -> ToeicRunnerPassageDto | None:
+    if passage is None:
+        return None
+    audio_path = _normalize_toeic_asset_path(_resolve_passage_asset_path(passage, "audio") or passage.audio_path, "audio")
+    image_path = _normalize_toeic_asset_path(_resolve_passage_asset_path(passage, "image") or passage.image_path, "image")
+    text_value = passage.passage_text or ""
+    group_code = passage.group_code or None
+    if not (text_value.strip() or audio_path or image_path or group_code):
+        return None
+    return ToeicRunnerPassageDto(
+        id=passage.id,
+        groupCode=group_code,
+        title="",
+        text=text_value,
+        audio=ToeicRunnerAssetDto(path=audio_path) if audio_path else None,
+        image=ToeicRunnerAssetDto(path=image_path) if image_path else None,
+    )
+
+
+def _resolve_asset_path(question: ToeicPracticeQuestion, asset_type: str) -> str | None:
+    aliases = {asset_type.lower()}
+    if asset_type.lower() == "graphic":
+        aliases.add("image")
+    question_asset = next((item.relative_path for item in sorted(question.assets, key=lambda x: x.id) if item.asset_type.lower() in aliases and item.relative_path), None)
     if question_asset:
-        return question_asset
+        return _normalize_toeic_asset_path(question_asset, asset_type)
     if question.passage:
-        passage_asset = next((item.relative_path for item in sorted(question.passage.assets, key=lambda x: x.sort_order) if item.asset_type.lower() == asset_type.lower() and item.relative_path), None)
+        passage_asset = _resolve_passage_asset_path(question.passage, asset_type)
         if passage_asset:
-            return passage_asset
+            return _normalize_toeic_asset_path(passage_asset, asset_type)
         if asset_type == "audio":
-            return question.passage.audio_path or question.audio_url
+            return _normalize_toeic_asset_path(question.passage.audio_path, asset_type)
         if asset_type in {"graphic", "image"}:
-            return question.passage.image_path
-    return question.audio_url if asset_type == "audio" else None
+            return _normalize_toeic_asset_path(question.passage.image_path, asset_type)
+    return None
+
+
+def _resolve_passage_asset_path(passage: ToeicPracticePassage, asset_type: str) -> str | None:
+    aliases = {asset_type.lower()}
+    if asset_type.lower() == "graphic":
+        aliases.add("image")
+    return next(
+        (
+            item.relative_path
+            for item in sorted(passage.assets, key=lambda x: x.id)
+            if item.asset_type.lower() in aliases and item.relative_path
+        ),
+        None,
+    )
+
+
+def _normalize_toeic_asset_path(path: str | None, asset_type: str) -> str | None:
+    value = str(path or "").strip().replace("\\", "/")
+    if not value:
+        return None
+    if value.lower().startswith(("http://", "https://", "data:")):
+        return value
+    if value.startswith("/toeic/"):
+        return value
+    if value.startswith("toeic/"):
+        return f"/{value}"
+
+    normalized = value.lstrip("/")
+    lower_value = normalized.lower()
+    if lower_value.startswith(("audio/", "images/", "image/")):
+        return f"/toeic/{normalized}"
+    if asset_type.lower() == "audio":
+        return f"/toeic/audio/{normalized}"
+    return f"/toeic/images/{normalized}"
 
 
 def _load_normalized_practice_bank(db: Session) -> list["_NormalizedToeicQuestion"]:
@@ -927,6 +1356,13 @@ def _resolve_option_index(option_key: str | None) -> int | None:
         return None
     first = option_key.strip().upper()[0]
     return ord(first) - ord("A") if "A" <= first <= "Z" else None
+
+
+def _resolve_practice_correct_index(correct_option_key: str | None, options: list[ToeicPracticeQuestionOption]) -> int | None:
+    for index, option in enumerate(options):
+        if option.is_correct:
+            return index
+    return _resolve_option_index(correct_option_key)
 
 
 def _normalize_difficulty(difficulty: str | None, current_score: int | None) -> str:

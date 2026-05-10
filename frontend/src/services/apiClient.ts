@@ -51,10 +51,22 @@ export async function apiRequest<T>(
     }
   }
 
-  const response = await fetch(`${API_BASE_URL}${path}`, {
-    ...options,
-    headers,
-  });
+  let response: Response;
+  try {
+    response = await fetch(`${API_BASE_URL}${path}`, {
+      ...options,
+      headers,
+    });
+  } catch (error) {
+    const detail = error instanceof Error ? error.message : String(error);
+    console.error("API network request failed", {
+      endpoint: path,
+      method: options.method || "GET",
+      baseUrl: API_BASE_URL,
+      detail,
+    });
+    throw new Error(`Network request failed for ${path}: ${detail}`);
+  }
 
   const contentType = response.headers.get("content-type") || "";
   const payload = contentType.includes("application/json")
@@ -62,12 +74,14 @@ export async function apiRequest<T>(
     : await response.text();
 
   if (!response.ok) {
+    const payloadObject =
+      typeof payload === "object" && payload ? (payload as { message?: unknown; detail?: unknown }) : null;
+    const messageValue = payloadObject && "message" in payloadObject ? String(payloadObject.message) : "";
+    const detailValue = payloadObject && "detail" in payloadObject ? String(payloadObject.detail) : "";
     const message =
-      typeof payload === "object" && payload && "message" in payload
-        ? String((payload as { message?: unknown }).message)
-        : typeof payload === "object" && payload && "detail" in payload
-          ? String((payload as { detail?: unknown }).detail)
-          : `Request failed with status ${response.status}`;
+      messageValue && detailValue && detailValue !== messageValue
+        ? `${messageValue}: ${detailValue}`
+        : messageValue || detailValue || `Request failed with status ${response.status}`;
 
     throw new ApiError(response.status, message, payload);
   }

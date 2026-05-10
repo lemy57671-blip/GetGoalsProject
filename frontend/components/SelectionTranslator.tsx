@@ -3,9 +3,11 @@ import { Languages, X, Loader2, Copy, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { apiRequest, API_BASE_URL } from "@src/services/apiClient";
 import { useLocation } from "react-router-dom";
+import { useLanguage } from "@src/contexts/LanguageContext";
 
 export function SelectionTranslator() {
   const location = useLocation();
+  const { t } = useLanguage();
   const isPracticePage = location.pathname.startsWith("/practice");
   const [selection, setSelection] = useState<{ text: string; x: number; y: number } | null>(null);
   const [translation, setTranslation] = useState<string | null>(null);
@@ -120,7 +122,7 @@ export function SelectionTranslator() {
         <div className="bg-muted/50 px-4 py-2 flex items-center justify-between border-b border-border">
           <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-wider">
             <Languages className="w-3.5 h-3.5" />
-            AI Translator
+            {t("selection.quickLookupTitle")}
           </div>
           <button 
             onClick={closePopup}

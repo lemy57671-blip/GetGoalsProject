@@ -88,6 +88,12 @@ engine = create_engine(
     pool_pre_ping=True,
     fast_executemany=True,
 )
+if engine.dialect.name == "mssql":
+    # SQL Server/pyodbc can report rowcount as -1 for otherwise successful
+    # statements. This app does not use ORM version tokens, so do not turn
+    # that driver value into a false StaleDataError during submit/review writes.
+    engine.dialect.supports_sane_rowcount = False
+    engine.dialect.supports_sane_multi_rowcount = False
 
 SessionLocal = sessionmaker(
     autocommit=False,

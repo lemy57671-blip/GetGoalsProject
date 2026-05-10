@@ -12,7 +12,7 @@ from app.schemas.attempts import AttemptAssetDto, AttemptPartBreakdownDto, Attem
 from app.schemas.roadmap import RoadmapSuggestedSetCriteriaDto
 from app.schemas.toeic import ToeicRunnerPassageDto, ToeicRunnerQuestionDto
 from app.schemas.weekly_check import WeeklyCheckCurrentDto, WeeklyCheckSubmitRequest, WeeklyCheckSubmitResponse
-from app.services.attempts import save_practice_attempt
+from app.services.attempts import get_practice_attempt_result, save_practice_attempt
 from app.services.skill_analytics import analyze_latest_performance, get_default_subskills, to_dto, to_title
 from app.services.toeic import build_question_lookup_key, get_question_lookup, get_questions_for_suggested_set
 
@@ -85,6 +85,7 @@ def submit_weekly_check(db: Session, user_id: int, request: WeeklyCheckSubmitReq
     submitted_at_utc = datetime.utcnow()
     started_at_utc = request.startedAtUtc or submitted_at_utc
     save_request = SavePracticeAttemptRequest(
+        source="weeklycheck",
         title=request.title.strip() if request.title and request.title.strip() else current.title,
         subtitle=request.description.strip() if request.description and request.description.strip() else current.description,
         mode="weekly-check",
@@ -119,6 +120,11 @@ def get_weekly_check_result(db: Session, user_id: int, attempt_id: int) -> Attem
     )
     if attempt is None:
         return None
+    hydrated = get_practice_attempt_result(db, user_id, attempt_id)
+    if hydrated is not None:
+        hydrated.attemptType = "weekly_check"
+        hydrated.title = hydrated.title or "Weekly Check"
+        return hydrated
     question_lookup = get_question_lookup(db)
     questions = [_build_result_question(answer, question_lookup) for answer in sorted(attempt.answers, key=lambda item: (item.question_number, item.question_id))]
     total_questions = attempt.total_questions or len(questions)

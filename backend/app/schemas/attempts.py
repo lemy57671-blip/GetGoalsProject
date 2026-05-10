@@ -9,6 +9,24 @@ class AttemptAssetDto(BaseModel):
     path: str = ""
 
 
+class AttemptResultOptionDto(BaseModel):
+    key: str = ""
+    text: str = ""
+    isCorrect: bool = False
+    sortOrder: int = 0
+
+
+class AttemptResultPassageDto(BaseModel):
+    id: int | None = None
+    groupCode: str | None = None
+    title: str | None = None
+    text: str | None = None
+    audioPath: str | None = None
+    imagePath: str | None = None
+    audio: AttemptAssetDto | None = None
+    image: AttemptAssetDto | None = None
+
+
 class SavePracticeAttemptAnswerRequest(BaseModel):
     questionId: int
     questionNumber: int
@@ -37,6 +55,7 @@ class SavePracticeAttemptAnswerRequest(BaseModel):
 
 class SavePracticeAttemptRequest(BaseModel):
     userId: int | None = None
+    source: str | None = None
     title: str = ""
     subtitle: str | None = None
     mode: str = "exam"
@@ -81,6 +100,7 @@ class SaveMockTestAttemptAnswerRequest(BaseModel):
 
 class SaveMockTestAttemptRequest(BaseModel):
     userId: int | None = None
+    source: str | None = None
     attemptType: str = "mock-test"
     title: str = ""
     totalQuestions: int = 0
@@ -110,6 +130,7 @@ class SaveDiagnosticAttemptAnswerRequest(BaseModel):
 
 class SaveDiagnosticAttemptRequest(BaseModel):
     userId: int | None = None
+    currentScore: int | None = None
     targetScore: int | None = None
     weeks: int | None = None
     minutesPerDay: int | None = None
@@ -149,6 +170,8 @@ class AttemptWeakAreaDto(BaseModel):
 
 class AttemptResultQuestionDto(BaseModel):
     questionId: int
+    runtimeQuestionId: int | None = None
+    missingReason: str | None = None
     questionNumber: int
     test: int
     part: int
@@ -159,16 +182,28 @@ class AttemptResultQuestionDto(BaseModel):
     skill: str = ""
     subskill: str | None = None
     question: str = ""
+    questionText: str | None = None
     options: list[str] = Field(default_factory=list)
+    optionRows: list[AttemptResultOptionDto] = Field(default_factory=list)
     userAnswer: str | None = None
     userAnswerIndex: int | None = None
+    selectedOptionKey: str | None = None
+    selectedOptionText: str | None = None
     correctAnswer: str | None = None
     correctAnswerIndex: int | None = None
+    correctOptionKey: str | None = None
+    correctOptionText: str | None = None
     isCorrect: bool = False
     explanation: str | None = None
+    explanationText: str | None = None
+    rawBlock: str | None = None
+    rawText: str | None = None
+    passage: AttemptResultPassageDto | None = None
     audio: AttemptAssetDto | None = None
+    audioPath: str | None = None
     graphic: AttemptAssetDto | None = None
     image: AttemptAssetDto | None = None
+    imagePath: str | None = None
 
 
 class AttemptResultDto(BaseModel):

@@ -22,7 +22,6 @@ import {
 import { AudioPlayerBar } from "@/components/audio-player-bar";
 import { ProFeatureGuard } from "@/components/pro-feature-guard";
 import { ChatPanel } from "@src/components/chat/ChatPanel";
-import { IntegratedQuestionBar } from "@src/components/runner/IntegratedQuestionBar";
 import { RunnerActionButtons } from "@src/components/runner/RunnerActionButtons";
 import { RunnerRightPanel, type RunnerRightPanelTab } from "@src/components/runner/RunnerRightPanel";
 import { Badge } from "@/components/ui/badge";
@@ -44,7 +43,7 @@ import { ApiError } from "@src/services/apiClient";
 import { chatService } from "@src/services/chatService";
 import { useLanguage } from "@src/contexts/LanguageContext";
 import { roadmapService } from "@src/services/roadmapService";
-import { reviewService, type ReviewHighlight, type ReviewNote } from "@src/services/reviewService";
+import { reviewService, type ReviewHighlight, type ReviewNote, type ReviewSourceFilter } from "@src/services/reviewService";
 import { toeicService, ToeicRunnerQuestion } from "@src/services/toeicService";
 
 type TutorMessage = {
@@ -126,6 +125,22 @@ function getSqlQuestionId(question?: ToeicRunnerQuestion | null) {
   );
 }
 
+function getQuestionPassageTitle(question?: ToeicRunnerQuestion | null) {
+  return question?.passage?.title || question?.passageTitle || "";
+}
+
+function getQuestionPassageText(question?: ToeicRunnerQuestion | null) {
+  return question?.passage?.text || question?.passageText || "";
+}
+
+function normalizeToolSource(value?: string | null): ReviewSourceFilter {
+  const normalized = (value || "").trim().toLowerCase().replace(/-/g, "_");
+  if (["full", "full_test", "fulltest", "mock", "mock_test"].includes(normalized)) return "fulltest";
+  if (["mini", "mini_test", "minitest"].includes(normalized)) return "minitest";
+  if (["weekly", "weekly_check", "weeklycheck"].includes(normalized)) return "weeklycheck";
+  return "practice";
+}
+
 export function PracticeRunnerPage() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -142,6 +157,7 @@ export function PracticeRunnerPage() {
   );
   const isReviewFocusRunner = runnerMode === "review-focus";
   const isQuestionIdRunner = Boolean((searchParams.get("question_ids") || "").trim());
+  const reviewToolSource = normalizeToolSource(searchParams.get("source"));
 
   const reviewFocusParts = (searchParams.get("parts") || "5")
     .split(",")
@@ -195,6 +211,8 @@ export function PracticeRunnerPage() {
 
   const question = questions[currentQuestion];
   const questionSqlId = getSqlQuestionId(question);
+  const questionPassageTitle = getQuestionPassageTitle(question);
+  const questionPassageText = getQuestionPassageText(question);
   const progress = questions.length > 0 ? ((currentQuestion + 1) / questions.length) * 100 : 0;
   const answeredCount = Object.keys(answers).length;
   const currentNotebookStatus = notebookStatusByIndex[currentQuestion] || {};
@@ -417,9 +435,9 @@ export function PracticeRunnerPage() {
       setNoteSaved(false);
       try {
         const [notes, highlights, bookmarked] = await Promise.all([
-          reviewService.getNotes(questionSqlId),
-          reviewService.getHighlights(questionSqlId),
-          reviewService.getBookmark(questionSqlId),
+          reviewService.getNotes(questionSqlId, { source: reviewToolSource, runtimeQuestionId: questionSqlId }),
+          reviewService.getHighlights(questionSqlId, { source: reviewToolSource, runtimeQuestionId: questionSqlId }),
+          reviewService.getBookmark(questionSqlId, { source: reviewToolSource, runtimeQuestionId: questionSqlId }),
         ]);
 
         if (cancelled) return;
@@ -464,7 +482,7 @@ export function PracticeRunnerPage() {
     return () => {
       cancelled = true;
     };
-  }, [questionSqlId]);
+  }, [questionSqlId, reviewToolSource]);
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
@@ -503,7 +521,10 @@ export function PracticeRunnerPage() {
     );
 
     try {
-      const saved = await reviewService.toggleBookmark(questionSqlId, currentAttemptId);
+      const saved = await reviewService.toggleBookmark(questionSqlId, currentAttemptId, {
+        source: reviewToolSource,
+        runtimeQuestionId: questionSqlId,
+      });
       setIsBookmarked(saved);
       setNotebookStatusByIndex((prev) => ({
         ...prev,
@@ -548,7 +569,10 @@ export function PracticeRunnerPage() {
     setIsSavingNote(true);
     setReviewToolError(null);
     try {
-      const note = await reviewService.saveNote(questionSqlId, questionNote.trim(), currentAttemptId);
+      const note = await reviewService.saveNote(questionSqlId, questionNote.trim(), currentAttemptId, {
+        source: reviewToolSource,
+        runtimeQuestionId: questionSqlId,
+      });
       setSavedNotes([note]);
       setQuestionNote(note.noteText);
       setNoteSaved(true);
@@ -577,7 +601,9 @@ export function PracticeRunnerPage() {
     try {
       const highlight = await reviewService.createHighlight({
         question_id: questionSqlId,
+        source: reviewToolSource,
         attempt_id: currentAttemptId,
+        runtime_question_id: questionSqlId,
         target_type: "question_text",
         selected_text: selectedText.trim(),
         color: "yellow",
@@ -638,13 +664,57 @@ export function PracticeRunnerPage() {
       question.dbId ||
       question.questionId ||
       question.id;
+    const runtimeQuestionId = question.id;
+    const docxQuestionId = question.docxQuestionId || null;
+    const sourceQuestionId =
+      question.sourceQuestionId && question.sourceQuestionId !== runtimeQuestionId
+        ? question.sourceQuestionId
+        : docxQuestionId;
+    const richQuestion = question as typeof question & {
+      explanationDetail?: string | null;
+      explanation_detail?: string | null;
+      explanationText?: string | null;
+      explanation_text?: string | null;
+      rawExplanation?: string | null;
+      raw_explanation?: string | null;
+      rawBlock?: string | null;
+      raw_block?: string | null;
+      optionAnalysis?: string | null;
+      option_analysis?: string | null;
+      vocabularyNotes?: string | null;
+      vocabulary_notes?: string | null;
+    };
+    const correctOptionKey =
+      typeof correctAnswerIndex === "number" ? String.fromCharCode(65 + correctAnswerIndex) : null;
+    const selectedOptionKey = selectedOptionLabel;
+    const explanationDetail =
+      richQuestion.explanationDetail ||
+      richQuestion.explanation_detail ||
+      richQuestion.explanationText ||
+      richQuestion.explanation_text ||
+      question.explanation ||
+      null;
+    const rawExplanation = richQuestion.rawExplanation || richQuestion.raw_explanation || null;
+    const rawBlock = richQuestion.rawBlock || richQuestion.raw_block || null;
+    const optionAnalysis = richQuestion.optionAnalysis || richQuestion.option_analysis || null;
+    const vocabularyNotes = richQuestion.vocabularyNotes || richQuestion.vocabulary_notes || null;
+    const passageTitle = getQuestionPassageTitle(question);
+    const passageText = getQuestionPassageText(question);
 
     const currentQuestionPayload = {
-      id: questionSqlId,
-      questionId: questionSqlId,
-      question_id: questionSqlId,
+      id: runtimeQuestionId,
+      questionId: runtimeQuestionId,
+      question_id: runtimeQuestionId,
+      runtimeQuestionId,
+      runtime_question_id: runtimeQuestionId,
       sqlId: questionSqlId,
-      runnerQuestionId: question.id,
+      runnerQuestionId: runtimeQuestionId,
+      runner_question_id: runtimeQuestionId,
+      docxQuestionId,
+      docx_question_id: docxQuestionId,
+      sourceQuestionId,
+      source_question_id: sourceQuestionId,
+      source: "practice_runtime",
 
       questionNumber,
       question_number: questionNumber,
@@ -661,10 +731,10 @@ export function PracticeRunnerPage() {
       content: question.question,
       prompt: question.question,
 
-      passageTitle: question.passageTitle || null,
-      passageText: question.passageText || null,
-      passage_text: question.passageText || null,
-      passage: question.passageText || null,
+      passageTitle: passageTitle || null,
+      passageText: passageText || null,
+      passage_text: passageText || null,
+      passage: question.passage || passageText || null,
 
       options: question.options.map((option, index) => ({
         id: index,
@@ -680,13 +750,31 @@ export function PracticeRunnerPage() {
       selected_answer_index: selectedAnswerIndex,
       selectedAnswer: selectedAnswerText,
       selected_answer: selectedAnswerText,
+      selectedOptionKey,
+      selected_option_key: selectedOptionKey,
 
       correctAnswerIndex,
       correct_answer_index: correctAnswerIndex,
       correctAnswer: correctAnswerText,
       correct_answer: correctAnswerText,
+      correctOptionKey,
+      correct_option_key: correctOptionKey,
 
-      explanation: question.explanation || null,
+      explanation: explanationDetail,
+      explanationText: explanationDetail,
+      explanation_text: explanationDetail,
+      explanationDetail,
+      explanation_detail: explanationDetail,
+      rawExplanation,
+      raw_explanation: rawExplanation,
+      rawBlock,
+      raw_block: rawBlock,
+      optionAnalysis,
+      option_analysis: optionAnalysis,
+      vocabularyNotes,
+      vocabulary_notes: vocabularyNotes,
+      audio: question.audioPath ? { path: question.audioPath } : null,
+      image: question.imagePath || question.graphicPath ? { path: question.imagePath || question.graphicPath } : null,
     };
 
     setTutorInput("");
@@ -700,15 +788,22 @@ export function PracticeRunnerPage() {
         conversation_id: tutorConversationId,
         conversationId: tutorConversationId,
 
-        question_id: questionSqlId,
-        questionId: questionSqlId,
-        currentQuestionId: questionSqlId,
+        question_id: runtimeQuestionId,
+        questionId: runtimeQuestionId,
+        currentQuestionId: runtimeQuestionId,
+        runtime_question_id: runtimeQuestionId,
+        runtimeQuestionId,
         sqlId: questionSqlId,
-        runner_question_id: question.id,
-        runnerQuestionId: question.id,
+        runner_question_id: runtimeQuestionId,
+        runnerQuestionId: runtimeQuestionId,
+        docx_question_id: docxQuestionId,
+        docxQuestionId,
+        source_question_id: sourceQuestionId,
+        sourceQuestionId,
 
         context_type: "practice_runner",
         contextType: "practice_runner",
+        source: "practice_runtime",
 
         selected_answer_index: selectedAnswerIndex,
         selectedAnswerIndex,
@@ -721,19 +816,37 @@ export function PracticeRunnerPage() {
 
         questionText: question.question,
         question_text: question.question,
-        passageText: question.passageText || null,
-        passage_text: question.passageText || null,
+        passageText: passageText || null,
+        passage_text: passageText || null,
 
         options: currentQuestionPayload.options,
         choices: question.options,
 
         selectedAnswer: selectedAnswerText,
         selected_answer: selectedAnswerText,
+        selectedOptionKey,
+        selected_option_key: selectedOptionKey,
 
         correctAnswer: correctAnswerText,
         correct_answer: correctAnswerText,
+        correctOptionKey,
+        correct_option_key: correctOptionKey,
 
-        explanation: question.explanation || null,
+        explanation: explanationDetail,
+        explanationText: explanationDetail,
+        explanation_text: explanationDetail,
+        explanationDetail,
+        explanation_detail: explanationDetail,
+        rawExplanation,
+        raw_explanation: rawExplanation,
+        rawBlock,
+        raw_block: rawBlock,
+        optionAnalysis,
+        option_analysis: optionAnalysis,
+        vocabularyNotes,
+        vocabulary_notes: vocabularyNotes,
+        audio: currentQuestionPayload.audio,
+        image: currentQuestionPayload.image,
 
         currentQuestion: currentQuestionPayload,
         current_question: currentQuestionPayload,
@@ -806,6 +919,7 @@ export function PracticeRunnerPage() {
         answers,
         flaggedQuestions,
         timeSpentSeconds: timeElapsed,
+        source: reviewToolSource === "weeklycheck" ? "weeklycheck" : "practice",
         mode: runnerMode,
         difficulty: searchParams.get("difficulty") || "mixed",
         title: runnerContext?.title,
@@ -1003,15 +1117,15 @@ export function PracticeRunnerPage() {
                   </div>
                 )}
 
-                {(question.passageTitle || question.passageText) && (
+                {(questionPassageTitle || questionPassageText) && (
                   <Card className="rounded-xl border-[#dfe7f5] bg-[#f8fbff]">
                     <CardContent className="space-y-2 pt-6">
-                      {question.passageTitle && (
-                        <p className="font-semibold text-foreground">{question.passageTitle}</p>
+                      {questionPassageTitle && (
+                        <p className="font-semibold text-foreground">{questionPassageTitle}</p>
                       )}
-                      {question.passageText && (
+                      {questionPassageText && (
                         <p className="whitespace-pre-line text-sm leading-relaxed text-foreground">
-                          {renderHighlightedText(question.passageText)}
+                          {renderHighlightedText(questionPassageText)}
                         </p>
                       )}
                     </CardContent>
@@ -1142,38 +1256,24 @@ export function PracticeRunnerPage() {
                   </div>
                 ) : null}
 
-                <IntegratedQuestionBar
-                  currentLabel={`${currentQuestion + 1} / ${questions.length}`}
-                  answeredCount={answeredCount}
-                  markedCount={flaggedQuestions.length}
-                  previousDisabled={currentQuestion === 0}
-                  nextDisabled={currentQuestion === questions.length - 1}
-                  onPrevious={handlePrev}
-                  onNext={handleNext}
-                  items={questions.map((item, index) => ({
-                    id: index,
-                    label: String(index + 1),
-                    part: item.partNumber,
-                    current: index === currentQuestion,
-                    answered: answers[index] !== undefined,
-                    bookmarked: Boolean(notebookStatusByIndex[index]?.bookmarked || flaggedQuestions.includes(index)),
-                    hasNote: Boolean(notebookStatusByIndex[index]?.hasNote),
-                    hasHighlight: Boolean(notebookStatusByIndex[index]?.hasHighlight),
-                  }))}
-                  labels={{
-                    previous: t("runner.previous"),
-                    next: t("runner.next"),
-                    questionList: t("runner.questionList"),
-                    answered: t("runner.answered"),
-                    marked: t("runner.marked"),
-                    notes: t("runner.notes"),
-                    highlights: t("runner.highlights"),
-                    all: t("runner.all"),
-                    part: t("runner.part"),
-                    progress: t("runner.progress"),
-                  }}
-                  onSelect={(item) => goToQuestion(Number(item.id))}
-                />
+                <div className="flex items-center justify-between gap-3 border-t border-border pt-4">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={handlePrev}
+                    disabled={currentQuestion === 0}
+                  >
+                    {t("runner.previous")}
+                  </Button>
+                  <Button
+                    type="button"
+                    onClick={handleNext}
+                    disabled={currentQuestion === questions.length - 1}
+                  >
+                    {t("runner.next")}
+                  </Button>
+                </div>
+
               </CardContent>
             </Card>
           </div>
@@ -1280,25 +1380,34 @@ export function PracticeRunnerPage() {
               tutorLoading={tutorLoading}
             />
 
-            {false ? (
-            <Card className="sticky top-20 rounded-xl border-border">
+            <Card className="overflow-hidden rounded-xl border-border">
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm text-foreground">{t("runner.questionList")}</CardTitle>
+                <div className="flex items-center justify-between gap-3">
+                  <CardTitle className="text-sm text-foreground">{t("runner.questionList")}</CardTitle>
+                  <Badge variant="outline" className="shrink-0 text-xs">
+                    {answeredCount} / {questions.length}
+                  </Badge>
+                </div>
               </CardHeader>
 
-              <CardContent>
-                <ScrollArea className="h-64">
-                  <div className="grid grid-cols-5 gap-2">
+              <CardContent className="space-y-4">
+                <ScrollArea className="h-[320px] rounded-lg pr-2">
+                  <div className="grid grid-cols-5 justify-items-center gap-1.5 pb-2 sm:grid-cols-6 lg:grid-cols-5 xl:grid-cols-6">
                     {questions.map((_, index) => {
                       const isAnswered = answers[index] !== undefined;
-                      const isFlagged = flaggedQuestions.includes(index);
+                      const isBookmarked = Boolean(
+                        notebookStatusByIndex[index]?.bookmarked || flaggedQuestions.includes(index),
+                      );
+                      const hasNote = Boolean(notebookStatusByIndex[index]?.hasNote);
+                      const hasHighlight = Boolean(notebookStatusByIndex[index]?.hasHighlight);
                       const isCurrent = index === currentQuestion;
 
                       return (
                         <button
                           key={index}
+                          type="button"
                           onClick={() => goToQuestion(index)}
-                          className={`relative h-9 w-9 rounded-lg text-sm font-medium transition-colors ${
+                          className={`relative flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-xs font-medium transition-colors ${
                             isCurrent
                               ? "bg-primary text-primary-foreground"
                               : isAnswered
@@ -1307,8 +1416,12 @@ export function PracticeRunnerPage() {
                           }`}
                         >
                           {index + 1}
-                          {isFlagged && (
-                            <span className="absolute -right-1 -top-1 h-2 w-2 rounded-full bg-orange-500" />
+                          {(isBookmarked || hasNote || hasHighlight) && (
+                            <span className="absolute -right-1 -top-1 flex gap-0.5">
+                              {isBookmarked ? <span className="h-1.5 w-1.5 rounded-full bg-yellow-500" /> : null}
+                              {hasNote ? <span className="h-1.5 w-1.5 rounded-full bg-violet-500" /> : null}
+                              {hasHighlight ? <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> : null}
+                            </span>
                           )}
                         </button>
                       );
@@ -1316,7 +1429,7 @@ export function PracticeRunnerPage() {
                   </div>
                 </ScrollArea>
 
-                <div className="mt-4 space-y-2 border-t border-border pt-4 text-sm">
+                <div className="space-y-2 border-t border-border pt-4 text-sm">
                   <div className="flex items-center justify-between">
                     <span className="text-muted-foreground">{t("runner.answered")}</span>
                     <span className="font-medium text-foreground">
@@ -1330,10 +1443,24 @@ export function PracticeRunnerPage() {
                       {flaggedQuestions.length}
                     </span>
                   </div>
+
+                  <div className="flex flex-wrap gap-3 text-[11px] text-muted-foreground">
+                    <span className="flex items-center gap-1">
+                      <span className="h-1.5 w-1.5 rounded-full bg-yellow-500" />
+                      {t("runner.marked")}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <span className="h-1.5 w-1.5 rounded-full bg-violet-500" />
+                      {t("runner.notes")}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <span className="h-1.5 w-1.5 rounded-full bg-orange-500" />
+                      {t("runner.highlights")}
+                    </span>
+                  </div>
                 </div>
               </CardContent>
             </Card>
-            ) : null}
           </div>
         </div>
       </div>

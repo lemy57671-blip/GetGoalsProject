@@ -48,6 +48,7 @@ const navLabelKeys: Record<string, TranslationKey> = {
   "/placement-test": "nav.placementTest",
   "/practice": "nav.practice",
   "/mock-test": "nav.mockTest",
+  "/flashcards": "nav.flashcards",
   "/roadmap": "nav.roadmap",
   "/progress": "nav.progress",
   "/review": "nav.review",

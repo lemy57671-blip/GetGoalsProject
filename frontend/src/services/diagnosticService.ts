@@ -47,6 +47,7 @@ export type DiagnosticSubmitResponse = {
 };
 
 export type SaveDiagnosticAttemptPayload = {
+  currentScore?: number | null;
   targetScore?: number | null;
   weeks?: number | null;
   minutesPerDay?: number | null;
@@ -86,6 +87,7 @@ export const diagnosticService = {
 
   async submitDiagnostic(payload: {
     answers: Record<string, number>;
+    current_score?: number | null;
     target_score: number;
     weeks: number;
     minutes_per_day: number;

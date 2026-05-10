@@ -3,6 +3,10 @@ import { ToeicRunnerQuestion } from "@src/services/toeicService";
 
 export type PracticeAttemptResultQuestion = {
   questionId: number;
+  runtimeQuestionId?: number | null;
+  docxQuestionId?: number | null;
+  sourceQuestionId?: number | null;
+  missingReason?: string | null;
   questionNumber: number;
   test: number;
   part: number;
@@ -13,13 +17,46 @@ export type PracticeAttemptResultQuestion = {
   skill: string;
   subskill?: string | null;
   question: string;
+  questionText?: string | null;
   options: string[];
+  optionRows?: Array<{
+    key: string;
+    text: string;
+    isCorrect?: boolean;
+    sortOrder?: number;
+  }>;
   userAnswer?: string | null;
   userAnswerIndex?: number | null;
+  selectedOptionKey?: string | null;
+  selectedOptionText?: string | null;
   correctAnswer?: string | null;
   correctAnswerIndex?: number | null;
+  correctOptionKey?: string | null;
+  correctOptionText?: string | null;
   isCorrect: boolean;
   explanation?: string | null;
+  explanationDetail?: string | null;
+  explanationText?: string | null;
+  rawExplanation?: string | null;
+  rawBlock?: string | null;
+  rawText?: string | null;
+  optionAnalysis?: string | null;
+  vocabularyNotes?: string | null;
+  passage?: {
+    id?: number | null;
+    groupCode?: string | null;
+    title?: string | null;
+    text?: string | null;
+    audioPath?: string | null;
+    imagePath?: string | null;
+    audio?: { path?: string | null } | null;
+    image?: { path?: string | null } | null;
+  } | null;
+  audio?: { path?: string | null } | null;
+  audioPath?: string | null;
+  graphic?: { path?: string | null } | null;
+  image?: { path?: string | null } | null;
+  imagePath?: string | null;
 };
 
 export type PracticeAttemptResult = {
@@ -72,6 +109,7 @@ type SubmitPracticeAttemptInput = {
   answers: Record<number, number>;
   flaggedQuestions: number[];
   timeSpentSeconds: number;
+  source?: "practice" | "weeklycheck";
   mode: string;
   difficulty: string;
   title?: string;
@@ -107,6 +145,7 @@ type SubmitMockTestAttemptInput = {
   flaggedQuestions: number[];
   timeSpentSeconds: number;
   title?: string;
+  source?: "fulltest" | "minitest";
   attemptType?: string;
   startedAtUtc?: string;
 };
@@ -237,6 +276,7 @@ export const attemptsService = {
     answers,
     flaggedQuestions,
     timeSpentSeconds,
+    source,
     mode,
     difficulty,
     title,
@@ -266,6 +306,7 @@ export const attemptsService = {
             ? `TOEIC Part ${selectedParts[0]} Practice`
             : "TOEIC Mixed Practice"),
         subtitle: subtitle || `${questions.length} questions`,
+        source: source || (mode === "weekly-check" ? "weeklycheck" : "practice"),
         mode,
         parts: selectedParts.join(","),
         difficulty,
@@ -288,6 +329,7 @@ export const attemptsService = {
     flaggedQuestions,
     timeSpentSeconds,
     title,
+    source,
     attemptType = "mock-test",
     startedAtUtc,
   }: SubmitMockTestAttemptInput) {
@@ -316,6 +358,7 @@ export const attemptsService = {
       auth: true,
       body: JSON.stringify({
         attemptType,
+        source: source || (attemptType === "mini-test" || attemptType === "minitest" ? "minitest" : "fulltest"),
         title: title || (attemptType === "mini-test" ? "TOEIC Mini Test" : "TOEIC Mock Test"),
         totalQuestions: questions.length,
         answeredCount,

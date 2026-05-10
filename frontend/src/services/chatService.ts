@@ -54,13 +54,30 @@ export type ChatQuestionContext = {
   id?: number | string | null;
   questionId?: number | string | null;
   question_id?: number | string | null;
+  runtimeQuestionId?: number | string | null;
+  runtime_question_id?: number | string | null;
+  runnerQuestionId?: number | string | null;
+  runner_question_id?: number | string | null;
+  diagnosticQuestionId?: number | string | null;
+  diagnostic_question_id?: number | string | null;
+  reviewItemId?: number | string | null;
+  review_item_id?: number | string | null;
+  docxQuestionId?: number | string | null;
+  docx_question_id?: number | string | null;
+  sourceQuestionId?: number | string | null;
+  source_question_id?: number | string | null;
   sqlId?: number | string | null;
+  source?: string | null;
+  sourceType?: string | null;
 
   questionNumber?: number | string | null;
   question_number?: number | string | null;
 
   part?: number | string | null;
   Part?: number | string | null;
+  partLabel?: string | null;
+  part_label?: string | null;
+  section?: string | null;
 
   questionText?: string | null;
   question_text?: string | null;
@@ -70,7 +87,7 @@ export type ChatQuestionContext = {
 
   passageText?: string | null;
   passage_text?: string | null;
-  passage?: string | null;
+  passage?: string | Record<string, unknown> | null;
   passageTitle?: string | null;
   passage_title?: string | null;
   transcript?: string | null;
@@ -80,15 +97,45 @@ export type ChatQuestionContext = {
 
   selectedAnswer?: unknown;
   selected_answer?: unknown;
+  selectedOptionKey?: string | null;
+  selected_option_key?: string | null;
+  selectedOptionText?: string | null;
+  selected_option_text?: string | null;
   selectedAnswerIndex?: number | null;
   selected_answer_index?: number | null;
 
   correctAnswer?: unknown;
   correct_answer?: unknown;
+  correctOptionKey?: string | null;
+  correct_option_key?: string | null;
+  correctOptionText?: string | null;
+  correct_option_text?: string | null;
   correctAnswerIndex?: number | null;
   correct_answer_index?: number | null;
 
   explanation?: string | null;
+  explanationText?: string | null;
+  explanation_text?: string | null;
+  explanationDetail?: string | null;
+  explanation_detail?: string | null;
+  rawExplanation?: string | null;
+  raw_explanation?: string | null;
+  rawBlock?: string | null;
+  raw_block?: string | null;
+  translationVi?: string | null;
+  translation_vi?: string | null;
+  finalTranslationVi?: string | null;
+  final_translation_vi?: string | null;
+  optionAnalysis?: string | null;
+  option_analysis?: string | null;
+  vocabularyNotes?: string | null;
+  vocabulary_notes?: string | null;
+  selectedText?: string | null;
+  selected_text?: string | null;
+  currentHighlightedText?: string | null;
+  current_highlighted_text?: string | null;
+  audio?: Record<string, unknown> | null;
+  image?: Record<string, unknown> | null;
   skill?: string | null;
   subskill?: string | null;
   topic?: string | null;
@@ -106,13 +153,24 @@ export type ChatRequest = {
   question_id?: number | string | null;
   questionId?: number | string | null;
   currentQuestionId?: number | string | null;
+  runtimeQuestionId?: number | string | null;
+  runtime_question_id?: number | string | null;
+  runnerQuestionId?: number | string | null;
+  runner_question_id?: number | string | null;
+  docxQuestionId?: number | string | null;
+  docx_question_id?: number | string | null;
+  sourceQuestionId?: number | string | null;
+  source_question_id?: number | string | null;
   sqlId?: number | string | null;
+  source?: string | null;
 
   attempt_id?: number | null;
   attemptId?: number | null;
 
   context_type?: string | null;
   contextType?: string | null;
+  currentQuestionKey?: string | null;
+  current_question_key?: string | null;
 
   selected_answer_index?: number | null;
   selectedAnswerIndex?: number | null;
@@ -122,17 +180,61 @@ export type ChatRequest = {
   questionNumber?: number | string | null;
   question_number?: number | string | null;
   part?: number | string | null;
+  partLabel?: string | null;
+  part_label?: string | null;
+  section?: string | null;
+  skill?: string | null;
+  subskill?: string | null;
   questionText?: string | null;
   question_text?: string | null;
+  passage?: string | Record<string, unknown> | null;
   passageText?: string | null;
   passage_text?: string | null;
   options?: ChatQuestionOption[];
   choices?: ChatQuestionOption[];
   selectedAnswer?: unknown;
   selected_answer?: unknown;
+  selectedOptionKey?: string | null;
+  selected_option_key?: string | null;
+  selectedOptionText?: string | null;
+  selected_option_text?: string | null;
   correctAnswer?: unknown;
   correct_answer?: unknown;
+  correctOptionKey?: string | null;
+  correct_option_key?: string | null;
+  correctOptionText?: string | null;
+  correct_option_text?: string | null;
   explanation?: string | null;
+  explanationText?: string | null;
+  explanation_text?: string | null;
+  explanationDetail?: string | null;
+  explanation_detail?: string | null;
+  rawExplanation?: string | null;
+  raw_explanation?: string | null;
+  rawBlock?: string | null;
+  raw_block?: string | null;
+  translationVi?: string | null;
+  translation_vi?: string | null;
+  finalTranslationVi?: string | null;
+  final_translation_vi?: string | null;
+  optionAnalysis?: string | null;
+  option_analysis?: string | null;
+  vocabularyNotes?: string | null;
+  vocabulary_notes?: string | null;
+  selectedText?: string | null;
+  selected_text?: string | null;
+  currentHighlightedText?: string | null;
+  current_highlighted_text?: string | null;
+  audio?: Record<string, unknown> | null;
+  image?: Record<string, unknown> | null;
+  reviewReason?: string | null;
+  reviewReasons?: string[] | null;
+  answerMode?: "short" | "default" | string | null;
+  answer_mode?: "short" | "default" | string | null;
+  useSqlOnly?: boolean | null;
+  use_sql_only?: boolean | null;
+  includeCorrectAnswer?: boolean | null;
+  include_correct_answer?: boolean | null;
 
   currentQuestion?: ChatQuestionContext | null;
   current_question?: ChatQuestionContext | null;
@@ -238,11 +340,19 @@ export const chatService = {
   async sendDetailed(messageOrRequest: string | ChatRequest, context?: Omit<ChatRequest, "message">) {
     const request = normalizeRequest(messageOrRequest, context);
 
-    const response = await apiRequest<ChatResponse>("/api/chat", {
-      method: "POST",
-      auth: true,
-      body: JSON.stringify(request),
-    });
+    let response: ChatResponse;
+    try {
+      response = await apiRequest<ChatResponse>("/api/chat", {
+        method: "POST",
+        auth: true,
+        body: JSON.stringify(request),
+      });
+    } catch (error) {
+      if (error instanceof TypeError) {
+        throw new Error(`Không kết nối được AI Tutor tại ${API_BASE_URL}/api/chat. Kiểm tra backend FastAPI và VITE_API_BASE_URL.`);
+      }
+      throw error;
+    }
 
     return {
       ...response,
@@ -268,11 +378,24 @@ export const chatService = {
       headers.set("Authorization", `Bearer ${token}`);
     }
 
-    const response = await fetch(`${API_BASE_URL}/api/chat/stream`, {
-      method: "POST",
-      headers,
-      body: JSON.stringify(request),
-    });
+    let response: Response;
+    try {
+      response = await fetch(`${API_BASE_URL}/api/chat/stream`, {
+        method: "POST",
+        headers,
+        body: JSON.stringify(request),
+      });
+    } catch {
+      const fallback = await this.sendDetailed(request);
+      onEvent({ event: "completed", data: { reply: fallback.reply, response: fallback } });
+      return;
+    }
+
+    if (response.status === 404 || response.status === 405) {
+      const fallback = await this.sendDetailed(request);
+      onEvent({ event: "completed", data: { reply: fallback.reply, response: fallback } });
+      return;
+    }
 
     if (!response.ok || !response.body) {
       const detail = await response.text();

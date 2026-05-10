@@ -250,7 +250,7 @@ export const authService = {
 
     return {
       user: result.user,
-      nextPath: "/dashboard",
+      nextPath: "/placement-test",
     };
   },
 

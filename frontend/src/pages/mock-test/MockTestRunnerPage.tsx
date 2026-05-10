@@ -38,7 +38,7 @@ import { mockQuestions } from "@src/data/mock-test-runner";
 import { useHighlightSelection } from "@src/hooks/useHighlightSelection";
 import { attemptsService } from "@src/services/attemptsService";
 import { ApiError } from "@src/services/apiClient";
-import { reviewService, type ReviewHighlight, type ReviewNote } from "@src/services/reviewService";
+import { reviewService, type ReviewHighlight, type ReviewNote, type ReviewSourceFilter } from "@src/services/reviewService";
 import { toeicService, ToeicRunnerQuestion } from "@src/services/toeicService";
 import { useLanguage } from "@src/contexts/LanguageContext";
 import {
@@ -56,10 +56,16 @@ type MockRunnerQuestion = (typeof mockQuestions)[number] & {
   explanation?: string;
   passageTitle?: string | null;
   passageText?: string | null;
+  passage?: ToeicRunnerQuestion["passage"];
   groupId?: string | null;
+  hasAudio?: boolean;
+  hasImage?: boolean;
   audioPath?: string;
   graphicPath?: string;
   imagePath?: string;
+  audioUrl?: string;
+  graphicUrl?: string;
+  imageUrl?: string;
 };
 
 function mapToeicQuestionToMockRunnerQuestion(
@@ -95,10 +101,16 @@ function mapToeicQuestionToMockRunnerQuestion(
     explanation: question.explanation,
     passageTitle: question.passageTitle,
     passageText: question.passageText,
+    passage: question.passage,
     groupId: question.groupId,
+    hasAudio: question.hasAudio,
+    hasImage: question.hasImage,
     audioPath: question.audioPath,
     graphicPath: question.graphicPath,
     imagePath: question.imagePath,
+    audioUrl: question.audioUrl,
+    graphicUrl: question.graphicUrl,
+    imageUrl: question.imageUrl,
   };
 }
 
@@ -152,6 +164,8 @@ export function MockTestRunnerPage() {
   const runnerType = location.pathname.startsWith("/weekly-check/runner")
     ? "weekly"
     : searchParams.get("type") || searchParams.get("mode") || "full";
+  const reviewToolSource: ReviewSourceFilter =
+    runnerType === "weekly" ? "weeklycheck" : runnerType === "mini" ? "minitest" : "fulltest";
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [flagged, setFlagged] = useState<number[]>([]);
@@ -341,9 +355,9 @@ export function MockTestRunnerPage() {
       setNoteSaved(false);
       try {
         const [notes, highlights, bookmarked] = await Promise.all([
-          reviewService.getNotes(currentSqlQuestionId),
-          reviewService.getHighlights(currentSqlQuestionId),
-          reviewService.getBookmark(currentSqlQuestionId),
+          reviewService.getNotes(currentSqlQuestionId, { source: reviewToolSource, runtimeQuestionId: currentSqlQuestionId }),
+          reviewService.getHighlights(currentSqlQuestionId, { source: reviewToolSource, runtimeQuestionId: currentSqlQuestionId }),
+          reviewService.getBookmark(currentSqlQuestionId, { source: reviewToolSource, runtimeQuestionId: currentSqlQuestionId }),
         ]);
         if (cancelled) return;
         setSavedNotes(notes);
@@ -371,7 +385,7 @@ export function MockTestRunnerPage() {
     return () => {
       cancelled = true;
     };
-  }, [currentQuestion, currentSqlQuestionId]);
+  }, [currentQuestion, currentSqlQuestionId, reviewToolSource]);
 
   if (totalQuestions === 0) {
     return (
@@ -408,6 +422,10 @@ export function MockTestRunnerPage() {
   }
 
   const isListeningSection = currentQ.part <= 4;
+  const currentAudioUrl = currentQ.audioUrl;
+  const currentImageUrl = currentQ.imageUrl || currentQ.graphicUrl;
+  const currentPassageTitle = currentQ.passage?.title || currentQ.passageTitle || "";
+  const currentPassageText = currentQ.passage?.text || currentQ.passageText || "";
   const listeningQuestionNumbers = questions
     .map((question, index) => ({ question, number: index + 1 }))
     .filter((item) => item.question.part <= 4);
@@ -485,6 +503,7 @@ export function MockTestRunnerPage() {
         answers,
         flaggedQuestions: flagged,
         timeSpentSeconds: Math.max(0, elapsedSeconds),
+        source: runnerType === "mini" ? "minitest" : "fulltest",
         title: runnerType === "mini" ? "TOEIC Mini Test" : "TOEIC Full Mock Test",
         attemptType: runnerType === "mini" ? "mini-test" : "mock-test",
         startedAtUtc,
@@ -502,6 +521,14 @@ export function MockTestRunnerPage() {
         },
       });
     } catch (error) {
+      const submitEndpoint =
+        runnerType === "weekly" ? "/api/weekly-check/submit" : "/api/attempts/mock-test";
+      console.error("Mock/weekly submit failed", {
+        endpoint: submitEndpoint,
+        status: error instanceof ApiError ? error.status : null,
+        detail: error instanceof Error ? error.message : String(error),
+        payload: error instanceof ApiError ? error.payload : null,
+      });
       setSubmitError(
         error instanceof Error
           ? error.message
@@ -522,7 +549,10 @@ export function MockTestRunnerPage() {
     setIsBookmarked(nextValue);
     toggleFlag(currentQuestion);
     try {
-      const saved = await reviewService.toggleBookmark(currentSqlQuestionId);
+      const saved = await reviewService.toggleBookmark(currentSqlQuestionId, null, {
+        source: reviewToolSource,
+        runtimeQuestionId: currentSqlQuestionId,
+      });
       setIsBookmarked(saved);
       setNotebookStatusByNumber((prev) => ({
         ...prev,
@@ -542,7 +572,10 @@ export function MockTestRunnerPage() {
     setIsSavingNote(true);
     setReviewToolError(null);
     try {
-      const note = await reviewService.saveNote(currentSqlQuestionId, questionNote.trim());
+      const note = await reviewService.saveNote(currentSqlQuestionId, questionNote.trim(), null, {
+        source: reviewToolSource,
+        runtimeQuestionId: currentSqlQuestionId,
+      });
       setSavedNotes([note]);
       setQuestionNote(note.noteText);
       setNoteSaved(true);
@@ -576,6 +609,8 @@ export function MockTestRunnerPage() {
     try {
       const highlight = await reviewService.createHighlight({
         questionId: currentSqlQuestionId,
+        source: reviewToolSource,
+        runtimeQuestionId: currentSqlQuestionId,
         targetType: currentSelection.targetType || "question",
         targetKey: currentSelection.targetKey || null,
         selectedText: currentSelection.selectedText.trim(),
@@ -679,7 +714,7 @@ export function MockTestRunnerPage() {
               <AlertDialogContent>
                 <AlertDialogHeader>
                   <AlertDialogTitle>Xác nhận nộp bài?</AlertDialogTitle>
-                  <AlertDialogDescription>
+                  <AlertDialogDescription asChild>
                     <div className="mt-4 space-y-3">
                       <div className="flex items-center justify-between rounded-lg bg-muted p-3">
                         <span>Đã trả lời</span>
@@ -778,8 +813,9 @@ export function MockTestRunnerPage() {
               </Badge>
             </div>
 
-            {isListeningSection && (
+            {(currentAudioUrl || (isListeningSection && questionSource === "local")) && (
               <AudioPlayerBar
+                src={currentAudioUrl}
                 currentTimeSeconds={0}
                 durationSeconds={18}
                 className="border-[#ececec] bg-[#f4f4f4]"
@@ -824,7 +860,17 @@ export function MockTestRunnerPage() {
                 onMouseUp={handleTextSelect}
                 onKeyUp={handleTextSelect}
               >
-                {currentQ.passageText ? (
+                {currentImageUrl ? (
+                  <div className="overflow-hidden rounded-xl border border-[#dfe7f5] bg-[#f8fbff]">
+                    <img
+                      src={currentImageUrl}
+                      alt={`TOEIC Part ${currentQ.part}`}
+                      className="max-h-[420px] w-full object-contain"
+                    />
+                  </div>
+                ) : null}
+
+                {currentPassageText ? (
                   <div
                     className="rounded-xl border border-[#E6EDF8] bg-[#F8FBFF] p-4 text-sm leading-relaxed text-foreground"
                     data-highlight-target="passage"
@@ -832,12 +878,12 @@ export function MockTestRunnerPage() {
                     onMouseUp={handleTextSelect}
                     onKeyUp={handleTextSelect}
                   >
-                    {currentQ.passageTitle ? (
+                    {currentPassageTitle ? (
                       <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                        {currentQ.passageTitle}
+                        {currentPassageTitle}
                       </p>
                     ) : null}
-                    {renderHighlightedText(currentQ.passageText)}
+                    {renderHighlightedText(currentPassageText)}
                   </div>
                 ) : null}
 

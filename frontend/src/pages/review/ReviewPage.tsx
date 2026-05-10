@@ -1,20 +1,23 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import {
   BookMarked,
   BookOpen,
   CheckCircle,
   FileText,
   Highlighter,
+  ImageIcon,
   MessageSquare,
   Play,
   Search,
   Trash2,
+  Volume2,
   XCircle,
 } from "lucide-react";
 
+import { AudioPlayerBar } from "@/components/audio-player-bar";
 import { ProFeatureGuard } from "@/components/pro-feature-guard";
 import { ChatPanel } from "@src/components/chat/ChatPanel";
 import { Badge } from "@/components/ui/badge";
@@ -24,13 +27,16 @@ import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Textarea } from "@/components/ui/textarea";
-import { ApiError } from "@src/services/apiClient";
+import { API_BASE_URL, ApiError } from "@src/services/apiClient";
 import { chatService } from "@src/services/chatService";
 import {
   reviewService,
+  getReviewSourceLabel,
   type ReviewFilter,
   type ReviewHighlight,
   type ReviewQueueQuestion,
+  type ReviewSummaryStats,
+  type ReviewSourceFilter,
 } from "@src/services/reviewService";
 import { useLanguage } from "@src/contexts/LanguageContext";
 import type { TranslationKey } from "@src/i18n";
@@ -47,6 +53,7 @@ const filters: Array<{
 }> = [
   { key: "all", labelKey: "review.all", descriptionKey: "review.subtitle" },
   { key: "wrong", labelKey: "review.wrong", descriptionKey: "review.reviewThisQuestion" },
+  { key: "skipped", labelKey: "result.skipped", descriptionKey: "review.reviewThisQuestion" },
   { key: "correct", labelKey: "review.correct", descriptionKey: "review.correctAnswer" },
   { key: "bookmarked", labelKey: "review.bookmarked", descriptionKey: "review.bookmarked" },
   { key: "notes", labelKey: "review.hasNote", descriptionKey: "review.personalNotebook" },
@@ -54,14 +61,48 @@ const filters: Array<{
   { key: "notebook", labelKey: "review.notebook", descriptionKey: "review.quickNotebook" },
 ];
 
+const sourceFilters: Array<{ key: ReviewSourceFilter; label: string }> = [
+  { key: "all", label: "Tất cả" },
+  { key: "practice", label: "Bài tập" },
+  { key: "fulltest", label: "Full Test" },
+  { key: "minitest", label: "Mini Test" },
+  { key: "weeklycheck", label: "Weekly Check" },
+];
+
+const reviewSourceOrder: Record<string, number> = {
+  practice: 0,
+  fulltest: 1,
+  minitest: 2,
+  weeklycheck: 3,
+  diagnostic: 4,
+};
+
+function normalizeReviewFilterParam(value: string | null): ReviewFilter {
+  const normalized = (value || "all").trim().toLowerCase();
+  if (normalized === "noted") return "notes";
+  if (normalized === "highlighted") return "highlights";
+  return filters.some((item) => item.key === normalized) ? (normalized as ReviewFilter) : "all";
+}
+
+function normalizeSourceParam(value: string | null): ReviewSourceFilter {
+  const normalized = (value || "all").trim().toLowerCase().replace(/-/g, "_");
+  if (normalized === "practice") return "practice";
+  if (["full", "full_test", "fulltest", "mock", "mock_test"].includes(normalized)) return "fulltest";
+  if (["mini", "mini_test", "minitest"].includes(normalized)) return "minitest";
+  if (["weekly", "weekly_check", "weeklycheck"].includes(normalized)) return "weeklycheck";
+  if (["diagnostic", "placement", "placement_test"].includes(normalized)) return "diagnostic";
+  return "all";
+}
+
 function buildReviewPracticeUrl(question: ReviewQueueQuestion | null) {
   if (!question?.questionId) return "/practice?review=true";
   const params = new URLSearchParams({
     mode: "review",
-    source: "review",
+    source: String(question.sourceType || question.source || "practice"),
     question_ids: String(question.questionId),
     count: "1",
   });
+  if (question.sourceAttemptId) params.set("attemptId", String(question.sourceAttemptId));
   if (question.part) params.set("parts", String(question.part));
   return `/practice/runner?${params.toString()}`;
 }
@@ -70,11 +111,79 @@ function optionLabel(index: number) {
   return String.fromCharCode(65 + index);
 }
 
+function resolveAssetUrl(path?: string | null) {
+  if (!path) return null;
+  if (/^https?:\/\//i.test(path) || path.startsWith("data:")) return path;
+  return `${API_BASE_URL}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
 function renderOptionAnswer(label?: string | null, text?: string | null) {
   if (!label && !text) return "Chưa có dữ liệu";
   if (!label) return text || "";
   if (!text) return label;
   return `${label} — ${text}`;
+}
+
+function renderUserAnswer(question: ReviewQueueQuestion) {
+  if (!question.userAnswerLabel && !question.userAnswer) {
+    return "Bạn chưa chọn đáp án";
+  }
+  return renderOptionAnswer(question.userAnswerLabel, question.userAnswer);
+}
+
+function getReviewPassageTitle(question?: ReviewQueueQuestion | null) {
+  return question?.passage?.title || question?.passageTitle || "";
+}
+
+function reviewItemKey(item: ReviewQueueQuestion | null) {
+  if (!item) return "";
+  return `${item.sourceType || item.source || "all"}:${item.sourceAttemptId ?? "all"}:${
+    item.runtimeQuestionId ?? item.diagnosticQuestionId ?? item.questionId
+  }`;
+}
+
+function getReviewOrder(item: ReviewQueueQuestion) {
+  return item.questionNumber ?? item.runtimeQuestionId ?? item.diagnosticQuestionId ?? item.questionId ?? item.id ?? 0;
+}
+
+function sortReviewItems(items: ReviewQueueQuestion[]) {
+  return [...items].sort((left, right) => {
+    const leftSource = normalizeSourceParam(String(left.sourceType || left.source || "all"));
+    const rightSource = normalizeSourceParam(String(right.sourceType || right.source || "all"));
+    return (
+      (reviewSourceOrder[leftSource] ?? 99) - (reviewSourceOrder[rightSource] ?? 99) ||
+      (left.sourceAttemptId ?? 0) - (right.sourceAttemptId ?? 0) ||
+      getReviewOrder(left) - getReviewOrder(right) ||
+      (left.id ?? 0) - (right.id ?? 0)
+    );
+  });
+}
+
+function logReviewSortedItems(items: ReviewQueueQuestion[]) {
+  if (import.meta.env.DEV) {
+    console.log("Review sorted items", items.map((item) => item.questionNumber || item.runtimeQuestionId || item.questionId));
+  }
+}
+
+function dedupeReviewItems(items: ReviewQueueQuestion[]) {
+  const unique = new Map<string, ReviewQueueQuestion>();
+  for (const item of items) {
+    const key = reviewItemKey(item);
+    if (key && !unique.has(key)) unique.set(key, item);
+  }
+  return sortReviewItems(Array.from(unique.values()));
+}
+
+function getReviewPassageText(question?: ReviewQueueQuestion | null) {
+  return question?.passage?.text || question?.passage?.passageText || question?.passageText || "";
+}
+
+function getReviewAudioPath(question?: ReviewQueueQuestion | null) {
+  return question?.audio?.path || question?.audioUrl || question?.passage?.audio?.path || question?.passage?.audioPath || null;
+}
+
+function getReviewImagePath(question?: ReviewQueueQuestion | null) {
+  return question?.image?.path || question?.imageUrl || question?.graphicUrl || question?.passage?.image?.path || question?.passage?.imagePath || null;
 }
 
 function highlightText(text: string, highlights: ReviewHighlight[]) {
@@ -103,8 +212,26 @@ function highlightText(text: string, highlights: ReviewHighlight[]) {
 
 export function ReviewPage() {
   const { t } = useLanguage();
-  const [activeFilter, setActiveFilter] = useState<ReviewFilter>("all");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const scopedAttemptId = Number(searchParams.get("attemptId"));
+  const activeAttemptId = Number.isFinite(scopedAttemptId) && scopedAttemptId > 0 ? scopedAttemptId : null;
+  const [activeFilter, setActiveFilter] = useState<ReviewFilter>(() =>
+    normalizeReviewFilterParam(searchParams.get("filter")),
+  );
+  const [activeSource, setActiveSource] = useState<ReviewSourceFilter>(() =>
+    normalizeSourceParam(searchParams.get("source")),
+  );
   const [items, setItems] = useState<ReviewQueueQuestion[]>([]);
+  const [summaryStats, setSummaryStats] = useState<ReviewSummaryStats>({
+    wrongCount: 0,
+    skippedCount: 0,
+    wrongCardCount: 0,
+    notedCount: 0,
+    highlightedCount: 0,
+    bookmarkedCount: 0,
+    totalReviewQuestions: 0,
+    stabilityPercent: 100,
+  });
   const [selectedQuestion, setSelectedQuestion] = useState<ReviewQueueQuestion | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [reviewError, setReviewError] = useState<string | null>(null);
@@ -117,29 +244,80 @@ export function ReviewPage() {
   const [messages, setMessages] = useState<ReviewChatMessage[]>([]);
   const [isChatLoading, setIsChatLoading] = useState(false);
   const [chatConversationId, setChatConversationId] = useState<number | null>(null);
+  const reviewRequestIdRef = useRef(0);
+
+  const updateReviewParams = (updates: { source?: ReviewSourceFilter; filter?: ReviewFilter }) => {
+    const next = new URLSearchParams(searchParams);
+    if (updates.source) {
+      next.set("source", updates.source);
+      if (updates.source !== activeSource || updates.source === "all") next.delete("attemptId");
+    }
+    if (updates.filter) next.set("filter", updates.filter);
+    if (next.toString() !== searchParams.toString()) setSearchParams(next);
+  };
+
+  useEffect(() => {
+    setActiveFilter(normalizeReviewFilterParam(searchParams.get("filter")));
+    setActiveSource(normalizeSourceParam(searchParams.get("source")));
+  }, [searchParams]);
+
+  const reviewParams = useMemo(
+    () => ({
+      filter: activeFilter,
+      source: activeSource,
+      attemptId: activeSource === "all" ? null : activeAttemptId,
+      limit: 500,
+    }),
+    [activeFilter, activeSource, activeAttemptId],
+  );
+  const selectedQuestionChatKey = reviewItemKey(selectedQuestion);
 
   useEffect(() => {
     let cancelled = false;
+    const requestId = ++reviewRequestIdRef.current;
 
     async function loadItems() {
       setIsLoading(true);
       setReviewError(null);
       try {
-        const data = await reviewService.getReviewItems(activeFilter, 80);
-        if (cancelled) return;
+        const [itemData, nextSummary] = await Promise.all([
+          reviewService.getReviewItems(reviewParams.filter, reviewParams.limit, {
+            source: reviewParams.source,
+            attemptId: reviewParams.attemptId,
+          }),
+          reviewService.getReviewSummaryStats(reviewParams.filter, {
+            source: reviewParams.source,
+            attemptId: reviewParams.attemptId,
+          }),
+        ]);
+        if (cancelled || requestId !== reviewRequestIdRef.current) return;
+        const data = dedupeReviewItems(itemData);
+        logReviewSortedItems(data);
         setItems(data);
+        setSummaryStats(nextSummary);
         setSelectedQuestion((current) => {
-          const stillExists = current && data.find((item) => item.questionId === current.questionId);
+          const currentKey = reviewItemKey(current);
+          const stillExists = currentKey ? data.find((item) => reviewItemKey(item) === currentKey) : null;
           return stillExists || data[0] || null;
         });
       } catch (error) {
-        if (!cancelled) {
+        if (!cancelled && requestId === reviewRequestIdRef.current) {
           setItems([]);
+          setSummaryStats({
+            wrongCount: 0,
+            skippedCount: 0,
+            wrongCardCount: 0,
+            notedCount: 0,
+            highlightedCount: 0,
+            bookmarkedCount: 0,
+            totalReviewQuestions: 0,
+            stabilityPercent: 100,
+          });
           setSelectedQuestion(null);
           setReviewError(error instanceof Error ? error.message : "Không tải được dữ liệu ôn tập.");
         }
       } finally {
-        if (!cancelled) setIsLoading(false);
+        if (!cancelled && requestId === reviewRequestIdRef.current) setIsLoading(false);
       }
     }
 
@@ -148,7 +326,7 @@ export function ReviewPage() {
     return () => {
       cancelled = true;
     };
-  }, [activeFilter]);
+  }, [reviewParams]);
 
   useEffect(() => {
     setMessages([]);
@@ -156,7 +334,7 @@ export function ReviewPage() {
     setChatConversationId(null);
     setSelectedTextForHighlight("");
     setNoteDraft(selectedQuestion?.notes[0]?.noteText || "");
-  }, [selectedQuestion?.questionId]);
+  }, [selectedQuestionChatKey]);
 
   const filteredItems = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
@@ -164,8 +342,12 @@ export function ReviewPage() {
     return items.filter((item) =>
       [
         item.question,
+        item.questionText || "",
+        getReviewPassageText(item),
         item.correctAnswer,
         item.explanation,
+        item.rawExplanation || "",
+        item.rawBlock || "",
         item.optionAnalysis || "",
         item.vocabularyNotes || "",
         item.skill,
@@ -179,21 +361,25 @@ export function ReviewPage() {
     );
   }, [items, searchQuery]);
 
-  const stats = useMemo(() => {
-    const wrong = items.filter((item) => item.isCorrect === false).length;
-    const correct = items.filter((item) => item.isCorrect === true).length;
-    const bookmarked = items.filter((item) => item.bookmarked).length;
-    const notes = items.filter((item) => item.notes.length > 0).length;
-    const highlights = items.filter((item) => item.highlights.length > 0).length;
-    const total = Math.max(correct + wrong, items.length);
-    const accuracy = total > 0 ? Math.round((correct * 100) / total) : 0;
-    return { wrong, correct, bookmarked, notes, highlights, total, accuracy };
-  }, [items]);
+  const stats = summaryStats;
 
   const refreshSelectedQuestion = async (questionId: number) => {
-    const data = await reviewService.getReviewItems(activeFilter, 80);
+    const [itemData, nextSummary] = await Promise.all([
+      reviewService.getReviewItems(reviewParams.filter, reviewParams.limit, {
+        source: reviewParams.source,
+        attemptId: reviewParams.attemptId,
+      }),
+      reviewService.getReviewSummaryStats(reviewParams.filter, {
+        source: reviewParams.source,
+        attemptId: reviewParams.attemptId,
+      }),
+    ]);
+    const data = dedupeReviewItems(itemData);
+    logReviewSortedItems(data);
     setItems(data);
-    const updated = data.find((item) => item.questionId === questionId) || selectedQuestion;
+    setSummaryStats(nextSummary);
+    const selectedKey = reviewItemKey(selectedQuestion);
+    const updated = data.find((item) => reviewItemKey(item) === selectedKey) || data.find((item) => item.questionId === questionId) || data[0] || null;
     setSelectedQuestion(updated || null);
     return updated || null;
   };
@@ -211,6 +397,11 @@ export function ReviewPage() {
         selectedQuestion.questionId,
         noteDraft.trim(),
         selectedQuestion.sourceAttemptId,
+        {
+          source: selectedQuestion.sourceType || selectedQuestion.source || activeSource,
+          runtimeQuestionId: selectedQuestion.runtimeQuestionId || selectedQuestion.questionId,
+          diagnosticQuestionId: selectedQuestion.diagnosticQuestionId || null,
+        },
       );
       await refreshSelectedQuestion(selectedQuestion.questionId);
     } finally {
@@ -224,7 +415,10 @@ export function ReviewPage() {
     try {
       await reviewService.createHighlight({
         question_id: selectedQuestion.questionId,
+        source: selectedQuestion.sourceType || selectedQuestion.source || activeSource,
         attempt_id: selectedQuestion.sourceAttemptId,
+        runtime_question_id: selectedQuestion.runtimeQuestionId || selectedQuestion.questionId,
+        diagnostic_question_id: selectedQuestion.diagnosticQuestionId || null,
         target_type: "question_text",
         selected_text: selectedTextForHighlight.trim(),
         color: "yellow",
@@ -245,7 +439,11 @@ export function ReviewPage() {
 
   const handleToggleBookmark = async () => {
     if (!selectedQuestion?.questionId) return;
-    await reviewService.toggleBookmark(selectedQuestion.questionId, selectedQuestion.sourceAttemptId);
+    await reviewService.toggleBookmark(selectedQuestion.questionId, selectedQuestion.sourceAttemptId, {
+      source: selectedQuestion.sourceType || selectedQuestion.source || activeSource,
+      runtimeQuestionId: selectedQuestion.runtimeQuestionId || selectedQuestion.questionId,
+      diagnosticQuestionId: selectedQuestion.diagnosticQuestionId || null,
+    });
     await refreshSelectedQuestion(selectedQuestion.questionId);
   };
 
@@ -258,37 +456,216 @@ export function ReviewPage() {
     setChatInput("");
     setIsChatLoading(true);
 
+    const richQuestion = selectedQuestion as typeof selectedQuestion & {
+      docxQuestionId?: number | null;
+      docx_question_id?: number | null;
+      sourceQuestionId?: number | null;
+      source_question_id?: number | null;
+      explanationDetail?: string | null;
+      explanation_detail?: string | null;
+      raw_explanation?: string | null;
+      raw_block?: string | null;
+      option_analysis?: string | null;
+      vocabulary_notes?: string | null;
+      translationVi?: string | null;
+      translation_vi?: string | null;
+      finalTranslationVi?: string | null;
+      final_translation_vi?: string | null;
+      source?: string | null;
+    };
+    const runtimeQuestionId = selectedQuestion.runtimeQuestionId || selectedQuestion.questionId;
+    const docxQuestionId = richQuestion.docxQuestionId || richQuestion.docx_question_id || null;
+    const sourceQuestionId =
+      richQuestion.sourceQuestionId ||
+      richQuestion.source_question_id ||
+      (docxQuestionId && docxQuestionId !== runtimeQuestionId ? docxQuestionId : null);
+    const questionSource = richQuestion.source || selectedQuestion.sourceAttemptType || "review";
+    const explanationDetail =
+      richQuestion.explanationDetail ||
+      richQuestion.explanation_detail ||
+      selectedQuestion.explanation ||
+      null;
+    const selectedOptionText =
+      selectedQuestion.optionRows.find(
+        (option) =>
+          option.optionLabel.toUpperCase() ===
+          (selectedQuestion.selectedOptionKey || selectedQuestion.userAnswerLabel || "").toUpperCase(),
+      )?.optionTextEn ||
+      selectedQuestion.userAnswer ||
+      null;
+    const correctOptionText =
+      selectedQuestion.optionRows.find(
+        (option) =>
+          option.optionLabel.toUpperCase() ===
+          (selectedQuestion.correctOptionKey || selectedQuestion.correctAnswerLabel || "").toUpperCase(),
+      )?.optionTextEn ||
+      selectedQuestion.correctAnswer ||
+      null;
+    const translationVi = richQuestion.translationVi || richQuestion.translation_vi || selectedQuestion.translationVi || null;
+    const finalTranslationVi =
+      richQuestion.finalTranslationVi || richQuestion.final_translation_vi || selectedQuestion.finalTranslationVi || null;
+
     try {
+      if (import.meta.env.DEV) {
+        console.debug("AI Tutor context", {
+          source: questionSource,
+          attemptId: selectedQuestion.sourceAttemptId || null,
+          runtimeQuestionId,
+          questionId: selectedQuestion.questionId,
+          questionNumber: selectedQuestion.questionNumber,
+        });
+      }
+
       const response = await chatService.sendDetailed({
         message: userMessage,
-        question_id: selectedQuestion.questionId,
+        question_id: runtimeQuestionId,
+        questionId: runtimeQuestionId,
+        currentQuestionId: runtimeQuestionId,
+        runtime_question_id: runtimeQuestionId,
+        runtimeQuestionId,
+        runner_question_id: runtimeQuestionId,
+        runnerQuestionId: runtimeQuestionId,
+        diagnostic_question_id: selectedQuestion.diagnosticQuestionId || null,
+        diagnosticQuestionId: selectedQuestion.diagnosticQuestionId || null,
+        review_item_id: selectedQuestion.id || null,
+        reviewItemId: selectedQuestion.id || null,
+        docx_question_id: docxQuestionId,
+        docxQuestionId,
+        source_question_id: sourceQuestionId,
+        sourceQuestionId,
+        source: questionSource,
+        sourceType: selectedQuestion.sourceType || selectedQuestion.source || questionSource,
         attempt_id: selectedQuestion.sourceAttemptId || null,
+        attemptId: selectedQuestion.sourceAttemptId || null,
         context_type: "review",
+        contextType: "review",
+        current_question_key: selectedQuestionChatKey,
+        currentQuestionKey: selectedQuestionChatKey,
+        answer_mode: "short",
+        answerMode: "short",
+        use_sql_only: true,
+        useSqlOnly: true,
+        include_correct_answer: false,
+        includeCorrectAnswer: false,
         conversation_id: chatConversationId,
-        questionText: selectedQuestion.question,
-        question_text: selectedQuestion.question,
-        passageText: selectedQuestion.passageText || null,
-        passage_text: selectedQuestion.passageText || null,
+        questionNumber: selectedQuestion.questionNumber,
+        question_number: selectedQuestion.questionNumber,
+        part: selectedQuestion.part,
+        skill: selectedQuestion.skill,
+        subskill: selectedQuestion.subskill,
+        reviewReason: selectedQuestion.reviewReason || null,
+        reviewReasons: selectedQuestion.reviewReasons || [],
+        questionText: selectedQuestion.questionText || selectedQuestion.question,
+        question_text: selectedQuestion.questionText || selectedQuestion.question,
+        passage: selectedQuestion.passage || null,
+        passageText: getReviewPassageText(selectedQuestion) || null,
+        passage_text: getReviewPassageText(selectedQuestion) || null,
+        audio: selectedQuestion.audio || null,
+        image: selectedQuestion.image || null,
         options: selectedQuestion.optionRows.map((option) => ({
           label: option.optionLabel,
           text: option.optionTextEn,
           isCorrect: option.isCorrect,
         })),
         selected_option_label: selectedQuestion.userAnswerLabel || null,
+        selectedOptionKey: selectedQuestion.selectedOptionKey || selectedQuestion.userAnswerLabel || null,
+        selected_option_key: selectedQuestion.selectedOptionKey || selectedQuestion.userAnswerLabel || null,
+        selectedOptionText: selectedOptionText,
+        selected_option_text: selectedOptionText,
+        correctOptionKey: selectedQuestion.correctOptionKey || selectedQuestion.correctAnswerLabel || null,
+        correct_option_key: selectedQuestion.correctOptionKey || selectedQuestion.correctAnswerLabel || null,
+        correctOptionText: correctOptionText,
+        correct_option_text: correctOptionText,
         selectedAnswer: selectedQuestion.userAnswer,
+        selected_answer: selectedQuestion.userAnswer,
         correctAnswer: selectedQuestion.correctAnswer,
-        explanation: selectedQuestion.explanation,
+        correct_answer: selectedQuestion.correctAnswer,
+        explanation: explanationDetail,
+        explanationText: explanationDetail,
+        explanation_text: explanationDetail,
+        explanationDetail,
+        explanation_detail: explanationDetail,
+        rawExplanation: selectedQuestion.rawExplanation || null,
+        raw_explanation: richQuestion.raw_explanation || selectedQuestion.rawExplanation || null,
+        rawBlock: selectedQuestion.rawBlock || null,
+        raw_block: richQuestion.raw_block || selectedQuestion.rawBlock || null,
+        translationVi,
+        translation_vi: translationVi,
+        finalTranslationVi,
+        final_translation_vi: finalTranslationVi,
+        optionAnalysis: selectedQuestion.optionAnalysis || null,
+        option_analysis: richQuestion.option_analysis || selectedQuestion.optionAnalysis || null,
+        vocabularyNotes: selectedQuestion.vocabularyNotes || null,
+        vocabulary_notes: richQuestion.vocabulary_notes || selectedQuestion.vocabularyNotes || null,
+        selectedText: selectedTextForHighlight || null,
+        selected_text: selectedTextForHighlight || null,
+        currentHighlightedText: selectedTextForHighlight || null,
+        current_highlighted_text: selectedTextForHighlight || null,
         currentQuestion: {
-          id: selectedQuestion.questionId,
-          questionId: selectedQuestion.questionId,
+          id: runtimeQuestionId,
+          questionId: runtimeQuestionId,
+          question_id: runtimeQuestionId,
+          runtimeQuestionId,
+          runtime_question_id: runtimeQuestionId,
+          runnerQuestionId: runtimeQuestionId,
+          runner_question_id: runtimeQuestionId,
+          diagnosticQuestionId: selectedQuestion.diagnosticQuestionId || null,
+          diagnostic_question_id: selectedQuestion.diagnosticQuestionId || null,
+          reviewItemId: selectedQuestion.id || null,
+          review_item_id: selectedQuestion.id || null,
+          docxQuestionId,
+          docx_question_id: docxQuestionId,
+          sourceQuestionId,
+          source_question_id: sourceQuestionId,
+          source: questionSource,
+          sourceType: selectedQuestion.sourceType || selectedQuestion.source || questionSource,
+          currentQuestionKey: selectedQuestionChatKey,
+          current_question_key: selectedQuestionChatKey,
           questionNumber: selectedQuestion.questionNumber,
           part: selectedQuestion.part,
-          questionText: selectedQuestion.question,
-          passageText: selectedQuestion.passageText,
+          section: selectedQuestion.section,
+          skill: selectedQuestion.skill,
+          subskill: selectedQuestion.subskill,
+          questionText: selectedQuestion.questionText || selectedQuestion.question,
+          question_text: selectedQuestion.questionText || selectedQuestion.question,
+          passage: selectedQuestion.passage,
+          passageText: getReviewPassageText(selectedQuestion),
+          audio: selectedQuestion.audio,
+          image: selectedQuestion.image,
           options: selectedQuestion.optionRows,
+          selectedOptionKey: selectedQuestion.selectedOptionKey || selectedQuestion.userAnswerLabel || null,
+          selected_option_key: selectedQuestion.selectedOptionKey || selectedQuestion.userAnswerLabel || null,
+          selectedOptionText: selectedOptionText,
+          selected_option_text: selectedOptionText,
           selectedAnswer: selectedQuestion.userAnswer,
+          selected_answer: selectedQuestion.userAnswer,
+          correctOptionKey: selectedQuestion.correctOptionKey || selectedQuestion.correctAnswerLabel || null,
+          correct_option_key: selectedQuestion.correctOptionKey || selectedQuestion.correctAnswerLabel || null,
+          correctOptionText: correctOptionText,
+          correct_option_text: correctOptionText,
           correctAnswer: selectedQuestion.correctAnswer,
-          explanation: selectedQuestion.explanation,
+          correct_answer: selectedQuestion.correctAnswer,
+          explanation: explanationDetail,
+          explanationText: explanationDetail,
+          explanation_text: explanationDetail,
+          explanationDetail,
+          explanation_detail: explanationDetail,
+          rawExplanation: selectedQuestion.rawExplanation,
+          raw_explanation: richQuestion.raw_explanation || selectedQuestion.rawExplanation,
+          rawBlock: selectedQuestion.rawBlock,
+          raw_block: richQuestion.raw_block || selectedQuestion.rawBlock,
+          translationVi,
+          translation_vi: translationVi,
+          finalTranslationVi,
+          final_translation_vi: finalTranslationVi,
+          optionAnalysis: selectedQuestion.optionAnalysis,
+          option_analysis: richQuestion.option_analysis || selectedQuestion.optionAnalysis,
+          vocabularyNotes: selectedQuestion.vocabularyNotes,
+          vocabulary_notes: richQuestion.vocabulary_notes || selectedQuestion.vocabularyNotes,
+          selectedText: selectedTextForHighlight || null,
+          selected_text: selectedTextForHighlight || null,
+          currentHighlightedText: selectedTextForHighlight || null,
+          current_highlighted_text: selectedTextForHighlight || null,
         },
       });
 
@@ -321,10 +698,16 @@ export function ReviewPage() {
     }
   };
 
-  const selectedCorrectText =
+  const selectedCorrectOption =
     selectedQuestion?.optionRows.find(
       (option) => option.optionLabel.toUpperCase() === (selectedQuestion.correctAnswerLabel || "").toUpperCase(),
-    )?.optionTextEn || selectedQuestion?.correctAnswer;
+    ) || selectedQuestion?.optionRows.find((option) => option.isCorrect);
+  const selectedCorrectLabel = selectedQuestion?.correctAnswerLabel || selectedCorrectOption?.optionLabel || null;
+  const selectedCorrectText = selectedCorrectOption?.optionTextEn || selectedQuestion?.correctAnswer;
+  const selectedPassageTitle = getReviewPassageTitle(selectedQuestion);
+  const selectedPassageText = getReviewPassageText(selectedQuestion);
+  const selectedAudioUrl = resolveAssetUrl(getReviewAudioPath(selectedQuestion));
+  const selectedImageUrl = resolveAssetUrl(getReviewImagePath(selectedQuestion));
 
   return (
     <div className="space-y-6">
@@ -367,33 +750,33 @@ export function ReviewPage() {
         <Card className="bg-gradient-to-br from-primary/10 to-transparent">
           <CardContent className="p-5">
             <p className="text-sm text-muted-foreground">Câu sai</p>
-            <p className="mt-1 text-2xl font-bold text-red-600">{stats.wrong}</p>
+            <p className="mt-1 text-2xl font-bold text-red-600">{stats.wrongCardCount}</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-5">
             <p className="text-sm text-muted-foreground">Đã đánh dấu</p>
-            <p className="mt-1 text-2xl font-bold text-yellow-600">{stats.bookmarked}</p>
+            <p className="mt-1 text-2xl font-bold text-yellow-600">{stats.bookmarkedCount}</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-5">
             <p className="text-sm text-muted-foreground">Có ghi chú</p>
-            <p className="mt-1 text-2xl font-bold text-primary">{stats.notes}</p>
+            <p className="mt-1 text-2xl font-bold text-primary">{stats.notedCount}</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-5">
             <p className="text-sm text-muted-foreground">Có highlight</p>
-            <p className="mt-1 text-2xl font-bold text-amber-600">{stats.highlights}</p>
+            <p className="mt-1 text-2xl font-bold text-amber-600">{stats.highlightedCount}</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="p-5">
             <p className="text-sm text-muted-foreground">Độ ổn định</p>
             <div className="mt-2 flex items-center gap-3">
-              <Progress value={stats.accuracy} className="h-2" />
-              <span className="text-sm font-semibold">{stats.accuracy}%</span>
+              <Progress value={stats.stabilityPercent} className="h-2" />
+              <span className="text-sm font-semibold">{stats.stabilityPercent}%</span>
             </div>
           </CardContent>
         </Card>
@@ -429,12 +812,39 @@ export function ReviewPage() {
           <Card className="lg:col-start-1 lg:row-start-1 lg:h-full lg:min-h-0 lg:overflow-hidden">
             <CardHeader className="pb-3">
               <CardTitle className="text-base">{t("review.questionList")}</CardTitle>
+              {activeAttemptId ? (
+                <p className="mt-2 text-xs text-muted-foreground">
+                  Đang lọc attempt #{activeAttemptId}
+                </p>
+              ) : null}
               <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
+                {sourceFilters.map((filter) => (
+                  <button
+                    key={filter.key}
+                    type="button"
+                    onClick={() => {
+                      setActiveSource(filter.key);
+                      updateReviewParams({ source: filter.key });
+                    }}
+                    className={`shrink-0 rounded-full border px-3 py-1.5 text-xs font-medium transition ${
+                      activeSource === filter.key
+                        ? "border-primary bg-primary text-primary-foreground"
+                        : "border-border bg-white text-muted-foreground hover:border-primary/50"
+                    }`}
+                  >
+                    {getReviewSourceLabel(filter.key)}
+                  </button>
+                ))}
+              </div>
+              <div className="mt-2 flex gap-2 overflow-x-auto pb-1">
                 {filters.map((filter) => (
                   <button
                     key={filter.key}
                     type="button"
-                    onClick={() => setActiveFilter(filter.key)}
+                    onClick={() => {
+                      setActiveFilter(filter.key);
+                      updateReviewParams({ filter: filter.key });
+                    }}
                     className={`shrink-0 rounded-full border px-3 py-1.5 text-xs font-medium transition ${
                       activeFilter === filter.key
                         ? "border-primary bg-primary text-primary-foreground"
@@ -452,11 +862,11 @@ export function ReviewPage() {
                   {filteredItems.length > 0 ? (
                     filteredItems.map((item) => (
                       <button
-                        key={`${item.questionId}-${item.sourceAttemptId || "review"}`}
+                        key={reviewItemKey(item)}
                         type="button"
                         onClick={() => setSelectedQuestion(item)}
                         className={`w-full rounded-xl border p-3 text-left transition ${
-                          selectedQuestion?.questionId === item.questionId
+                          reviewItemKey(selectedQuestion) === reviewItemKey(item)
                             ? "border-primary bg-primary/5"
                             : "border-border hover:border-primary/50"
                         }`}
@@ -473,6 +883,11 @@ export function ReviewPage() {
                             <p className="truncate text-sm font-medium">
                               Câu {item.questionNumber || item.questionId}
                             </p>
+                            <div className="mt-1">
+                              <Badge variant="outline" className="px-1.5 py-0 text-[10px]">
+                                {item.sourceLabel || getReviewSourceLabel(item.sourceType || item.source)}
+                              </Badge>
+                            </div>
                             <p className="text-xs text-muted-foreground">
                               Part {item.part || "?"} · {item.skill}
                             </p>
@@ -504,26 +919,35 @@ export function ReviewPage() {
               <div className="grid grid-cols-3 gap-2 text-center">
                 <button
                   type="button"
-                  onClick={() => setActiveFilter("notes")}
+                  onClick={() => {
+                    setActiveFilter("notes");
+                    updateReviewParams({ filter: "notes" });
+                  }}
                   className="rounded-xl border bg-[#F8FBFF] p-2 transition hover:border-primary/50"
                 >
-                  <p className="text-lg font-bold text-primary">{stats.notes}</p>
+                  <p className="text-lg font-bold text-primary">{stats.notedCount}</p>
                   <p className="text-[11px] text-muted-foreground">{t("review.hasNote")}</p>
                 </button>
                 <button
                   type="button"
-                  onClick={() => setActiveFilter("highlights")}
+                  onClick={() => {
+                    setActiveFilter("highlights");
+                    updateReviewParams({ filter: "highlights" });
+                  }}
                   className="rounded-xl border bg-yellow-50 p-2 transition hover:border-primary/50"
                 >
-                  <p className="text-lg font-bold text-amber-600">{stats.highlights}</p>
+                  <p className="text-lg font-bold text-amber-600">{stats.highlightedCount}</p>
                   <p className="text-[11px] text-muted-foreground">{t("review.hasHighlight")}</p>
                 </button>
                 <button
                   type="button"
-                  onClick={() => setActiveFilter("bookmarked")}
+                  onClick={() => {
+                    setActiveFilter("bookmarked");
+                    updateReviewParams({ filter: "bookmarked" });
+                  }}
                   className="rounded-xl border bg-white p-2 transition hover:border-primary/50"
                 >
-                  <p className="text-lg font-bold text-yellow-600">{stats.bookmarked}</p>
+                  <p className="text-lg font-bold text-yellow-600">{stats.bookmarkedCount}</p>
                   <p className="text-[11px] text-muted-foreground">{t("review.bookmarked")}</p>
                 </button>
               </div>
@@ -531,7 +955,10 @@ export function ReviewPage() {
                 type="button"
                 variant="outline"
                 className="w-full"
-                onClick={() => setActiveFilter("notebook")}
+                onClick={() => {
+                  setActiveFilter("notebook");
+                  updateReviewParams({ filter: "notebook" });
+                }}
               >
                 {t("review.notebook")}
               </Button>
@@ -567,17 +994,61 @@ export function ReviewPage() {
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-5 lg:max-h-[500px] lg:overflow-y-auto" onMouseUp={handleTextSelect}>
-                  {selectedQuestion.passageText ? (
+                  {selectedQuestion.missingReason ? (
+                    <div className="rounded-xl border border-dashed border-amber-200 bg-amber-50 p-3 text-sm text-amber-900">
+                      {selectedQuestion.missingReason}
+                    </div>
+                  ) : null}
+
+                  {(selectedAudioUrl || selectedImageUrl) ? (
+                    <div className="space-y-4">
+                      {selectedAudioUrl ? (
+                        <div className="rounded-xl border border-[#DFE8F5] bg-[#F8FBFF] p-4">
+                          <div className="mb-3 flex items-center gap-2 text-sm font-medium text-foreground">
+                            <Volume2 className="h-4 w-4 text-primary" />
+                            Audio
+                          </div>
+                          <AudioPlayerBar
+                            src={selectedAudioUrl}
+                            className="border-[#e5eaf4] bg-[#f5f9ff]"
+                          />
+                        </div>
+                      ) : null}
+
+                      {selectedImageUrl ? (
+                        <div className="rounded-xl border border-[#DFE8F5] bg-[#F8FBFF] p-4">
+                          <div className="mb-3 flex items-center gap-2 text-sm font-medium text-foreground">
+                            <ImageIcon className="h-4 w-4 text-primary" />
+                            Hình minh họa
+                          </div>
+                          <img
+                            src={selectedImageUrl}
+                            alt={`TOEIC Part ${selectedQuestion.part || ""}`}
+                            className="max-h-[420px] w-full rounded-lg object-contain"
+                          />
+                        </div>
+                      ) : null}
+                    </div>
+                  ) : null}
+
+                  {(selectedPassageTitle || selectedPassageText) ? (
                     <div className="rounded-xl border border-[#DFE8F5] bg-[#F8FBFF] p-4">
-                      <p className="whitespace-pre-line text-sm leading-relaxed text-foreground">
-                        {highlightText(selectedQuestion.passageText, selectedQuestion.highlights)}
-                      </p>
+                      {selectedPassageTitle ? (
+                        <p className="mb-2 text-sm font-semibold text-foreground">
+                          {selectedPassageTitle}
+                        </p>
+                      ) : null}
+                      {selectedPassageText ? (
+                        <p className="whitespace-pre-line text-sm leading-relaxed text-foreground">
+                          {highlightText(selectedPassageText, selectedQuestion.highlights)}
+                        </p>
+                      ) : null}
                     </div>
                   ) : null}
 
                   <div>
                     <p className="text-lg font-semibold leading-relaxed text-foreground">
-                      {highlightText(selectedQuestion.question, selectedQuestion.highlights)}
+                      {highlightText(selectedQuestion.questionText || selectedQuestion.question, selectedQuestion.highlights)}
                     </p>
                   </div>
 
@@ -628,13 +1099,13 @@ export function ReviewPage() {
                     <div className="rounded-xl border border-red-100 bg-red-50 p-4">
                       <p className="text-xs font-semibold uppercase tracking-wide text-red-700">Bạn đã chọn</p>
                       <p className="mt-1 text-sm text-foreground">
-                        {renderOptionAnswer(selectedQuestion.userAnswerLabel, selectedQuestion.userAnswer)}
+                        {renderUserAnswer(selectedQuestion)}
                       </p>
                     </div>
                     <div className="rounded-xl border border-green-100 bg-green-50 p-4">
                       <p className="text-xs font-semibold uppercase tracking-wide text-green-700">Đáp án đúng</p>
                       <p className="mt-1 text-sm text-foreground">
-                        {renderOptionAnswer(selectedQuestion.correctAnswerLabel, selectedCorrectText)}
+                        {renderOptionAnswer(selectedCorrectLabel, selectedCorrectText)}
                       </p>
                     </div>
                   </div>
