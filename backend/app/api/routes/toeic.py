@@ -6,7 +6,9 @@ from sqlalchemy.orm import Session
 
 from app.api.deps import get_current_user_id, get_optional_current_user_id, require_pro_user
 from app.db.session import get_db
+from app.schemas.attempts import AttemptQuestionStartRequest
 from app.services import toeic as toeic_service
+from app.services.attempt_snapshots import resume_attempt_snapshot, start_attempt_snapshot
 
 
 router = APIRouter()
@@ -54,19 +56,43 @@ def get_recommendations(
 
 @router.get("/api/toeic/runner/part/{part}")
 @router.get("/api/Toeic/runner/part/{part}")
-def get_runner_by_part(part: int, limit: int = 30, difficulty: str | None = None, currentScore: int | None = None, db: Session = Depends(get_db)):
+def get_runner_by_part(
+    part: int,
+    limit: int = 30,
+    difficulty: str | None = None,
+    currentScore: int | None = None,
+    db: Session = Depends(get_db),
+    user_id: int = Depends(get_current_user_id),
+):
     if part < 1 or part > 7:
         return JSONResponse(status_code=400, content={"message": "part must be between 1 and 7."})
     if limit <= 0:
         return JSONResponse(status_code=400, content={"message": "limit must be greater than 0."})
     if difficulty and difficulty.strip().lower() not in {"easy", "medium", "hard", "mixed"}:
         return JSONResponse(status_code=400, content={"message": "difficulty must be easy, medium, hard, or mixed."})
-    return toeic_service.get_part_runner_questions(db, part, limit, difficulty, currentScore)
+    return start_attempt_snapshot(
+        db,
+        user_id,
+        AttemptQuestionStartRequest(
+            sourceType="practice",
+            parts=[part],
+            count=limit,
+            difficulty=difficulty or "mixed",
+            seedContext="runner_part",
+        ),
+    ).questions
 
 
 @router.get("/api/toeic/runner/mixed")
 @router.get("/api/Toeic/runner/mixed")
-def get_runner_mixed(parts: str | None = None, count: int = 30, difficulty: str | None = None, currentScore: int | None = None, db: Session = Depends(get_db)):
+def get_runner_mixed(
+    parts: str | None = None,
+    count: int = 30,
+    difficulty: str | None = None,
+    currentScore: int | None = None,
+    db: Session = Depends(get_db),
+    user_id: int = Depends(get_current_user_id),
+):
     if count <= 0:
         return JSONResponse(status_code=400, content={"message": "count must be greater than 0."})
     if difficulty and difficulty.strip().lower() not in {"easy", "medium", "hard", "mixed"}:
@@ -74,7 +100,17 @@ def get_runner_mixed(parts: str | None = None, count: int = 30, difficulty: str 
     selected_parts = _parse_parts(parts)
     if not selected_parts:
         return JSONResponse(status_code=400, content={"message": "parts must contain at least one valid part between 1 and 7."})
-    return toeic_service.get_mixed_runner_questions(db, selected_parts, count, difficulty, currentScore)
+    return start_attempt_snapshot(
+        db,
+        user_id,
+        AttemptQuestionStartRequest(
+            sourceType="practice",
+            parts=selected_parts,
+            count=count,
+            difficulty=difficulty or "mixed",
+            seedContext="runner_mixed",
+        ),
+    ).questions
 
 
 @router.get("/api/toeic/runner/questions")
@@ -115,7 +151,7 @@ def get_minitest_runner(
     parts: str | None = None,
     count: int | None = None,
     db: Session = Depends(get_db),
-    _=Depends(require_pro_user),
+    current_user=Depends(require_pro_user),
 ):
     if test <= 0:
         return JSONResponse(status_code=400, content={"message": "test must be greater than 0."})
@@ -124,7 +160,40 @@ def get_minitest_runner(
     selected_parts = _parse_parts(parts)
     if parts and not selected_parts:
         return JSONResponse(status_code=400, content={"message": "parts must contain at least one valid part between 1 and 7."})
-    return toeic_service.get_minitest_runner_questions(db, test, selected_parts if parts else None, count)
+    return start_attempt_snapshot(
+        db,
+        current_user.id,
+        AttemptQuestionStartRequest(
+            sourceType="mini_test",
+            parts=selected_parts if parts else [1, 2, 3, 4, 5, 6, 7],
+            count=count or 50,
+            test=test,
+            seedContext="runner_minitest",
+        ),
+    ).questions
+
+
+@router.post("/api/toeic/runner/start")
+@router.post("/api/Toeic/runner/start")
+def start_runner_snapshot(
+    payload: AttemptQuestionStartRequest,
+    db: Session = Depends(get_db),
+    user_id: int = Depends(get_current_user_id),
+):
+    return start_attempt_snapshot(db, user_id, payload)
+
+
+@router.get("/api/toeic/runner/attempt/{attempt_id}")
+@router.get("/api/Toeic/runner/attempt/{attempt_id}")
+def resume_runner_snapshot(
+    attempt_id: int,
+    db: Session = Depends(get_db),
+    user_id: int = Depends(get_current_user_id),
+):
+    result = resume_attempt_snapshot(db, user_id, attempt_id)
+    if result is None:
+        return JSONResponse(status_code=404, content={"message": "Attempt question snapshot was not found."})
+    return result
 
 
 @router.get("/api/toeic/runner/fulltest")

@@ -20,7 +20,8 @@ from app.services.payments import (
     is_valid_webhook_signature,
     sync_pending_order_from_payos,
 )
-from app.services.subscription import activate_paid_subscription
+from app.services.entitlements import build_entitlement_fields
+from app.services.subscription import activate_paid_subscription, reconcile_paid_order_subscription
 
 
 router = APIRouter()
@@ -38,6 +39,30 @@ def _find_payment_order(db: Session, order_code: str) -> PaymentOrder | None:
         )
 
     return None
+
+
+def _payment_status_payload(db: Session, order: PaymentOrder) -> dict:
+    user = reconcile_paid_order_subscription(db, order)
+    if user is None:
+        user = db.get(User, order.user_id)
+    entitlements = build_entitlement_fields(user)
+    return {
+        "orderCode": order.order_code,
+        "order_code": order.order_code,
+        "userId": order.user_id,
+        "user_id": order.user_id,
+        "status": order.status,
+        "amount": float(order.amount),
+        "paidAt": order.paid_at,
+        "paid_at": order.paid_at,
+        "checkoutUrl": order.checkout_url,
+        "checkout_url": order.checkout_url,
+        "qrCode": order.qr_code,
+        "qr_code": order.qr_code,
+        "expiredAt": order.expired_at,
+        "expired_at": order.expired_at,
+        **entitlements,
+    }
 
 
 @router.post("/api/payments/create-pro-order")
@@ -163,15 +188,7 @@ async def payment_status(order_code: str, db: Session = Depends(get_db)):
             )
         else:
             await sync_pending_order_from_payos(db, order)
-    return {
-        "orderCode": order.order_code,
-        "status": order.status,
-        "amount": float(order.amount),
-        "paidAt": order.paid_at,
-        "checkoutUrl": order.checkout_url,
-        "qrCode": order.qr_code,
-        "expiredAt": order.expired_at,
-    }
+    return _payment_status_payload(db, order)
 
 
 @router.get("/api/payments/{order_code}")
@@ -180,11 +197,16 @@ def get_order(order_code: str, db: Session = Depends(get_db)):
     order = _find_payment_order(db, order_code)
     if order is None:
         return JSONResponse(status_code=404, content={"message": "Order not found"})
+    user = reconcile_paid_order_subscription(db, order)
+    entitlements = build_entitlement_fields(user)
     return {
         "id": order.id,
         "orderCode": order.order_code,
+        "order_code": order.order_code,
         "userId": order.user_id,
+        "user_id": order.user_id,
         "planCode": order.plan_code,
+        "plan_code": order.plan_code,
         "amount": float(order.amount),
         "status": order.status,
         "payOsOrderCode": order.payos_order_code,
@@ -194,6 +216,10 @@ def get_order(order_code: str, db: Session = Depends(get_db)):
         "paidByWebhookSignature": order.paid_by_webhook_signature,
         "transferContent": order.transfer_content,
         "createdAt": order.created_at,
+        "created_at": order.created_at,
         "expiredAt": order.expired_at,
+        "expired_at": order.expired_at,
         "paidAt": order.paid_at,
+        "paid_at": order.paid_at,
+        **entitlements,
     }

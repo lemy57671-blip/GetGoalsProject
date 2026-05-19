@@ -8,6 +8,7 @@ from app.api.deps import require_pro_user
 from app.db.session import get_db
 from app.models import User
 from app.schemas.weekly_check import WeeklyCheckSubmitRequest
+from app.services.attempt_snapshots import create_attempt_snapshot_for_questions
 from app.services.weekly_check import get_current_weekly_check, get_weekly_check_result, submit_weekly_check
 
 
@@ -23,7 +24,17 @@ def get_current(
     resolved_user_id = current_user.id or userId or 0
     if resolved_user_id <= 0:
         return JSONResponse(status_code=400, content={"message": "UserId is required for weekly check."})
-    return get_current_weekly_check(db, resolved_user_id)
+    current = get_current_weekly_check(db, resolved_user_id)
+    snapshot = create_attempt_snapshot_for_questions(
+        db,
+        user_id=resolved_user_id,
+        source_type="weekly_check",
+        source_key=current.weeklyCheckId,
+        questions=current.questions,
+    )
+    current.attemptId = snapshot.attemptId
+    current.questions = snapshot.questions
+    return current
 
 
 @router.post("/api/weekly-check/submit")

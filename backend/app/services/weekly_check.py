@@ -13,6 +13,7 @@ from app.schemas.roadmap import RoadmapSuggestedSetCriteriaDto
 from app.schemas.toeic import ToeicRunnerPassageDto, ToeicRunnerQuestionDto
 from app.schemas.weekly_check import WeeklyCheckCurrentDto, WeeklyCheckSubmitRequest, WeeklyCheckSubmitResponse
 from app.services.attempts import get_practice_attempt_result, save_practice_attempt
+from app.services.question_selection import select_questions_for_attempt
 from app.services.skill_analytics import analyze_latest_performance, get_default_subskills, to_dto, to_title
 from app.services.toeic import build_question_lookup_key, get_question_lookup, get_questions_for_suggested_set
 
@@ -85,6 +86,7 @@ def submit_weekly_check(db: Session, user_id: int, request: WeeklyCheckSubmitReq
     submitted_at_utc = datetime.utcnow()
     started_at_utc = request.startedAtUtc or submitted_at_utc
     save_request = SavePracticeAttemptRequest(
+        attemptId=request.attemptId,
         source="weeklycheck",
         title=request.title.strip() if request.title and request.title.strip() else current.title,
         subtitle=request.description.strip() if request.description and request.description.strip() else current.description,
@@ -199,7 +201,17 @@ def _build_weekly_questions(db: Session, user_id: int, analytics: "_WeeklyAnalyt
         fill_criteria = RoadmapSuggestedSetCriteriaDto(strategy="weekly_fill", includeParts=[1, 2, 3, 4, 5, 6, 7], difficulty="mixed", questionCount=normalized_count * 2)
         _add_unique_questions(result, seen, _order_deterministically(get_questions_for_suggested_set(db, fill_criteria), f"{weekly_seed}:fill"), normalized_count)
 
-    final_questions = [ToeicRunnerQuestionDto.model_validate(item.model_dump()) for item in result[:normalized_count]]
+    final_questions = select_questions_for_attempt(
+        db,
+        user_id=user_id,
+        source_type="weeklycheck",
+        pool=[ToeicRunnerQuestionDto.model_validate(item.model_dump()) for item in result],
+        question_count=normalized_count,
+        part=analytics.weakestPart,
+        skill=analytics.focusSkillCode,
+        difficulty=analytics.difficulty,
+        seed_context=_build_weekly_seed(user_id, analytics),
+    )
     for index, question in enumerate(final_questions, start=1):
         question.questionNumber = index
     return final_questions

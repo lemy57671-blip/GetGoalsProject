@@ -4,6 +4,8 @@ from datetime import datetime
 
 from pydantic import BaseModel, Field
 
+from app.schemas.toeic import ToeicRunnerQuestionDto
+
 
 class AttemptAssetDto(BaseModel):
     path: str = ""
@@ -54,6 +56,7 @@ class SavePracticeAttemptAnswerRequest(BaseModel):
 
 
 class SavePracticeAttemptRequest(BaseModel):
+    attemptId: int | None = None
     userId: int | None = None
     source: str | None = None
     title: str = ""
@@ -99,6 +102,7 @@ class SaveMockTestAttemptAnswerRequest(BaseModel):
 
 
 class SaveMockTestAttemptRequest(BaseModel):
+    attemptId: int | None = None
     userId: int | None = None
     source: str | None = None
     attemptType: str = "mock-test"
@@ -234,3 +238,28 @@ class SaveAttemptResponse(BaseModel):
     skillStatsUpdated: int
     partStatsUpdated: int
     result: AttemptResultDto | None = None
+
+
+class AttemptQuestionStartRequest(BaseModel):
+    sourceType: str = "practice"
+    parts: list[int] = Field(default_factory=list)
+    part: int | None = None
+    skill: str | None = None
+    subskill: str | None = None
+    difficulty: str = "mixed"
+    count: int = 10
+    test: int | None = None
+    roadmapWeekId: int | None = None
+    roadmapSetId: int | None = None
+    seedContext: str | None = None
+
+
+class AttemptQuestionStartResponse(BaseModel):
+    attemptId: int
+    sourceType: str
+    questions: list[ToeicRunnerQuestionDto] = Field(default_factory=list)
+    shortage: bool = False
+    shortageParts: list[int] = Field(default_factory=list)
+    repeated: bool = False
+    repeatReason: str | None = None
+    message: str | None = None

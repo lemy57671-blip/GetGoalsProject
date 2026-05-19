@@ -67,7 +67,14 @@ class AuthUserDto(BaseModel):
     avatarUrl: str = ""
     provider: str = "local"
     plan: str = "free"
+    planName: str = "free"
+    plan_name: str = "free"
+    isPro: bool = False
+    is_pro: bool = False
+    subscriptionStatus: str = "free"
+    subscription_status: str = "free"
     planExpiredAt: datetime | None = None
+    plan_expired_at: datetime | None = None
     onboardingCompleted: bool = False
     currentScore: int | None = None
     targetScore: int | None = None

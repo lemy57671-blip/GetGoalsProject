@@ -42,7 +42,7 @@ if (-not (Test-Path ".env")) {
 }
 
 $resolvedHost = Get-EnvValue "APP_HOST" "0.0.0.0"
-$resolvedPort = if ($Port -gt 0) { $Port } else { [int](Get-EnvValue "APP_PORT" "8000") }
+$resolvedPort = if ($Port -gt 0) { $Port } else { [int](Get-EnvValue "APP_PORT" "8001") }
 $env:APP_HOST = $resolvedHost
 $env:APP_PORT = "$resolvedPort"
 

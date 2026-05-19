@@ -7,7 +7,7 @@ import unicodedata
 from datetime import datetime, timezone
 from typing import Any, Optional
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 
@@ -3677,6 +3677,40 @@ def _review_signal_answer(context: dict[str, Any]) -> str:
     return "Mình chưa thấy phần giải thích này trong dữ liệu câu hiện tại."
 
 
+def _is_review_correct_answer_request(text_value: str) -> bool:
+    if any(
+        token in text_value
+        for token in (
+            "vi sao",
+            "tai sao",
+            "why",
+            "sai",
+            "wrong",
+            "khong chon",
+            "khong dung",
+            "giai thich",
+            "phan tich",
+            "explain",
+        )
+    ):
+        return False
+    return any(
+        token in text_value
+        for token in (
+            "dap an",
+            "dap an la gi",
+            "dap an dung",
+            "chon gi",
+            "chon dap an nao",
+            "cau nao dung",
+            "lua chon nao dung",
+            "correct answer",
+            "which answer",
+            "answer",
+        )
+    )
+
+
 def _review_intent(message: str, options: list[dict[str, Any]]) -> str | None:
     text_value = _normalize_review_text(message)
     has_option = _extract_review_option_from_message(message, options) is not None
@@ -3684,6 +3718,8 @@ def _review_intent(message: str, options: list[dict[str, Any]]) -> str | None:
         return "ASK_OPTION_ANALYSIS"
     if any(token in text_value for token in ("dich cau", "dich doan", "dich sang tieng viet", "dich tieng viet", "cau nay nghia la gi", "nghia cua cau", "translate this", "translate the")):
         return "ASK_TRANSLATION"
+    if _is_review_correct_answer_request(text_value):
+        return "ASK_CORRECT_ANSWER"
     if _extract_structure_lookup_target(message)[1]:
         return "ASK_STRUCTURE_TARGET"
     if any(token in text_value for token in ("dau hieu", "nhan biet", "clue", "signal")):
@@ -3747,6 +3783,13 @@ def build_sql_grounded_review_answer(message: str, context: dict[str, Any]) -> t
         return ("Mình chưa thấy phần giải thích này trong dữ liệu câu hiện tại.", "word_meaning")
     if intent == "ASK_BLANK_STRUCTURE":
         return (_review_blank_structure(context, correct_option), "gap_requirement")
+    if intent == "ASK_CORRECT_ANSWER":
+        reveal = context.get("include_correct_answer")
+        if isinstance(reveal, str):
+            reveal = reveal.strip().lower() not in {"0", "false", "no", "off"}
+        if reveal is False:
+            return ("Mình có thể gợi ý, nhưng chưa tiết lộ đáp án trước khi bạn nộp bài.", "hint")
+        return (f"Đáp án đúng là {_format_review_option(correct_option)}.", "correct_answer")
 
     option = _extract_review_option_from_message(message, options)
     if intent in {"ASK_WHY_OPTION_WRONG", "ASK_WHY_CORRECT"} and option:
@@ -3761,6 +3804,7 @@ def _create_conversation(
     user_id: Optional[int],
     existing_conversation_id: Optional[int],
     title: str,
+    question_context: dict[str, Any] | None = None,
 ) -> Optional[int]:
     if existing_conversation_id:
         return existing_conversation_id
@@ -3769,21 +3813,42 @@ def _create_conversation(
 
     try:
         now = datetime.utcnow()
-        result = db.execute(
-            text(
-                """
-                INSERT INTO dbo.ChatConversations (UserId, Title, CreatedAt, UpdatedAt)
-                OUTPUT inserted.Id
-                VALUES (:user_id, :title, :created_at, :updated_at)
-                """
-            ),
-            {
-                "user_id": user_id,
-                "title": (title or "AI Tutor")[:255],
-                "created_at": now,
-                "updated_at": now,
-            },
-        )
+        params = {
+            "user_id": user_id,
+            "title": (title or "AI Tutor")[:255],
+            "created_at": now,
+            "updated_at": now,
+            "question_id": _to_int_or_none((question_context or {}).get("question_id")),
+            "runtime_question_id": _to_int_or_none((question_context or {}).get("runtime_question_id") or (question_context or {}).get("runner_question_id")),
+            "attempt_id": _to_int_or_none((question_context or {}).get("attempt_id")),
+            "mode": str((question_context or {}).get("context_type") or (question_context or {}).get("mode") or "practice")[:50],
+            "source": str((question_context or {}).get("source") or "practice")[:60],
+        }
+        try:
+            result = db.execute(
+                text(
+                    """
+                    INSERT INTO dbo.ChatConversations
+                        (UserId, Title, QuestionId, RuntimeQuestionId, AttemptId, Mode, Source, CreatedAt, UpdatedAt)
+                    OUTPUT inserted.Id
+                    VALUES
+                        (:user_id, :title, :question_id, :runtime_question_id, :attempt_id, :mode, :source, :created_at, :updated_at)
+                    """
+                ),
+                params,
+            )
+        except Exception:
+            db.rollback()
+            result = db.execute(
+                text(
+                    """
+                    INSERT INTO dbo.ChatConversations (UserId, Title, CreatedAt, UpdatedAt)
+                    OUTPUT inserted.Id
+                    VALUES (:user_id, :title, :created_at, :updated_at)
+                    """
+                ),
+                params,
+            )
         conversation_id = result.scalar()
         db.commit()
         return int(conversation_id) if conversation_id else None
@@ -3836,6 +3901,91 @@ def _save_chat_message(
     except Exception:
         db.rollback()
         logger.info("Could not save chat message.", exc_info=True)
+
+
+def _chat_message_dto(row: Any) -> dict[str, Any]:
+    data = row._mapping if hasattr(row, "_mapping") else row
+    return {
+        "id": data.get("Id") or data.get("id"),
+        "role": data.get("Role") or data.get("role") or "assistant",
+        "content": data.get("Content") or data.get("content") or "",
+        "intent": data.get("Intent") or data.get("intent"),
+        "createdAt": data.get("CreatedAt") or data.get("created_at"),
+    }
+
+
+@router.get("/conversations/by-question")
+def get_conversation_by_question(
+    question_id: int = Query(..., alias="questionId", gt=0),
+    attempt_id: int | None = Query(default=None, alias="attemptId"),
+    runtime_question_id: int | None = Query(default=None, alias="runtimeQuestionId"),
+    source: str | None = Query(default="practice"),
+    current_user: Any = Depends(current_user_dependency),
+    db: Session = Depends(get_db),
+):
+    user_id = _get_user_id(current_user)
+    if user_id is None:
+        raise HTTPException(status_code=401, detail="Authentication required.")
+
+    runtime_id = runtime_question_id or question_id
+    try:
+        has_question_columns = db.execute(
+            text("SELECT COL_LENGTH('dbo.ChatConversations', 'QuestionId')")
+        ).scalar() is not None
+        if not has_question_columns:
+            return {"conversationId": None, "messages": []}
+
+        conditions = [
+            "UserId = :user_id",
+            "Source = :source",
+            "(QuestionId = :question_id OR RuntimeQuestionId = :runtime_question_id)",
+        ]
+        params: dict[str, Any] = {
+            "user_id": user_id,
+            "source": source or "practice",
+            "question_id": question_id,
+            "runtime_question_id": runtime_id,
+        }
+        if attempt_id is None:
+            conditions.append("AttemptId IS NULL")
+        else:
+            conditions.append("AttemptId = :attempt_id")
+            params["attempt_id"] = attempt_id
+
+        conversation = db.execute(
+            text(
+                f"""
+                SELECT TOP 1 Id
+                FROM dbo.ChatConversations
+                WHERE {' AND '.join(conditions)}
+                ORDER BY UpdatedAt DESC, Id DESC
+                """
+            ),
+            params,
+        ).mappings().first()
+        if not conversation:
+            return {"conversationId": None, "messages": []}
+
+        conversation_id = int(conversation["Id"])
+        rows = db.execute(
+            text(
+                """
+                SELECT Id, Role, Content, Intent, CreatedAt
+                FROM dbo.ChatMessages
+                WHERE ConversationId = :conversation_id
+                  AND UserId = :user_id
+                ORDER BY CreatedAt ASC, Id ASC
+                """
+            ),
+            {"conversation_id": conversation_id, "user_id": user_id},
+        ).all()
+        return {
+            "conversationId": conversation_id,
+            "messages": [_chat_message_dto(row) for row in rows],
+        }
+    except Exception:
+        logger.info("Could not load question chat history.", exc_info=True)
+        return {"conversationId": None, "messages": []}
 
 
 @router.post("", response_model=ChatResponse)
@@ -3989,6 +4139,7 @@ async def post_chat(
         user_id=user_id,
         existing_conversation_id=_extract_conversation_id(payload),
         title=message,
+        question_context=question_context,
     )
     _save_chat_message(db, conversation_id, user_id, "user", message, intent)
     _save_chat_message(db, conversation_id, user_id, "assistant", answer, intent)

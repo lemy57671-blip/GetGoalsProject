@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import json
 import logging
@@ -39,6 +39,7 @@ from app.services.skill_analytics import infer_part, normalize_skill_code
 from app.services.toeic import build_question_lookup_key, get_question_lookup_by_ids
 from app.services.irt_scoring import score_diagnostic_with_rasch
 from app.services.review_schema import ensure_review_schema
+from app.services.attempt_snapshots import mark_attempt_snapshot_submitted
 
 
 logger = logging.getLogger(__name__)
@@ -134,6 +135,12 @@ def save_practice_attempt(db: Session, user_id: int, request: SavePracticeAttemp
     db.add(attempt)
     db.commit()
     db.refresh(attempt)
+    mark_attempt_snapshot_submitted(
+        db,
+        user_id=user_id,
+        snapshot_attempt_id=request.attemptId,
+        submitted_attempt_id=attempt.id,
+    )
 
     incorrect_answers = [item for item in attempt.answers if not item.is_correct]
     review_queued_count = _enqueue_review_items(
@@ -233,6 +240,12 @@ def save_mock_test_attempt(db: Session, user_id: int, request: SaveMockTestAttem
     db.add(attempt)
     db.commit()
     db.refresh(attempt)
+    mark_attempt_snapshot_submitted(
+        db,
+        user_id=user_id,
+        snapshot_attempt_id=request.attemptId,
+        submitted_attempt_id=attempt.id,
+    )
 
     review_queued_count = _enqueue_review_items(
         db,
@@ -295,16 +308,16 @@ def save_mock_test_attempt(db: Session, user_id: int, request: SaveMockTestAttem
 
 def save_diagnostic_attempt(db: Session, user_id: int, request: SaveDiagnosticAttemptRequest) -> SaveAttemptResponse:
     """
-    Lưu kết quả bài test đầu vào vào 2 bảng:
+    LÆ°u káº¿t quáº£ bÃ i test Ä‘áº§u vÃ o vÃ o 2 báº£ng:
     - dbo.DiagnosticAttempts
     - dbo.DiagnosticAttemptAnswers
 
-    Đồng thời:
-    - Tính Rasch theta từ dữ liệu đúng/sai.
-    - Lưu Theta vào DiagnosticAttempts.Theta.
-    - Lưu EstimatedScore theo Rasch vào DiagnosticAttempts.EstimatedScore.
-    - Lưu ScoreRule là điểm rule-based cũ theo accuracy để đối chiếu.
-    - Giữ logic cũ: update profile, review queue, skill stats, part stats.
+    Äá»“ng thá»i:
+    - TÃ­nh Rasch theta tá»« dá»¯ liá»‡u Ä‘Ãºng/sai.
+    - LÆ°u Theta vÃ o DiagnosticAttempts.Theta.
+    - LÆ°u EstimatedScore theo Rasch vÃ o DiagnosticAttempts.EstimatedScore.
+    - LÆ°u ScoreRule lÃ  Ä‘iá»ƒm rule-based cÅ© theo accuracy Ä‘á»ƒ Ä‘á»‘i chiáº¿u.
+    - Giá»¯ logic cÅ©: update profile, review queue, skill stats, part stats.
     """
 
     now = datetime.utcnow()
@@ -620,10 +633,6 @@ def save_diagnostic_attempt(db: Session, user_id: int, request: SaveDiagnosticAt
     )
 
     _sync_user_profile(db, user_id, request.weakSubskillsJson)
-
-    from app.services.roadmap import generate_for_user
-
-    generate_for_user(db, user_id)
 
     return SaveAttemptResponse(
         attemptId=attempt_id,
@@ -1350,6 +1359,11 @@ def _build_attempt_asset(asset) -> AttemptAssetDto | None:
     return AttemptAssetDto(path=path) if path else None
 
 
+def _option_label(index: int | None) -> str | None:
+    if index is None or index < 0:
+        return None
+    return chr(ord("A") + index) if index < 26 else str(index + 1)
+
 def _option_text(index: int | None, options: list[str]) -> str | None:
     if index is None or index < 0 or index >= len(options):
         return None
@@ -1464,7 +1478,7 @@ def _build_weak_areas(questions: list[AttemptResultQuestionDto]) -> list[Attempt
                 accuracyPct=weakest_skill.accuracyPct,
                 total=weakest_skill.total,
                 correct=weakest_skill.correct,
-                suggestion=f"Ưu tiên luyện lại nhóm kỹ năng {weakest_skill.label} trước ở các câu tương tự.",
+                suggestion=f"Æ¯u tiÃªn luyá»‡n láº¡i nhÃ³m ká»¹ nÄƒng {weakest_skill.label} trÆ°á»›c á»Ÿ cÃ¡c cÃ¢u tÆ°Æ¡ng tá»±.",
             )
         )
 
@@ -1484,7 +1498,7 @@ def _build_weak_areas(questions: list[AttemptResultQuestionDto]) -> list[Attempt
                 accuracyPct=weakest_subskill.accuracyPct,
                 total=weakest_subskill.total,
                 correct=weakest_subskill.correct,
-                suggestion=f"Ôn lại subskill {weakest_subskill.label} và xem kỹ dấu hiệu nhận biết đáp án đúng.",
+                suggestion=f"Ã”n láº¡i subskill {weakest_subskill.label} vÃ  xem ká»¹ dáº¥u hiá»‡u nháº­n biáº¿t Ä‘Ã¡p Ã¡n Ä‘Ãºng.",
             )
         )
 
@@ -1503,7 +1517,7 @@ def _build_weak_areas(questions: list[AttemptResultQuestionDto]) -> list[Attempt
                 accuracyPct=weakest_part.accuracyPct,
                 total=weakest_part.total,
                 correct=weakest_part.correct,
-                suggestion=f"Dành thêm thời gian luyện theo part {weakest_part.label.replace('Part ', '')} để cải thiện độ ổn định.",
+                suggestion=f"DÃ nh thÃªm thá»i gian luyá»‡n theo part {weakest_part.label.replace('Part ', '')} Ä‘á»ƒ cáº£i thiá»‡n Ä‘á»™ á»•n Ä‘á»‹nh.",
             )
         )
 
@@ -1616,22 +1630,22 @@ def _build_explanation(
     correct = _resolve_correct_answer_text(None, correct_answer_index, correct_answer_text, options)
 
     if selected_answer_index is None:
-        return "Bạn đã bỏ qua câu này." if correct is None else f"Bạn đã bỏ qua câu này. Đáp án đúng là {correct}."
+        return "Báº¡n Ä‘Ã£ bá» qua cÃ¢u nÃ y." if correct is None else f"Báº¡n Ä‘Ã£ bá» qua cÃ¢u nÃ y. ÄÃ¡p Ã¡n Ä‘Ãºng lÃ  {correct}."
 
     if correct_answer_index is None:
         return (
-            "Chưa có giải thích chi tiết cho câu này."
+            "ChÆ°a cÃ³ giáº£i thÃ­ch chi tiáº¿t cho cÃ¢u nÃ y."
             if selected is None
-            else f"Bạn đã chọn {selected}. Chưa có giải thích chi tiết cho câu này."
+            else f"Báº¡n Ä‘Ã£ chá»n {selected}. ChÆ°a cÃ³ giáº£i thÃ­ch chi tiáº¿t cho cÃ¢u nÃ y."
         )
 
     if selected_answer_index == correct_answer_index:
-        return f"Bạn đã chọn đúng đáp án {correct}."
+        return f"Báº¡n Ä‘Ã£ chá»n Ä‘Ãºng Ä‘Ã¡p Ã¡n {correct}."
 
     return (
-        "Chưa có giải thích chi tiết cho câu này."
+        "ChÆ°a cÃ³ giáº£i thÃ­ch chi tiáº¿t cho cÃ¢u nÃ y."
         if selected is None or correct is None
-        else f"Bạn đã chọn {selected}. Đáp án đúng là {correct}."
+        else f"Báº¡n Ä‘Ã£ chá»n {selected}. ÄÃ¡p Ã¡n Ä‘Ãºng lÃ  {correct}."
     )
 
 
@@ -1703,3 +1717,4 @@ class _WeakAreaSeed:
     total: int
     correct: int
     accuracyPct: float
+

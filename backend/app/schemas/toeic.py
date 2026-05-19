@@ -78,6 +78,7 @@ class ToeicRunnerPassageDto(BaseModel):
 
 class ToeicRunnerQuestionDto(BaseModel):
     id: int
+    attemptId: int | None = None
     questionId: int | None = None
     dbId: int | None = None
     docxQuestionId: int | None = None
@@ -105,6 +106,8 @@ class ToeicRunnerQuestionDto(BaseModel):
     audio: ToeicRunnerAssetDto | None = None
     audioUrl: str | None = None
     passage: ToeicRunnerPassageDto | None = None
+    repeated: bool = False
+    repeatReason: str | None = None
 
 
 class ToeicReviewFocusRunnerDto(BaseModel):

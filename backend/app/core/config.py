@@ -24,7 +24,7 @@ def _resolve_backend_path(raw_value: str, default_relative_path: str) -> Path:
 class Settings:
     APP_ENV: str = os.getenv("APP_ENV", "development")
     APP_HOST: str = os.getenv("APP_HOST", "0.0.0.0")
-    APP_PORT: int = int(os.getenv("APP_PORT", "8000"))
+    APP_PORT: int = int(os.getenv("APP_PORT", "8001"))
     APP_LOG_LEVEL: str = os.getenv("APP_LOG_LEVEL", "INFO")
     DEBUG: bool = os.getenv("DEBUG", "false").lower() in {"1", "true", "yes", "on"}
     APP_ENABLE_BACKGROUND_JOBS: bool = os.getenv("APP_ENABLE_BACKGROUND_JOBS", "true").lower() == "true"
@@ -109,3 +109,16 @@ class Settings:
 
 
 settings = Settings()
+
+
+def reload_env_value(name: str, default: str = "") -> str:
+    """Read a single backend environment value from the project .env file.
+
+    Some local dev servers keep a long-lived process around while OAuth values
+    are being adjusted. Reloading the backend .env here keeps request-time
+    Google auth config aligned with the backend environment without putting
+    OAuth values in Flutter.
+    """
+
+    load_dotenv(dotenv_path=ENV_FILE, override=True)
+    return os.getenv(name, default)

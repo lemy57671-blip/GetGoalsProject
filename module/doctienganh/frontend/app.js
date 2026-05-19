@@ -265,7 +265,7 @@ async function playAudio(text, audioUrl, sentenceId) {
             url = result.url;
             dom.statCached.textContent = result.cached ? '✓ Cached' : '✧ New';
         } else {
-            url = `http://localhost:8000${url}`;
+            url = `http://localhost:8001${url}`;
             dom.statCached.textContent = '✓ Cached';
         }
 

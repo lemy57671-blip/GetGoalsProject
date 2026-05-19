@@ -119,6 +119,7 @@ type SubmitPracticeAttemptInput = {
 
 type MockTestRunnerQuestionInput = {
   id: number;
+  attemptId?: number | null;
   sourceQuestionId?: number;
   part: number;
   type: string;
@@ -306,6 +307,7 @@ export const attemptsService = {
             ? `TOEIC Part ${selectedParts[0]} Practice`
             : "TOEIC Mixed Practice"),
         subtitle: subtitle || `${questions.length} questions`,
+        attemptId: questions[0]?.attemptId ?? null,
         source: source || (mode === "weekly-check" ? "weeklycheck" : "practice"),
         mode,
         parts: selectedParts.join(","),
@@ -358,6 +360,7 @@ export const attemptsService = {
       auth: true,
       body: JSON.stringify({
         attemptType,
+        attemptId: questions[0]?.attemptId ?? null,
         source: source || (attemptType === "mini-test" || attemptType === "minitest" ? "minitest" : "fulltest"),
         title: title || (attemptType === "mini-test" ? "TOEIC Mini Test" : "TOEIC Mock Test"),
         totalQuestions: questions.length,

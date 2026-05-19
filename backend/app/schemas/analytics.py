@@ -42,11 +42,20 @@ class LatestDiagnosticDto(BaseModel):
     estimatedLevel: str | None = None
     levelRange: str | None = None
     theta: float | None = None
+    accuracy: float = 0
+    correctCount: int = 0
+    totalQuestions: int = 0
     submittedAtUtc: datetime | None = None
     weakSubskills: list[str] = Field(default_factory=list)
 
 
 class DashboardOverviewDto(BaseModel):
+    estimatedScore: int | None = None
+    targetScore: int | None = None
+    accuracy: float = 0
+    attempts: int = 0
+    toReview: int = 0
+    latestDiagnosticSubmittedAt: datetime | None = None
     totalPracticeAttempts: int = 0
     recentAccuracy: float = 0
     totalStudyMinutes: int = 0
@@ -169,4 +178,5 @@ class ProgressSummaryDto(BaseModel):
     partStats: list[PartStatDto] = Field(default_factory=list)
     recentPracticeAttempts: list[RecentPracticeAttemptDto] = Field(default_factory=list)
     recentMockTests: list[RecentMockTestDto] = Field(default_factory=list)
+    latestDiagnostic: LatestDiagnosticDto | None = None
     pendingReviewCount: int = 0

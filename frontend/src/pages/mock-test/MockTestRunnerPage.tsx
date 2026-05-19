@@ -47,6 +47,7 @@ import {
 } from "@src/services/weeklyCheckService";
 
 type MockRunnerQuestion = (typeof mockQuestions)[number] & {
+  attemptId?: number | null;
   sourceQuestionId?: number;
   section?: string;
   partLabel?: string;
@@ -74,6 +75,7 @@ function mapToeicQuestionToMockRunnerQuestion(
 ): MockRunnerQuestion {
   return {
     id: index + 1,
+    attemptId: question.attemptId,
     part: question.partNumber,
     type: question.type,
     question: question.question,

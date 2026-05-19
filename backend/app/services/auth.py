@@ -7,7 +7,7 @@ import httpx
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from app.core.config import settings
+from app.core.config import reload_env_value
 from app.core.security import create_access_token, hash_password, verify_password
 from app.models import User
 from app.schemas.auth import AuthResponse, AuthUserDto, CompleteOnboardingRequest, GoogleExchangeRequest
@@ -148,7 +148,7 @@ def _google_bool(value: object) -> bool:
 
 async def verify_google_token(id_token: str) -> dict:
     credential = (id_token or "").strip()
-    client_id = settings.AUTH_GOOGLE_CLIENT_ID.strip()
+    client_id = reload_env_value("AUTH_GOOGLE_CLIENT_ID").strip()
 
     if not client_id:
         raise RuntimeError("Google sign-in is not configured")

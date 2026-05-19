@@ -5,7 +5,7 @@ import re
 from dataclasses import dataclass
 from datetime import datetime
 
-from sqlalchemy import func, select
+from sqlalchemy import func, select, text
 from sqlalchemy.orm import Session, selectinload
 
 from app.core.config import settings
@@ -22,6 +22,7 @@ from app.schemas.roadmap import (
 )
 from app.services.skill_analytics import analyze_latest_performance, get_default_subskills, to_dto, to_title
 from app.services.toeic import build_suggested_weekly_sets, get_questions_for_suggested_set
+from app.services.question_selection import select_questions_for_attempt
 from app.utils.json_helpers import deserialize_list
 
 
@@ -29,12 +30,28 @@ ROADMAP_SET_SUBTITLE_RE = re.compile(r"roadmap\s+week\s+(\d+)\s+-\s+set\s+(\d+)"
 
 
 def generate_for_user(db: Session, user_id: int) -> RoadmapCurrentDto | None:
+    latest_diagnostic = db.execute(
+        text(
+            """
+            SELECT TOP 1 Id
+            FROM dbo.DiagnosticAttempts
+            WHERE UserId = :user_id
+            ORDER BY COALESCE(SubmittedAtUtc, CreatedAtUtc) DESC, Id DESC
+            """
+        ),
+        {"user_id": user_id},
+    ).first()
+    if latest_diagnostic is None:
+        return None
+
     analytics = analyze_latest_performance(db, user_id)
     user = db.get(User, user_id)
     if user is None:
         return None
 
     has_focused_analytics = analytics is not None and (bool(analytics.weakest_skill.strip()) or analytics.weakest_part is not None)
+    if not has_focused_analytics:
+        return None
     rules = _load_rules()
     skill_rule = _resolve_skill_rule(rules, analytics.weakest_skill if analytics else "")
     active_roadmaps = db.scalars(select(UserRoadmap).where(UserRoadmap.user_id == user_id, UserRoadmap.is_active == True)).all()
@@ -122,8 +139,16 @@ def get_current_roadmap(db: Session, user_id: int) -> RoadmapCurrentDto | None:
     return _to_current_dto(roadmap, analytics)
 
 
-def get_week_sets(db: Session, week_id: int) -> RoadmapWeekSetsResponseDto | None:
-    week = db.scalar(select(UserRoadmapWeek).options(selectinload(UserRoadmapWeek.items)).where(UserRoadmapWeek.id == week_id))
+def get_week_sets(db: Session, week_id: int, user_id: int | None = None) -> RoadmapWeekSetsResponseDto | None:
+    query = (
+        select(UserRoadmapWeek)
+        .join(UserRoadmap, UserRoadmap.id == UserRoadmapWeek.roadmap_id)
+        .options(selectinload(UserRoadmapWeek.items))
+        .where(UserRoadmapWeek.id == week_id)
+    )
+    if user_id is not None:
+        query = query.where(UserRoadmap.user_id == user_id)
+    week = db.scalar(query)
     if week is None:
         return None
     return RoadmapWeekSetsResponseDto(
@@ -140,12 +165,37 @@ def get_week_sets(db: Session, week_id: int) -> RoadmapWeekSetsResponseDto | Non
     )
 
 
-def get_set_questions(db: Session, week_id: int, set_id: int) -> RoadmapSetQuestionsResponseDto | None:
-    item = db.scalar(select(UserRoadmapWeekItem).where(UserRoadmapWeekItem.roadmap_week_id == week_id, UserRoadmapWeekItem.id == set_id))
+def get_set_questions(
+    db: Session,
+    week_id: int,
+    set_id: int,
+    user_id: int | None = None,
+) -> RoadmapSetQuestionsResponseDto | None:
+    query = (
+        select(UserRoadmapWeekItem)
+        .join(UserRoadmapWeek, UserRoadmapWeek.id == UserRoadmapWeekItem.roadmap_week_id)
+        .join(UserRoadmap, UserRoadmap.id == UserRoadmapWeek.roadmap_id)
+        .where(UserRoadmapWeekItem.roadmap_week_id == week_id, UserRoadmapWeekItem.id == set_id)
+    )
+    if user_id is not None:
+        query = query.where(UserRoadmap.user_id == user_id)
+    item = db.scalar(query)
     if item is None:
         return None
     criteria = _deserialize_criteria(item.metadata_json, item)
     questions = get_questions_for_suggested_set(db, criteria)
+    if user_id is not None:
+        questions = select_questions_for_attempt(
+            db,
+            user_id=user_id,
+            source_type="roadmap",
+            pool=questions,
+            question_count=len(questions),
+            part=item.focus_part,
+            skill=item.focus_skill,
+            difficulty=getattr(criteria, "difficulty", None),
+            seed_context=f"roadmap:{week_id}:{set_id}:{item.set_key}",
+        )
     return RoadmapSetQuestionsResponseDto(
         weekId=week_id,
         setId=item.id,
@@ -205,8 +255,16 @@ def get_roadmap_evidence(db: Session, user_id: int, limit: int = 100) -> Roadmap
     )
 
 
-def start_week(db: Session, week_id: int) -> RoadmapWeekDto | None:
-    week = db.scalar(select(UserRoadmapWeek).options(selectinload(UserRoadmapWeek.items)).where(UserRoadmapWeek.id == week_id))
+def start_week(db: Session, week_id: int, user_id: int | None = None) -> RoadmapWeekDto | None:
+    query = (
+        select(UserRoadmapWeek)
+        .join(UserRoadmap, UserRoadmap.id == UserRoadmapWeek.roadmap_id)
+        .options(selectinload(UserRoadmapWeek.items))
+        .where(UserRoadmapWeek.id == week_id)
+    )
+    if user_id is not None:
+        query = query.where(UserRoadmap.user_id == user_id)
+    week = db.scalar(query)
     if week is None:
         return None
     if week.status.lower() in {"not_started", "recommended"}:
@@ -217,8 +275,16 @@ def start_week(db: Session, week_id: int) -> RoadmapWeekDto | None:
     return _to_week_dto(week)
 
 
-def complete_week(db: Session, week_id: int) -> RoadmapWeekDto | None:
-    week = db.scalar(select(UserRoadmapWeek).options(selectinload(UserRoadmapWeek.items)).where(UserRoadmapWeek.id == week_id))
+def complete_week(db: Session, week_id: int, user_id: int | None = None) -> RoadmapWeekDto | None:
+    query = (
+        select(UserRoadmapWeek)
+        .join(UserRoadmap, UserRoadmap.id == UserRoadmapWeek.roadmap_id)
+        .options(selectinload(UserRoadmapWeek.items))
+        .where(UserRoadmapWeek.id == week_id)
+    )
+    if user_id is not None:
+        query = query.where(UserRoadmap.user_id == user_id)
+    week = db.scalar(query)
     if week is None:
         return None
     week.status = "completed"

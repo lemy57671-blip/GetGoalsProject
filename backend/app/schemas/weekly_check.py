@@ -9,6 +9,7 @@ from app.schemas.toeic import ToeicRunnerQuestionDto
 
 
 class WeeklyCheckCurrentDto(BaseModel):
+    attemptId: int | None = None
     weeklyCheckId: str = ""
     title: str = "Weekly Check"
     description: str = ""
@@ -31,6 +32,7 @@ class WeeklyCheckAnswerRequest(BaseModel):
 
 
 class WeeklyCheckSubmitRequest(BaseModel):
+    attemptId: int | None = None
     userId: int | None = None
     weeklyCheckId: str = ""
     title: str | None = None

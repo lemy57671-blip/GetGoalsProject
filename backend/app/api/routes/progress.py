@@ -51,7 +51,11 @@ def _empty_history_points(days: int) -> list[HistoryPointDto]:
 
 
 @router.post("/api/progress/log")
-def log_progress(payload: ProgressLogRequest, userId: int = Query(default=1), db: Session = Depends(get_db)):
+def log_progress(
+    payload: ProgressLogRequest,
+    db: Session = Depends(get_db),
+    user_id: int = Depends(get_current_user_id),
+):
     course_id = payload.courseId
     minutes_learned = payload.minutesLearned
     progress_delta = payload.progressDelta
@@ -59,13 +63,13 @@ def log_progress(payload: ProgressLogRequest, userId: int = Query(default=1), db
         return PlainTextResponse("courseId invalid", status_code=400)
     if minutes_learned < 0:
         return PlainTextResponse("minutesLearned invalid", status_code=400)
-    enrollment = db.scalar(select(Enrollment).where(Enrollment.user_id == userId, Enrollment.course_id == course_id))
+    enrollment = db.scalar(select(Enrollment).where(Enrollment.user_id == user_id, Enrollment.course_id == course_id))
     if enrollment is None:
         return PlainTextResponse("enrollment not found", status_code=404)
     enrollment.progress_percent = max(0, min(enrollment.progress_percent + progress_delta, 100))
     db.add(
         ProgressLog(
-            user_id=userId,
+            user_id=user_id,
             course_id=course_id,
             minutes_learned=minutes_learned,
             progress_delta=progress_delta,
@@ -73,10 +77,10 @@ def log_progress(payload: ProgressLogRequest, userId: int = Query(default=1), db
         )
     )
     db.commit()
-    completed = db.scalar(select(func.count()).select_from(Enrollment).where(Enrollment.user_id == userId, Enrollment.progress_percent >= 100)) or 0
-    in_progress = db.scalar(select(func.count()).select_from(Enrollment).where(Enrollment.user_id == userId, Enrollment.progress_percent < 100)) or 0
+    completed = db.scalar(select(func.count()).select_from(Enrollment).where(Enrollment.user_id == user_id, Enrollment.progress_percent >= 100)) or 0
+    in_progress = db.scalar(select(func.count()).select_from(Enrollment).where(Enrollment.user_id == user_id, Enrollment.progress_percent < 100)) or 0
     from_utc = datetime.utcnow().date() - timedelta(days=6)
-    logs = db.scalars(select(ProgressLog).where(ProgressLog.user_id == userId, ProgressLog.created_at_utc >= from_utc)).all()
+    logs = db.scalars(select(ProgressLog).where(ProgressLog.user_id == user_id, ProgressLog.created_at_utc >= from_utc)).all()
     keys = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
     values = {key: 0 for key in keys}
     for log in logs:

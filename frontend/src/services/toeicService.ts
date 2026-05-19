@@ -30,6 +30,7 @@ export type ToeicRecommendations = {
 
 export type ToeicRunnerQuestion = {
   id: number;
+  attemptId?: number | null;
   questionId?: number | null;
   dbId?: number | null;
   sqlId?: number | null;
@@ -107,6 +108,7 @@ type ToeicRunnerAssetResponse = {
 
 export type ToeicRunnerQuestionResponse = {
   id: number;
+  attemptId?: number | null;
   questionId?: number | null;
   dbId?: number | null;
   sqlId?: number | null;
@@ -171,6 +173,17 @@ type ToeicReviewFocusRunnerResponse = {
   usedSkill?: string | null;
   usedSubskill?: string | null;
   usedDifficulty?: string | null;
+};
+
+type ToeicRunnerStartResponse = {
+  attemptId: number;
+  sourceType: string;
+  questions: ToeicRunnerQuestionResponse[];
+  shortage?: boolean;
+  shortageParts?: number[];
+  repeated?: boolean;
+  repeatReason?: string | null;
+  message?: string | null;
 };
 
 export type ToeicReviewFocusRunnerResult = {
@@ -278,6 +291,7 @@ export function mapToeicRunnerQuestion(question: ToeicRunnerQuestionResponse): T
 
   return {
     id: question.id,
+    attemptId: question.attemptId,
     questionId: question.questionId,
     dbId: question.dbId,
     sqlId: question.sqlId,
@@ -353,32 +367,39 @@ export const toeicService = {
   },
 
   async getPartRunner(part: number, limit: number, difficulty: string) {
-    const params = new URLSearchParams({
-      limit: String(limit),
-      difficulty,
-    });
-
-    const questions = await apiRequest<ToeicRunnerQuestionResponse[]>(
-      `/api/toeic/runner/part/${part}?${params.toString()}`,
-      { auth: true },
+    const response = await apiRequest<ToeicRunnerStartResponse>(
+      "/api/toeic/runner/start",
+      {
+        auth: true,
+        method: "POST",
+        body: JSON.stringify({
+          sourceType: "practice",
+          parts: [part],
+          count: limit,
+          difficulty,
+        }),
+      },
     );
 
-    return questions.map(mapToeicRunnerQuestion);
+    return (response.questions || []).map(mapToeicRunnerQuestion);
   },
 
   async getMixedRunner(parts: number[], count: number, difficulty: string) {
-    const params = new URLSearchParams({
-      parts: parts.join(","),
-      count: String(count),
-      difficulty,
-    });
-
-    const questions = await apiRequest<ToeicRunnerQuestionResponse[]>(
-      `/api/toeic/runner/mixed?${params.toString()}`,
-      { auth: true },
+    const response = await apiRequest<ToeicRunnerStartResponse>(
+      "/api/toeic/runner/start",
+      {
+        auth: true,
+        method: "POST",
+        body: JSON.stringify({
+          sourceType: "practice",
+          parts,
+          count,
+          difficulty,
+        }),
+      },
     );
 
-    return questions.map(mapToeicRunnerQuestion);
+    return (response.questions || []).map(mapToeicRunnerQuestion);
   },
 
   async getQuestionsByIds(questionIds: number[]) {
@@ -395,24 +416,21 @@ export const toeicService = {
   },
 
   async getMiniTestRunner(test: number, parts: number[] | null, count: number | null) {
-    const params = new URLSearchParams({
-      test: String(test),
-    });
-
-    if (parts && parts.length > 0) {
-      params.set("parts", parts.join(","));
-    }
-
-    if (count && count > 0) {
-      params.set("count", String(count));
-    }
-
-    const questions = await apiRequest<ToeicRunnerQuestionResponse[]>(
-      `/api/toeic/runner/minitest?${params.toString()}`,
-      { auth: true },
+    const response = await apiRequest<ToeicRunnerStartResponse>(
+      "/api/toeic/runner/start",
+      {
+        auth: true,
+        method: "POST",
+        body: JSON.stringify({
+          sourceType: "mini_test",
+          test,
+          parts: parts && parts.length > 0 ? parts : [1, 2, 3, 4, 5, 6, 7],
+          count: count || 50,
+        }),
+      },
     );
 
-    return questions.map(mapToeicRunnerQuestion);
+    return (response.questions || []).map(mapToeicRunnerQuestion);
   },
 
   async getFullTestRunner(test: number) {

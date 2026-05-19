@@ -31,6 +31,7 @@ from app.schemas.toeic import (
     ToeicRunnerQuestionDto,
     ToeicSourceFilesDto,
 )
+from app.services.question_selection import select_questions_for_attempt
 from app.services.skill_analytics import normalize_skill_code, normalize_subskill_code
 from app.utils.json_helpers import parse_string_list
 
@@ -554,19 +555,43 @@ def build_recommendations(db: Session, user_id: int) -> ToeicRecommendationDto:
     )
 
 
-def get_part_runner_questions(db: Session, part: int, limit: int = 30, difficulty: str | None = None, current_score: int | None = None) -> list[ToeicRunnerQuestionDto]:
+def get_part_runner_questions(
+    db: Session,
+    part: int,
+    limit: int = 30,
+    difficulty: str | None = None,
+    current_score: int | None = None,
+    user_id: int | None = None,
+) -> list[ToeicRunnerQuestionDto]:
     items = _load_runner_questions(db, "practice", None, [part])
     filtered = _filter_questions_by_difficulty(items, _normalize_difficulty(difficulty, current_score))
-    return filtered[: limit if limit > 0 else len(filtered)]
+    return select_questions_for_attempt(
+        db,
+        user_id=user_id,
+        source_type="practice",
+        pool=filtered,
+        question_count=limit if limit > 0 else len(filtered),
+        part=part,
+        difficulty=difficulty,
+        seed_context="part",
+    )
 
 
-def get_mixed_runner_questions(db: Session, parts: Iterable[int] | None, count: int = 30, difficulty: str | None = None, current_score: int | None = None) -> list[ToeicRunnerQuestionDto]:
+def get_mixed_runner_questions(
+    db: Session,
+    parts: Iterable[int] | None,
+    count: int = 30,
+    difficulty: str | None = None,
+    current_score: int | None = None,
+    user_id: int | None = None,
+) -> list[ToeicRunnerQuestionDto]:
     selected_parts = sorted({part for part in (parts or []) if 1 <= part <= 7}) or [1]
     filtered = _filter_questions_by_difficulty(_load_runner_questions(db, "practice", None, selected_parts), _normalize_difficulty(difficulty, current_score))
     buckets = {part: deque([item for item in filtered if item.part == part]) for part in selected_parts}
     result: list[ToeicRunnerQuestionDto] = []
     active = [part for part in selected_parts if buckets[part]]
-    while len(result) < count and active:
+    pool_count = len(filtered)
+    while len(result) < pool_count and active:
         for part in list(active):
             queue = buckets[part]
             if not queue:
@@ -577,7 +602,15 @@ def get_mixed_runner_questions(db: Session, parts: Iterable[int] | None, count: 
                 break
             if not queue:
                 active.remove(part)
-    return result
+    return select_questions_for_attempt(
+        db,
+        user_id=user_id,
+        source_type="practice",
+        pool=result,
+        question_count=count,
+        difficulty=difficulty,
+        seed_context=f"mixed:{','.join(str(part) for part in selected_parts)}",
+    )
 
 
 def get_review_focus_runner_questions(db: Session, user_id: int, review_item_id: int, count: int = 15, difficulty: str | None = None) -> ToeicReviewFocusRunnerDto | None:
@@ -665,10 +698,23 @@ def get_review_focus_runner_questions(db: Session, user_id: int, review_item_id:
     )
 
 
-def get_minitest_runner_questions(db: Session, test: int = 1, parts: Iterable[int] | None = None, count: int | None = None) -> list[ToeicRunnerQuestionDto]:
+def get_minitest_runner_questions(
+    db: Session,
+    test: int = 1,
+    parts: Iterable[int] | None = None,
+    count: int | None = None,
+    user_id: int | None = None,
+) -> list[ToeicRunnerQuestionDto]:
     selected_parts = sorted({part for part in (parts or []) if 1 <= part <= 7})
     ordered = [clone_question(item) for item in _load_runner_questions(db, "minitest", test, selected_parts or None)]
-    return ordered[:count] if count and count > 0 else ordered
+    return select_questions_for_attempt(
+        db,
+        user_id=user_id,
+        source_type="minitest",
+        pool=ordered,
+        question_count=count if count and count > 0 else len(ordered),
+        seed_context=f"minitest:{test}:{','.join(str(part) for part in selected_parts)}",
+    )
 
 
 def get_fulltest_runner_questions(db: Session, test: int = 1) -> list[ToeicRunnerQuestionDto]:

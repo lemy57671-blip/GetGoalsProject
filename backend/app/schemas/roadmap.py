@@ -108,6 +108,7 @@ class RoadmapWeekSetsResponseDto(BaseModel):
 
 
 class RoadmapSetQuestionsResponseDto(BaseModel):
+    attemptId: int | None = None
     weekId: int
     setId: int
     setKey: str = ""

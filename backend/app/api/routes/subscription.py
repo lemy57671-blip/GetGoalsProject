@@ -11,10 +11,6 @@ router = APIRouter()
 
 @router.get("/api/subscription/current")
 def get_current_subscription(current_user: User = Depends(get_current_user)) -> dict:
-    from app.services.entitlements import has_active_pro
+    from app.services.entitlements import build_entitlement_fields
 
-    is_active_pro = has_active_pro(current_user)
-    return {
-        "plan": "pro" if is_active_pro else "free",
-        "planExpiredAt": current_user.plan_expired_at if is_active_pro else None,
-    }
+    return build_entitlement_fields(current_user)

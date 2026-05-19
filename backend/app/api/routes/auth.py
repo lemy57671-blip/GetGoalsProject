@@ -5,17 +5,19 @@ from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, EmailStr
 from sqlalchemy.orm import Session
+from sqlalchemy import func, select, text
 
 from app.api.deps.auth import get_current_user
-from app.core.config import settings
+from app.core.config import reload_env_value, settings
 from app.core.security import (
     create_access_token,
     hash_password,
     verify_password,
 )
 from app.db.session import get_db
-from app.models.entities import User
+from app.models.entities import User, UserRoadmap
 from app.schemas.auth import GoogleConfigResponse, GoogleExchangeRequest, GoogleVerifyRequest
+from app.services.entitlements import build_entitlement_fields
 from app.services.auth import upsert_google_user, verify_google_token
 from app.services.settings import is_user_soft_deleted
 
@@ -107,15 +109,41 @@ def parse_optional_date(raw_value: Optional[str]) -> date | None:
         ) from exc
 
 
-def serialize_user(user: User) -> dict:
-    return {
+def _has_diagnostic_result(db: Session | None, user_id: int) -> bool:
+    if db is None:
+        return False
+    row = db.execute(
+        text(
+            """
+            SELECT TOP 1 Id
+            FROM dbo.DiagnosticAttempts
+            WHERE UserId = :user_id
+            ORDER BY COALESCE(SubmittedAtUtc, CreatedAtUtc) DESC, Id DESC
+            """
+        ),
+        {"user_id": user_id},
+    ).first()
+    return row is not None
+
+
+def _has_active_roadmap(db: Session | None, user_id: int) -> bool:
+    if db is None:
+        return False
+    count = db.scalar(
+        select(func.count())
+        .select_from(UserRoadmap)
+        .where(UserRoadmap.user_id == user_id, UserRoadmap.is_active == True)
+    )
+    return bool(count)
+
+
+def serialize_user(user: User, db: Session | None = None) -> dict:
+    payload = {
         "id": user.Id,
         "name": user.Name,
         "email": user.Email,
         "avatarUrl": getattr(user, "AvatarUrl", "") or "",
         "provider": getattr(user, "Provider", "local") or "local",
-        "plan": getattr(user, "SubscriptionPlan", "free") or "free",
-        "planExpiredAt": getattr(user, "PlanExpiredAt", None),
         "onboardingCompleted": getattr(user, "OnboardingCompleted", False),
         "currentScore": getattr(user, "CurrentScore", None),
         "targetScore": getattr(user, "TargetScore", None),
@@ -123,10 +151,15 @@ def serialize_user(user: User) -> dict:
         "studyMinutesPerDay": getattr(user, "StudyMinutesPerDay", None),
         "weakSkills": parse_weak_skills(getattr(user, "WeakSkillsJson", "[]")),
         "createdAtUtc": getattr(user, "CreatedAtUtc", None),
+        "hasDiagnosticResult": _has_diagnostic_result(db, user.Id),
+        "placementCompleted": _has_diagnostic_result(db, user.Id),
+        "hasActiveRoadmap": _has_active_roadmap(db, user.Id),
     }
+    payload.update(build_entitlement_fields(user))
+    return payload
 
 
-def build_auth_response(user: User, remember: bool = True) -> dict:
+def build_auth_response(user: User, remember: bool = True, db: Session | None = None) -> dict:
     expires = timedelta(days=30) if remember else timedelta(days=7)
 
     token = create_access_token(
@@ -140,7 +173,7 @@ def build_auth_response(user: User, remember: bool = True) -> dict:
 
     return {
         "token": token,
-        "user": serialize_user(user),
+        "user": serialize_user(user, db),
     }
 
 
@@ -181,7 +214,7 @@ def register(payload: RegisterRequest, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(new_user)
 
-    return build_auth_response(new_user, remember=True)
+    return build_auth_response(new_user, remember=True, db=db)
 
 
 @router.post("/login")
@@ -204,12 +237,12 @@ def login(payload: LoginRequest, db: Session = Depends(get_db)):
             detail="Email or password is incorrect",
         )
 
-    return build_auth_response(user, remember=payload.remember)
+    return build_auth_response(user, remember=payload.remember, db=db)
 
 
 @router.get("/me")
-def me(current_user: User = Depends(get_current_user)):
-    return serialize_user(current_user)
+def me(current_user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+    return serialize_user(current_user, db)
 
 
 @router.patch("/profile")
@@ -232,7 +265,7 @@ def update_profile(
 
     return {
         "message": "Profile updated successfully",
-        "user": serialize_user(current_user),
+        "user": serialize_user(current_user, db),
     }
 
 
@@ -270,7 +303,7 @@ def update_learning_settings(
 
     return {
         "message": "Learning settings updated successfully",
-        "user": serialize_user(current_user),
+        "user": serialize_user(current_user, db),
     }
 
 
@@ -370,7 +403,7 @@ def reset_password_direct(
 
 @router.get("/google/config", response_model=GoogleConfigResponse)
 def google_config():
-    client_id = settings.AUTH_GOOGLE_CLIENT_ID.strip()
+    client_id = reload_env_value("AUTH_GOOGLE_CLIENT_ID").strip()
     return GoogleConfigResponse(
         enabled=bool(client_id),
         clientId=client_id,
@@ -411,7 +444,7 @@ async def google_verify(
             detail=str(exc),
         ) from exc
 
-    return build_auth_response(user, remember=True)
+    return build_auth_response(user, remember=True, db=db)
 
 
 @router.post("/google/exchange")
@@ -427,4 +460,4 @@ def google_exchange(
             detail=str(exc),
         ) from exc
 
-    return build_auth_response(user, remember=True)
+    return build_auth_response(user, remember=True, db=db)

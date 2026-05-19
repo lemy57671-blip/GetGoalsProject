@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from datetime import datetime, timedelta
 
-from sqlalchemy import func, select
+from sqlalchemy import func, select, text
 from sqlalchemy.orm import Session, joinedload, selectinload
 
 from app.models import (
@@ -87,12 +87,20 @@ def get_dashboard_overview(db: Session, user_id: int) -> DashboardOverviewDto:
         .order_by(func.coalesce(MockTestAttempt.submitted_at_utc, MockTestAttempt.created_at_utc).desc())
         .limit(1)
     )
+    latest_diagnostic = _get_latest_diagnostic_attempt_snapshot(db, user_id)
+    pending_review_count = _get_pending_review_count(db, user_id)
 
     return DashboardOverviewDto(
+        estimatedScore=latest_diagnostic.estimatedScore if latest_diagnostic else None,
+        targetScore=user.target_score if user else None,
+        accuracy=latest_diagnostic.accuracy if latest_diagnostic else recent_accuracy,
+        attempts=len(practice_attempts) + len(mock_attempts),
+        toReview=pending_review_count,
+        latestDiagnosticSubmittedAt=latest_diagnostic.submittedAtUtc if latest_diagnostic else None,
         totalPracticeAttempts=len(practice_attempts),
         recentAccuracy=recent_accuracy,
         totalStudyMinutes=_get_total_study_minutes(db, user_id),
-        pendingReviewCount=_get_pending_review_count(db, user_id),
+        pendingReviewCount=pending_review_count,
         weakestSkill=_get_weakest_skill(db, user_id),
         weakestPart=_get_weakest_part(db, user_id),
         latestMockTest=LatestMockTestDto(
@@ -105,7 +113,7 @@ def get_dashboard_overview(db: Session, user_id: int) -> DashboardOverviewDto:
         )
         if latest_mock
         else None,
-        latestDiagnostic=_build_latest_assessment_snapshot(db, user_id, user, analytics),
+        latestDiagnostic=latest_diagnostic,
         recentActiveDays=sum(1 for item in history if item.studyMinutes > 0 or item.attemptsCount > 0),
         streakDays=_calculate_streak_days(history),
     )
@@ -195,6 +203,7 @@ def get_progress_summary(db: Session, user_id: int) -> ProgressSummaryDto:
                 .limit(5)
             ).all()
         ],
+        latestDiagnostic=_get_latest_diagnostic_attempt_snapshot(db, user_id),
         pendingReviewCount=_get_pending_review_count(db, user_id),
     )
 
@@ -464,9 +473,9 @@ def get_profile_summary(db: Session, user_id: int) -> ProfileSummaryDto | None:
     weak_skills = parse_string_list(user.weak_skills_json)
     if not weak_skills:
         weak_skills = [item.skill_name or item.skill_code for item in db.scalars(select(UserSkillProfile).where(UserSkillProfile.user_id == user_id).order_by(UserSkillProfile.accuracy_pct, UserSkillProfile.attempt_count.desc()).limit(5)).all()]
-    latest_assessment = _build_latest_assessment_snapshot(db, user_id, user, analytics)
+    latest_assessment = _get_latest_diagnostic_attempt_snapshot(db, user_id)
     return ProfileSummaryDto(
-        currentScore=latest_assessment.estimatedScore if latest_assessment else user.current_score,
+        currentScore=latest_assessment.estimatedScore if latest_assessment else None,
         targetScore=user.target_score,
         weakSkills=weak_skills,
         latestDiagnostic=latest_assessment,
@@ -573,6 +582,45 @@ def _build_latest_assessment_snapshot(db: Session, user_id: int, user: User | No
         theta=None,
         submittedAtUtc=(latest_mock.submitted_at_utc or latest_mock.created_at_utc) if latest_mock else analytics.updatedAtUtc,
         weakSubskills=analytics.topWeakSubskills,
+    )
+
+
+def _get_latest_diagnostic_attempt_snapshot(db: Session, user_id: int) -> LatestDiagnosticDto | None:
+    row = db.execute(
+        text(
+            """
+            SELECT TOP 1
+                EstimatedScore,
+                LevelName,
+                LevelRange,
+                Theta,
+                AccuracyPct,
+                CorrectCount,
+                TotalQuestions,
+                WeakSubskillsJson,
+                SubmittedAtUtc,
+                CreatedAtUtc
+            FROM dbo.DiagnosticAttempts
+            WHERE UserId = :user_id
+            ORDER BY COALESCE(SubmittedAtUtc, CreatedAtUtc) DESC, Id DESC
+            """
+        ),
+        {"user_id": user_id},
+    ).mappings().first()
+    if row is None:
+        return None
+
+    estimated_score = int(row.get("EstimatedScore") or 0)
+    return LatestDiagnosticDto(
+        estimatedScore=estimated_score,
+        estimatedLevel=row.get("LevelName") or _resolve_estimated_level(estimated_score),
+        levelRange=row.get("LevelRange") or _resolve_estimated_range(estimated_score),
+        theta=float(row["Theta"]) if row.get("Theta") is not None else None,
+        accuracy=float(row.get("AccuracyPct") or 0),
+        correctCount=int(row.get("CorrectCount") or 0),
+        totalQuestions=int(row.get("TotalQuestions") or 0),
+        submittedAtUtc=row.get("SubmittedAtUtc") or row.get("CreatedAtUtc"),
+        weakSubskills=parse_string_list(row.get("WeakSubskillsJson")),
     )
 
 

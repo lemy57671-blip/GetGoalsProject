@@ -17,6 +17,40 @@ from app.db.session import get_db
 router = APIRouter()
 logger = logging.getLogger(__name__)
 
+TTS_VOICES = [
+    {"id": "en-US-AriaNeural", "name": "Aria (US Female)", "lang": "en-US", "gender": "Female"},
+    {"id": "en-US-GuyNeural", "name": "Guy (US Male)", "lang": "en-US", "gender": "Male"},
+    {"id": "en-GB-SoniaNeural", "name": "Sonia (UK Female)", "lang": "en-GB", "gender": "Female"},
+    {"id": "en-GB-RyanNeural", "name": "Ryan (UK Male)", "lang": "en-GB", "gender": "Male"},
+    {"id": "vi-VN-HoaiMyNeural", "name": "Hoài My (VN Female)", "lang": "vi-VN", "gender": "Female"},
+    {"id": "vi-VN-NamMinhNeural", "name": "Nam Minh (VN Male)", "lang": "vi-VN", "gender": "Male"},
+]
+
+VOICE_ALIASES = {
+    voice["id"].lower(): voice["id"]
+    for voice in TTS_VOICES
+}
+VOICE_ALIASES.update(
+    {
+        voice["name"].lower(): voice["id"]
+        for voice in TTS_VOICES
+    }
+)
+VOICE_ALIASES.update(
+    {
+        "aria": "en-US-AriaNeural",
+        "aria us female": "en-US-AriaNeural",
+        "guy": "en-US-GuyNeural",
+        "guy us male": "en-US-GuyNeural",
+        "sonia": "en-GB-SoniaNeural",
+        "ryan": "en-GB-RyanNeural",
+        "hoai my": "vi-VN-HoaiMyNeural",
+        "hoài my": "vi-VN-HoaiMyNeural",
+        "nam minh": "vi-VN-NamMinhNeural",
+    }
+)
+
+
 class TTSRequest(BaseModel):
     text: str | None = None
     word: str | None = None
@@ -29,7 +63,36 @@ class TTSRequest(BaseModel):
 
 def _normalize_voice(value: str | None) -> str:
     voice = str(value or "").strip()
-    return voice or "en-US-AriaNeural"
+    if not voice:
+        return "en-US-AriaNeural"
+
+    key = re.sub(r"\s+", " ", voice).strip().lower()
+    key_without_punctuation = re.sub(r"[()]", "", key)
+    normalized = VOICE_ALIASES.get(key) or VOICE_ALIASES.get(key_without_punctuation)
+    if normalized:
+        return normalized
+
+    valid_voices = ", ".join(voice_item["id"] for voice_item in TTS_VOICES)
+    raise HTTPException(
+        status_code=400,
+        detail={
+            "message": "Unsupported voice selected.",
+            "voice": voice,
+            "valid_voices": valid_voices,
+        },
+    )
+
+
+def _tts_provider_error(provider_error: str, message: str = "Unable to generate voice. Please try again.") -> HTTPException:
+    return HTTPException(
+        status_code=502,
+        detail={
+            "message": message,
+            "provider": "edge_tts",
+            "provider_error": provider_error,
+            "source": "failed",
+        },
+    )
 
 
 def _flashcard_audio_url(filename: str) -> str:
@@ -157,6 +220,12 @@ def _generate_with_pyttsx3_if_available(text: str, filepath: Path) -> bool:
 async def text_to_speech(request: TTSRequest):
     text = request.normalized_text()
     voice = _normalize_voice(request.voice)
+    logger.info(
+        "[TTS] text length=%s requested voice=%s normalized voice=%s",
+        len(text),
+        request.voice,
+        voice,
+    )
 
     if not text:
         raise HTTPException(status_code=400, detail="Text cannot be empty")
@@ -173,13 +242,21 @@ async def text_to_speech(request: TTSRequest):
                 audio_bytes.extend(chunk["data"])
 
         if not audio_bytes:
-            raise HTTPException(status_code=502, detail="TTS service did not return audio data.")
+            raise _tts_provider_error("empty audio output", "TTS service did not return usable audio data.")
 
+        logger.info("[TTS] provider=edge_tts success bytes=%s voice=%s", len(audio_bytes), voice)
         return Response(content=bytes(audio_bytes), media_type="audio/mpeg")
     except HTTPException:
         raise
     except Exception as e:
-        raise HTTPException(status_code=502, detail=f"TTS provider failed: {str(e)}")
+        provider_error = str(e)
+        logger.warning(
+            "[TTS] provider=edge_tts failure voice=%s error=%s",
+            voice,
+            provider_error,
+            exc_info=True,
+        )
+        raise _tts_provider_error(provider_error) from e
 
 @router.post("/api/tts/flashcard")
 async def flashcard_tts(request: TTSRequest, db: Session = Depends(get_db)):
@@ -191,6 +268,12 @@ async def flashcard_tts(request: TTSRequest, db: Session = Depends(get_db)):
     """
     text = request.normalized_text()
     voice = _normalize_voice(request.voice)
+    logger.info(
+        "[TTS] flashcard text length=%s requested voice=%s normalized voice=%s",
+        len(text),
+        request.voice,
+        voice,
+    )
 
     if not text:
         raise HTTPException(status_code=400, detail="Word cannot be empty")
@@ -236,7 +319,7 @@ async def flashcard_tts(request: TTSRequest, db: Session = Depends(get_db)):
         await _generate_with_edge_tts(text, voice, filepath)
     except Exception as exc:
         provider_error = str(exc)
-        logger.warning("Flashcard TTS provider=edge failed word=%r voice=%s error=%s", text, voice, provider_error, exc_info=True)
+        logger.warning("Flashcard TTS provider=edge_tts failed word=%r voice=%s error=%s", text, voice, provider_error, exc_info=True)
 
         local_filename = f"fc_{h}_local.wav"
         local_path = audio_dir / local_filename
@@ -253,7 +336,7 @@ async def flashcard_tts(request: TTSRequest, db: Session = Depends(get_db)):
         raise HTTPException(
             status_code=502,
             detail={
-                "message": "TTS provider failed for this word.",
+                "message": "Unable to generate voice. Please try again.",
                 "provider": "edge_tts",
                 "provider_error": provider_error,
                 "source": "failed",
@@ -287,6 +370,7 @@ async def flashcard_tts(request: TTSRequest, db: Session = Depends(get_db)):
 
 @router.get("/api/tts/voices")
 async def get_voices():
+    return {"voices": TTS_VOICES}
     return {
         "voices": [
             {"id": "en-US-AriaNeural", "name": "Aria (US Female)", "lang": "en-US", "gender": "Female"},

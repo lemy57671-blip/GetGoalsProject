@@ -9,6 +9,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.models import PaymentOrder, User
+from app.services.entitlements import has_active_pro
 
 
 logger = logging.getLogger(__name__)
@@ -41,6 +42,13 @@ def get_duration_months_by_plan_code(plan_code: str) -> int:
     }.get(normalize_plan_code(plan_code), 0)
 
 
+def _add_months(value: datetime, months: int) -> datetime:
+    year = value.year + (value.month - 1 + months) // 12
+    month = (value.month - 1 + months) % 12 + 1
+    day = min(value.day, calendar.monthrange(year, month)[1])
+    return value.replace(year=year, month=month, day=day)
+
+
 def activate_paid_subscription(db: Session, order: PaymentOrder | None) -> None:
     if order is None or order.user_id <= 0:
         logger.warning("PaymentOrder is invalid for subscription activation.")
@@ -58,12 +66,52 @@ def activate_paid_subscription(db: Session, order: PaymentOrder | None) -> None:
 
     now = datetime.utcnow()
     base_time = user.plan_expired_at if user.plan == "pro" and user.plan_expired_at and user.plan_expired_at > now else now
-    year = base_time.year + (base_time.month - 1 + months) // 12
-    month = (base_time.month - 1 + months) % 12 + 1
-    day = min(base_time.day, calendar.monthrange(year, month)[1])
     user.plan = "pro"
-    user.plan_expired_at = base_time.replace(year=year, month=month, day=day)
+    user.plan_expired_at = _add_months(base_time, months)
     db.commit()
+
+
+def reconcile_paid_order_subscription(db: Session, order: PaymentOrder | None) -> User | None:
+    """Repair the user subscription for a paid order without re-extending old orders."""
+    if order is None or order.user_id <= 0:
+        return None
+
+    user = db.scalar(select(User).where(User.id == order.user_id))
+    if user is None:
+        return None
+
+    if (order.status or "").strip().lower() != "paid":
+        return user
+
+    if has_active_pro(user):
+        return user
+
+    months = get_duration_months_by_plan_code(order.plan_code)
+    if months <= 0:
+        return user
+
+    paid_at = order.paid_at or order.created_at or datetime.utcnow()
+    expires_at = _add_months(paid_at, months)
+    if expires_at <= datetime.utcnow():
+        logger.info(
+            "Paid order is outside its entitlement window. orderCode=%s paidAt=%s expiresAt=%s",
+            order.order_code,
+            paid_at.isoformat() if paid_at else None,
+            expires_at.isoformat(),
+        )
+        return user
+
+    user.plan = "pro"
+    user.plan_expired_at = expires_at
+    db.commit()
+    db.refresh(user)
+    logger.info(
+        "Reconciled paid order subscription. orderCode=%s userId=%s expiresAt=%s",
+        order.order_code,
+        user.id,
+        expires_at.isoformat(),
+    )
+    return user
 
 
 def revoke_expired_subscriptions(db: Session) -> int:

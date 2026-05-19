@@ -18,7 +18,7 @@ sentencepiece==0.2.0
 ctranslate2==4.5.0
 
 # Text-to-Speech
-edge-tts==6.1.15
+edge-tts==7.2.8
 
 # Utilities
 starlette==0.41.3

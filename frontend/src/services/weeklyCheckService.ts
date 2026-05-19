@@ -10,6 +10,7 @@ import {
 } from "@src/services/toeicService";
 
 type WeeklyCheckCurrentResponse = {
+  attemptId?: number | null;
   weeklyCheckId: string;
   title: string;
   description: string;
@@ -75,6 +76,7 @@ export const weeklyCheckService = {
       auth: true,
       body: JSON.stringify({
         weeklyCheckId: weeklyCheck.weeklyCheckId,
+        attemptId: weeklyCheck.attemptId ?? weeklyCheck.questions[0]?.attemptId ?? null,
         title: weeklyCheck.title,
         description: weeklyCheck.description,
         totalQuestions: weeklyCheck.totalQuestions || weeklyCheck.questions.length,

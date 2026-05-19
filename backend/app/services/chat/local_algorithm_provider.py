@@ -150,7 +150,19 @@ def detect_intent(message: str) -> LocalIntent:
     ):
         return "full_option_analysis"
 
-    if _has_any(text, "dap an la gi", "dap an dung", "chon gi", "chon dap an nao", "answer la gi") and not _has_any(
+    if _has_any(
+        text,
+        "dap an la gi",
+        "dap an dung",
+        "chon gi",
+        "chon dap an nao",
+        "cau nao dung",
+        "lua chon nao dung",
+        "answer la gi",
+        "correct answer",
+        "which answer",
+        "answer",
+    ) and not _has_any(
         text,
         "vi sao",
         "tai sao",
@@ -159,6 +171,9 @@ def detect_intent(message: str) -> LocalIntent:
         "khong chon",
         "sai",
         "wrong",
+        "giai thich",
+        "phan tich",
+        "explain",
     ):
         return "correct_answer"
 
