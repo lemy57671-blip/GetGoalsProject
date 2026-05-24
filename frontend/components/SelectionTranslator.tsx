@@ -1,9 +1,13 @@
+
 import React, { useState, useEffect, useRef } from "react";
 import { Languages, X, Loader2, Copy, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { apiRequest, API_BASE_URL } from "@src/services/apiClient";
 import { useLocation } from "react-router-dom";
 import { useLanguage } from "@src/contexts/LanguageContext";
+
+const TRANSLATION_ERROR_MESSAGE = "Lỗi dịch thuật. Vui lòng thử lại sau.";
+const hasCorruptedTranslation = (value: string) => /Ã|á»|áº|Â|â€|�/.test(value);
 
 export function SelectionTranslator() {
   const location = useLocation();
@@ -88,10 +92,14 @@ export function SelectionTranslator() {
       
       if (!response.ok) throw new Error("Translation failed");
       const data = await response.json();
-      setTranslation(data.translated_text);
+      const translatedText = typeof data?.translated_text === "string" ? data.translated_text.trim() : "";
+      if (!translatedText || hasCorruptedTranslation(translatedText)) {
+        throw new Error("Invalid translation response");
+      }
+      setTranslation(translatedText);
     } catch (error) {
       console.error("Translation error:", error);
-      setTranslation("Lỗi dịch thuật. Vui lòng thử lại sau.");
+      setTranslation(TRANSLATION_ERROR_MESSAGE);
     } finally {
       setIsLoading(false);
     }
@@ -99,7 +107,15 @@ export function SelectionTranslator() {
 
   const handleCopy = () => {
     if (translation) {
-      navigator.clipboard.writeText(translation);
+      const parts = translation.split(" / ");
+      let textToCopy = translation;
+      if (parts.length >= 3) {
+        const originalWord = selection?.text || parts[0];
+        const pos = parts[1];
+        const meaning = parts.slice(3).join(" / ");
+        textToCopy = `${originalWord} (${pos}): ${meaning}`;
+      }
+      navigator.clipboard.writeText(textToCopy);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }
@@ -157,9 +173,43 @@ export function SelectionTranslator() {
 
           {translation && (
             <div className="space-y-2 animate-in slide-in-from-top-2 duration-300">
-              <div className="text-sm font-medium leading-relaxed bg-primary/5 p-3 rounded-xl border border-primary/10">
-                {translation}
-              </div>
+              {(() => {
+                const parts = translation.split(" / ");
+                if (parts.length >= 3) {
+                  const originalWord = selection?.text || parts[0];
+                  const pos = parts[1];
+                  const pron = parts[2];
+                  const meaning = parts.slice(3).join(" / ");
+                  
+                  return (
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="font-bold text-lg text-foreground tracking-tight">
+                          {originalWord.trim().replace(/^"(.*)"$/, '$1')}
+                        </span>
+                        {pos && (
+                          <span className="text-[10px] font-extrabold uppercase tracking-wider px-1.5 py-0.5 rounded bg-primary/10 text-primary border border-primary/20">
+                            {pos}
+                          </span>
+                        )}
+                      </div>
+                      {pron && (
+                        <div className="text-xs text-muted-foreground font-mono bg-muted/50 px-2 py-0.5 rounded border border-border/40 inline-block">
+                          /{pron.replace(/^\/|\/$/g, '')}/
+                        </div>
+                      )}
+                      <div className="text-sm font-medium leading-relaxed bg-primary/5 p-3 rounded-xl border border-primary/10">
+                        {meaning.charAt(0).toUpperCase() + meaning.slice(1)}
+                      </div>
+                    </div>
+                  );
+                }
+                return (
+                  <div className="text-sm font-medium leading-relaxed bg-primary/5 p-3 rounded-xl border border-primary/10 whitespace-pre-wrap">
+                    {translation}
+                  </div>
+                );
+              })()}
               <div className="flex justify-end">
                 <Button 
                   variant="ghost" 
@@ -181,3 +231,5 @@ export function SelectionTranslator() {
     </div>
   );
 }
+
+
