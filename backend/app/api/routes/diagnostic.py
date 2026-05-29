@@ -9,6 +9,7 @@ from app.api.deps import get_current_user_id
 from app.db.session import get_db
 from app.schemas.diagnostic import DiagnosticSubmitRequest
 from app.services.diagnostic import get_diagnostic_questions, submit_diagnostic
+from app.services.weighted_score import compute_weight_score_fields
 from app.utils.json_helpers import parse_string_list
 
 
@@ -50,9 +51,40 @@ def latest(db: Session = Depends(get_db), user_id: int = Depends(get_current_use
             status_code=404,
             content={"message": "No placement test result was found for this user."},
         )
+    try:
+        weight_rows = db.execute(
+            text(
+                """
+                SELECT
+                    a.QuestionId,
+                    a.SelectedAnswerIndex,
+                    a.IsCorrect,
+                    q.LegacyQuestionId
+                FROM dbo.DiagnosticAttemptAnswers a
+                LEFT JOIN dbo.ToeicQuestions q
+                    ON q.Id = a.QuestionId
+                WHERE a.DiagnosticAttemptId = :attempt_id
+                """
+            ),
+            {"attempt_id": int(row["Id"])},
+        ).mappings().all()
+        weight_fields = compute_weight_score_fields(
+            [
+                {
+                    "item_id": int(item.get("LegacyQuestionId") or item.get("QuestionId") or 0),
+                    "question_id": item.get("QuestionId"),
+                    "selected_answer_index": item.get("SelectedAnswerIndex"),
+                    "is_correct": bool(item.get("IsCorrect")),
+                }
+                for item in weight_rows
+            ]
+        )
+    except Exception:
+        weight_fields = compute_weight_score_fields([])
     return {
         "id": int(row["Id"]),
         "estimatedScore": int(row.get("EstimatedScore") or 0),
+        **weight_fields,
         "estimatedLevel": row.get("LevelName") or "",
         "levelRange": row.get("LevelRange") or "",
         "theta": float(row["Theta"]) if row.get("Theta") is not None else None,

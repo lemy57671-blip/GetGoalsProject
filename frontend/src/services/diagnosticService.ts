@@ -23,6 +23,10 @@ export type DiagnosticQuestionsResponse = {
 export type DiagnosticSubmitResponse = {
   analysis: {
     score: number;
+    weight_score?: number | null;
+    weighted_correct?: number;
+    weighted_total?: number;
+    weight_score_ratio?: number;
     level: {
       code: string;
       name: string;
@@ -76,6 +80,12 @@ export type SaveDiagnosticAttemptResponse = {
   reviewQueuedCount: number;
   skillStatsUpdated: number;
   partStatsUpdated: number;
+  result?: {
+    weight_score?: number | null;
+    weighted_correct?: number;
+    weighted_total?: number;
+    weight_score_ratio?: number;
+  } | null;
 };
 
 export const diagnosticService = {

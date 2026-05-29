@@ -77,7 +77,7 @@ export function RunnerRightPanel({
     }`;
 
   return (
-    <aside className="rounded-xl border border-[#DDE7F7] bg-[#F7FAFF] shadow-sm lg:sticky lg:top-20">
+    <aside className="relative overflow-hidden rounded-xl border border-[#DDE7F7] bg-[#F7FAFF] shadow-sm">
       <div className="border-b border-[#DDE7F7] p-3">
         <div className="flex rounded-xl bg-[#EAF2FF] p-1">
           <button type="button" className={tabClass("notes")} onClick={() => onTabChange("notes")}>

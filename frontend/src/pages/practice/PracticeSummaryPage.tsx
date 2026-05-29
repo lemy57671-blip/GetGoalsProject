@@ -78,6 +78,17 @@ function cleanAnswerText(value?: string | null) {
   return String(value || "").replace(/^[A-Z]\.\s*/i, "").trim();
 }
 
+type TutorMode = "practice" | "review" | "mock_test" | "mini_test" | "weekly_check" | "diagnostic";
+
+function getSummaryTutorMode(result?: PracticeAttemptResult | null): TutorMode {
+  const attemptType = (result?.attemptType || "").trim().toLowerCase().replace(/-/g, "_");
+  if (attemptType.includes("mock") || attemptType.includes("full")) return "mock_test";
+  if (attemptType.includes("mini")) return "mini_test";
+  if (attemptType.includes("weekly")) return "weekly_check";
+  if (attemptType.includes("diagnostic")) return "diagnostic";
+  return "review";
+}
+
 function normalizeOptionRows(question: PracticeAttemptResult["questions"][number]) {
   const rows = question.optionRows?.length
     ? question.optionRows
@@ -218,152 +229,29 @@ export function PracticeSummaryPage() {
     const userMessage = (messageOverride || aiMessage).trim();
     if (!userMessage) return;
 
-    const activeAttemptId =
-      result?.attemptId ||
-      attempt?.attemptId ||
-      (Number.isFinite(attemptId) && attemptId > 0 ? attemptId : null);
-
     setAiMessages((current) => [...current, { role: "user", content: userMessage }]);
     setAiMessage("");
     setAiLoading(true);
 
-    const richReviewQuestion = selectedReviewQuestion as
-      | (NonNullable<typeof selectedReviewQuestion> & {
-          docxQuestionId?: number | null;
-          docx_question_id?: number | null;
-          sourceQuestionId?: number | null;
-          source_question_id?: number | null;
-          explanationDetail?: string | null;
-          explanation_detail?: string | null;
-          rawExplanation?: string | null;
-          raw_explanation?: string | null;
-          raw_block?: string | null;
-          optionAnalysis?: string | null;
-          option_analysis?: string | null;
-          vocabularyNotes?: string | null;
-          vocabulary_notes?: string | null;
-        })
-      | null;
-    const runtimeQuestionId =
-      richReviewQuestion?.runtimeQuestionId || richReviewQuestion?.questionId || null;
-    const docxQuestionId =
-      richReviewQuestion?.docxQuestionId || richReviewQuestion?.docx_question_id || null;
-    const sourceQuestionId =
-      richReviewQuestion?.sourceQuestionId ||
-      richReviewQuestion?.source_question_id ||
-      (docxQuestionId && docxQuestionId !== runtimeQuestionId ? docxQuestionId : null);
-    const explanationDetail =
-      richReviewQuestion?.explanationDetail ||
-      richReviewQuestion?.explanation_detail ||
-      richReviewQuestion?.explanationText ||
-      richReviewQuestion?.explanation ||
+    const questionId =
+      selectedReviewQuestion?.sourceQuestionId ||
+      selectedReviewQuestion?.docxQuestionId ||
+      selectedReviewQuestion?.questionId ||
       null;
-    const rawExplanation =
-      richReviewQuestion?.rawExplanation || richReviewQuestion?.raw_explanation || null;
-    const rawBlock = richReviewQuestion?.rawBlock || richReviewQuestion?.raw_block || null;
-    const optionAnalysis =
-      richReviewQuestion?.optionAnalysis || richReviewQuestion?.option_analysis || null;
-    const vocabularyNotes =
-      richReviewQuestion?.vocabularyNotes || richReviewQuestion?.vocabulary_notes || null;
+    const selectedAnswerForTutor =
+      selectedReviewQuestion?.selectedOptionKey ||
+      optionKeyFromIndex(selectedReviewQuestion?.userAnswerIndex) ||
+      null;
+    const mode = getSummaryTutorMode(result);
 
     try {
       const response = await chatService.sendDetailed({
         message: userMessage,
-        conversation_id: aiConversationId,
-        attempt_id: activeAttemptId,
-        context_type: "practice_summary",
-        contextType: "practice_summary",
-        source: "practice_runtime",
-        question_id: runtimeQuestionId,
-        questionId: runtimeQuestionId,
-        currentQuestionId: runtimeQuestionId,
-        runtime_question_id: runtimeQuestionId,
-        runtimeQuestionId,
-        runner_question_id: runtimeQuestionId,
-        runnerQuestionId: runtimeQuestionId,
-        docx_question_id: docxQuestionId,
-        docxQuestionId,
-        source_question_id: sourceQuestionId,
-        sourceQuestionId,
-        questionNumber: selectedReviewQuestion?.questionNumber || null,
-        part: selectedReviewQuestion?.partNumber || null,
-        questionText: selectedReviewQuestion?.questionText || selectedReviewQuestion?.question || null,
-        question_text: selectedReviewQuestion?.questionText || selectedReviewQuestion?.question || null,
-        passage: selectedReviewQuestion?.passage || null,
-        passageText: selectedReviewQuestion?.passage?.text || null,
-        passage_text: selectedReviewQuestion?.passage?.text || null,
-        audio: selectedReviewQuestion?.audio || null,
-        image: selectedReviewQuestion?.image || null,
-        options: selectedReviewQuestion?.optionRows || [],
-        selectedOptionKey: selectedReviewQuestion?.selectedOptionKey || null,
-        selected_option_key: selectedReviewQuestion?.selectedOptionKey || null,
-        selectedAnswer: selectedReviewQuestion?.userAnswer || null,
-        selected_answer: selectedReviewQuestion?.userAnswer || null,
-        correctOptionKey: selectedReviewQuestion?.correctOptionKey || null,
-        correct_option_key: selectedReviewQuestion?.correctOptionKey || null,
-        correctAnswer: selectedReviewQuestion?.correctAnswer || null,
-        correct_answer: selectedReviewQuestion?.correctAnswer || null,
-        explanation: explanationDetail,
-        explanationText: explanationDetail,
-        explanation_text: explanationDetail,
-        explanationDetail,
-        explanation_detail: explanationDetail,
-        rawExplanation,
-        raw_explanation: rawExplanation,
-        rawBlock,
-        raw_block: rawBlock,
-        optionAnalysis,
-        option_analysis: optionAnalysis,
-        vocabularyNotes,
-        vocabulary_notes: vocabularyNotes,
-        currentQuestion: selectedReviewQuestion
-          ? {
-              id: runtimeQuestionId,
-              questionId: runtimeQuestionId,
-              question_id: runtimeQuestionId,
-              runtimeQuestionId,
-              runtime_question_id: runtimeQuestionId,
-              runnerQuestionId: runtimeQuestionId,
-              runner_question_id: runtimeQuestionId,
-              docxQuestionId,
-              docx_question_id: docxQuestionId,
-              sourceQuestionId,
-              source_question_id: sourceQuestionId,
-              source: "practice_runtime",
-              questionNumber: selectedReviewQuestion.questionNumber,
-              part: selectedReviewQuestion.partNumber,
-              section: selectedReviewQuestion.section,
-              skill: selectedReviewQuestion.skill,
-              subskill: selectedReviewQuestion.subskill,
-              questionText: selectedReviewQuestion.questionText || selectedReviewQuestion.question,
-              question_text: selectedReviewQuestion.questionText || selectedReviewQuestion.question,
-              passage: selectedReviewQuestion.passage,
-              audio: selectedReviewQuestion.audio,
-              image: selectedReviewQuestion.image,
-              options: selectedReviewQuestion.optionRows,
-              selectedOptionKey: selectedReviewQuestion.selectedOptionKey,
-              selected_option_key: selectedReviewQuestion.selectedOptionKey,
-              selectedAnswer: selectedReviewQuestion.userAnswer,
-              selected_answer: selectedReviewQuestion.userAnswer,
-              correctOptionKey: selectedReviewQuestion.correctOptionKey,
-              correct_option_key: selectedReviewQuestion.correctOptionKey,
-              correctAnswer: selectedReviewQuestion.correctAnswer,
-              correct_answer: selectedReviewQuestion.correctAnswer,
-              explanation: explanationDetail,
-              explanationText: explanationDetail,
-              explanation_text: explanationDetail,
-              explanationDetail,
-              explanation_detail: explanationDetail,
-              rawExplanation,
-              raw_explanation: rawExplanation,
-              rawBlock,
-              raw_block: rawBlock,
-              optionAnalysis,
-              option_analysis: optionAnalysis,
-              vocabularyNotes,
-              vocabulary_notes: vocabularyNotes,
-            }
-          : null,
+        conversationId: aiConversationId,
+        questionId,
+        selectedAnswer: selectedAnswerForTutor,
+        mode,
+        source: "web",
       });
 
       if (typeof response.conversation_id === "number") {

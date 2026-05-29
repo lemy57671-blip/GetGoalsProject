@@ -38,6 +38,7 @@ from app.schemas.toeic import ToeicRunnerQuestionDto
 from app.services.skill_analytics import infer_part, normalize_skill_code
 from app.services.toeic import build_question_lookup_key, get_question_lookup_by_ids
 from app.services.irt_scoring import score_diagnostic_with_rasch
+from app.services.weighted_score import compute_weight_score_fields
 from app.services.review_schema import ensure_review_schema
 from app.services.attempt_snapshots import mark_attempt_snapshot_submitted
 
@@ -91,6 +92,77 @@ def _review_reason_for_answer(selected_answer_index: int | None, is_correct: boo
     if is_correct:
         return None
     return "skipped" if selected_answer_index is None else "wrong"
+
+
+def _answer_value(answer, snake_name: str, camel_name: str | None = None, default=None):
+    if isinstance(answer, dict):
+        if snake_name in answer:
+            return answer[snake_name]
+        if camel_name and camel_name in answer:
+            return answer[camel_name]
+        return default
+    if hasattr(answer, snake_name):
+        return getattr(answer, snake_name)
+    if camel_name and hasattr(answer, camel_name):
+        return getattr(answer, camel_name)
+    return default
+
+
+def _source_question_id(source_question: ToeicRunnerQuestionDto | None) -> int | None:
+    if source_question is None:
+        return None
+    for value in (
+        source_question.sourceQuestionId,
+        source_question.docxQuestionId,
+        source_question.dbId,
+        source_question.questionId,
+        source_question.id,
+    ):
+        if value:
+            return int(value)
+    return None
+
+
+def _compute_attempt_weight_score_fields(
+    answers,
+    question_lookup: dict[str, ToeicRunnerQuestionDto] | None = None,
+) -> dict[str, int | float]:
+    weight_items: list[dict] = []
+
+    for answer in answers or []:
+        question_id = _answer_value(answer, "question_id", "questionId")
+        part = _answer_value(answer, "part", "part")
+        source_question = None
+        if question_lookup is not None and question_id is not None:
+            lookup_answer = type(
+                "_WeightLookupAnswer",
+                (),
+                {"question_id": question_id, "part": part or 0},
+            )()
+            source_question = _find_source_question(lookup_answer, question_lookup)
+
+        resolved_item_id = _source_question_id(source_question) or question_id
+        weight_items.append(
+            {
+                "item_id": resolved_item_id,
+                "question_id": question_id,
+                "is_correct": _answer_value(answer, "is_correct", "isCorrect", False),
+                "selected_answer_index": _answer_value(
+                    answer,
+                    "selected_answer_index",
+                    "selectedAnswerIndex",
+                ),
+                "difficulty": _answer_value(
+                    answer,
+                    "difficulty",
+                    "difficulty",
+                    source_question.difficulty if source_question else None,
+                ),
+                "itemDifficulty": _answer_value(answer, "itemDifficulty", "itemDifficulty"),
+            }
+        )
+
+    return compute_weight_score_fields(weight_items)
 
 
 def save_practice_attempt(db: Session, user_id: int, request: SavePracticeAttemptRequest) -> SaveAttemptResponse:
@@ -384,10 +456,19 @@ def save_diagnostic_attempt(db: Session, user_id: int, request: SaveDiagnosticAt
     score_rule = max(5, min(score_rule, 990))
 
     rasch_items: list[dict] = []
+    weight_items: list[dict] = []
 
     for item in answered_answers:
         meta = question_meta_by_id.get(item.questionId, {})
         legacy_id = meta.get("legacy_id")
+        weight_items.append(
+            {
+                "item_id": int(legacy_id or item.questionId),
+                "question_id": item.questionId,
+                "is_correct": bool(item.isCorrect),
+                "selected_answer_index": item.selectedAnswerIndex,
+            }
+        )
 
         if legacy_id is not None:
             rasch_items.append(
@@ -398,6 +479,7 @@ def save_diagnostic_attempt(db: Session, user_id: int, request: SaveDiagnosticAt
             )
 
     rasch_result = score_diagnostic_with_rasch(rasch_items)
+    weight_score_fields = compute_weight_score_fields(weight_items)
 
     theta = rasch_result.get("theta")
     estimated_score = int(rasch_result.get("estimated_score") or request.score or score_rule)
@@ -639,6 +721,29 @@ def save_diagnostic_attempt(db: Session, user_id: int, request: SaveDiagnosticAt
         reviewQueuedCount=review_queued_count,
         skillStatsUpdated=stat_result.skillStatsUpdated,
         partStatsUpdated=stat_result.partStatsUpdated,
+        result=AttemptResultDto(
+            attemptId=attempt_id,
+            attemptType="diagnostic",
+            title="Diagnostic Result",
+            totalQuestions=total_questions,
+            correctCount=correct_count,
+            wrongCount=max(answered_count - correct_count, 0),
+            unansweredCount=max(total_questions - answered_count, 0),
+            accuracyPct=float(accuracy_pct or 0),
+            **weight_score_fields,
+            startedAt=None,
+            submittedAt=now,
+            durationSeconds=int(
+                getattr(request, "durationSec", None)
+                or getattr(request, "timeSpentSeconds", None)
+                or 0
+            ),
+            scaledScore=estimated_score,
+            skillBreakdown=[],
+            partBreakdown=[],
+            weakAreas=[],
+            questions=[],
+        ),
     )
 
 
@@ -656,6 +761,7 @@ def get_practice_attempt_result(db: Session, user_id: int, attempt_id: int) -> A
     question_lookup = get_question_lookup_by_ids(db, question_ids)
     explanation_lookup = _load_runtime_explanations(db, question_ids)
     questions = [_build_saved_result_question(item, question_lookup, explanation_lookup) for item in answers]
+    weight_score_fields = _compute_attempt_weight_score_fields(answers, question_lookup)
     total_questions = attempt.total_questions or len(questions)
     unanswered_count = max(total_questions - attempt.answered_count, 0)
     wrong_count = max(attempt.answered_count - attempt.correct_count, 0)
@@ -670,6 +776,7 @@ def get_practice_attempt_result(db: Session, user_id: int, attempt_id: int) -> A
         wrongCount=wrong_count,
         unansweredCount=unanswered_count,
         accuracyPct=float(attempt.accuracy_pct or 0),
+        **weight_score_fields,
         startedAt=attempt.started_at_utc,
         submittedAt=attempt.submitted_at_utc or attempt.created_at_utc,
         durationSeconds=attempt.time_spent_seconds,
@@ -696,6 +803,7 @@ def get_mock_test_attempt_result(db: Session, user_id: int, attempt_id: int) -> 
     question_lookup = get_question_lookup_by_ids(db, question_ids)
     explanation_lookup = _load_runtime_explanations(db, question_ids)
     questions = [_build_saved_result_question(item, question_lookup, explanation_lookup) for item in answers]
+    weight_score_fields = _compute_attempt_weight_score_fields(answers, question_lookup)
     total_questions = attempt.total_questions or len(questions)
     unanswered_count = max(total_questions - attempt.answered_count, 0)
     wrong_count = max(attempt.answered_count - attempt.correct_count, 0)
@@ -709,6 +817,7 @@ def get_mock_test_attempt_result(db: Session, user_id: int, attempt_id: int) -> 
         wrongCount=wrong_count,
         unansweredCount=unanswered_count,
         accuracyPct=float(attempt.accuracy_pct or 0),
+        **weight_score_fields,
         startedAt=attempt.started_at_utc,
         submittedAt=attempt.submitted_at_utc or attempt.created_at_utc,
         durationSeconds=attempt.time_spent_seconds,
@@ -1071,6 +1180,7 @@ def _build_practice_result(attempt_id: int, request: SavePracticeAttemptRequest)
     total_questions = request.totalQuestions or len(questions)
     unanswered_count = max(total_questions - request.answeredCount, 0)
     wrong_count = max(request.answeredCount - request.correctCount, 0)
+    weight_score_fields = _compute_attempt_weight_score_fields(request.answers)
 
     return AttemptResultDto(
         attemptId=attempt_id,
@@ -1081,6 +1191,7 @@ def _build_practice_result(attempt_id: int, request: SavePracticeAttemptRequest)
         wrongCount=wrong_count,
         unansweredCount=unanswered_count,
         accuracyPct=request.accuracyPct,
+        **weight_score_fields,
         startedAt=request.startedAtUtc,
         submittedAt=request.submittedAtUtc or datetime.utcnow(),
         durationSeconds=request.timeSpentSeconds,
@@ -1102,6 +1213,7 @@ def _build_mock_test_result(attempt_id: int, request: SaveMockTestAttemptRequest
     total_questions = request.totalQuestions or len(questions)
     unanswered_count = max(total_questions - request.answeredCount, 0)
     wrong_count = max(request.answeredCount - request.correctCount, 0)
+    weight_score_fields = _compute_attempt_weight_score_fields(request.answers)
 
     return AttemptResultDto(
         attemptId=attempt_id,
@@ -1112,6 +1224,7 @@ def _build_mock_test_result(attempt_id: int, request: SaveMockTestAttemptRequest
         wrongCount=wrong_count,
         unansweredCount=unanswered_count,
         accuracyPct=request.accuracyPct,
+        **weight_score_fields,
         startedAt=request.startedAtUtc,
         submittedAt=request.submittedAtUtc or datetime.utcnow(),
         durationSeconds=request.timeSpentSeconds,

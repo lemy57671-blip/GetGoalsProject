@@ -5,6 +5,7 @@ import os
 import re
 import unicodedata
 from datetime import datetime, timezone
+from difflib import SequenceMatcher
 from typing import Any, Optional
 
 from fastapi import APIRouter, Depends, HTTPException, Query
@@ -13,6 +14,9 @@ from sqlalchemy.orm import Session
 
 from app.db.session import get_db
 from app.schemas.chat import ChatRequest, ChatResponse
+from app.services.chat.answer_builder import build_tutor_answer
+from app.services.chat.context_extractor import extract_tutor_context
+from app.services.chat.intent_router import route_tutor_intent
 from app.services.chat.local_algorithm_provider import build_local_answer_with_debug, clean_response
 
 logger = logging.getLogger(__name__)
@@ -314,6 +318,8 @@ def _extract_question_context(payload: ChatRequest) -> dict[str, Any]:
         _get_attr(payload, "question_id", "questionId", "current_question_id", "currentQuestionId", "sqlId", "sql_id")
         or extra.get("question_id")
         or extra.get("questionId")
+        or (context.get("question_id") if isinstance(context, dict) else None)
+        or (context.get("questionId") if isinstance(context, dict) else None)
         or extra.get("currentQuestionId")
         or extra.get("sqlId")
         or extra.get("sql_id")
@@ -353,6 +359,8 @@ def _extract_question_context(payload: ChatRequest) -> dict[str, Any]:
         _get_attr(payload, "runtime_question_id", "runtimeQuestionId", "runner_question_id", "runnerQuestionId")
         or extra.get("runtime_question_id")
         or extra.get("runtimeQuestionId")
+        or (context.get("runtime_question_id") if isinstance(context, dict) else None)
+        or (context.get("runtimeQuestionId") if isinstance(context, dict) else None)
         or extra.get("runner_question_id")
         or extra.get("runnerQuestionId")
         or _get_attr(q, "runtime_question_id", "runtimeQuestionId", "runner_question_id", "runnerQuestionId")
@@ -380,7 +388,14 @@ def _extract_question_context(payload: ChatRequest) -> dict[str, Any]:
     source = (
         _get_attr(payload, "source")
         or extra.get("source")
+        or (context.get("source") if isinstance(context, dict) else None)
         or _get_attr(q, "source", "sourceType", "source_type")
+    )
+    mode = (
+        _get_attr(payload, "mode")
+        or extra.get("mode")
+        or (context.get("mode") if isinstance(context, dict) else None)
+        or _get_attr(q, "mode", "answerMode", "answer_mode")
     )
     context_type = (
         _get_attr(payload, "context_type", "contextType")
@@ -407,6 +422,10 @@ def _extract_question_context(payload: ChatRequest) -> dict[str, Any]:
         or extra.get("selectedOptionKey")
         or extra.get("selected_option_label")
         or extra.get("selectedOptionLabel")
+        or (context.get("selected_option_key") if isinstance(context, dict) else None)
+        or (context.get("selectedOptionKey") if isinstance(context, dict) else None)
+        or (context.get("selected_option_label") if isinstance(context, dict) else None)
+        or (context.get("selectedOptionLabel") if isinstance(context, dict) else None)
         or _get_attr(q, "selected_option_key", "selectedOptionKey", "userAnswerLabel", "selected_option_label")
     )
     explanation = (
@@ -429,6 +448,7 @@ def _extract_question_context(payload: ChatRequest) -> dict[str, Any]:
         "source_question_id": docx_question_id,
         "context_type": context_type,
         "source": source,
+        "mode": mode,
         "attempt_id": (
             _get_attr(payload, "attempt_id", "attemptId")
             or extra.get("attempt_id")
@@ -455,6 +475,8 @@ def _extract_question_context(payload: ChatRequest) -> dict[str, Any]:
             or _get_attr(payload, "selected_option_text", "selectedOptionText")
             or extra.get("selected_answer")
             or extra.get("selectedAnswer")
+            or (context.get("selected_answer") if isinstance(context, dict) else None)
+            or (context.get("selectedAnswer") if isinstance(context, dict) else None)
             or extra.get("selected_option_text")
             or extra.get("selectedOptionText")
             or _get_attr(q, "selected_answer", "selectedAnswer", "userAnswer", "user_answer")
@@ -467,6 +489,8 @@ def _extract_question_context(payload: ChatRequest) -> dict[str, Any]:
             _get_attr(payload, "correct_answer", "correctAnswer")
             or extra.get("correct_answer")
             or extra.get("correctAnswer")
+            or (context.get("correct_answer") if isinstance(context, dict) else None)
+            or (context.get("correctAnswer") if isinstance(context, dict) else None)
             or _get_attr(q, "correct_answer", "correctAnswer", "answer", "Answer")
         ),
         "correct_answer_text": (
@@ -662,7 +686,10 @@ def _load_docx_question_from_db(db: Session, question_id: int) -> dict[str, Any]
             "option_analysis": _row_get(first, "OptionAnalysis"),
             "vocabulary_notes": _row_get(first, "VocabularyNotes"),
             "vocabulary": _row_get(first, "VocabularyNotes"),
+            "grammar_notes": None,
+            "raw_explanation": _row_get(first, "RawBlock") or _row_get(first, "ExplanationDetail"),
             "raw_block": _row_get(first, "RawBlock"),
+            "test_name": _row_get(first, "SourceFile"),
             "sql_source": table_prefix.rstrip("."),
         }
 
@@ -697,13 +724,18 @@ def _normalize_toeic_asset_path(path: Any, asset_type: str) -> str | None:
 
 
 def _runtime_context_requested(context: dict[str, Any]) -> bool:
-    value = f"{context.get('context_type') or ''} {context.get('source') or ''}".lower().replace("-", "_")
+    value = (
+        f"{context.get('context_type') or ''} {context.get('source') or ''} {context.get('mode') or ''}"
+        .lower()
+        .replace("-", "_")
+    )
     return any(
         token in value
         for token in (
             "practice_runner",
             "practice_review",
             "practice_summary",
+            "practice",
             "review",
             "mock_test",
             "mock",
@@ -867,6 +899,8 @@ def _load_practice_runtime_context(db: Session, runtime_question_id: int | None)
         "image": {"path": image_path} if image_path else None,
         "audio_path": audio_path,
         "image_path": image_path,
+        "audio_url": audio_path,
+        "image_url": image_path,
         "options": options,
         "correct_option_label": correct_label or None,
         "correct_option_key": correct_label or None,
@@ -875,9 +909,11 @@ def _load_practice_runtime_context(db: Session, runtime_question_id: int | None)
         "explanation": None if _is_placeholder_explanation(explanation) else explanation,
         "explanation_detail": None if _is_placeholder_explanation(explanation) else explanation,
         "option_analysis": None if _is_placeholder_explanation(explanation) else explanation,
+        "raw_explanation": None if _is_placeholder_explanation(explanation) else explanation,
         "raw_block": None if _is_placeholder_explanation(explanation) else explanation,
         "skill": _row_get(question_row, "SkillCode"),
         "difficulty": _row_get(question_row, "Difficulty"),
+        "test_name": _row_get(question_row, "TestNumber"),
         "source": "practice_runtime",
         "sql_source": "dbo.ToeicPracticeQuestions",
         "lookup_source": "runtime",
@@ -980,7 +1016,9 @@ def _map_raw_explanation_context(row: Any, fallback_question_id: int | None = No
         "option_analysis": _row_get(row, "ExplanationText"),
         "vocabulary_notes": _row_get(row, "VocabularyNotes"),
         "grammar_notes": _row_get(row, "GrammarNotes"),
+        "raw_explanation": _row_get(row, "ExplanationText"),
         "raw_block": _row_get(row, "RawBlock"),
+        "test_name": _row_get(row, "SourceFile"),
         "source": "raw_explanation",
         "sql_source": "dbo.ToeicQuestionExplanations",
         "lookup_source": "raw_explanation",
@@ -1185,11 +1223,14 @@ def _load_runner_question_from_db(db: Session, question_id: int) -> dict[str, An
         "correct_answer_index": correct_index,
         "explanation": question_row.get("Explanation"),
         "explanation_detail": question_row.get("Explanation"),
+        "raw_explanation": question_row.get("Explanation"),
+        "raw_block": question_row.get("Explanation"),
         "skill": question_row.get("SkillCode"),
         "subskill": question_row.get("SubskillCode"),
         "topic": question_row.get("Topic"),
         "difficulty": question_row.get("Difficulty"),
         "question_type": question_row.get("QuestionType"),
+        "test_name": question_row.get("TestNumber"),
         "sql_source": "dbo.ToeicQuestions",
     }
 
@@ -1335,6 +1376,23 @@ def _load_question_from_db(db: Session, frontend_ctx: dict[str, Any]) -> dict[st
             docx_context.pop("runner_question_id", None)
         result = _merge_db_context(result, docx_context, allow_override=True)
         result["lookup_source"] = result.get("lookup_source") or "runtime"
+        if result.get("question_text") or result.get("question_text_en") or result.get("options"):
+            return result
+
+        # A minimal /api/chat payload can carry either a runtime TOEIC id or a
+        # DOCX/legacy id. If the runtime lookup misses, keep the same backend
+        # brain but try the other SQL question stores before falling back to
+        # frontend context.
+        qid = _to_int_or_none(frontend_ctx.get("question_id"))
+        if qid:
+            docx_context = _load_docx_question_from_db(db, qid)
+            if docx_context and _text_matches_expected(docx_context.get("question_text"), frontend_ctx.get("question_text")):
+                return _merge_db_context(result, docx_context, allow_override=True)
+            runner_context = _load_runner_question_from_db(db, qid)
+            if runner_context and _context_text_match(frontend_ctx, runner_context, {}):
+                return _merge_db_context(result, runner_context, allow_override=True)
+            if docx_context and not frontend_ctx.get("question_text"):
+                return _merge_db_context(result, docx_context, allow_override=True)
         return result
 
     qid = _to_int_or_none(frontend_ctx.get("question_id"))
@@ -1348,6 +1406,11 @@ def _load_question_from_db(db: Session, frontend_ctx: dict[str, Any]) -> dict[st
     runner_context = _load_runner_question_from_db(db, qid)
     if runner_context and _context_text_match(frontend_ctx, runner_context, {}):
         return runner_context
+
+    runtime_context = _load_practice_runtime_context(db, qid)
+    if runtime_context and _context_text_match(frontend_ctx, runtime_context, {}):
+        raw_context = _load_raw_explanation_context_from_db(db, frontend_ctx, qid)
+        return _merge_db_context(runtime_context, raw_context, allow_override=False)
 
     if docx_context and not frontend_ctx.get("question_text"):
         return docx_context
@@ -1394,7 +1457,20 @@ def _merge_question_context(frontend_ctx: dict[str, Any], db_ctx: dict[str, Any]
         "option_analysis",
         "vocabulary",
         "vocabulary_notes",
+        "grammar_notes",
+        "raw_explanation",
         "raw_block",
+        "test_name",
+        "section",
+        "skill",
+        "subskill",
+        "question_type",
+        "audio",
+        "audio_path",
+        "audio_url",
+        "image",
+        "image_path",
+        "image_url",
         "sql_source",
         "lookup_source",
         "source",
@@ -1403,12 +1479,11 @@ def _merge_question_context(frontend_ctx: dict[str, Any], db_ctx: dict[str, Any]
         if value in (None, "", [], {}):
             continue
         if key in {"explanation", "explanation_detail"}:
-            current = result.get(key)
-            if not _has_value(current) or _is_placeholder_explanation(current):
+            if db_trusted and not _is_placeholder_explanation(value):
                 result[key] = value
             continue
-        if key in {"option_analysis", "vocabulary_notes", "raw_block"}:
-            if not _has_value(result.get(key)):
+        if key in {"option_analysis", "vocabulary_notes", "grammar_notes", "raw_explanation", "raw_block"}:
+            if db_trusted:
                 result[key] = value
             continue
         if key in db_priority_keys and db_trusted:
@@ -3799,6 +3874,676 @@ def build_sql_grounded_review_answer(message: str, context: dict[str, Any]) -> t
     return None
 
 
+SHARED_TUTOR_INTENT_PRIORITY = (
+    "option_reason",
+    "selected_answer_check",
+    "hint",
+    "translation",
+    "word_meaning",
+    "vocabulary_expand",
+    "tense_requirement",
+    "grammar_rule",
+    "gap_requirement",
+    "signal",
+    "trap",
+    "full_option_analysis",
+    "how_to_solve",
+    "why_correct",
+    "explanation",
+    "correct_answer",
+    "summary",
+    "paraphrase",
+    "question_type",
+    "part_strategy",
+    "general",
+)
+
+
+TEENCODE_TOKEN_MAP = {
+    "k": "khong",
+    "ko": "khong",
+    "kh": "khong",
+    "hok": "khong",
+    "hong": "khong",
+    "dc": "duoc",
+    "đc": "duoc",
+    "j": "gi",
+    "z": "vay",
+    "zay": "vay",
+    "vay": "vay",
+    "gt": "giai thich",
+    "gthich": "giai thich",
+    "da": "dap an",
+    "ans": "dap an",
+    "trans": "dich",
+    "mean": "nghia",
+    "lm": "lam",
+    "lms": "lam sao",
+    "ntn": "nhu the nao",
+    "s": "sao",
+}
+
+
+def _normalize_tutor_input(value: Any) -> str:
+    text_value = str(value or "").strip().lower()
+    text_value = unicodedata.normalize("NFD", text_value)
+    text_value = "".join(char for char in text_value if unicodedata.category(char) != "Mn")
+    text_value = text_value.replace("đ", "d")
+    text_value = re.sub(r"([a-z])\1{2,}", r"\1", text_value)
+    text_value = re.sub(r"[^a-z0-9\s]", " ", text_value)
+    tokens: list[str] = []
+    for token in re.sub(r"\s+", " ", text_value).strip().split():
+        replacement = TEENCODE_TOKEN_MAP.get(token, token)
+        tokens.extend(replacement.split())
+    return re.sub(r"\s+", " ", " ".join(tokens)).strip()
+
+
+def _fuzzy_phrase_match(text_value: str, phrase: str, threshold: float = 0.84) -> bool:
+    normalized_phrase = _normalize_tutor_input(phrase)
+    if not text_value or not normalized_phrase:
+        return False
+    if normalized_phrase in text_value:
+        return True
+    if SequenceMatcher(None, text_value, normalized_phrase).ratio() >= threshold:
+        return True
+    tokens = text_value.split()
+    phrase_tokens = normalized_phrase.split()
+    if not tokens or not phrase_tokens:
+        return False
+    min_size = max(1, len(phrase_tokens) - 1)
+    max_size = min(len(tokens), len(phrase_tokens) + 1)
+    for size in range(min_size, max_size + 1):
+        for start in range(0, len(tokens) - size + 1):
+            window = " ".join(tokens[start : start + size])
+            if SequenceMatcher(None, window, normalized_phrase).ratio() >= threshold:
+                return True
+    return False
+
+
+def _has_tutor_phrase(text_value: str, phrases: tuple[str, ...], threshold: float = 0.84) -> bool:
+    return any(_fuzzy_phrase_match(text_value, phrase, threshold) for phrase in phrases)
+
+
+def _is_tense_requirement_message(text_value: str) -> bool:
+    return bool(
+        "tense" in text_value
+        or re.search(r"\bwhat\s+tense\b", text_value)
+        or re.search(r"\bthi\s+gi\b", text_value)
+        or re.search(r"\bcan\s+thi\b", text_value)
+        or re.search(r"\bdung\s+thi\b", text_value)
+        or "cho trong can thi gi" in text_value
+        or "khoang trong can thi gi" in text_value
+    )
+
+
+def _extract_tutor_option_label(message: str, normalized_message: str | None = None) -> str | None:
+    text_value = normalized_message or _normalize_tutor_input(message)
+    patterns = (
+        r"\b(?:option|opt|dap an|lua chon|chon|cau)\s*([abcd])\b",
+        r"\b(?:vi sao|tai sao|sao|why)\s+([abcd])\b",
+        r"\b([abcd])\s*(?:sai|dung|wrong|correct|khong|ko|vay|ha|hong|duoc|ok)\b",
+        r"\b(?:giai thich|phan tich)\s+([abcd])\b",
+        r"\b([abcd])\s+(?:la|co phai|phai)\b",
+    )
+    for pattern in patterns:
+        match = re.search(pattern, text_value, flags=re.IGNORECASE)
+        if match:
+            return match.group(1).upper()
+    if re.fullmatch(r"[abcd]", text_value):
+        return text_value.upper()
+    return None
+
+
+def _option_by_label(options: list[dict[str, Any]], label: str | None) -> dict[str, Any] | None:
+    if not label:
+        return None
+    wanted = label.strip().upper()
+    return next((option for option in options if str(option.get("label") or "").strip().upper() == wanted), None)
+
+
+def _mentioned_option_labels(normalized_message: str) -> set[str]:
+    return {match.group(1).upper() for match in re.finditer(r"\b([abcd])\b", normalized_message)}
+
+
+def _answer_label_from_value(value: Any) -> str | None:
+    text_value = str(value or "").strip()
+    match = re.match(r"^\s*([A-Da-d])\s*(?:[.)\]:-]|$)", text_value)
+    if match:
+        return match.group(1).upper()
+    if re.fullmatch(r"[A-Da-d]", text_value):
+        return text_value.upper()
+    return None
+
+
+def _selected_option_from_context(context: dict[str, Any], options: list[dict[str, Any]]) -> dict[str, Any] | None:
+    label = (
+        _answer_label_from_value(context.get("selected_option_label"))
+        or _answer_label_from_value(context.get("selected_option_key"))
+        or _answer_label_from_value(context.get("selected_answer"))
+    )
+    if not label and context.get("selected_answer_index") is not None:
+        try:
+            label = _option_label(int(context.get("selected_answer_index")))
+        except Exception:
+            label = None
+    return _option_by_label(options, label)
+
+
+def _canonicalize_shared_question_context(context: dict[str, Any], fallback: dict[str, Any] | None = None) -> dict[str, Any]:
+    result = dict(context or {})
+    fallback = fallback or {}
+    if not _has_value(result.get("mode")) and _has_value(fallback.get("mode")):
+        result["mode"] = fallback.get("mode")
+    if not _has_value(result.get("source")) and _has_value(fallback.get("source")):
+        result["source"] = fallback.get("source")
+    if not _has_value(result.get("question_text")) and _has_value(result.get("question_text_en")):
+        result["question_text"] = result.get("question_text_en")
+    if not _has_value(result.get("question_text_en")) and _has_value(result.get("question_text")):
+        result["question_text_en"] = result.get("question_text")
+    if not _has_value(result.get("explanation_detail")) and _has_value(result.get("explanation")):
+        result["explanation_detail"] = result.get("explanation")
+    if not _has_value(result.get("raw_explanation")):
+        result["raw_explanation"] = result.get("raw_block") or result.get("explanation_detail") or result.get("explanation")
+    if not _has_value(result.get("audio_url")):
+        result["audio_url"] = result.get("audio_path") or _get_attr(result.get("audio"), "url", "path")
+    if not _has_value(result.get("image_url")):
+        result["image_url"] = result.get("image_path") or _get_attr(result.get("image"), "url", "path")
+    if not _has_value(result.get("test_name")):
+        result["test_name"] = result.get("source_file") or result.get("test_number")
+
+    options = _review_options(result)
+    selected_label = (
+        _answer_label_from_value(result.get("selected_option_label"))
+        or _answer_label_from_value(result.get("selected_option_key"))
+        or _answer_label_from_value(result.get("selected_answer"))
+    )
+    if selected_label:
+        result["selected_option_label"] = selected_label
+        result["selected_option_key"] = selected_label
+        selected = _option_by_label(options, selected_label)
+        if selected and not _has_value(result.get("selected_answer_text")):
+            result["selected_answer_text"] = selected.get("text")
+
+    correct_label = (
+        _answer_label_from_value(result.get("correct_option_label"))
+        or _answer_label_from_value(result.get("correct_option_key"))
+        or _answer_label_from_value(result.get("correct_answer"))
+    )
+    if correct_label:
+        result["correct_option_label"] = correct_label
+        result["correct_option_key"] = correct_label
+        correct = _option_by_label(options, correct_label)
+        if correct and not _has_value(result.get("correct_answer_text")):
+            result["correct_answer_text"] = correct.get("text")
+    if options:
+        result["options"] = options
+    return result
+
+
+def _target_word_from_message(message: str, normalized_message: str, context: dict[str, Any]) -> str:
+    selected_text = str(context.get("selected_text") or context.get("current_highlighted_text") or "").strip()
+    patterns = (
+        r"^(?:tu|cum|phrase)?\s*(?P<target>.+?)\s+(?:nghia|nghia la gi|la gi|dung sao)\b",
+        r"^what does\s+(?P<target>.+?)\s+(?:mean|nghia)\b",
+        r"^dich\s+(?P<target>.+)$",
+    )
+    for pattern in patterns:
+        match = re.search(pattern, normalized_message, flags=re.IGNORECASE)
+        if not match:
+            continue
+        target = match.group("target").strip(" \"'?.!,")
+        target = re.sub(r"^(?:tu|cum|phrase)\s+", "", target, flags=re.IGNORECASE).strip()
+        if _normalize_tutor_input(target) in {"", "nay", "tu nay", "cum nay", "phrase nay", "this word", "this phrase"}:
+            return selected_text
+        if target and target not in {"cau nay", "doan nay", "option"}:
+            return target
+    return selected_text
+
+
+def _detect_shared_tutor_intent(message: str, context: dict[str, Any]) -> dict[str, Any]:
+    text_value = _normalize_tutor_input(message)
+    options = _review_options(context)
+    correct_option = _review_correct_option(context, options)
+    correct_label = str((correct_option or {}).get("label") or context.get("correct_option_label") or context.get("correct_option_key") or "").strip().upper()
+    target_label = _extract_tutor_option_label(message, text_value)
+    target_option = _option_by_label(options, target_label)
+    target_word = _target_word_from_message(message, text_value, context)
+
+    selected_self = bool(
+        re.search(r"\b(?:toi|tui|minh|em|mk|m)\s+(?:chon|pick|selected)\s+[abcd]\b", text_value)
+        or re.search(r"\b(?:sao|vi sao|tai sao)\s+(?:toi|tui|minh|em|mk|m)\s+sai\b", text_value)
+        or _has_tutor_phrase(text_value, ("sai cho nao", "minh chon dung khong", "toi chon dung khong"), 0.9)
+    )
+
+    candidates: set[str] = set()
+
+    if selected_self:
+        candidates.add("selected_answer_check")
+    elif target_label and len(_mentioned_option_labels(text_value)) <= 1 and _has_tutor_phrase(
+        text_value,
+        (
+            "vi sao a sai",
+            "sao a sai",
+            "sai cho nao",
+            "tai sao khong chon",
+            "option a sai",
+            "giai thich a",
+            "phan tich a",
+            "sao a dung",
+            "tai sao a dung",
+            "sao lai chon a",
+        ),
+        0.78,
+    ):
+        if correct_label and target_label == correct_label and not any(token in text_value for token in ("sai", "wrong", "khong chon")):
+            candidates.add("why_correct")
+        else:
+            candidates.add("option_reason")
+
+    if _has_tutor_phrase(text_value, ("hint thoi", "goi y thoi", "dung noi dap an", "cho goi y nhe", "hint", "goi y"), 0.82):
+        candidates.add("hint")
+    if _has_tutor_phrase(text_value, ("dich cau nay", "dich doan nay", "dich sang tieng viet", "translate this", "translate the", "cau nay nghia la gi", "de bai noi gi", "dich option"), 0.82):
+        candidates.add("translation")
+    if target_word or _has_tutor_phrase(text_value, ("tu nay nghia gi", "tu nay nghia la gi", "phrase nay nghia gi", "cum nay dung sao", "what does", "nghia la gi"), 0.82):
+        if "dap an" not in text_value and not _has_tutor_phrase(text_value, ("cau nay nghia la gi", "de bai noi gi"), 0.9):
+            candidates.add("word_meaning")
+    if _has_tutor_phrase(text_value, ("tu vung cau nay", "vocab cau nay", "tu nao quan trong", "list tu vung", "co tu nao can nho"), 0.82):
+        candidates.add("vocabulary_expand")
+    if _is_tense_requirement_message(text_value):
+        candidates.add("tense_requirement")
+    if _has_tutor_phrase(text_value, ("ngu phap cau nay", "grammar cau nay", "cau truc cau nay", "sau avoid dung gi", "tai sao dung v ing", "tai sao dung v3", "tai sao dung trang tu", "tai sao dung tinh tu", "cau nay bi dong"), 0.82):
+        candidates.add("grammar_rule")
+    if _has_tutor_phrase(text_value, ("cho trong can gi", "khoang trong can gi", "blank can gi", "can loai tu gi", "dien noun verb adj adv", "cho nay can danh tu hay dong tu", "can dang gi"), 0.82):
+        candidates.add("gap_requirement")
+    if _has_tutor_phrase(text_value, ("dau hieu nhan biet", "keyword o dau", "clue o dau", "nhin dau de biet dap an", "signal"), 0.82):
+        candidates.add("signal")
+    if _has_tutor_phrase(text_value, ("cau nay co bay gi", "distractor la gi", "bay nam o dau", "trap"), 0.82):
+        candidates.add("trap")
+    if _has_tutor_phrase(text_value, ("phan tich tung dap an", "giai thich a b c d", "phan tich full option", "so sanh cac dap an", "vi sao cac dap an con lai sai", "giai thich 4 dap an"), 0.82):
+        candidates.add("full_option_analysis")
+    if _has_tutor_phrase(text_value, ("cau nay lam sao", "cau nay lam kieu gi", "cach lam cau nay", "huong giai cau nay", "bat dau tu dau", "nhin dau de lam", "meo lam cau nay"), 0.78):
+        candidates.add("how_to_solve")
+    if _has_tutor_phrase(text_value, ("vi sao no dung", "sao lai dung", "dap an dung vi sao", "sao lai chon"), 0.82):
+        candidates.add("why_correct")
+    if _has_tutor_phrase(text_value, ("giai thich cau nay", "giai thich", "tai sao ra dap an", "vi sao chon dap an do", "tai sao dap an dung"), 0.82):
+        candidates.add("explanation")
+    if _has_tutor_phrase(text_value, ("dap an la gi", "dap an dung", "cau nay chon gi", "chon gi", "answer la gi", "correct answer", "chon dum", "chon gi vay"), 0.78):
+        if not any(token in text_value for token in ("vi sao", "tai sao", "sai", "wrong", "giai thich", "phan tich")):
+            candidates.add("correct_answer")
+    if _has_tutor_phrase(text_value, ("tom tat", "summary"), 0.86):
+        candidates.add("summary")
+    if _has_tutor_phrase(text_value, ("viet lai", "paraphrase", "noi cach khac"), 0.86):
+        candidates.add("paraphrase")
+    if _has_tutor_phrase(text_value, ("dang cau hoi gi", "question type", "cau nay dang gi"), 0.86):
+        candidates.add("question_type")
+    if _has_tutor_phrase(text_value, ("chien luoc part", "meo part", "part strategy"), 0.86):
+        candidates.add("part_strategy")
+
+    intent = next((item for item in SHARED_TUTOR_INTENT_PRIORITY if item in candidates), "general")
+    return {
+        "intent": intent,
+        "normalized": text_value,
+        "target_option_label": target_label,
+        "target_option": target_option,
+        "target_word": target_word,
+    }
+
+
+def _has_shared_sql_detail(context: dict[str, Any]) -> bool:
+    return any(
+        _has_value(context.get(key)) and not _is_placeholder_explanation(context.get(key))
+        for key in (
+            "detailed_explanation",
+            "explanation_detail",
+            "explanation",
+            "option_analysis",
+            "grammar_notes",
+            "vocabulary_notes",
+            "raw_explanation",
+            "raw_block",
+        )
+    )
+
+
+def _no_detail_prefix(context: dict[str, Any]) -> str:
+    if _has_shared_sql_detail(context):
+        return ""
+    return "Hiện câu này chưa có lời giải chi tiết trong dữ liệu. Mình sẽ giải nhanh dựa trên câu hỏi và đáp án hiện có."
+
+
+def _correct_answer_parts(context: dict[str, Any], options: list[dict[str, Any]]) -> tuple[str, str, dict[str, Any] | None]:
+    correct_option = _review_correct_option(context, options)
+    label = str((correct_option or {}).get("label") or context.get("correct_option_label") or context.get("correct_option_key") or "").strip().upper()
+    text_value = str((correct_option or {}).get("text") or context.get("correct_answer_text") or "").strip()
+    if not text_value:
+        text_value = _strip_answer_label(context.get("correct_answer") or "")
+    return label, text_value, correct_option
+
+
+def _short_correct_reason(context: dict[str, Any], correct_option: dict[str, Any] | None) -> str:
+    label = str((correct_option or {}).get("label") or "").strip().upper()
+    option_reason = _review_first_option_explanation(context, label) if label else ""
+    if option_reason:
+        return option_reason
+    general = _review_concise_general(context, 1)
+    if general:
+        return general
+    return "Lựa chọn này khớp nhất với yêu cầu của chỗ trống/ngữ cảnh câu."
+
+
+def _format_answer_line(label: str, text_value: str) -> str:
+    if label and text_value:
+        return f"{label} — {text_value}"
+    return label or text_value or "chưa xác định"
+
+
+def _remove_answer_from_hint(value: str, context: dict[str, Any]) -> str:
+    text_value = str(value or "")
+    text_value = re.sub(r"(?:Đáp án đúng|Dap an dung|Correct answer)\s*(?:là|la|is)?[^.!?。]*[.!?。]?", "", text_value, flags=re.IGNORECASE)
+    label = str(context.get("correct_option_label") or context.get("correct_option_key") or "").strip()
+    answer = _strip_answer_label(context.get("correct_answer_text") or context.get("correct_answer") or "")
+    if label:
+        text_value = re.sub(rf"\b{re.escape(label)}\b", "một lựa chọn", text_value, flags=re.IGNORECASE)
+    if answer:
+        text_value = re.sub(re.escape(answer), "từ phù hợp", text_value, flags=re.IGNORECASE)
+    return re.sub(r"\s+", " ", text_value).strip()
+
+
+def _sentence_containing_target(context: dict[str, Any], target: str) -> str:
+    target_norm = _normalize_tutor_input(target)
+    for source in (context.get("question_text"), context.get("question_text_en"), context.get("passage_text")):
+        for sentence in _review_split_sentences(source):
+            if target_norm and target_norm in _normalize_tutor_input(sentence):
+                return sentence.strip(" .")
+    return ""
+
+
+def _format_option_dot_line(label: str, text_value: str) -> str:
+    if label and text_value:
+        return f"{label}. {text_value}"
+    return label or text_value or "chưa xác định"
+
+
+def _shared_requirement_blob(context: dict[str, Any], options: list[dict[str, Any]]) -> tuple[str, str, str]:
+    question_text = str(context.get("question_text") or context.get("question_text_en") or "").strip()
+    sources = [
+        question_text,
+        str(context.get("passage_text") or ""),
+        *[str(item or "") for item in _review_source_texts(context)],
+        *[str(option.get("text") or "") for option in options],
+    ]
+    blob = " ".join(source for source in sources if source)
+    return question_text, blob, _normalize_review_text(blob)
+
+
+def _shared_signal_from_context(question_text: str, source_norm: str, *, tense: str = "") -> str:
+    question_norm = _normalize_review_text(question_text)
+    if "by the time" in question_norm or "by the time" in source_norm:
+        if tense == "future_perfect":
+            return "by the time + S + V hiện tại đơn"
+        if tense == "past_perfect":
+            return "by the time + S + V quá khứ đơn"
+        return "by the time + S + V"
+    if re.search(r"\bbefore\b", question_norm) or re.search(r"\bbefore\b", source_norm):
+        return "before + S + V"
+    if re.search(r"\bafter\b", question_norm) or re.search(r"\bafter\b", source_norm):
+        return "after + S + V"
+    signal = _review_signal_answer({"question_text": question_text, "raw_block": source_norm})
+    if signal and "chưa thấy" not in _normalize_review_text(signal):
+        return signal.rstrip(".")
+    return "ngữ cảnh thời gian/cấu trúc quanh chỗ trống"
+
+
+def _detect_shared_requirement_pattern(
+    context: dict[str, Any],
+    options: list[dict[str, Any]],
+    correct_option: dict[str, Any] | None,
+) -> dict[str, str]:
+    correct_text = str((correct_option or {}).get("text") or context.get("correct_answer_text") or "").strip()
+    correct_norm = _normalize_review_text(correct_text)
+    question_text, _, source_norm = _shared_requirement_blob(context, options)
+
+    if (
+        "future perfect" in source_norm
+        or "tuong lai hoan thanh" in source_norm
+        or "will have v3" in source_norm
+        or "will have past participle" in source_norm
+        or re.search(r"\bwill\s+have\s+\w+", correct_norm)
+    ):
+        return {
+            "kind": "future_perfect",
+            "need": "thì tương lai hoàn thành",
+            "formula": "will have + V3",
+            "signal": _shared_signal_from_context(question_text, source_norm, tense="future_perfect"),
+            "reason": "Hành động ở mệnh đề chính sẽ hoàn tất trước một mốc hoặc một hành động trong tương lai.",
+        }
+
+    if (
+        "past perfect" in source_norm
+        or "qua khu hoan thanh" in source_norm
+        or "had v3" in source_norm
+        or "had past participle" in source_norm
+        or re.search(r"\bhad\s+\w+", correct_norm)
+    ):
+        return {
+            "kind": "past_perfect",
+            "need": "thì quá khứ hoàn thành",
+            "formula": "had + V3",
+            "signal": _shared_signal_from_context(question_text, source_norm, tense="past_perfect"),
+            "reason": "Hành động này đã hoàn tất trước một hành động hoặc mốc thời gian khác trong quá khứ.",
+        }
+
+    if (
+        "passive voice" in source_norm
+        or "bi dong" in source_norm
+        or "will be v3" in source_norm
+        or "be v3" in source_norm
+        or re.search(r"\b(?:is|are|was|were|be|been|being|will be)\s+\w+(?:ed|en)\b", correct_norm)
+    ):
+        formula = "will be + V3" if "will be" in source_norm or "will be" in correct_norm else "be + V3"
+        return {
+            "kind": "passive_voice",
+            "need": "dạng bị động",
+            "formula": formula,
+            "signal": "chủ ngữ nhận hành động, không tự thực hiện hành động",
+            "reason": "Câu cần nhấn mạnh đối tượng chịu tác động nên dùng cấu trúc bị động.",
+        }
+
+    if "v ing" in source_norm or "gerund" in source_norm or re.search(r"\b\w+ing\b", correct_norm):
+        return {
+            "kind": "v_ing",
+            "need": "dạng V-ing",
+            "formula": "V-ing",
+            "signal": "động từ/cấu trúc phía trước yêu cầu V-ing",
+            "reason": "Chỗ trống cần dạng danh động từ hoặc hiện tại phân từ theo cấu trúc trong câu.",
+        }
+
+    if "to v" in source_norm or "to infinitive" in source_norm or re.search(r"\bto\s+\w+\b", correct_norm):
+        return {
+            "kind": "to_v",
+            "need": "dạng to V",
+            "formula": "to + V nguyên mẫu",
+            "signal": "động từ/cấu trúc phía trước yêu cầu to V",
+            "reason": "Chỗ trống cần động từ nguyên mẫu có to theo cấu trúc trong câu.",
+        }
+
+    word_form_patterns = (
+        ("noun", "danh từ", "noun"),
+        ("danh tu", "danh từ", "noun"),
+        ("verb", "động từ", "verb"),
+        ("dong tu", "động từ", "verb"),
+        ("adjective", "tính từ", "adjective"),
+        ("tinh tu", "tính từ", "adjective"),
+        ("adverb", "trạng từ", "adverb"),
+        ("trang tu", "trạng từ", "adverb"),
+    )
+    for token, need, formula in word_form_patterns:
+        if token in source_norm:
+            return {
+                "kind": "word_form",
+                "need": need,
+                "formula": formula,
+                "signal": "vị trí và từ/cụm từ xung quanh chỗ trống",
+                "reason": "Loại từ phải khớp vai trò ngữ pháp của chỗ trống trong câu.",
+            }
+
+    return {}
+
+
+def _review_requirement_pattern_answer(context: dict[str, Any], correct_option: dict[str, Any] | None) -> str:
+    options = _review_options(context)
+    label, correct_text, _ = _correct_answer_parts(context, options)
+    pattern = _detect_shared_requirement_pattern(context, options, correct_option)
+    if not pattern:
+        return ""
+
+    return "\n".join(
+        [
+            f"Chỗ trống cần: {pattern['need']}",
+            f"Công thức: {pattern['formula']}",
+            f"Dấu hiệu: {pattern['signal']}",
+            f"Lý do: {pattern['reason']}",
+            f"Đáp án đúng: {_format_option_dot_line(label, correct_text)}",
+        ]
+    )
+
+
+def _build_shared_tutor_answer(message: str, context: dict[str, Any]) -> dict[str, Any] | None:
+    context = _canonicalize_shared_question_context(context)
+    options = _review_options(context)
+    label, correct_text, correct_option = _correct_answer_parts(context, options)
+    question_text = context.get("question_text") or context.get("question_text_en")
+    if not question_text and not options and not (label or correct_text):
+        return None
+
+    detected = _detect_shared_tutor_intent(message, context)
+    intent = detected["intent"]
+    target_option = detected.get("target_option")
+    target_label = detected.get("target_option_label")
+    prefix = _no_detail_prefix(context)
+
+    answer = ""
+    if intent == "correct_answer":
+        reason = _short_correct_reason(context, correct_option)
+        answer = f"Đáp án đúng: {_format_answer_line(label, correct_text)}\nLý do: {reason}"
+    elif intent == "how_to_solve":
+        clue = _review_signal_answer(context)
+        requirement = _review_blank_structure(context, correct_option)
+        reason = _short_correct_reason(context, correct_option)
+        answer = (
+            f"Cần nhìn: {_review_finish_sentence(_strip_review_answer_noise(clue)).rstrip('.')}\n"
+            f"Yêu cầu: {_review_finish_sentence(_strip_review_answer_noise(requirement)).rstrip('.')}\n"
+            f"Đáp án đúng: {_format_answer_line(label, correct_text)}\n"
+            f"Lý do ngắn: {reason}"
+        )
+    elif intent == "why_correct":
+        reason = _short_correct_reason(context, correct_option)
+        answer = f"{_format_answer_line(label, correct_text)} đúng vì {reason.rstrip('.')}."
+    elif intent == "option_reason":
+        option = target_option or _extract_review_option_from_message(message, options)
+        if option:
+            answer = _review_option_reason(option, correct_option, context)
+            target_label = str(option.get("label") or target_label or "").strip().upper() or None
+        else:
+            answer = _review_blank_structure(context, correct_option)
+    elif intent == "selected_answer_check":
+        selected = target_option or _selected_option_from_context(context, options)
+        if selected:
+            selected_label = str(selected.get("label") or "").strip().upper()
+            selected_text = str(selected.get("text") or "").strip()
+            is_correct = bool(label and selected_label == label)
+            verdict = "đúng" if is_correct else "sai"
+            reason = _review_option_reason(selected, correct_option, context)
+            answer = f"Bạn chọn {selected_label} — {selected_text}: {verdict}.\n{reason}"
+            target_label = selected_label
+        else:
+            answer = "Mình chưa thấy đáp án bạn chọn. Gửi selectedAnswer dạng A/B/C/D để mình kiểm tra chính xác."
+    elif intent == "full_option_analysis":
+        answer = _review_option_analysis(context, options, correct_option)
+    elif intent == "translation":
+        answer = _review_translation(context)
+    elif intent == "word_meaning":
+        target = str(detected.get("target_word") or "").strip()
+        if not target:
+            option = target_option or _extract_review_option_from_message(message, options)
+            target = str((option or {}).get("text") or "").strip()
+        meaning = _extract_sql_vocab_meaning(target, context, options, correct_option) if target else ""
+        if meaning:
+            in_sentence = _sentence_containing_target(context, target)
+            example = in_sentence or f"{target} được dùng theo nghĩa trên trong ngữ cảnh TOEIC."
+            answer = f"{target} nghĩa là {meaning}.\nTrong câu này: {meaning}.\nVí dụ: {example}."
+        else:
+            answer = "Mình chưa thấy phần giải thích này trong dữ liệu câu hiện tại."
+    elif intent == "vocabulary_expand":
+        vocabulary = context.get("vocabulary") if isinstance(context.get("vocabulary"), dict) else _extract_vocabulary_map(context)
+        if vocabulary:
+            lines = [f"- {term}: {meaning}" for term, meaning in list(vocabulary.items())[:6]]
+            answer = "\n".join(lines)
+        else:
+            answer = "Mình chưa thấy danh sách từ vựng riêng trong dữ liệu câu này."
+    elif intent == "tense_requirement":
+        answer = _review_requirement_pattern_answer(context, correct_option)
+        if not answer:
+            answer = _review_blank_structure(context, correct_option)
+    elif intent == "grammar_rule":
+        answer = _review_requirement_pattern_answer(context, correct_option)
+        if not answer:
+            answer = _review_structure_lookup_answer(message, context)
+        if not answer or "chưa thấy" in _normalize_review_text(answer):
+            answer = _review_blank_structure(context, correct_option)
+    elif intent == "gap_requirement":
+        answer = _review_requirement_pattern_answer(context, correct_option) or _review_blank_structure(context, correct_option)
+    elif intent == "signal":
+        answer = _review_signal_answer(context)
+    elif intent == "hint":
+        cleaned_hint = ""
+        for hint in (
+            _review_signal_answer(context),
+            _review_concise_general(context, 2),
+            context.get("grammar_notes"),
+            context.get("explanation_detail") or context.get("explanation"),
+        ):
+            cleaned_hint = _remove_answer_from_hint(hint, context) if hint else ""
+            if cleaned_hint:
+                break
+        answer = cleaned_hint or "Gợi ý: nhìn vào loại từ/cấu trúc quanh chỗ trống trước, rồi mới so với các lựa chọn."
+    elif intent == "trap":
+        wrong_lines = []
+        explanations = _extract_option_explanations(context, options)
+        for option in options:
+            option_label = str(option.get("label") or "").strip().upper()
+            if option_label and option_label != label:
+                reason = _review_wrong_detail_fragment(explanations.get(option_label, ""))
+                if reason:
+                    wrong_lines.append(f"{option_label}: {reason}.")
+            if len(wrong_lines) >= 2:
+                break
+        answer = "\n".join(wrong_lines) if wrong_lines else "Bẫy chính là chọn theo nghĩa bề mặt mà không kiểm tra loại từ/cấu trúc quanh chỗ trống."
+    elif intent == "summary":
+        fallback_sentence = next(iter(_review_split_sentences(context.get("passage_text") or context.get("question_text"))), "")
+        answer = _review_concise_general(context, 2) or fallback_sentence[:260]
+    elif intent == "paraphrase":
+        fallback_sentence = next(iter(_review_split_sentences(context.get("question_text") or context.get("passage_text"))), "")
+        answer = _extract_sql_translation(context) or fallback_sentence[:260]
+    elif intent == "question_type":
+        answer = str(context.get("question_type") or context.get("skill") or context.get("subskill") or "Câu này cần xác định bằng ngữ cảnh và cấu trúc quanh chỗ trống.").strip()
+    elif intent == "part_strategy":
+        part = context.get("part") or context.get("part_number")
+        answer = f"Part {part}: đọc nhanh câu hỏi/chỗ trống, xác định loại thông tin cần tìm, rồi đối chiếu lựa chọn phù hợp nhất." if part else "Hãy xác định yêu cầu câu hỏi trước, sau đó dùng keyword và loại từ để loại đáp án nhiễu."
+    else:
+        return None
+
+    if prefix and intent not in {"translation", "hint", "correct_answer"}:
+        answer = f"{prefix}\n{answer}"
+    if intent == "full_option_analysis":
+        target_label = None
+    return {
+        "answer": clean_response(answer),
+        "intent": intent,
+        "target_option": target_label,
+    }
+
+
 def _create_conversation(
     db: Session,
     user_id: Optional[int],
@@ -4019,6 +4764,7 @@ async def post_chat(
         question_number=_to_int_or_none(frontend_context.get("question_number")),
         frontend_context=frontend_context,
     )
+    question_context = _canonicalize_shared_question_context(question_context, frontend_context)
 
     if _is_chat_debug_enabled():
         logger.debug(
@@ -4037,63 +4783,112 @@ async def post_chat(
             _debug_snippet(question_context.get("question_text_en") or question_context.get("question_text"), 120),
         )
 
-    review_answer = _build_review_tutor_answer(message, question_context)
+    tutor_context = extract_tutor_context(question_context)
+    tutor_intent = route_tutor_intent(message, tutor_context)
+    tutor_answer = build_tutor_answer(tutor_intent, tutor_context)
+    normalized_message = tutor_intent.normalized_message
+    target_option = tutor_intent.target_option
+    target_option_text = tutor_intent.target_option_text
+    answer_builder_used = "answer_builder" if tutor_answer else ""
     match = None
-    if review_answer:
-        answer_text, intent = review_answer
-        answer = clean_response(answer_text)
-        debug_options = _review_options(question_context)
-        debug_option = _extract_review_option_from_message(message, debug_options)
-        debug_option_key = str((debug_option or {}).get("label") or "").strip().upper() or None
-        debug_option_text = str((debug_option or {}).get("text") or "").strip() or None
-        debug_term = debug_option_text or _extract_vocab_target(message) or None
-        if intent == "translation":
-            used_data_source = "translation"
-        elif intent == "word_meaning":
-            used_data_source = "vocabulary"
-        elif intent == "option_analysis":
-            used_data_source = "option_explanation"
-        elif intent == "option_reason" and debug_option_key and question_context.get("option_explanations", {}).get(debug_option_key):
-            used_data_source = "option_explanation"
-        elif intent in {"gap_requirement", "explanation", "option_reason", "structure_lookup", "word_form", "signal"} and (
-            question_context.get("detailed_explanation")
-            or question_context.get("explanation_detail")
-            or question_context.get("explanation")
-            or question_context.get("raw_block")
-        ):
-            used_data_source = "main_explanation"
-        else:
-            used_data_source = "fallback"
-        if _is_chat_debug_enabled():
-            logger.debug(
-                "AI Tutor Review answer user_id=%s source=%s attemptId=%s runtimeQuestionId=%s questionId=%s questionNumber=%s detectedIntent=%s matchedTerm=%s matchedOptionKey=%s matchedOptionText=%s correctOptionKey=%s selectedOptionKey=%s used_data_source=%s usedSqlExplanation=%s usedTranslation=%s usedOptionAnalysis=%s answerLength=%s userMessage=%s",
-                user_id,
-                question_context.get("source") or question_context.get("lookup_source"),
-                question_context.get("attempt_id") or frontend_context.get("attempt_id") or frontend_context.get("attemptId"),
-                question_context.get("runtime_question_id") or question_context.get("runner_question_id"),
-                question_context.get("question_id"),
-                question_context.get("question_number"),
-                intent,
-                debug_term,
-                debug_option_key,
-                debug_option_text,
-                question_context.get("correct_option_label") or question_context.get("correct_option_key"),
-                question_context.get("selected_option_label") or question_context.get("selected_option_key"),
-                used_data_source,
-                bool(
-                    question_context.get("explanation_detail")
-                    or question_context.get("explanation")
-                    or question_context.get("option_analysis")
-                    or question_context.get("raw_block")
-                ),
-                bool(_extract_sql_translation(question_context)),
-                bool(question_context.get("option_explanations")),
-                len(answer or ""),
-                _debug_snippet(message, 160),
-            )
+
+    if tutor_answer:
+        answer = clean_response(tutor_answer.answer)
+        intent = tutor_answer.intent
+        target_option = tutor_answer.target_option or target_option
+        target_option_text = tutor_answer.target_option_text or target_option_text
     else:
-        match, intent = build_local_answer_with_debug(message, question_context)
-        answer = clean_response(match.text)
+        shared_answer = _build_shared_tutor_answer(message, question_context)
+        if shared_answer:
+            answer_builder_used = "shared_tutor_fallback"
+            answer = clean_response(shared_answer.get("answer"))
+            intent = str(shared_answer.get("intent") or "general")
+            target_option = shared_answer.get("target_option") or target_option
+            if target_option and not target_option_text:
+                debug_option = _option_by_label(_review_options(question_context), str(target_option))
+                target_option_text = str((debug_option or {}).get("text") or "").strip() or None
+        else:
+            review_answer = _build_review_tutor_answer(message, question_context)
+            if review_answer:
+                answer_builder_used = "review_tutor_fallback"
+                answer_text, intent = review_answer
+                answer = clean_response(answer_text)
+                debug_options = _review_options(question_context)
+                debug_option = _extract_review_option_from_message(message, debug_options)
+                debug_option_key = str((debug_option or {}).get("label") or "").strip().upper() or None
+                debug_option_text = str((debug_option or {}).get("text") or "").strip() or None
+                target_option = debug_option_key or target_option
+                target_option_text = debug_option_text or target_option_text
+                debug_term = debug_option_text or _extract_vocab_target(message) or None
+                if intent == "translation":
+                    used_data_source = "translation"
+                elif intent == "word_meaning":
+                    used_data_source = "vocabulary"
+                elif intent == "option_analysis":
+                    used_data_source = "option_explanation"
+                elif intent == "option_reason" and debug_option_key and question_context.get("option_explanations", {}).get(debug_option_key):
+                    used_data_source = "option_explanation"
+                elif intent in {"gap_requirement", "explanation", "option_reason", "structure_lookup", "word_form", "signal"} and (
+                    question_context.get("detailed_explanation")
+                    or question_context.get("explanation_detail")
+                    or question_context.get("explanation")
+                    or question_context.get("raw_block")
+                ):
+                    used_data_source = "main_explanation"
+                else:
+                    used_data_source = "fallback"
+                if _is_chat_debug_enabled():
+                    logger.debug(
+                        "AI Tutor Review answer user_id=%s source=%s attemptId=%s runtimeQuestionId=%s questionId=%s questionNumber=%s detectedIntent=%s matchedTerm=%s matchedOptionKey=%s matchedOptionText=%s correctOptionKey=%s selectedOptionKey=%s used_data_source=%s usedSqlExplanation=%s usedTranslation=%s usedOptionAnalysis=%s answerLength=%s userMessage=%s",
+                        user_id,
+                        question_context.get("source") or question_context.get("lookup_source"),
+                        question_context.get("attempt_id") or frontend_context.get("attempt_id") or frontend_context.get("attemptId"),
+                        question_context.get("runtime_question_id") or question_context.get("runner_question_id"),
+                        question_context.get("question_id"),
+                        question_context.get("question_number"),
+                        intent,
+                        debug_term,
+                        debug_option_key,
+                        debug_option_text,
+                        question_context.get("correct_option_label") or question_context.get("correct_option_key"),
+                        question_context.get("selected_option_label") or question_context.get("selected_option_key"),
+                        used_data_source,
+                        bool(
+                            question_context.get("explanation_detail")
+                            or question_context.get("explanation")
+                            or question_context.get("option_analysis")
+                            or question_context.get("raw_block")
+                        ),
+                        bool(_extract_sql_translation(question_context)),
+                        bool(question_context.get("option_explanations")),
+                        len(answer or ""),
+                        _debug_snippet(message, 160),
+                    )
+            else:
+                answer_builder_used = "local_algorithm_provider"
+                match, intent = build_local_answer_with_debug(message, question_context)
+                answer = clean_response(match.text)
+                target_option = getattr(match, "option_label", None) or target_option
+                target_option_text = getattr(match, "target", None) or target_option_text
+
+    logger.info(
+        "AI Tutor shared brain source=%s mode=%s questionId=%s selectedAnswer=%s normalizedMessage=%s detectedIntent=%s targetOption=%s targetOptionText=%s dbContextFound=%s hasExplanation=%s hasExplanationDetail=%s hasOptionAnalysis=%s hasGrammarNotes=%s hasTranslation=%s answerBuilderUsed=%s",
+        question_context.get("source") or frontend_context.get("source"),
+        question_context.get("mode") or frontend_context.get("mode"),
+        question_context.get("question_id") or frontend_context.get("question_id"),
+        question_context.get("selected_answer") or frontend_context.get("selected_answer"),
+        normalized_message,
+        intent,
+        target_option,
+        target_option_text,
+        tutor_context.db_context_found,
+        tutor_context.has_explanation,
+        tutor_context.has_explanation_detail,
+        tutor_context.has_option_analysis,
+        tutor_context.has_grammar_notes,
+        tutor_context.has_translation,
+        answer_builder_used,
+    )
 
     if _is_chat_debug_enabled() and match is None:
         logger.debug(

@@ -22,6 +22,7 @@ from app.schemas.diagnostic import (
     DiagnosticWrongItemDto,
 )
 from app.services.irt_scoring import score_diagnostic_with_rasch
+from app.services.weighted_score import compute_weight_score_fields
 
 
 DIAGNOSTIC_SET_CODE = "DIAGNOSTIC_35"
@@ -79,6 +80,7 @@ def submit_diagnostic(db: Session, payload: DiagnosticSubmitRequest) -> Diagnost
     # item_id = ToeicQuestions.LegacyQuestionId
     # is_correct = user đúng/sai
     rasch_items: list[dict] = []
+    weight_items: list[dict] = []
 
     for index, question in enumerate(questions):
         selected = answers.get(index)
@@ -98,6 +100,14 @@ def submit_diagnostic(db: Session, payload: DiagnosticSubmitRequest) -> Diagnost
         answered_count += 1
 
         is_correct = correct_index is not None and selected == correct_index
+        weight_items.append(
+            {
+                "item_id": int(question.legacy_id or question.id),
+                "question_id": int(question.id),
+                "is_correct": bool(is_correct),
+                "selected_answer_index": selected,
+            }
+        )
 
         if question.legacy_id is not None:
             rasch_items.append(
@@ -145,6 +155,7 @@ def submit_diagnostic(db: Session, payload: DiagnosticSubmitRequest) -> Diagnost
 
     # Điểm chính dùng Rasch/IRT.
     rasch_result = score_diagnostic_with_rasch(rasch_items)
+    weight_score_fields = compute_weight_score_fields(weight_items)
 
     score = int(rasch_result.get("estimated_score") or score_rule)
 
@@ -194,6 +205,7 @@ def submit_diagnostic(db: Session, payload: DiagnosticSubmitRequest) -> Diagnost
     return DiagnosticSubmitResponse(
         analysis=DiagnosticAnalysisDto(
             score=score,
+            **weight_score_fields,
             level=level,
             accuracyPct=accuracy_pct,
             correctCount=correct_count,

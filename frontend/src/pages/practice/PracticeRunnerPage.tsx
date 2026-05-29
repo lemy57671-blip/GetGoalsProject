@@ -138,7 +138,22 @@ function normalizeToolSource(value?: string | null): ReviewSourceFilter {
   if (["full", "full_test", "fulltest", "mock", "mock_test"].includes(normalized)) return "fulltest";
   if (["mini", "mini_test", "minitest"].includes(normalized)) return "minitest";
   if (["weekly", "weekly_check", "weeklycheck"].includes(normalized)) return "weeklycheck";
+  if (["diagnostic", "placement", "placement_test"].includes(normalized)) return "diagnostic";
   return "practice";
+}
+
+type TutorMode = "practice" | "review" | "mock_test" | "mini_test" | "weekly_check" | "diagnostic";
+
+function getRunnerTutorMode(runnerMode: string, source: ReviewSourceFilter): TutorMode {
+  const normalizedMode = runnerMode.trim().toLowerCase().replace(/-/g, "_");
+  const isReviewMode = normalizedMode === "review" || normalizedMode === "review_focus";
+  if (!isReviewMode) return "practice";
+
+  if (source === "fulltest") return "mock_test";
+  if (source === "minitest") return "mini_test";
+  if (source === "weeklycheck") return "weekly_check";
+  if (source === "diagnostic") return "diagnostic";
+  return "review";
 }
 
 export function PracticeRunnerPage() {
@@ -638,239 +653,24 @@ export function PracticeRunnerPage() {
     setRightPanelTab("ai");
 
     const selectedAnswerIndex = answers[currentQuestion] ?? null;
-    const correctAnswerIndex =
-      typeof question.correct === "number" ? question.correct : null;
-
-    const selectedAnswerText =
-      typeof selectedAnswerIndex === "number"
-        ? question.options[selectedAnswerIndex] ?? null
-        : null;
-    const selectedOptionLabel =
-      typeof selectedAnswerIndex === "number"
-        ? String.fromCharCode(65 + selectedAnswerIndex)
-        : null;
-
-    const correctAnswerText =
-      typeof correctAnswerIndex === "number"
-        ? question.options[correctAnswerIndex] ?? null
-        : null;
-
-    const questionNumber = currentQuestion + 1;
-    const part = normalizePart(question.part);
-    const questionSqlId =
-      question.docxQuestionId ||
-      question.sourceQuestionId ||
-      question.sqlId ||
-      question.dbId ||
-      question.questionId ||
-      question.id;
-    const runtimeQuestionId = question.id;
-    const docxQuestionId = question.docxQuestionId || null;
-    const sourceQuestionId =
-      question.sourceQuestionId && question.sourceQuestionId !== runtimeQuestionId
-        ? question.sourceQuestionId
-        : docxQuestionId;
-    const richQuestion = question as typeof question & {
-      explanationDetail?: string | null;
-      explanation_detail?: string | null;
-      explanationText?: string | null;
-      explanation_text?: string | null;
-      rawExplanation?: string | null;
-      raw_explanation?: string | null;
-      rawBlock?: string | null;
-      raw_block?: string | null;
-      optionAnalysis?: string | null;
-      option_analysis?: string | null;
-      vocabularyNotes?: string | null;
-      vocabulary_notes?: string | null;
-    };
-    const correctOptionKey =
-      typeof correctAnswerIndex === "number" ? String.fromCharCode(65 + correctAnswerIndex) : null;
-    const selectedOptionKey = selectedOptionLabel;
-    const explanationDetail =
-      richQuestion.explanationDetail ||
-      richQuestion.explanation_detail ||
-      richQuestion.explanationText ||
-      richQuestion.explanation_text ||
-      question.explanation ||
-      null;
-    const rawExplanation = richQuestion.rawExplanation || richQuestion.raw_explanation || null;
-    const rawBlock = richQuestion.rawBlock || richQuestion.raw_block || null;
-    const optionAnalysis = richQuestion.optionAnalysis || richQuestion.option_analysis || null;
-    const vocabularyNotes = richQuestion.vocabularyNotes || richQuestion.vocabulary_notes || null;
-    const passageTitle = getQuestionPassageTitle(question);
-    const passageText = getQuestionPassageText(question);
-
-    const currentQuestionPayload = {
-      id: runtimeQuestionId,
-      questionId: runtimeQuestionId,
-      question_id: runtimeQuestionId,
-      runtimeQuestionId,
-      runtime_question_id: runtimeQuestionId,
-      sqlId: questionSqlId,
-      runnerQuestionId: runtimeQuestionId,
-      runner_question_id: runtimeQuestionId,
-      docxQuestionId,
-      docx_question_id: docxQuestionId,
-      sourceQuestionId,
-      source_question_id: sourceQuestionId,
-      source: "practice_runtime",
-
-      questionNumber,
-      question_number: questionNumber,
-
-      part,
-      Part: part,
-
-      section: question.section,
-      skill: question.skill,
-
-      questionText: question.question,
-      question_text: question.question,
-      text: question.question,
-      content: question.question,
-      prompt: question.question,
-
-      passageTitle: passageTitle || null,
-      passageText: passageText || null,
-      passage_text: passageText || null,
-      passage: question.passage || passageText || null,
-
-      options: question.options.map((option, index) => ({
-        id: index,
-        label: String.fromCharCode(65 + index),
-        text: option,
-        content: option,
-        value: option,
-        isCorrect: index === correctAnswerIndex,
-      })),
-      choices: question.options,
-
-      selectedAnswerIndex,
-      selected_answer_index: selectedAnswerIndex,
-      selectedAnswer: selectedAnswerText,
-      selected_answer: selectedAnswerText,
-      selectedOptionKey,
-      selected_option_key: selectedOptionKey,
-
-      correctAnswerIndex,
-      correct_answer_index: correctAnswerIndex,
-      correctAnswer: correctAnswerText,
-      correct_answer: correctAnswerText,
-      correctOptionKey,
-      correct_option_key: correctOptionKey,
-
-      explanation: explanationDetail,
-      explanationText: explanationDetail,
-      explanation_text: explanationDetail,
-      explanationDetail,
-      explanation_detail: explanationDetail,
-      rawExplanation,
-      raw_explanation: rawExplanation,
-      rawBlock,
-      raw_block: rawBlock,
-      optionAnalysis,
-      option_analysis: optionAnalysis,
-      vocabularyNotes,
-      vocabulary_notes: vocabularyNotes,
-      audio: question.audioPath ? { path: question.audioPath } : null,
-      image: question.imagePath || question.graphicPath ? { path: question.imagePath || question.graphicPath } : null,
-    };
+    const selectedAnswerForTutor =
+      typeof selectedAnswerIndex === "number" ? String.fromCharCode(65 + selectedAnswerIndex) : null;
+    const questionId = getSqlQuestionId(question);
+    const mode = getRunnerTutorMode(runnerMode, reviewToolSource);
 
     setTutorInput("");
     setTutorMessages((current) => [...current, { role: "user", content: userMessage }]);
     setTutorLoading(true);
 
     try {
-      const chatPayload = {
+      const response = await chatService.sendDetailed({
         message: userMessage,
-
-        conversation_id: tutorConversationId,
         conversationId: tutorConversationId,
-
-        question_id: runtimeQuestionId,
-        questionId: runtimeQuestionId,
-        currentQuestionId: runtimeQuestionId,
-        runtime_question_id: runtimeQuestionId,
-        runtimeQuestionId,
-        sqlId: questionSqlId,
-        runner_question_id: runtimeQuestionId,
-        runnerQuestionId: runtimeQuestionId,
-        docx_question_id: docxQuestionId,
-        docxQuestionId,
-        source_question_id: sourceQuestionId,
-        sourceQuestionId,
-
-        context_type: "practice_runner",
-        contextType: "practice_runner",
-        source: "practice_runtime",
-
-        selected_answer_index: selectedAnswerIndex,
-        selectedAnswerIndex,
-        selected_option_label: selectedOptionLabel,
-        selectedOptionLabel,
-
-        questionNumber,
-        question_number: questionNumber,
-        part,
-
-        questionText: question.question,
-        question_text: question.question,
-        passageText: passageText || null,
-        passage_text: passageText || null,
-
-        options: currentQuestionPayload.options,
-        choices: question.options,
-
-        selectedAnswer: selectedAnswerText,
-        selected_answer: selectedAnswerText,
-        selectedOptionKey,
-        selected_option_key: selectedOptionKey,
-
-        correctAnswer: correctAnswerText,
-        correct_answer: correctAnswerText,
-        correctOptionKey,
-        correct_option_key: correctOptionKey,
-
-        explanation: explanationDetail,
-        explanationText: explanationDetail,
-        explanation_text: explanationDetail,
-        explanationDetail,
-        explanation_detail: explanationDetail,
-        rawExplanation,
-        raw_explanation: rawExplanation,
-        rawBlock,
-        raw_block: rawBlock,
-        optionAnalysis,
-        option_analysis: optionAnalysis,
-        vocabularyNotes,
-        vocabulary_notes: vocabularyNotes,
-        audio: currentQuestionPayload.audio,
-        image: currentQuestionPayload.image,
-
-        currentQuestion: currentQuestionPayload,
-        current_question: currentQuestionPayload,
-        question: currentQuestionPayload,
-
-        context: {
-          type: "practice_question",
-          runnerMode,
-          currentQuestionIndex: currentQuestion,
-          totalQuestions: questions.length,
-          isSmartMode,
-        },
-      };
-
-      console.log("[AI Tutor payload]", {
-        message: chatPayload.message,
-        question_id: chatPayload.question_id,
-        context_type: chatPayload.context_type,
-        selected_answer_index: chatPayload.selected_answer_index,
-        selected_option_label: chatPayload.selected_option_label,
-        conversation_id: chatPayload.conversation_id,
+        questionId,
+        selectedAnswer: selectedAnswerForTutor,
+        mode,
+        source: "web",
       });
-
-      const response = await chatService.sendDetailed(chatPayload);
 
       const nextConversationId =
         typeof response.conversation_id === "number"
@@ -1278,7 +1078,7 @@ export function PracticeRunnerPage() {
             </Card>
           </div>
 
-          <div className="space-y-4 lg:col-span-1">
+          <div className="space-y-4 lg:sticky lg:top-20 lg:col-span-1 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto lg:pr-1">
             {false ? (
             <Card className="rounded-xl border-[#E6EDF8] bg-white shadow-sm">
               <CardHeader className="pb-2">

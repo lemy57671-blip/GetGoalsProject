@@ -256,6 +256,18 @@ export function MockTestResultPage() {
     reviewQuestionIds.length > 0
       ? `/practice/runner?${practiceWrongParams.toString()}`
       : reviewWrongHref;
+  const buildPracticeReviewHref = (questionId: number) => {
+    const params = new URLSearchParams({
+      mode: "review",
+      source: reviewSource,
+      question_ids: String(questionId),
+      count: "1",
+    });
+    if (Number.isFinite(attemptId) && attemptId > 0) {
+      params.set("attemptId", String(attemptId));
+    }
+    return `/practice/runner?${params.toString()}`;
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -454,7 +466,7 @@ export function MockTestResultPage() {
                             {question.correctAnswer || t("result.unavailable")}
                           </p>
                           <Button size="sm" variant="link" className="mt-2 h-auto p-0" asChild>
-                            <Link to={`/practice/runner?mode=review&question_ids=${question.questionId}&count=1`}>
+                            <Link to={buildPracticeReviewHref(question.questionId)}>
                               {t("result.reviewThisQuestion")}
                             </Link>
                           </Button>
@@ -503,7 +515,7 @@ export function MockTestResultPage() {
                         {question.skill}{question.subskill ? ` · ${question.subskill}` : ""}
                       </p>
                       <Button size="sm" variant="link" className="mt-2 h-auto p-0 text-primary" asChild>
-                        <Link to={`/practice/runner?mode=review&question_ids=${question.questionId}&count=1`}>
+                        <Link to={buildPracticeReviewHref(question.questionId)}>
                           Ôn câu này
                         </Link>
                       </Button>

@@ -49,6 +49,8 @@ class SavePracticeAttemptAnswerRequest(BaseModel):
     correctAnswerText: str | None = None
     isCorrect: bool = False
     isFlagged: bool = False
+    difficulty: str | float | None = None
+    itemDifficulty: float | None = None
     explanation: str | None = None
     audio: AttemptAssetDto | None = None
     graphic: AttemptAssetDto | None = None
@@ -95,6 +97,8 @@ class SaveMockTestAttemptAnswerRequest(BaseModel):
     correctAnswerText: str | None = None
     isCorrect: bool = False
     isFlagged: bool = False
+    difficulty: str | float | None = None
+    itemDifficulty: float | None = None
     explanation: str | None = None
     audio: AttemptAssetDto | None = None
     graphic: AttemptAssetDto | None = None
@@ -219,6 +223,10 @@ class AttemptResultDto(BaseModel):
     wrongCount: int = 0
     unansweredCount: int = 0
     accuracyPct: float = 0
+    weight_score: int | None = None
+    weighted_correct: float = 0
+    weighted_total: float = 0
+    weight_score_ratio: float = 0
     startedAt: datetime | None = None
     submittedAt: datetime | None = None
     durationSeconds: int = 0

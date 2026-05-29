@@ -13,10 +13,35 @@ class ChatIntent(str, Enum):
     COLLOCATION_PREPOSITION = "collocation_preposition"
     GAP_REQUIREMENT = "gap_requirement"
     CORRECT_ANSWER = "correct_answer"
+    CORRECT_ANSWER_CHECK = "correct_answer_check"
+    HOW_TO_SOLVE = "how_to_solve"
+    WHY_CORRECT = "why_correct"
     OPTION_REASON = "option_reason"
+    SELECTED_WRONG_REASON = "selected_wrong_reason"
+    COMPARE_OPTIONS = "compare_options"
     FULL_OPTION_ANALYSIS = "full_option_analysis"
     TRANSLATION = "translation"
+    OPTION_TRANSLATION = "option_translation"
+    TRANSLATION_PIECE = "translation_piece"
     EXPLANATION = "explanation"
+    EXPLANATION_SHORT = "explanation_short"
+    EXPLANATION_SIMPLIFY = "explanation_simplify"
+    SELECTED_ANSWER_CHECK = "selected_answer_check"
+    TENSE_REQUIREMENT = "tense_requirement"
+    WORD_FORM_REQUIREMENT = "word_form_requirement"
+    VOCABULARY_MEANING = "vocabulary_meaning"
+    VOCABULARY_EXPAND = "vocabulary_expand"
+    GRAMMAR_RULE = "grammar_rule"
+    GRAMMAR_FORMULA = "grammar_formula"
+    GRAMMAR_EXPLANATION = "grammar_explanation"
+    SIGNAL = "signal"
+    SUMMARY = "summary"
+    PARAPHRASE = "paraphrase"
+    QUESTION_TYPE = "question_type"
+    PART_STRATEGY = "part_strategy"
+    TRAP = "trap"
+    TRAP_EXPLANATION = "trap_explanation"
+    TESTED_POINT = "tested_point"
     GRAMMAR_STRUCTURE = "grammar_structure"
     GRAMMAR_FORMULA_REQUEST = "grammar_formula_request"
     TARGET_COMPLETION_REQUEST = "target_completion_request"
@@ -25,7 +50,6 @@ class ChatIntent(str, Enum):
     RELATIVE_PRONOUN_REQUEST = "relative_pronoun_request"
     EXPLAIN = "explain"
     HINT = "hint"
-    WHY_CORRECT = "why_correct"
     WHY_WRONG = "why_wrong"
     GRAMMAR = "grammar"
     VOCABULARY = "vocabulary"
@@ -118,6 +142,7 @@ class ChatRequest(BaseModel):
     question_number: Optional[int] = Field(default=None, alias="questionNumber")
     part: Optional[int] = None
     source: Optional[str] = None
+    mode: Optional[str] = None
     prompt: Optional[str] = None
     question_text: Optional[str] = Field(default=None, alias="questionText")
     passage: Optional[Any] = None

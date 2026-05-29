@@ -9,6 +9,19 @@ export type ChatIntent =
   | "full_option_analysis"
   | "translation"
   | "explanation"
+  | "how_to_solve"
+  | "why_correct"
+  | "why_wrong"
+  | "selected_answer_check"
+  | "vocabulary_expand"
+  | "grammar_rule"
+  | "signal"
+  | "summary"
+  | "paraphrase"
+  | "question_type"
+  | "part_strategy"
+  | "trap"
+  | "general"
   | "hint"
   | "grammar_structure"
   | "grammar_formula_request"
@@ -149,6 +162,7 @@ export type ChatRequest = {
 
   conversation_id?: number | null;
   conversationId?: number | null;
+  mode?: "practice" | "review" | "mock_test" | "mini_test" | "weekly_check" | "diagnostic" | string | null;
 
   question_id?: number | string | null;
   questionId?: number | string | null;
@@ -294,6 +308,14 @@ export type ChatStreamEvent = {
   data: Record<string, unknown>;
 };
 
+type StandardChatRequest = {
+  message: string;
+  questionId: number | string | null;
+  selectedAnswer: unknown;
+  mode: string;
+  source: "web";
+};
+
 function normalizeRequest(
   messageOrRequest: string | ChatRequest,
   context?: Omit<ChatRequest, "message">,
@@ -303,6 +325,135 @@ function normalizeRequest(
   }
 
   return messageOrRequest;
+}
+
+function isMeaningful(value: unknown) {
+  return value !== undefined && value !== null && !(typeof value === "string" && value.trim() === "");
+}
+
+function firstMeaningful(...values: unknown[]) {
+  return values.find(isMeaningful) ?? null;
+}
+
+function getRecord(value: unknown): Record<string, unknown> | null {
+  return value && typeof value === "object" ? (value as Record<string, unknown>) : null;
+}
+
+function readField(source: unknown, ...keys: string[]) {
+  const record = getRecord(source);
+  if (!record) return null;
+  return firstMeaningful(...keys.map((key) => record[key]));
+}
+
+function optionLabelFromIndex(value: unknown) {
+  if (typeof value !== "number" || !Number.isInteger(value) || value < 0 || value > 25) {
+    return null;
+  }
+  return String.fromCharCode(65 + value);
+}
+
+function normalizeSelectedAnswer(value: unknown) {
+  if (!isMeaningful(value)) return null;
+  if (typeof value === "number") return optionLabelFromIndex(value) || value;
+  if (typeof value !== "string") return value;
+
+  const trimmed = value.trim();
+  if (/^[0-3]$/.test(trimmed)) return optionLabelFromIndex(Number(trimmed));
+  if (/^[A-D]$/i.test(trimmed)) return trimmed.toUpperCase();
+  return trimmed;
+}
+
+function normalizeChatMode(value: unknown) {
+  const normalized = typeof value === "string" ? value.trim().toLowerCase().replace(/-/g, "_") : "";
+
+  if (normalized === "fulltest" || normalized === "full_test" || normalized === "mock" || normalized === "mocktest") {
+    return "mock_test";
+  }
+  if (normalized === "mini" || normalized === "minitest" || normalized === "mini_test") return "mini_test";
+  if (normalized === "weekly" || normalized === "weeklycheck" || normalized === "weekly_check") return "weekly_check";
+  if (normalized === "diagnostic" || normalized === "placement" || normalized === "placement_test") return "diagnostic";
+  if (normalized.includes("practice_summary") || normalized.includes("review")) return "review";
+  if (normalized.includes("practice") || normalized.includes("runner")) return "practice";
+  if (normalized && normalized !== "web") return normalized;
+  return "practice";
+}
+
+function standardizeChatRequest(request: ChatRequest): StandardChatRequest {
+  const currentQuestion = request.currentQuestion || request.current_question || request.question || null;
+  const nestedContext = request.context || null;
+  const selectedIndex = firstMeaningful(
+    request.selectedAnswerIndex,
+    request.selected_answer_index,
+    readField(currentQuestion, "selectedAnswerIndex", "selected_answer_index"),
+    readField(nestedContext, "selectedAnswerIndex", "selected_answer_index"),
+  );
+
+  const standardized: StandardChatRequest = {
+    message: request.message,
+    questionId: firstMeaningful(
+      request.questionId,
+      request.question_id,
+      request.currentQuestionId,
+      request.sqlId,
+      request.sourceQuestionId,
+      request.source_question_id,
+      request.docxQuestionId,
+      request.docx_question_id,
+      request.runtimeQuestionId,
+      request.runtime_question_id,
+      request.runnerQuestionId,
+      request.runner_question_id,
+      readField(
+        currentQuestion,
+        "questionId",
+        "question_id",
+        "sqlId",
+        "sourceQuestionId",
+        "source_question_id",
+        "docxQuestionId",
+        "docx_question_id",
+        "id",
+      ),
+      readField(nestedContext, "questionId", "question_id", "runtimeQuestionId", "runtime_question_id"),
+    ) as number | string | null,
+    selectedAnswer: normalizeSelectedAnswer(
+      firstMeaningful(
+        request.selectedOptionLabel,
+        request.selected_option_label,
+        request.selectedOptionKey,
+        request.selected_option_key,
+        request.selectedAnswer,
+        request.selected_answer,
+        optionLabelFromIndex(typeof selectedIndex === "string" ? Number(selectedIndex) : selectedIndex),
+        readField(currentQuestion, "selectedOptionKey", "selected_option_key", "selectedAnswer", "selected_answer"),
+        readField(nestedContext, "selectedOptionKey", "selected_option_key", "selectedAnswer", "selected_answer"),
+      ),
+    ),
+    mode: normalizeChatMode(
+      firstMeaningful(
+        request.mode,
+        readField(nestedContext, "mode"),
+        request.contextType,
+        request.context_type,
+        readField(nestedContext, "contextType", "context_type"),
+        request.source,
+      ),
+    ),
+    source: "web",
+  };
+
+  return standardized;
+}
+
+function debugChatRequest(request: StandardChatRequest) {
+  if (!import.meta.env.DEV) return;
+  console.debug("[AI Tutor /api/chat]", {
+    source: request.source,
+    mode: request.mode,
+    questionId: request.questionId,
+    selectedAnswer: request.selectedAnswer,
+    message: request.message,
+  });
 }
 
 function fallbackReply(response: ChatResponse) {
@@ -338,7 +489,8 @@ export const chatService = {
   },
 
   async sendDetailed(messageOrRequest: string | ChatRequest, context?: Omit<ChatRequest, "message">) {
-    const request = normalizeRequest(messageOrRequest, context);
+    const request = standardizeChatRequest(normalizeRequest(messageOrRequest, context));
+    debugChatRequest(request);
 
     let response: ChatResponse;
     try {
@@ -365,7 +517,8 @@ export const chatService = {
     onEvent: (event: ChatStreamEvent) => void,
     context?: Omit<ChatRequest, "message">,
   ) {
-    const request = normalizeRequest(messageOrRequest, context);
+    const request = standardizeChatRequest(normalizeRequest(messageOrRequest, context));
+    debugChatRequest(request);
 
     const headers = new Headers({
       "Content-Type": "application/json",

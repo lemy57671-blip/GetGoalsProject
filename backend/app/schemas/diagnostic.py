@@ -74,6 +74,10 @@ class DiagnosticWrongItemDto(BaseModel):
 
 class DiagnosticAnalysisDto(BaseModel):
     score: int = 0
+    weight_score: int | None = None
+    weighted_correct: float = 0
+    weighted_total: float = 0
+    weight_score_ratio: float = 0
     level: DiagnosticLevelDto = Field(default_factory=DiagnosticLevelDto)
     accuracyPct: int = 0
     correctCount: int = 0

@@ -16,6 +16,7 @@ from app.services.attempts import get_practice_attempt_result, save_practice_att
 from app.services.question_selection import select_questions_for_attempt
 from app.services.skill_analytics import analyze_latest_performance, get_default_subskills, to_dto, to_title
 from app.services.toeic import build_question_lookup_key, get_question_lookup, get_questions_for_suggested_set
+from app.services.weighted_score import compute_weight_score_fields
 
 
 DEFAULT_QUESTION_COUNT = 50
@@ -72,6 +73,7 @@ def submit_weekly_check(db: Session, user_id: int, request: WeeklyCheckSubmitReq
                 correctAnswerText=_resolve_selected_answer_text(correct_answer_index, question.options),
                 isCorrect=is_correct,
                 isFlagged=submitted_answer.isFlagged if submitted_answer else False,
+                difficulty=question.difficulty,
                 explanation=question.explanation,
                 audio=AttemptAssetDto(path=question.audio.path) if question.audio else None,
                 graphic=AttemptAssetDto(path=question.graphic.path) if question.graphic else None,
@@ -132,6 +134,7 @@ def get_weekly_check_result(db: Session, user_id: int, attempt_id: int) -> Attem
     total_questions = attempt.total_questions or len(questions)
     unanswered_count = max(total_questions - attempt.answered_count, 0)
     wrong_count = max(attempt.answered_count - attempt.correct_count, 0)
+    weight_score_fields = compute_weight_score_fields(attempt.answers)
     return AttemptResultDto(
         attemptId=attempt.id,
         attemptType="weekly_check",
@@ -141,6 +144,7 @@ def get_weekly_check_result(db: Session, user_id: int, attempt_id: int) -> Attem
         wrongCount=wrong_count,
         unansweredCount=unanswered_count,
         accuracyPct=float(attempt.accuracy_pct),
+        **weight_score_fields,
         startedAt=attempt.started_at_utc,
         submittedAt=attempt.submitted_at_utc or attempt.created_at_utc,
         durationSeconds=attempt.time_spent_seconds,

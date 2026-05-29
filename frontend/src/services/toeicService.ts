@@ -67,6 +67,9 @@ export type ToeicRunnerQuestion = {
   correctAnswer?: string | null;
   correct: number;
   explanation: string;
+  difficulty?: string | null;
+  minScore?: number | null;
+  maxScore?: number | null;
   explanationDetail?: string | null;
   explanationText?: string | null;
   rawExplanation?: string | null;
@@ -125,6 +128,9 @@ export type ToeicRunnerQuestionResponse = {
   correctAnswerIndex?: number | null;
   correctAnswer?: string | null;
   explanation?: string | null;
+  difficulty?: string | null;
+  minScore?: number | null;
+  maxScore?: number | null;
   explanationDetail?: string | null;
   explanationText?: string | null;
   explanation_detail?: string | null;
@@ -319,6 +325,9 @@ export function mapToeicRunnerQuestion(question: ToeicRunnerQuestionResponse): T
     correctAnswer: question.correctAnswer,
     correct: typeof question.correctAnswerIndex === "number" ? question.correctAnswerIndex : -1,
     explanation: question.explanation || "No explanation is available for this question yet.",
+    difficulty: question.difficulty || "mixed",
+    minScore: question.minScore ?? null,
+    maxScore: question.maxScore ?? null,
     explanationDetail:
       question.explanationDetail ||
       question.explanation_detail ||

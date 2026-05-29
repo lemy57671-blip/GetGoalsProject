@@ -68,6 +68,10 @@ export type PracticeAttemptResult = {
   wrongCount: number;
   unansweredCount: number;
   accuracyPct: number;
+  weight_score?: number | null;
+  weighted_correct?: number;
+  weighted_total?: number;
+  weight_score_ratio?: number;
   durationSeconds: number;
   durationMinutes?: number | null;
   scaledScore?: number | null;
@@ -134,6 +138,8 @@ type MockTestRunnerQuestionInput = {
   questionNumber?: number;
   correctAnswerIndex?: number | null;
   explanation?: string;
+  difficulty?: string | null;
+  itemDifficulty?: number | null;
   groupId?: string | null;
   audioPath?: string;
   graphicPath?: string;
@@ -207,6 +213,7 @@ function toAnswerPayload(
     correctAnswerText,
     isCorrect: hasAnswer && selectedAnswerIndex === correctAnswerIndex,
     isFlagged: flaggedQuestions.includes(index),
+    difficulty: question.difficulty || "mixed",
     explanation: question.explanation,
     audio: question.audioPath ? { path: question.audioPath } : null,
     graphic: question.graphicPath ? { path: question.graphicPath } : null,
@@ -252,6 +259,8 @@ function toMockTestAnswerPayload(
     correctAnswerText,
     isCorrect: selectedAnswerIndex !== null && selectedAnswerIndex === correctAnswerIndex,
     isFlagged: flaggedQuestions.includes(index + 1),
+    difficulty: question.difficulty || "mixed",
+    itemDifficulty: question.itemDifficulty ?? null,
     explanation: question.explanation,
     audio: question.audioPath ? { path: question.audioPath } : null,
     graphic: question.graphicPath ? { path: question.graphicPath } : null,
