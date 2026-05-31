@@ -5,12 +5,16 @@ from functools import lru_cache
 from math import exp
 from typing import Any, Iterable
 
+import numpy as np
+
 from app.services.irt_scoring import RASCH_MODEL_PATH, load_json
 
 
 DEFAULT_ALPHA = 0.35
-DEFAULT_SCORE_MIN = 5
+DEFAULT_SCORE_MIN = 0
 DEFAULT_SCORE_MAX = 990
+WEIGHT_MIN = 0.7
+WEIGHT_MAX = 1.3
 
 
 @dataclass(frozen=True)
@@ -21,6 +25,11 @@ class WeightedScoreResult:
     weight_score_ratio: float
 
 
+def compute_weighted_score(u_row: np.ndarray, b_row: np.ndarray) -> int:
+    result = _compute_weighted_score_result(u_row, b_row)
+    return result.weight_score
+
+
 def compute_weight_score(
     answered_items: Iterable[Any],
     *,
@@ -29,25 +38,42 @@ def compute_weight_score(
     score_max: int = DEFAULT_SCORE_MAX,
 ) -> WeightedScoreResult:
     """
-    Supplemental display score only. This does not change Rasch theta/estimated_score.
-    Known-difficulty items use max possible item weight in the denominator so hard
-    correct answers can outrank easy correct answers at the same correct count.
+    Difficulty-weighted score used by diagnostic hybrid scoring.
+
+    Items with lower Rasch b are easier and receive lower weight; items with
+    higher b are harder and receive higher weight. The score can also be
+    returned independently for analysis/debugging.
     """
 
-    weighted_correct = 0.0
-    weighted_total = 0.0
+    _ = alpha
 
+    u_values: list[float] = []
+    b_values: list[float] = []
     for item in answered_items:
         if not _is_answered(item):
             continue
 
-        weight, possible_weight = _resolve_weight_pair(item, alpha)
-        weighted_total += possible_weight
+        u_values.append(
+            1.0 if _as_bool(_get_value(item, "is_correct", "isCorrect", "correct")) else 0.0
+        )
+        b_values.append(_resolve_difficulty_for_weighting(item))
 
-        if _as_bool(_get_value(item, "is_correct", "isCorrect", "correct")):
-            weighted_correct += weight
+    return _compute_weighted_score_result(
+        np.asarray(u_values, dtype=float),
+        np.asarray(b_values, dtype=float),
+        score_min=score_min,
+        score_max=score_max,
+    )
 
-    if weighted_total <= 0:
+
+def _compute_weighted_score_result(
+    u_row: np.ndarray,
+    b_row: np.ndarray,
+    *,
+    score_min: int = DEFAULT_SCORE_MIN,
+    score_max: int = DEFAULT_SCORE_MAX,
+) -> WeightedScoreResult:
+    if len(u_row) == 0 or len(b_row) == 0:
         return WeightedScoreResult(
             weight_score=0,
             weighted_correct=0.0,
@@ -55,11 +81,39 @@ def compute_weight_score(
             weight_score_ratio=0.0,
         )
 
-    ratio = max(0.0, min(weighted_correct / weighted_total, 1.0))
-    score = int(round(float(score_min) + ratio * float(score_max - score_min)))
+    min_len = min(len(u_row), len(b_row))
+    u_row = np.asarray(u_row[:min_len], dtype=float)
+    b_row = np.asarray(b_row[:min_len], dtype=float)
+
+    mask = (~np.isnan(u_row)) & (~np.isnan(b_row))
+    u = u_row[mask]
+    difficulties = b_row[mask]
+
+    if len(u) == 0:
+        return WeightedScoreResult(
+            weight_score=0,
+            weighted_correct=0.0,
+            weighted_total=0.0,
+            weight_score_ratio=0.0,
+        )
+
+    min_b = float(np.min(difficulties))
+    max_b = float(np.max(difficulties))
+
+    if max_b == min_b:
+        weights = np.ones_like(difficulties, dtype=float)
+    else:
+        normalized = (difficulties - min_b) / (max_b - min_b)
+        weights = WEIGHT_MIN + normalized * (WEIGHT_MAX - WEIGHT_MIN)
+
+    weighted_correct = float(np.sum(weights * u))
+    weighted_total = float(np.sum(weights))
+    ratio = 0.0 if weighted_total <= 0 else max(0.0, min(weighted_correct / weighted_total, 1.0))
+    raw_score = int(round(ratio * float(score_max)))
+    score = int(np.clip(raw_score, score_min, score_max))
 
     return WeightedScoreResult(
-        weight_score=max(score_min, min(score, score_max)),
+        weight_score=score,
         weighted_correct=round(weighted_correct, 4),
         weighted_total=round(weighted_total, 4),
         weight_score_ratio=round(ratio, 6),
@@ -81,24 +135,24 @@ def compute_weight_score_fields(
     )
     return {
         "weight_score": result.weight_score,
+        "weighted_score": result.weight_score,
         "weighted_correct": result.weighted_correct,
         "weighted_total": result.weighted_total,
         "weight_score_ratio": result.weight_score_ratio,
     }
 
 
-def _resolve_weight_pair(item: Any, alpha: float) -> tuple[float, float]:
+def _resolve_difficulty_for_weighting(item: Any) -> float:
     difficulty = _resolve_numeric_difficulty(item)
     if difficulty is None:
         difficulty = _difficulty_label_to_normalized(
             _get_value(item, "difficulty", "Difficulty", "item_difficulty", "itemDifficulty")
         )
         if difficulty is None:
-            return 1.0, 1.0
-        return 1.0 + float(alpha) * difficulty, 1.0 + float(alpha)
+            return float("nan")
+        return float(difficulty)
 
-    normalized = _normalize_numeric_difficulty(difficulty)
-    return 1.0 + float(alpha) * normalized, 1.0 + float(alpha)
+    return float(difficulty)
 
 
 def _resolve_numeric_difficulty(item: Any) -> float | None:

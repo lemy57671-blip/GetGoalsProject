@@ -132,6 +132,9 @@ def score_diagnostic_with_rasch(answered_items: Iterable[dict]) -> dict:
         return {
             "theta": None,
             "estimated_score": fallback_score,
+            "rasch_score": fallback_score,
+            "weighted_score": fallback_score,
+            "weight_score": fallback_score,
             "level_code": level_code,
             "level_name": level_name,
             "level_range": level_range,
@@ -157,15 +160,41 @@ def score_diagnostic_with_rasch(answered_items: Iterable[dict]) -> dict:
         u_row.append(answer_by_item_id[item_id])
         b_row.append(difficulty)
 
+    if not u_row:
+        level_code, level_name, level_range = level_from_score(fallback_score)
+
+        return {
+            "theta": None,
+            "estimated_score": fallback_score,
+            "rasch_score": fallback_score,
+            "weighted_score": 0,
+            "weight_score": 0,
+            "level_code": level_code,
+            "level_name": level_name,
+            "level_range": level_range,
+            "model_used": "rule_accuracy",
+        }
+
     theta = estimate_theta_given_b(u_row, b_row)
-    estimated_score = theta_to_score(theta, score_mapper)
-    level_code, level_name, level_range = level_from_score(estimated_score)
+    rasch_score = theta_to_score(theta, score_mapper)
+
+    from app.services.weighted_score import compute_weighted_score
+
+    weighted_score = compute_weighted_score(
+        np.asarray(u_row, dtype=float),
+        np.asarray(b_row, dtype=float),
+    )
+    final_score = int(np.clip(round(rasch_score * 0.7 + weighted_score * 0.3), 0, 990))
+    level_code, level_name, level_range = level_from_score(final_score)
 
     return {
         "theta": theta,
-        "estimated_score": estimated_score,
+        "estimated_score": final_score,
+        "rasch_score": rasch_score,
+        "weighted_score": weighted_score,
+        "weight_score": weighted_score,
         "level_code": level_code,
         "level_name": level_name,
         "level_range": level_range,
-        "model_used": "rasch",
+        "model_used": "rasch_hybrid_weighted",
     }

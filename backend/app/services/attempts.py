@@ -387,7 +387,7 @@ def save_diagnostic_attempt(db: Session, user_id: int, request: SaveDiagnosticAt
     Äá»“ng thá»i:
     - TÃ­nh Rasch theta tá»« dá»¯ liá»‡u Ä‘Ãºng/sai.
     - LÆ°u Theta vÃ o DiagnosticAttempts.Theta.
-    - LÆ°u EstimatedScore theo Rasch vÃ o DiagnosticAttempts.EstimatedScore.
+    - LÆ°u EstimatedScore theo hybrid Rasch/weighted vÃ o DiagnosticAttempts.EstimatedScore.
     - LÆ°u ScoreRule lÃ  Ä‘iá»ƒm rule-based cÅ© theo accuracy Ä‘á»ƒ Ä‘á»‘i chiáº¿u.
     - Giá»¯ logic cÅ©: update profile, review queue, skill stats, part stats.
     """
@@ -482,6 +482,15 @@ def save_diagnostic_attempt(db: Session, user_id: int, request: SaveDiagnosticAt
     weight_score_fields = compute_weight_score_fields(weight_items)
 
     theta = rasch_result.get("theta")
+    rasch_score = rasch_result.get("rasch_score")
+    weighted_score = rasch_result.get("weighted_score")
+    if weighted_score is not None:
+        weighted_score = int(weighted_score)
+        weight_score_fields = {
+            **weight_score_fields,
+            "weighted_score": weighted_score,
+            "weight_score": weighted_score,
+        }
     estimated_score = int(rasch_result.get("estimated_score") or request.score or score_rule)
 
     level_name = rasch_result.get("level_name") or request.levelName
@@ -730,6 +739,9 @@ def save_diagnostic_attempt(db: Session, user_id: int, request: SaveDiagnosticAt
             wrongCount=max(answered_count - correct_count, 0),
             unansweredCount=max(total_questions - answered_count, 0),
             accuracyPct=float(accuracy_pct or 0),
+            rasch_score=int(rasch_score) if rasch_score is not None else None,
+            theta=float(theta) if theta is not None else None,
+            model_used=str(rasch_result.get("model_used") or ""),
             **weight_score_fields,
             startedAt=None,
             submittedAt=now,

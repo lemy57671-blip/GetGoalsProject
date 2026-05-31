@@ -223,10 +223,14 @@ class AttemptResultDto(BaseModel):
     wrongCount: int = 0
     unansweredCount: int = 0
     accuracyPct: float = 0
+    rasch_score: int | None = None
+    weighted_score: int | None = None
     weight_score: int | None = None
     weighted_correct: float = 0
     weighted_total: float = 0
     weight_score_ratio: float = 0
+    theta: float | None = None
+    model_used: str | None = None
     startedAt: datetime | None = None
     submittedAt: datetime | None = None
     durationSeconds: int = 0

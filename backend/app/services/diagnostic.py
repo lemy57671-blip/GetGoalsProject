@@ -158,6 +158,16 @@ def submit_diagnostic(db: Session, payload: DiagnosticSubmitRequest) -> Diagnost
     weight_score_fields = compute_weight_score_fields(weight_items)
 
     score = int(rasch_result.get("estimated_score") or score_rule)
+    rasch_score = rasch_result.get("rasch_score")
+    weighted_score = rasch_result.get("weighted_score")
+
+    if weighted_score is not None:
+        weighted_score = int(weighted_score)
+        weight_score_fields = {
+            **weight_score_fields,
+            "weighted_score": weighted_score,
+            "weight_score": weighted_score,
+        }
 
     level = DiagnosticLevelDto(
         code=str(rasch_result.get("level_code") or fallback_level.code),
@@ -205,6 +215,14 @@ def submit_diagnostic(db: Session, payload: DiagnosticSubmitRequest) -> Diagnost
     return DiagnosticSubmitResponse(
         analysis=DiagnosticAnalysisDto(
             score=score,
+            estimated_score=score,
+            rasch_score=int(rasch_score) if rasch_score is not None else None,
+            theta=(
+                float(rasch_result["theta"])
+                if rasch_result.get("theta") is not None
+                else None
+            ),
+            model_used=str(rasch_result.get("model_used") or ""),
             **weight_score_fields,
             level=level,
             accuracyPct=accuracy_pct,
